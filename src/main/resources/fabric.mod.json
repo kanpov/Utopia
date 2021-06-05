@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "utopia",
+    "version": "${version}",
+    "name": "Utopia",
+    "description": "A global Croptopia plugin that adds food realism, furniture, storage, worldgen and cooking in separate modules",
+    "authors": [
+        "RedGrapefruit09"
+    ],
+    "contact": {
+        "repo": "https://github.com/RedGrapefruit09/Utopia"
+    },
+    "license": "MIT",
+    "icon": "assets/utopia/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "com.redgrapefruit.utopia.client.UtopiaClient"
+        ],
+        "main": [
+            "com.redgrapefruit.utopia.Utopia"
+        ]
+    },
+    "mixins": [
+        "utopia.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.11.3",
+        "fabric": "*",
+        "minecraft": "1.16.5"
+    }
+}
