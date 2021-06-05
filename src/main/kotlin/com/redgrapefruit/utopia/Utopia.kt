@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger
 
 class Utopia : ModInitializer {
     override fun onInitialize() {
-        // First, initialize the ModuleConfig
         ModuleFeature.executeAll(ModuleConfig.init())
     }
 
