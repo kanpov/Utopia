@@ -15,7 +15,7 @@ abstract class ModuleFeature {
         /**
          * Contains all the registered [ModuleFeature]s
          */
-        private val registeredFeatures: MutableList<ModuleFeature> = mutableListOf()
+        private val registeredFeatures: List<ModuleFeature> = listOf()
 
         /**
          * Executes all possible [ModuleFeature]s from given [ModuleConfig].
