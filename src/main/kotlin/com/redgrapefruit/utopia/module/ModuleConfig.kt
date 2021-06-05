@@ -19,7 +19,7 @@ object ModuleConfig {
     /**
      * Initializes the configuration file
      */
-    fun init() {
+    fun init() : ModuleConfig {
         // Get the Minecraft config directory (on Windows 10 C:/Users/$USERNAME$/AppData/Local/.minecraft/config)
         val configDir: File = FabricLoader.INSTANCE.configDir.toFile()
         // If it doesn't exist, create it
@@ -29,15 +29,15 @@ object ModuleConfig {
         val optionsFile: File = File(configDir, "utopia.modules.json")
         // If the JSON doesn't exist, create it and fill it up with default values
         if (!optionsFile.exists()) {
-            try {
+            return try {
                 val writer = FileWriter(optionsFile)
                 setToDefault(writer)
-                return
+                this
             } catch (exception: Exception) {
                 // Error out if couldn't create the FileWriter
                 Utopia.LOG.error("Couldn't create FileWriter for the options file with the following stack trace:")
                 exception.printStackTrace()
-                return
+                this
             }
         }
 
@@ -51,6 +51,8 @@ object ModuleConfig {
             Utopia.LOG.error("Couldn't create FileReader for the options file with the following stack trace:")
             exception.printStackTrace()
         }
+
+        return this
     }
 
     /**
