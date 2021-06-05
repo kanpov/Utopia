@@ -1,10 +1,13 @@
 package com.redgrapefruit.utopia.util
 
 import com.redgrapefruit.utopia.Utopia
+import com.redgrapefruit.utopia.module.Module
+import com.redgrapefruit.utopia.module.SetModule
 
 /**
  * A range of integers to randomly pick from
  */
+@SetModule(Module.REALISM)
 class IntRange(
     /**
      * Minimum value of the resulting int
