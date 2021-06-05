@@ -75,6 +75,10 @@ object ModuleConfig {
     private fun setToDefault(writer: Writer) {
         val jsonObject = JsonObject()
 
+        // Add comments to guide the user
+        jsonObject.addProperty("_guide_1", "For each module, set the value to true to enable the module and to false to disable it")
+        jsonObject.addProperty("_guide_2", "After setting a new value, make sure to restart Minecraft to apply the changes since the config reloads every launch of the game")
+
         // Initialize each module with true
         enable("realism", Module.REALISM, jsonObject)
         enable("furniture", Module.FURNITURE, jsonObject)
