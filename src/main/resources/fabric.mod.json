@@ -28,7 +28,9 @@
         "fabricloader": ">=0.11.3",
         "fabric": "*",
         "minecraft": "1.16.5",
-        "croptopia": ">=1.4.0",
+        "croptopia": ">=1.4.0"
+    },
+    "recommends": {
         "patchouli": ">=1.16.4-51-FABRIC"
     }
 }
