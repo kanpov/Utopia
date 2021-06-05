@@ -22,7 +22,7 @@ abstract class ModuleFeature {
          *
          * Not a very performant solution, but it works fine
          */
-        fun execute(config: ModuleConfig) {
+        fun executeAll(config: ModuleConfig) {
             config.enabledModules.forEach { module ->
                 registeredFeatures.forEach { feature ->
                     if (module == feature.module) {
