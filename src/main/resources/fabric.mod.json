@@ -15,10 +15,16 @@
     "environment": "*",
     "entrypoints": {
         "client": [
-            "com.redgrapefruit.utopia.client.UtopiaClient"
+            {
+                "adapter": "kotlin",
+                "value": "com.redgrapefruit.utopia.client.UtopiaClient"
+            }
         ],
         "main": [
-            "com.redgrapefruit.utopia.Utopia"
+            {
+                "adapter": "kotlin",
+                "value": "com.redgrapefruit.utopia.Utopia"
+            }
         ]
     },
     "mixins": [
