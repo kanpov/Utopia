@@ -1,15 +1,12 @@
 package com.redgrapefruit.utopia.core
 
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
-import com.redgrapefruit.utopia.util.IntRange
+import com.redgrapefruit.utopia.util.RIntRange
 import net.minecraft.entity.effect.StatusEffect
 
 /**
  * This data class stores all the details about a food effect
  */
-@SetModule(Module.REALISM)
-data class FoodEffectConfig(
+data class RFoodEffectConfig(
     /**
      * The applied [StatusEffect].
      */
@@ -19,17 +16,17 @@ data class FoodEffectConfig(
      */
     val duration: Int = 0,
     /**
-     * The [IntRange] of possible durations.
+     * The [RIntRange] of possible durations.
      */
-    val durationRange: IntRange? = null,
+    val durationRange: RIntRange? = null,
     /**
      * The amplifier of the [StatusEffect].
      */
     val amplifier: Int = 0,
     /**
-     * The [IntRange] of possible durations.
+     * The [RIntRange] of possible durations.
      */
-    val amplifierRange: IntRange? = null,
+    val amplifierRange: RIntRange? = null,
     /**
      * Is the effect permanently applied. If true, sets [chance] to 1f.
      */

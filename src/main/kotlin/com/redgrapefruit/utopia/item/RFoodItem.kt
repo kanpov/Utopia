@@ -1,11 +1,9 @@
 package com.redgrapefruit.utopia.item
 
-import com.redgrapefruit.utopia.core.FoodCategory
-import com.redgrapefruit.utopia.core.FoodConfig
-import com.redgrapefruit.utopia.core.FoodState
-import com.redgrapefruit.utopia.core.ProfileComponent
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
+import com.redgrapefruit.utopia.core.RFoodCategory
+import com.redgrapefruit.utopia.core.RFoodConfig
+import com.redgrapefruit.utopia.core.RFoodState
+import com.redgrapefruit.utopia.core.RProfileComponent
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
@@ -15,34 +13,33 @@ import net.minecraft.item.ItemGroup
  * Represents a fresh food item as well as a base for other variants
  */
 @Suppress("JoinDeclarationAndAssignment")
-@SetModule(Module.REALISM)
-open class FoodItem : Item {
-    private val config: FoodConfig
-    private val profile: ProfileComponent
-    private var state: FoodState = FoodState.FRESH
+open class RFoodItem : Item {
+    private val config: RFoodConfig
+    private val profile: RProfileComponent
+    private var state: RFoodState = RFoodState.FRESH
     private var overrideEffects: Boolean = false
 
     /**
      * Protected constructor for creating customized [FoodComponent] instances
-     * @param config [FoodConfig] of this food item
+     * @param config [RFoodConfig] of this food item
      * @param group The [ItemGroup] that the item belongs to
      * @param componentAction A lambda that returns the generated [FoodComponent]
      */
-    protected constructor(config: FoodConfig, group: ItemGroup, componentAction: () -> FoodComponent) : super(Item.Settings().group(group).food(componentAction.invoke())) {
+    protected constructor(config: RFoodConfig, group: ItemGroup, componentAction: () -> FoodComponent) : super(Item.Settings().group(group).food(componentAction.invoke())) {
         this.config = config
-        this.profile = ProfileComponent()
+        this.profile = RProfileComponent()
     }
 
     /**
      * Public constructor for creating standard instances of food items (fresh)
-     * @param config [FoodConfig] of this food item
+     * @param config [RFoodConfig] of this food item
      */
     // TODO: Replace with actual ItemGroup later
-    public constructor(config: FoodConfig) : this(config, ItemGroup.MISC, {
+    public constructor(config: RFoodConfig) : this(config, ItemGroup.MISC, {
         val builder = FoodComponent.Builder()
 
         // Meat
-        if (config.category == FoodCategory.MEAT) builder.meat()
+        if (config.category == RFoodCategory.MEAT) builder.meat()
         // Effects
         config.effects.forEach { effectConfig ->
             // If durationRange isn't defined (null), then check if the effect is permanent, if yes, the duration is 999999, else it's effectConfig.duration

@@ -1,14 +1,11 @@
 package com.redgrapefruit.utopia.core
 
 import com.redgrapefruit.utopia.UNUSED_PROPERTY
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
 
 /**
  * A food config contains all unique information about a type of food
  */
-@SetModule(Module.REALISM)
-data class FoodConfig(
+data class RFoodConfig(
     /**
      * The state of the rot property in which the food is considered rotten
      */
@@ -34,11 +31,11 @@ data class FoodConfig(
      */
     val fridgeEfficiency: Int = UNUSED_PROPERTY,
     /**
-     * The [FoodCategory] that this food type belongs to
+     * The [RFoodCategory] that this food type belongs to
      */
-    val category: FoodCategory,
+    val category: RFoodCategory,
     /**
-     * The [Set] of [FoodEffectConfig]s that this food type has. Has to be immutable
+     * The [Set] of [RFoodEffectConfig]s that this food type has. Has to be immutable
      */
-    val effects: Set<FoodEffectConfig>
+    val effects: Set<RFoodEffectConfig>
 )

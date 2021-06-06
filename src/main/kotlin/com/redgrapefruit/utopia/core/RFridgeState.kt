@@ -1,15 +1,12 @@
 package com.redgrapefruit.utopia.core
 
 import com.redgrapefruit.utopia.LOG
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
 import net.minecraft.nbt.CompoundTag
 
 /**
  * Current fridge state.
  */
-@SetModule(Module.REALISM)
-enum class FridgeState(val boolValue: Boolean) {
+enum class RFridgeState(val boolValue: Boolean) {
     /**
      * Represents a state when the food is put inside of a fridge
      */
@@ -27,12 +24,12 @@ enum class FridgeState(val boolValue: Boolean) {
 
     companion object {
         /**
-         * Deserializes a [FridgeState] from a [CompoundTag]
-         * @param prefix The prefix of the [FridgeState] to avoid conflicts
+         * Deserializes a [RFridgeState] from a [CompoundTag]
+         * @param prefix The prefix of the [RFridgeState] to avoid conflicts
          * @param tag The input [CompoundTag]
          * @return Deserialized value
          */
-        internal fun fromTag(prefix: String, tag: CompoundTag): FridgeState {
+        internal fun fromTag(prefix: String, tag: CompoundTag): RFridgeState {
             // Check for invalid values
             val value = tag.getInt("$prefix : Value")
             if (value > 2 || value < 0) LOG.error("Couldn't serialize FridgeState. Value is invalid")
@@ -45,12 +42,12 @@ enum class FridgeState(val boolValue: Boolean) {
         }
 
         /**
-         * Serializes a [FridgeState] into a [CompoundTag]
-         * @param prefix The prefix of the [FridgeState] to avoid conflicts
-         * @param state The serialized [FridgeState]
+         * Serializes a [RFridgeState] into a [CompoundTag]
+         * @param prefix The prefix of the [RFridgeState] to avoid conflicts
+         * @param state The serialized [RFridgeState]
          * @param tag The output [CompoundTag]
          */
-        internal fun toTag(prefix: String, state: FridgeState, tag: CompoundTag) {
+        internal fun toTag(prefix: String, state: RFridgeState, tag: CompoundTag) {
             val value: Int = when (state) {
                 IN_FRIDGE -> 0
                 NOT_COMPENSATED -> 1

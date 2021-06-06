@@ -1,13 +1,9 @@
 package com.redgrapefruit.utopia.core
 
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
-
 /**
  * A food category classifies an entire group of food
  */
-@SetModule(Module.REALISM)
-enum class FoodCategory(
+enum class RFoodCategory(
     /**
      * The name displayed inside the tooltips
      */

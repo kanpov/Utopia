@@ -1,13 +1,9 @@
 package com.redgrapefruit.utopia.core
 
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.SetModule
-
 /**
  * A food state defines the tooltip rendering properties of a certain state
  */
-@SetModule(Module.REALISM)
-enum class FoodState(
+enum class RFoodState(
     /**
      * Does this state display rot
      */
