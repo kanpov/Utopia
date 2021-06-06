@@ -20,7 +20,7 @@ object ModuleConfig {
     /**
      * Initializes the configuration file
      */
-    fun init() : ModuleConfig {
+    fun init(): ModuleConfig {
         // Get the Minecraft config directory (on Windows 10 C:/Users/$USERNAME$/AppData/Local/.minecraft/config)
         val configDir = FabricLoader.INSTANCE.configDir.toFile()
         // If it doesn't exist, create it
@@ -86,8 +86,14 @@ object ModuleConfig {
         val jsonObject = JsonObject()
 
         // Add comments to guide the user
-        jsonObject.addProperty("_guide_1", "For each module, set the value to true to enable the module and to false to disable it")
-        jsonObject.addProperty("_guide_2", "After setting a new value, make sure to restart Minecraft to apply the changes since the config reloads every launch of the game")
+        jsonObject.addProperty(
+            "_guide_1",
+            "For each module, set the value to true to enable the module and to false to disable it"
+        )
+        jsonObject.addProperty(
+            "_guide_2",
+            "After setting a new value, make sure to restart Minecraft to apply the changes since the config reloads every launch of the game"
+        )
 
         // Initialize each module with true
         enable(Module.REALISM, jsonObject)

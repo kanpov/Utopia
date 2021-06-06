@@ -20,7 +20,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
-    @Shadow @Final private Item item;
+    @Shadow
+    @Final
+    private Item item;
 
     @Inject(method = "<init>(Lnet/minecraft/nbt/CompoundTag;)V", at = @At("TAIL"))
     private void constructor(CompoundTag tag, CallbackInfo info) {
