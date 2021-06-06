@@ -1,5 +1,6 @@
 package com.redgrapefruit.utopia.util
 
+import com.redgrapefruit.utopia.RANDOM
 import com.redgrapefruit.utopia.Utopia
 import com.redgrapefruit.utopia.module.Module
 import com.redgrapefruit.utopia.module.SetModule
@@ -25,6 +26,6 @@ class IntRange(
      */
     fun pick(): Int {
         val initial = max - min
-        return Utopia.RANDOM.nextInt(initial) + min
+        return RANDOM.nextInt(initial) + min
     }
 }

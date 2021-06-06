@@ -1,6 +1,8 @@
 package com.redgrapefruit.utopia.module
 
 import com.google.gson.JsonObject
+import com.redgrapefruit.utopia.GSON
+import com.redgrapefruit.utopia.LOG
 import com.redgrapefruit.utopia.Utopia
 import net.fabricmc.loader.FabricLoader
 import java.io.*
@@ -35,7 +37,7 @@ object ModuleConfig {
                 this
             } catch (exception: Exception) {
                 // Error out if couldn't create the FileWriter
-                Utopia.LOG.error("Couldn't create FileWriter for the options file with the following stack trace:")
+                LOG.error("Couldn't create FileWriter for the options file with the following stack trace:")
                 exception.printStackTrace()
                 this
             }
@@ -48,7 +50,7 @@ object ModuleConfig {
             setToExisting(reader)
         } catch (exception: Exception) {
             // Error out if couldn't create the FileReader
-            Utopia.LOG.error("Couldn't create FileReader for the options file with the following stack trace:")
+            LOG.error("Couldn't create FileReader for the options file with the following stack trace:")
             exception.printStackTrace()
         }
 
@@ -60,7 +62,7 @@ object ModuleConfig {
      * @param reader [Reader] for this file
      */
     private fun setToExisting(reader: Reader) {
-        val jsonObject = Utopia.GSON.fromJson(reader, JsonObject::class.java)
+        val jsonObject = GSON.fromJson(reader, JsonObject::class.java)
 
         // Initialize each module with the value from the JsonObject
         set("realism", Module.REALISM, jsonObject)
@@ -89,7 +91,7 @@ object ModuleConfig {
         enable("cooking", Module.COOKING, jsonObject)
 
         // Write to file
-        Utopia.GSON.toJson(jsonObject, writer)
+        GSON.toJson(jsonObject, writer)
 
         writer.close()
     }
