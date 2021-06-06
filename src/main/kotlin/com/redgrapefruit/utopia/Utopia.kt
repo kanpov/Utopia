@@ -10,16 +10,13 @@ import org.apache.logging.log4j.Logger
 import java.security.SecureRandom
 import java.util.*
 
+val LOG: Logger = LogManager.getLogger()
+val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
+val RANDOM: Random = SecureRandom()
+const val UNUSED_PROPERTY: Int = Integer.MIN_VALUE
+
 class Utopia : ModInitializer {
     override fun onInitialize() {
         ModuleFeature.executeAll(ModuleConfig.init())
-    }
-
-    companion object {
-        val LOG: Logger = LogManager.getLogger()
-
-        val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
-
-        val RANDOM: Random = SecureRandom()
     }
 }
