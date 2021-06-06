@@ -16,8 +16,8 @@ import net.minecraft.item.ItemGroup
 open class RFoodItem : Item {
     private val config: RFoodConfig
     val profile: RFoodProfile
-    private var state: RFoodState = RFoodState.FRESH
-    private var overrideEffects: Boolean = false
+    protected var state: RFoodState = RFoodState.FRESH
+    protected var overrideEffects: Boolean = false
 
     /**
      * Protected constructor for creating customized [FoodComponent] instances
