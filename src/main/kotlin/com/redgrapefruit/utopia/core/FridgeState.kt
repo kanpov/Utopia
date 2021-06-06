@@ -1,11 +1,14 @@
 package com.redgrapefruit.utopia.core
 
 import com.redgrapefruit.utopia.LOG
+import com.redgrapefruit.utopia.module.Module
+import com.redgrapefruit.utopia.module.SetModule
 import net.minecraft.nbt.CompoundTag
 
 /**
  * Current fridge state.
  */
+@SetModule(Module.REALISM)
 enum class FridgeState(val boolValue: Boolean) {
     /**
      * Represents a state when the food is put inside of a fridge

@@ -4,6 +4,8 @@ import com.redgrapefruit.utopia.core.FoodCategory
 import com.redgrapefruit.utopia.core.FoodConfig
 import com.redgrapefruit.utopia.core.FoodState
 import com.redgrapefruit.utopia.core.ProfileComponent
+import com.redgrapefruit.utopia.module.Module
+import com.redgrapefruit.utopia.module.SetModule
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
@@ -13,6 +15,7 @@ import net.minecraft.item.ItemGroup
  * Represents a fresh food item as well as a base for other variants
  */
 @Suppress("JoinDeclarationAndAssignment")
+@SetModule(Module.REALISM)
 open class FoodItem : Item {
     private val config: FoodConfig
     private val profile: ProfileComponent

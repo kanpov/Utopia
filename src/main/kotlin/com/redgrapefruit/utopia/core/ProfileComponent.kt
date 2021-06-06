@@ -1,5 +1,7 @@
 package com.redgrapefruit.utopia.core
 
+import com.redgrapefruit.utopia.module.Module
+import com.redgrapefruit.utopia.module.SetModule
 import dev.onyxstudios.cca.api.v3.component.Component
 import net.minecraft.nbt.CompoundTag
 
@@ -13,6 +15,7 @@ const val MIN_TICK_LOSS: Int = 20
 /**
  * Contains changed-at-runtime values of a food type and serializes them (CCA).
  */
+@SetModule(Module.REALISM)
 class ProfileComponent(
     var rotProgress: Int = 0,
     var overdueProgress: Int = 0,
