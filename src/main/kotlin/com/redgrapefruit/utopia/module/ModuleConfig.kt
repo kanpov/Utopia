@@ -24,7 +24,10 @@ object ModuleConfig {
         // Get the Minecraft config directory (on Windows 10 C:/Users/$USERNAME$/AppData/Local/.minecraft/config)
         val configDir: File = FabricLoader.INSTANCE.configDir.toFile()
         // If it doesn't exist, create it
-        if (!configDir.exists()) configDir.mkdirs()
+        if (!configDir.exists()) {
+            LOG.info("Config directory doesn't exist; Creating it...")
+            configDir.mkdirs()
+        }
 
         // Create the module settings JSON
         val optionsFile: File = File(configDir, "utopia.modules.json")
@@ -32,7 +35,7 @@ object ModuleConfig {
         if (!optionsFile.exists()) {
             return try {
                 val writer = FileWriter(optionsFile)
-                setToDefault(writer)
+                setToDefault(writer, optionsFile)
                 this
             } catch (exception: Exception) {
                 // Error out if couldn't create the FileWriter
@@ -46,7 +49,7 @@ object ModuleConfig {
         // Create a FileReader
         try {
             val reader = FileReader(optionsFile)
-            setToExisting(reader)
+            setToExisting(reader, optionsFile)
         } catch (exception: Exception) {
             // Error out if couldn't create the FileReader
             LOG.error("Couldn't create FileReader for the options file with the following stack trace:")
@@ -60,7 +63,9 @@ object ModuleConfig {
      * Sets the values to already existing in the configuration file
      * @param reader [Reader] for this file
      */
-    private fun setToExisting(reader: Reader) {
+    private fun setToExisting(reader: Reader, optionsFile: File) {
+        LOG.info("Importing options file at location ${optionsFile.absolutePath}")
+
         val jsonObject = GSON.fromJson(reader, JsonObject::class.java)
 
         // Initialize each module with the value from the JsonObject
@@ -75,7 +80,9 @@ object ModuleConfig {
      * Sets the values in the configuration file to defaults (all true)
      * @param writer [Writer] for this file
      */
-    private fun setToDefault(writer: Writer) {
+    private fun setToDefault(writer: Writer, optionsFile: File) {
+        LOG.info("Couldn't import options file. Creating a new one at location ${optionsFile.absolutePath}")
+
         val jsonObject = JsonObject()
 
         // Add comments to guide the user
@@ -98,12 +105,18 @@ object ModuleConfig {
     private fun enable(module: Module, jsonObject: JsonObject) {
         jsonObject.addProperty(module.equivalent, true)
 
+        LOG.info("Module '${module.equivalent}' is enabled")
         enabledModules.add(module)
     }
 
     private fun set(module: Module, jsonObject: JsonObject) {
         val enabled = jsonObject.get(module.equivalent).asBoolean
 
-        if (enabled) enabledModules.add(module)
+        if (enabled) {
+            LOG.info("Module '${module.equivalent}' is enabled")
+            enabledModules.add(module)
+        } else {
+            LOG.info("Module '${module.equivalent}' is disabled")
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.redgrapefruit.utopia.module
 
+import com.redgrapefruit.utopia.LOG
+
 /**
  * A plugin feature that can only be executed if a certain [Module] is enabled
  */
