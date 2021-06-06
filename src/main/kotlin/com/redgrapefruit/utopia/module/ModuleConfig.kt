@@ -22,7 +22,7 @@ object ModuleConfig {
      */
     fun init() : ModuleConfig {
         // Get the Minecraft config directory (on Windows 10 C:/Users/$USERNAME$/AppData/Local/.minecraft/config)
-        val configDir: File = FabricLoader.INSTANCE.configDir.toFile()
+        val configDir = FabricLoader.INSTANCE.configDir.toFile()
         // If it doesn't exist, create it
         if (!configDir.exists()) {
             LOG.info("Config directory doesn't exist; Creating it...")
@@ -30,7 +30,7 @@ object ModuleConfig {
         }
 
         // Create the module settings JSON
-        val optionsFile: File = File(configDir, "utopia.modules.json")
+        val optionsFile = File(configDir, "utopia.modules.json")
         // If the JSON doesn't exist, create it and fill it up with default values
         if (!optionsFile.exists()) {
             return try {
