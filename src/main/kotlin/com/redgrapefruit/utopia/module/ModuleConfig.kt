@@ -3,7 +3,6 @@ package com.redgrapefruit.utopia.module
 import com.google.gson.JsonObject
 import com.redgrapefruit.utopia.GSON
 import com.redgrapefruit.utopia.LOG
-import com.redgrapefruit.utopia.Utopia
 import net.fabricmc.loader.FabricLoader
 import java.io.*
 
@@ -65,11 +64,11 @@ object ModuleConfig {
         val jsonObject = GSON.fromJson(reader, JsonObject::class.java)
 
         // Initialize each module with the value from the JsonObject
-        set("realism", Module.REALISM, jsonObject)
-        set("furniture", Module.FURNITURE, jsonObject)
-        set("exploration", Module.EXPLORATION, jsonObject)
-        set("building", Module.BUILDING, jsonObject)
-        set("cooking", Module.COOKING, jsonObject)
+        set(Module.REALISM, jsonObject)
+        set(Module.FURNITURE, jsonObject)
+        set(Module.EXPLORATION, jsonObject)
+        set(Module.BUILDING, jsonObject)
+        set(Module.COOKING, jsonObject)
     }
 
     /**
@@ -84,11 +83,11 @@ object ModuleConfig {
         jsonObject.addProperty("_guide_2", "After setting a new value, make sure to restart Minecraft to apply the changes since the config reloads every launch of the game")
 
         // Initialize each module with true
-        enable("realism", Module.REALISM, jsonObject)
-        enable("furniture", Module.FURNITURE, jsonObject)
-        enable("exploration", Module.EXPLORATION, jsonObject)
-        enable("building", Module.BUILDING, jsonObject)
-        enable("cooking", Module.COOKING, jsonObject)
+        enable(Module.REALISM, jsonObject)
+        enable(Module.FURNITURE, jsonObject)
+        enable(Module.EXPLORATION, jsonObject)
+        enable(Module.BUILDING, jsonObject)
+        enable(Module.COOKING, jsonObject)
 
         // Write to file
         GSON.toJson(jsonObject, writer)
@@ -96,14 +95,14 @@ object ModuleConfig {
         writer.close()
     }
 
-    private fun enable(name: String, module: Module, jsonObject: JsonObject) {
-        jsonObject.addProperty(name, true)
+    private fun enable(module: Module, jsonObject: JsonObject) {
+        jsonObject.addProperty(module.equivalent, true)
 
         enabledModules.add(module)
     }
 
-    private fun set(name: String, module: Module, jsonObject: JsonObject) {
-        val enabled = jsonObject.get(name).asBoolean
+    private fun set(module: Module, jsonObject: JsonObject) {
+        val enabled = jsonObject.get(module.equivalent).asBoolean
 
         if (enabled) enabledModules.add(module)
     }
