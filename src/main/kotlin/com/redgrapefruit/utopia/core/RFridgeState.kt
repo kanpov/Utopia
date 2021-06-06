@@ -22,14 +22,14 @@ enum class RFridgeState(val boolValue: Boolean) {
      */
     NOT_IN_FRIDGE(false);
 
-    companion object {
+    companion object Serialization {
         /**
          * Deserializes a [RFridgeState] from a [CompoundTag]
          * @param prefix The prefix of the [RFridgeState] to avoid conflicts
          * @param tag The input [CompoundTag]
          * @return Deserialized value
          */
-        internal fun fromTag(prefix: String, tag: CompoundTag): RFridgeState {
+        fun fromTag(prefix: String, tag: CompoundTag): RFridgeState {
             // Check for invalid values
             val value = tag.getInt("$prefix : Value")
             if (value > 2 || value < 0) LOG.error("Couldn't serialize FridgeState. Value is invalid")
@@ -47,7 +47,7 @@ enum class RFridgeState(val boolValue: Boolean) {
          * @param state The serialized [RFridgeState]
          * @param tag The output [CompoundTag]
          */
-        internal fun toTag(prefix: String, state: RFridgeState, tag: CompoundTag) {
+        fun toTag(prefix: String, state: RFridgeState, tag: CompoundTag) {
             val value: Int = when (state) {
                 IN_FRIDGE -> 0
                 NOT_COMPENSATED -> 1

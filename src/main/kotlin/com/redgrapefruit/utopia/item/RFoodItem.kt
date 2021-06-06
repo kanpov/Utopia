@@ -15,7 +15,7 @@ import net.minecraft.item.ItemGroup
 @Suppress("JoinDeclarationAndAssignment")
 open class RFoodItem : Item {
     private val config: RFoodConfig
-    private val profile: RFoodProfile
+    val profile: RFoodProfile
     private var state: RFoodState = RFoodState.FRESH
     private var overrideEffects: Boolean = false
 
