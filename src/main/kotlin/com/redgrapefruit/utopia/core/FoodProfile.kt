@@ -8,6 +8,7 @@ package com.redgrapefruit.utopia.core
 const val MIN_TICK_LOSS: Int = 20
 
 data class FoodProfile(
+    val config: FoodConfig,
     var rotProgress: Int = 0,
     var overdueProgress: Int = 0,
     var previousTick: Long = 0L,
