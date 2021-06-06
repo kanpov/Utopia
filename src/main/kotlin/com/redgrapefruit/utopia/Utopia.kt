@@ -14,6 +14,7 @@ val LOG: Logger = LogManager.getLogger()
 val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
 val RANDOM: Random = SecureRandom()
 const val UNUSED_PROPERTY: Int = Integer.MIN_VALUE
+const val UNUSED_PROPERTY_FLOAT: Float = Float.MIN_VALUE
 
 class Utopia : ModInitializer {
     override fun onInitialize() {

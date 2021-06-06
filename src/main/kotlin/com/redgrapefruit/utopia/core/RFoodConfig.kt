@@ -1,11 +1,20 @@
 package com.redgrapefruit.utopia.core
 
 import com.redgrapefruit.utopia.UNUSED_PROPERTY
+import com.redgrapefruit.utopia.UNUSED_PROPERTY_FLOAT
 
 /**
  * A food config contains all unique information about a type of food
  */
 data class RFoodConfig(
+    /**
+     * The hunger of this food type. Only used in new food
+     */
+    val hunger: Int = UNUSED_PROPERTY,
+    /**
+     * The saturation modifier of this food type. Only used in new food
+     */
+    val saturationModifier: Float = UNUSED_PROPERTY_FLOAT,
     /**
      * The state of the rot property in which the food is considered rotten
      */
