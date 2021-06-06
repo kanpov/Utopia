@@ -2,8 +2,8 @@ package com.redgrapefruit.utopia.item
 
 import com.redgrapefruit.utopia.core.FoodCategory
 import com.redgrapefruit.utopia.core.FoodConfig
-import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.core.FoodState
+import com.redgrapefruit.utopia.core.ProfileComponent
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
@@ -15,7 +15,7 @@ import net.minecraft.item.ItemGroup
 @Suppress("JoinDeclarationAndAssignment")
 open class FoodItem : Item {
     private val config: FoodConfig
-    private val profile: FoodProfile
+    private val profile: ProfileComponent
     private var state: FoodState = FoodState.FRESH
     private var overrideEffects: Boolean = false
 
@@ -27,7 +27,7 @@ open class FoodItem : Item {
      */
     protected constructor(config: FoodConfig, group: ItemGroup, componentAction: () -> FoodComponent) : super(Item.Settings().group(group).food(componentAction.invoke())) {
         this.config = config
-        this.profile = FoodProfile(config)
+        this.profile = ProfileComponent()
     }
 
     /**
