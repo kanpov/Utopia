@@ -5,6 +5,7 @@ import com.redgrapefruit.utopia.core.RFoodCategory
 import com.redgrapefruit.utopia.core.RFoodConfig
 import com.redgrapefruit.utopia.item.RFoodItem
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.item.RSaltedFoodItem
 import com.redgrapefruit.utopia.module.Module
 import com.redgrapefruit.utopia.module.ModuleFeature
 import net.minecraft.item.Item
@@ -33,7 +34,7 @@ object RItemRegistry : ModuleFeature() {
     // Rotten food
 
     // Salted food
-    val SALTED_ALMOND = ROverdueFoodItem(DEMO_BOI_CONFIG)
+    val SALTED_ALMOND = RSaltedFoodItem(DEMO_BOI_CONFIG)
 
     // Fresh food
     val DEMO_BOI = RFoodItem(DEMO_BOI_CONFIG).overdueVariant(OVERDUE_ALMOND)
