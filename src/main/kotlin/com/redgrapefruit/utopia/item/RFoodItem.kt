@@ -100,7 +100,7 @@ open class RFoodItem : Item {
     override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) {
         super.inventoryTick(stack, world, entity, slot, selected)
 
-        if (entity is PlayerEntity) {
+        if (entity is PlayerEntity && !overrideEffects) {
             RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
