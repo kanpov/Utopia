@@ -22,7 +22,7 @@ object RItemRegistry : ModuleFeature() {
     private val DEMO_BOI_CONFIG = RFoodConfig(
         hunger = 3,
         saturationModifier = 1.4f,
-        overdueSpeed = 10,
+        overdueSpeed = 800,
         overdueState = 100000,
         category = RFoodCategory.NUT,
         effects = emptySet()

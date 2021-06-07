@@ -64,13 +64,13 @@ object RFoodEngine {
         if (isSalt) profile.rotProgress -= config.saltEfficiency
 
         // 5. Bound-check rot and overdue to see if the limit has been exceeded
-        if (profile.rotProgress >= config.rotState) {
+        if (config.category.canRot && profile.rotProgress >= config.rotState) {
             // Swap the item with its rotten variant and reset counter for the stack
             player.inventory.getStack(slot).decrement(1)
             player.inventory.offerOrDrop(world, ItemStack(rottenVariant))
             profile.rotProgress = 0
         }
-        if (profile.overdueProgress >= config.overdueState) {
+        if (config.category.canOverdue && profile.overdueProgress >= config.overdueState) {
             // Swap the item with its overdue variant and reset counter for the stack
             player.inventory.getStack(slot).decrement(1)
             player.inventory.offerOrDrop(world, ItemStack(overdueVariant))
