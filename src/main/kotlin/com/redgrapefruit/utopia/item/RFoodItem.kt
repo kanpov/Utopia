@@ -39,12 +39,17 @@ open class RFoodItem : Item {
      * Public constructor for creating standard instances of food items (fresh)
      * @param config [RFoodConfig] of this food item
      */
-    // TODO: Replace with actual ItemGroup later
     constructor(config: RFoodConfig) : this(config, GROUP, {
         val builder = FoodComponent.Builder()
 
+        // Hunger
+        builder.hunger(config.category.baseHunger + config.hunger)
         // Meat
         if (config.category == RFoodCategory.MEAT) builder.meat()
+        // Snack
+        if (config.category.baseHunger + config.hunger < 2) builder.snack()
+        // Saturation modifier
+        builder.saturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
         // Effects
         config.effects.forEach { effectConfig ->
             // If durationRange isn't defined (null), then check if the effect is permanent, if yes, the duration is 999999, else it's effectConfig.duration
