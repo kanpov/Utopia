@@ -26,8 +26,8 @@ object RFoodEngine {
         player: PlayerEntity,
         slot: Int,
         world: World,
-        rottenVariant: RRottenFoodItem,
-        overdueVariant: ROverdueFoodItem,
+        rottenVariant: RRottenFoodItem?,
+        overdueVariant: ROverdueFoodItem?,
         isSalt: Boolean) {
 
         // 1. Initialization of world time

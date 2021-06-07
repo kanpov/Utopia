@@ -22,8 +22,8 @@ open class RFoodItem : Item {
     protected var state: RFoodState = RFoodState.FRESH
     protected var overrideEffects: Boolean = false
     // Linked variants
-    lateinit var rottenVariant: RRottenFoodItem
-    lateinit var overdueVariant: ROverdueFoodItem
+    var rottenVariant: RRottenFoodItem? = null
+    var overdueVariant: ROverdueFoodItem? = null
 
     /**
      * Protected constructor for creating customized [FoodComponent] instances
