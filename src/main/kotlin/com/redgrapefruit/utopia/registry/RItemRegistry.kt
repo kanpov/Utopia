@@ -19,15 +19,6 @@ object RItemRegistry : ModuleFeature() {
     override val module: Module
         get() = Module.REALISM
 
-    private val DEMO_BOI_CONFIG = RFoodConfig(
-        hunger = 3,
-        saturationModifier = 1.4f,
-        overdueSpeed = 800,
-        overdueState = 100000,
-        category = RFoodCategory.NUT,
-        effects = emptySet()
-    )
-
     // Overdue food
     val OVERDUE_ALMOND = ROverdueFoodItem(DEMO_BOI_CONFIG)
 
@@ -37,12 +28,10 @@ object RItemRegistry : ModuleFeature() {
     val SALTED_ALMOND = RSaltedFoodItem(DEMO_BOI_CONFIG)
 
     // Fresh food
-    val DEMO_BOI = RFoodItem(DEMO_BOI_CONFIG).overdueVariant(OVERDUE_ALMOND)
 
     override fun run() {
         register("overdue_almond", OVERDUE_ALMOND)
         register("salted_almond", SALTED_ALMOND)
-        register("demo_boi", DEMO_BOI)
     }
 
     /**
