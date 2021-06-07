@@ -32,7 +32,7 @@ fun overrideComponentValues(component: FoodComponent, builder: FoodComponent.Bui
  * @param config  Food config
  * @return Rot value
  */
-fun rot(profile: RFoodProfile, config: RFoodConfig): Int {
+fun calculateRot(profile: RFoodProfile, config: RFoodConfig): Int {
     var out: Int = config.rotSpeed
     if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
         out -= config.fridgeEfficiency
@@ -48,7 +48,7 @@ fun rot(profile: RFoodProfile, config: RFoodConfig): Int {
  * @param config  Food config
  * @return Overdue value
  */
-fun overdue(profile: RFoodProfile, config: RFoodConfig): Int {
+fun calculateOverdue(profile: RFoodProfile, config: RFoodConfig): Int {
     var out: Int = config.overdueSpeed
     if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
         out -= config.fridgeEfficiency
