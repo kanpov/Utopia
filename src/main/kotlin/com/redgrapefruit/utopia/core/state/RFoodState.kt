@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.core
+package com.redgrapefruit.utopia.core.state
 
 /**
  * A food state defines the tooltip rendering properties of a certain state

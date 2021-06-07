@@ -1,9 +1,9 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.core.RFoodConfig;
+import com.redgrapefruit.utopia.core.data.RFoodConfig;
 import com.redgrapefruit.utopia.core.RFoodEngine;
-import com.redgrapefruit.utopia.core.RFoodProfile;
-import com.redgrapefruit.utopia.core.RFoodState;
+import com.redgrapefruit.utopia.core.state.RFoodProfile;
+import com.redgrapefruit.utopia.core.state.RFoodState;
 import com.redgrapefruit.utopia.item.RFoodItem;
 import com.redgrapefruit.utopia.item.ROverdueFoodItem;
 import com.redgrapefruit.utopia.item.RRottenFoodItem;

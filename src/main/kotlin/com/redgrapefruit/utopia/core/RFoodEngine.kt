@@ -1,5 +1,9 @@
 package com.redgrapefruit.utopia.core
 
+import com.redgrapefruit.utopia.core.data.RFoodConfig
+import com.redgrapefruit.utopia.core.state.MIN_TICK_LOSS
+import com.redgrapefruit.utopia.core.state.RFoodProfile
+import com.redgrapefruit.utopia.core.state.RFoodState
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
 import com.redgrapefruit.utopia.item.RRottenFoodItem
 import com.redgrapefruit.utopia.util.*

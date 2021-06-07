@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.core
+package com.redgrapefruit.utopia.core.data
 
 import com.redgrapefruit.utopia.util.RIntRange
 import net.minecraft.entity.effect.StatusEffect

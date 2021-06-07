@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.registry
 
-import com.redgrapefruit.utopia.core.RFoodConfig
-import com.redgrapefruit.utopia.core.RFoodProfile
+import com.redgrapefruit.utopia.core.data.RFoodConfig
+import com.redgrapefruit.utopia.core.state.RFoodProfile
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
 import com.redgrapefruit.utopia.item.RRottenFoodItem
 import com.redgrapefruit.utopia.module.Module

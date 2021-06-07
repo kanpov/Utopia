@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.core
+package com.redgrapefruit.utopia.core.state
 
 /**
  * Minimal loss of ticks to compensate.

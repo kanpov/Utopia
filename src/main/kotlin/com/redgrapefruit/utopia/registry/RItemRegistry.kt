@@ -1,9 +1,8 @@
 package com.redgrapefruit.utopia.registry
 
 import com.redgrapefruit.utopia.MOD_ID
-import com.redgrapefruit.utopia.core.RFoodCategory
-import com.redgrapefruit.utopia.core.RFoodConfig
-import com.redgrapefruit.utopia.item.RFoodItem
+import com.redgrapefruit.utopia.core.data.RFoodCategory
+import com.redgrapefruit.utopia.core.data.RFoodConfig
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
 import com.redgrapefruit.utopia.item.RSaltedFoodItem
 import com.redgrapefruit.utopia.module.Module

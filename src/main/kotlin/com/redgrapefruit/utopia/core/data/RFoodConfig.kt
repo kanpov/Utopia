@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.core
+package com.redgrapefruit.utopia.core.data
 
 import com.redgrapefruit.utopia.UNUSED_PROPERTY
 import com.redgrapefruit.utopia.UNUSED_PROPERTY_FLOAT

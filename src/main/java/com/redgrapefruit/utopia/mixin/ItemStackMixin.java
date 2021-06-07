@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.core.RFoodProfile;
-import com.redgrapefruit.utopia.core.RFridgeState;
+import com.redgrapefruit.utopia.core.state.RFoodProfile;
+import com.redgrapefruit.utopia.core.state.RFridgeState;
 import com.redgrapefruit.utopia.item.RFoodItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
