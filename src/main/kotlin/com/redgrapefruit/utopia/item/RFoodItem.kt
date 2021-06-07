@@ -15,10 +15,15 @@ import net.minecraft.item.ItemGroup
  */
 @Suppress("JoinDeclarationAndAssignment")
 open class RFoodItem : Item {
+    // Linked data structures
     private val config: RFoodConfig
     val profile: RFoodProfile
+    // Variant settings
     protected var state: RFoodState = RFoodState.FRESH
     protected var overrideEffects: Boolean = false
+    // Linked variants
+    lateinit var rottenVariant: RRottenFoodItem
+    lateinit var overdueVariant: ROverdueFoodItem
 
     /**
      * Protected constructor for creating customized [FoodComponent] instances
@@ -75,4 +80,16 @@ open class RFoodItem : Item {
 
         builder.build()
     })
+
+    // Builders
+
+    fun rottenVariant(rottenVariant: RRottenFoodItem) : RFoodItem {
+        this.rottenVariant = rottenVariant
+        return this
+    }
+
+    fun overdueVariant(overdueVariant: ROverdueFoodItem) : RFoodItem {
+        this.overdueVariant = overdueVariant
+        return this
+    }
 }
