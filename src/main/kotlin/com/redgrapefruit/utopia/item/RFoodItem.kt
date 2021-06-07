@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.item
 
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.core.*
+import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.player.PlayerEntity
@@ -9,6 +10,7 @@ import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
+import net.minecraft.text.Text
 import net.minecraft.world.World
 
 /**
@@ -101,5 +103,16 @@ open class RFoodItem : Item {
         if (entity is PlayerEntity) {
             RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
+    }
+
+    override fun appendTooltip(
+        stack: ItemStack,
+        world: World?,
+        tooltip: MutableList<Text>,
+        context: TooltipContext
+    ) {
+        super.appendTooltip(stack, world, tooltip, context)
+
+        RFoodEngine.appendTooltip(tooltip, config, profile, state)
     }
 }
