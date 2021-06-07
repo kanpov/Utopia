@@ -1,5 +1,6 @@
 package com.redgrapefruit.utopia.item
 
+import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.core.RFoodCategory
 import com.redgrapefruit.utopia.core.RFoodConfig
 import com.redgrapefruit.utopia.core.RFoodProfile
@@ -39,7 +40,7 @@ open class RFoodItem : Item {
      * @param config [RFoodConfig] of this food item
      */
     // TODO: Replace with actual ItemGroup later
-    constructor(config: RFoodConfig) : this(config, ItemGroup.MISC, {
+    constructor(config: RFoodConfig) : this(config, GROUP, {
         val builder = FoodComponent.Builder()
 
         // Meat
