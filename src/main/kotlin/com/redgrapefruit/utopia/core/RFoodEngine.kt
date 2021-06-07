@@ -2,10 +2,11 @@ package com.redgrapefruit.utopia.core
 
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
 import com.redgrapefruit.utopia.item.RRottenFoodItem
-import com.redgrapefruit.utopia.util.calculateOverdue
-import com.redgrapefruit.utopia.util.calculateRot
+import com.redgrapefruit.utopia.util.*
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
 import net.minecraft.world.World
 
 object RFoodEngine {
@@ -75,6 +76,47 @@ object RFoodEngine {
             player.inventory.getStack(slot).decrement(1)
             player.inventory.offerOrDrop(world, ItemStack(overdueVariant))
             profile.overdueProgress = 0
+        }
+    }
+
+    /**
+     * Tooltip rendering logic which is called every tick to display the detailed stats to the player
+     *
+     * @param tooltip Tooltip list
+     * @param config Linked [RFoodConfig]
+     * @param profile Linked [RFoodProfile]
+     * @param state Rendering [RFoodState]
+     */
+    fun appendTooltip(tooltip: MutableList<Text>, config: RFoodConfig, profile: RFoodProfile, state: RFoodState) {
+        // State
+        breakLine(tooltip)
+        tooltip += LiteralText(AQUA + "State: " + state.displayName)
+        // Hunger
+        breakLine(tooltip)
+        tooltip += LiteralText(GREEN + "Hunger: " + (config.category.baseHunger + config.hunger))
+        // Saturation modifier
+        breakLine(tooltip)
+        tooltip += LiteralText(GOLD + "Saturation modifier: " + (config.category.baseSaturationModifier + config.saturationModifier))
+        // Category and its description
+        breakLine(tooltip)
+        tooltip += LiteralText(DARK_RED + "Category: ")
+        tooltip += LiteralText(RED + config.category.displayName)
+        tooltip += LiteralText(YELLOW + config.category.details)
+        // Rot
+        if (config.category.canRot) {
+            breakLine(tooltip)
+            tooltip += LiteralText(DARK_GREEN + "Rot: " + profile.rotProgress + "/" + config.rotState)
+        }
+        // Overdue
+        if (config.category.canOverdue) {
+            breakLine(tooltip)
+            tooltip += LiteralText(DARK_PURPLE + "Overdue: " + profile.overdueProgress + "/" + config.overdueState)
+        }
+        // Fridge
+        if (config.category.canBePutInFridge) {
+            breakLine(tooltip)
+            tooltip += LiteralText(BLUE + "Is in fridge: " + profile.fridgeState.boolValue)
+            tooltip += LiteralText(DARK_BLUE + "Fridge efficiency: " + config.fridgeEfficiency)
         }
     }
 }
