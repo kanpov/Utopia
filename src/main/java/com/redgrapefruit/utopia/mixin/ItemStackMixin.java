@@ -31,7 +31,7 @@ public class ItemStackMixin {
         RFoodProfile profile = ((RFoodItem) item).getProfile();
 
         profile.setRotProgress(tag.getInt("Rot Progress"));
-        profile.setOverdueProgress(tag.getInt("Overdue Progress"));
+        //profile.setOverdueProgress(tag.getInt("Overdue Progress"));
         profile.setPreviousTick(tag.getLong("Previous World Tick"));
         profile.setInitialized(tag.getBoolean("Is Initialized"));
         profile.setFridgeState(RFridgeState.Serialization.fromTag("Fridge State", tag));
@@ -44,7 +44,7 @@ public class ItemStackMixin {
         RFoodProfile profile = ((RFoodItem) item).getProfile();
 
         tag.putInt("Rot Progress", profile.getRotProgress());
-        tag.putInt("Overdue Progress", profile.getOverdueProgress());
+        //tag.putInt("Overdue Progress", profile.getOverdueProgress());
         tag.putLong("Previous World Tick", profile.getPreviousTick());
         tag.putBoolean("Is Initialized", profile.isInitialized());
         RFridgeState.Serialization.toTag("Fridge State", profile.getFridgeState(), tag);

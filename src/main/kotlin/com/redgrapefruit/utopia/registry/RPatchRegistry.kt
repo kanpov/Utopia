@@ -16,7 +16,7 @@ object RPatchRegistry : ModuleFeature() {
         get() = Module.REALISM
 
     override fun run() {
-
+        patch("almond", RItemRegistry.TEMP_ALMOND_CONFIG, RItemRegistry.OVERDUE_ALMOND)
     }
 
     /**
@@ -58,7 +58,7 @@ object RPatchRegistry : ModuleFeature() {
      * @return Discovered item or my middle finger with [KotlinNullPointerException]
      */
     private fun discover(name: String, namespace: String): Item {
-        val id = Identifier(name, namespace)
+        val id = Identifier(namespace, name)
 
         if (Registry.ITEM.containsId(Identifier(namespace, name))) {
             return Registry.ITEM.get(id)

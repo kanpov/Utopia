@@ -19,13 +19,22 @@ object RItemRegistry : ModuleFeature() {
     override val module: Module
         get() = Module.REALISM
 
+    internal val TEMP_ALMOND_CONFIG = RFoodConfig(
+        hunger = 3,
+        saturationModifier = 1.4f,
+        overdueSpeed = 800,
+        overdueState = 100000,
+        category = RFoodCategory.NUT,
+        effects = emptySet()
+    )
+
     // Overdue food
-    val OVERDUE_ALMOND = ROverdueFoodItem(DEMO_BOI_CONFIG)
+    val OVERDUE_ALMOND = ROverdueFoodItem(TEMP_ALMOND_CONFIG)
 
     // Rotten food
 
     // Salted food
-    val SALTED_ALMOND = RSaltedFoodItem(DEMO_BOI_CONFIG)
+    val SALTED_ALMOND = RSaltedFoodItem(TEMP_ALMOND_CONFIG)
 
     // Fresh food
 
