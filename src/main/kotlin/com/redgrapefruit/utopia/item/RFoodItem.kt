@@ -30,7 +30,7 @@ open class RFoodItem : Item {
         config: RFoodConfig,
         group: ItemGroup,
         componentAction: () -> FoodComponent
-    ) : super(Item.Settings().group(group).food(componentAction.invoke())) {
+    ) : super(Settings().group(group).food(componentAction.invoke())) {
         this.config = config
         this.profile = RFoodProfile()
     }
