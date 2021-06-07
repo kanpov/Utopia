@@ -38,6 +38,7 @@ enum class RFoodCategory(
     VEGETABLE(2, 1.3f, "Berries", false, true, true, "Extremely healthy vegetable."),
     BERRIES(1, 0.6f, "Berries", false, true, false, "Small and tasty berries."),
     FISH(3, 1.25f, "Fish", false, true, true, "Nice and yummy fish."),
+    NUT(2, 1.1f, "Nut", false, true, false, "Crunchy nuts."),
     PRODUCT(3, 1f, "Product", false, true, true, "Cooked product - bakery, soup, stew etc."),
     MISCELLANEOUS(2, 0.75f, "Miscellaneous", false, true, false, "Food that doesn't fit in regular categories")
 }
