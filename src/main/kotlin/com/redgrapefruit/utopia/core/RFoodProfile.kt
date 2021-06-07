@@ -5,7 +5,7 @@ package com.redgrapefruit.utopia.core
  *
  * Used to avoid packet delays and random glitches
  */
-const val MIN_TICK_LOSS: Int = 20
+internal const val MIN_TICK_LOSS: Long = 20L
 
 /**
  * Contains changed-at-runtime values of a food type and serializes them (CCA).
