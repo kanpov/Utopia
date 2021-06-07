@@ -1,6 +1,7 @@
 package com.redgrapefruit.utopia.module
 
 import com.redgrapefruit.utopia.registry.RItemRegistry
+import com.redgrapefruit.utopia.registry.RPatchRegistry
 
 /**
  * A plugin feature that can only be executed if a certain [Module] is enabled
@@ -18,7 +19,8 @@ abstract class ModuleFeature {
          * Contains all the registered [ModuleFeature]s
          */
         private val registeredFeatures: List<ModuleFeature> = listOf(
-            RItemRegistry
+            RItemRegistry,
+            RPatchRegistry
         )
 
         /**
