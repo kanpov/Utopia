@@ -1,9 +1,13 @@
 package com.redgrapefruit.utopia.util
 
+import com.redgrapefruit.utopia.core.RFoodConfig
+import com.redgrapefruit.utopia.core.RFoodProfile
+import com.redgrapefruit.utopia.core.RFridgeState
 import net.minecraft.item.FoodComponent
 
 /**
  * Copies all the values from the given [FoodComponent] to given [FoodComponent.Builder] with decreases in values
+ *
  * @param component Input [FoodComponent]
  * @param builder Output [FoodComponent.Builder]
  * @param hungerDecrease Decrease of hunger value
@@ -19,4 +23,36 @@ fun overrideComponentValues(component: FoodComponent, builder: FoodComponent.Bui
     if (component.isMeat) builder.meat()
     if (component.isAlwaysEdible) builder.alwaysEdible()
     if (component.isSnack) builder.snack()
+}
+
+/**
+ * Calculates current rot
+ *
+ * @param profile Food profile
+ * @param config  Food config
+ * @return Rot value
+ */
+fun rot(profile: RFoodProfile, config: RFoodConfig): Int {
+    var out: Int = config.rotSpeed
+    if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
+        out -= config.fridgeEfficiency
+        profile.fridgeState = RFridgeState.NOT_IN_FRIDGE
+    }
+    return out
+}
+
+/**
+ * Calculates current overdue
+ *
+ * @param profile Food profile
+ * @param config  Food config
+ * @return Overdue value
+ */
+fun overdue(profile: RFoodProfile, config: RFoodConfig): Int {
+    var out: Int = config.overdueSpeed
+    if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
+        out -= config.fridgeEfficiency
+        profile.fridgeState = RFridgeState.NOT_IN_FRIDGE
+    }
+    return out
 }
