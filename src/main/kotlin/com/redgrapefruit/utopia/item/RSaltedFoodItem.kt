@@ -12,6 +12,7 @@ import net.minecraft.item.FoodComponent
 class RSaltedFoodItem : RFoodItem {
     constructor(config: RFoodConfig) : super(config) {
         state = RFoodState.SALTED
+        isSalt = true
     }
 
     constructor(config: RFoodConfig, component: FoodComponent) : super(config, GROUP, {
@@ -22,5 +23,6 @@ class RSaltedFoodItem : RFoodItem {
         builder.build()
     }) {
         state = RFoodState.SALTED
+        isSalt = true
     }
 }

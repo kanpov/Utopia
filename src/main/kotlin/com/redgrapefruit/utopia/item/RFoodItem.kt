@@ -22,6 +22,7 @@ open class RFoodItem : Item {
     // Variant settings
     protected var state: RFoodState = RFoodState.FRESH
     protected var overrideEffects: Boolean = false
+    protected var isSalt: Boolean = false
     // Linked variants
     var rottenVariant: RRottenFoodItem? = null
     var overdueVariant: ROverdueFoodItem? = null
@@ -98,7 +99,7 @@ open class RFoodItem : Item {
         super.inventoryTick(stack, world, entity, slot, selected)
 
         if (entity is PlayerEntity) {
-            RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, false)
+            RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
 }
