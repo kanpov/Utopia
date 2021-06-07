@@ -1,14 +1,15 @@
 package com.redgrapefruit.utopia.item
 
 import com.redgrapefruit.utopia.GROUP
-import com.redgrapefruit.utopia.core.RFoodCategory
-import com.redgrapefruit.utopia.core.RFoodConfig
-import com.redgrapefruit.utopia.core.RFoodProfile
-import com.redgrapefruit.utopia.core.RFoodState
+import com.redgrapefruit.utopia.core.*
+import net.minecraft.entity.Entity
 import net.minecraft.entity.effect.StatusEffectInstance
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
+import net.minecraft.world.World
 
 /**
  * Represents a fresh food item as well as a base for other variants
@@ -91,5 +92,13 @@ open class RFoodItem : Item {
     fun overdueVariant(overdueVariant: ROverdueFoodItem) : RFoodItem {
         this.overdueVariant = overdueVariant
         return this
+    }
+
+    override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) {
+        super.inventoryTick(stack, world, entity, slot, selected)
+
+        if (entity is PlayerEntity) {
+            RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, false)
+        }
     }
 }
