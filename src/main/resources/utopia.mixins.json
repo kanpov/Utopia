@@ -4,6 +4,7 @@
     "package": "com.redgrapefruit.utopia.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
+        "ItemMixin",
         "ItemStackMixin"
     ],
     "client": [
