@@ -11,7 +11,7 @@ import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
-object RPatchRegistry : ModuleFeature() {
+object RPatchRegistry : ModuleFeature {
     override val module: Module
         get() = Module.REALISM
 

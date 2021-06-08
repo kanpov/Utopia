@@ -20,7 +20,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Furniture's block registry
  */
-object FBlockRegistry : ModuleFeature() {
+object FBlockRegistry : ModuleFeature {
     override val module: Module = Module.FURNITURE
 
     // Blocks

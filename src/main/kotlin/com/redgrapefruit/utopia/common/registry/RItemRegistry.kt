@@ -12,7 +12,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Realism's item registry
  */
-object RItemRegistry : ModuleFeature() {
+object RItemRegistry : ModuleFeature {
     override val module: Module
         get() = Module.REALISM
 

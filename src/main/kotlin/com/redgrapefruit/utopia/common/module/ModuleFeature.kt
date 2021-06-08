@@ -8,13 +8,13 @@ import com.redgrapefruit.utopia.common.registry.RPatchRegistry
 /**
  * A plugin feature that can only be executed if a certain [Module] is enabled
  */
-abstract class ModuleFeature {
+interface ModuleFeature {
     /**
      * The [Module] that this [ModuleFeature] belongs to
      */
-    abstract val module: Module
+    val module: Module
 
-    abstract fun run()
+    fun run()
 
     companion object {
         /**

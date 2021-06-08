@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier
 /**
  * Furniture's screen handler registry
  */
-object FScreenHandlerRegistry : ModuleFeature() {
+object FScreenHandlerRegistry : ModuleFeature {
     override val module: Module = Module.FURNITURE
 
     lateinit var FRIDGE_SCREEN_HANDLER: ScreenHandlerType<FFridgeScreenHandler>
