@@ -26,6 +26,6 @@ val GROUP: ItemGroup = FabricItemGroupBuilder.create(Identifier(MOD_ID, "utopia"
 
 class Utopia : ModInitializer {
     override fun onInitialize() {
-        ModuleFeature.executeAll(ModuleConfig.init())
+        ModuleFeature.executeCommon(ModuleConfig.init())
     }
 }

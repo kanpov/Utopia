@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier
  */
 object FScreenHandlerRegistry : ModuleFeature {
     override val module: Module = Module.FURNITURE
+    override val isClientSide: Boolean = false
 
     lateinit var FRIDGE_SCREEN_HANDLER: ScreenHandlerType<FFridgeScreenHandler>
 

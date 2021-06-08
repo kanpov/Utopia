@@ -12,8 +12,8 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
 object RPatchRegistry : ModuleFeature {
-    override val module: Module
-        get() = Module.REALISM
+    override val module: Module = Module.REALISM
+    override val isClientSide: Boolean = false
 
     override fun run() {
         patch("almond", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)

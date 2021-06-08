@@ -22,6 +22,7 @@ import net.minecraft.util.registry.Registry
  */
 object FBlockRegistry : ModuleFeature {
     override val module: Module = Module.FURNITURE
+    override val isClientSide: Boolean = false
 
     // Blocks
     val FRIDGE_BLOCK = FFridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))

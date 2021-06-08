@@ -13,8 +13,8 @@ import net.minecraft.util.registry.Registry
  * Realism's item registry
  */
 object RItemRegistry : ModuleFeature {
-    override val module: Module
-        get() = Module.REALISM
+    override val module: Module = Module.REALISM
+    override val isClientSide: Boolean = false
 
     // Overdue food
     val OVERDUE_ALMOND = ROverdueFoodItem(RConfigRegistry.ALMOND)
