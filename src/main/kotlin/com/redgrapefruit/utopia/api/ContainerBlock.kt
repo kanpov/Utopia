@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api
+package com.redgrapefruit.utopia.api
 
 import net.minecraft.block.Block
 import net.minecraft.block.BlockRenderType
