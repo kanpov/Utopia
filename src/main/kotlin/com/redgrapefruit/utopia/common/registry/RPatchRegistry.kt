@@ -1,12 +1,12 @@
-package com.redgrapefruit.utopia.registry
+package com.redgrapefruit.utopia.common.registry
 
-import com.redgrapefruit.utopia.core.data.RFoodConfig
-import com.redgrapefruit.utopia.core.state.RFoodProfile
-import com.redgrapefruit.utopia.item.ROverdueFoodItem
-import com.redgrapefruit.utopia.item.RRottenFoodItem
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.ModuleFeature
-import com.redgrapefruit.utopia.util.ItemMixinAccess
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.state.RFoodProfile
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem
+import com.redgrapefruit.utopia.common.module.Module
+import com.redgrapefruit.utopia.common.module.ModuleFeature
+import com.redgrapefruit.utopia.common.util.ItemMixinAccess
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry

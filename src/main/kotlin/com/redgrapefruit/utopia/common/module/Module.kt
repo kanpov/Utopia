@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.module
+package com.redgrapefruit.utopia.common.module
 
 /**
  * A list of modules that this mod has

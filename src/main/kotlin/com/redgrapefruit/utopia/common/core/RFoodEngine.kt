@@ -1,12 +1,12 @@
-package com.redgrapefruit.utopia.core
+package com.redgrapefruit.utopia.common.core
 
-import com.redgrapefruit.utopia.core.data.RFoodConfig
-import com.redgrapefruit.utopia.core.state.MIN_TICK_LOSS
-import com.redgrapefruit.utopia.core.state.RFoodProfile
-import com.redgrapefruit.utopia.core.state.RFoodState
-import com.redgrapefruit.utopia.item.ROverdueFoodItem
-import com.redgrapefruit.utopia.item.RRottenFoodItem
-import com.redgrapefruit.utopia.util.*
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.state.MIN_TICK_LOSS
+import com.redgrapefruit.utopia.common.core.state.RFoodProfile
+import com.redgrapefruit.utopia.common.core.state.RFoodState
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem
+import com.redgrapefruit.utopia.common.util.*
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText

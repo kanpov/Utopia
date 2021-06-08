@@ -1,7 +1,7 @@
-package com.redgrapefruit.utopia.module
+package com.redgrapefruit.utopia.common.module
 
-import com.redgrapefruit.utopia.registry.RItemRegistry
-import com.redgrapefruit.utopia.registry.RPatchRegistry
+import com.redgrapefruit.utopia.common.registry.RItemRegistry
+import com.redgrapefruit.utopia.common.registry.RPatchRegistry
 
 /**
  * A plugin feature that can only be executed if a certain [Module] is enabled

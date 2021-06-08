@@ -1,6 +1,6 @@
-package com.redgrapefruit.utopia.core.data
+package com.redgrapefruit.utopia.common.core.data
 
-import com.redgrapefruit.utopia.util.RIntRange
+import com.redgrapefruit.utopia.common.util.RIntRange
 import net.minecraft.entity.effect.StatusEffect
 
 /**

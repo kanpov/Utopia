@@ -1,7 +1,7 @@
-package com.redgrapefruit.utopia.core.data
+package com.redgrapefruit.utopia.common.core.data
 
-import com.redgrapefruit.utopia.UNUSED_PROPERTY
-import com.redgrapefruit.utopia.UNUSED_PROPERTY_FLOAT
+import com.redgrapefruit.utopia.common.UNUSED_PROPERTY
+import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
 
 /**
  * A food config contains all unique information about a type of food

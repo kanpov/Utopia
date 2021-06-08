@@ -1,9 +1,9 @@
-package com.redgrapefruit.utopia
+package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.redgrapefruit.utopia.module.ModuleConfig
-import com.redgrapefruit.utopia.module.ModuleFeature
+import com.redgrapefruit.utopia.common.module.ModuleConfig
+import com.redgrapefruit.utopia.common.module.ModuleFeature
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.item.ItemGroup

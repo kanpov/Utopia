@@ -1,10 +1,10 @@
-package com.redgrapefruit.utopia.registry
+package com.redgrapefruit.utopia.common.registry
 
-import com.redgrapefruit.utopia.MOD_ID
-import com.redgrapefruit.utopia.item.ROverdueFoodItem
-import com.redgrapefruit.utopia.item.RSaltedFoodItem
-import com.redgrapefruit.utopia.module.Module
-import com.redgrapefruit.utopia.module.ModuleFeature
+import com.redgrapefruit.utopia.common.MOD_ID
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RSaltedFoodItem
+import com.redgrapefruit.utopia.common.module.Module
+import com.redgrapefruit.utopia.common.module.ModuleFeature
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry

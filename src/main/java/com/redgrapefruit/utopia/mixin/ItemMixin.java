@@ -1,13 +1,13 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.core.data.RFoodConfig;
-import com.redgrapefruit.utopia.core.RFoodEngine;
-import com.redgrapefruit.utopia.core.state.RFoodProfile;
-import com.redgrapefruit.utopia.core.state.RFoodState;
-import com.redgrapefruit.utopia.item.RFoodItem;
-import com.redgrapefruit.utopia.item.ROverdueFoodItem;
-import com.redgrapefruit.utopia.item.RRottenFoodItem;
-import com.redgrapefruit.utopia.util.ItemMixinAccess;
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig;
+import com.redgrapefruit.utopia.common.core.RFoodEngine;
+import com.redgrapefruit.utopia.common.core.state.RFoodProfile;
+import com.redgrapefruit.utopia.common.core.state.RFoodState;
+import com.redgrapefruit.utopia.common.item.RFoodItem;
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem;
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem;
+import com.redgrapefruit.utopia.common.util.ItemMixinAccess;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;

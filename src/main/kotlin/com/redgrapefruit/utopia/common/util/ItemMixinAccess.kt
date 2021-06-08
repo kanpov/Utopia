@@ -1,9 +1,9 @@
-package com.redgrapefruit.utopia.util
+package com.redgrapefruit.utopia.common.util
 
-import com.redgrapefruit.utopia.core.data.RFoodConfig
-import com.redgrapefruit.utopia.core.state.RFoodProfile
-import com.redgrapefruit.utopia.item.ROverdueFoodItem
-import com.redgrapefruit.utopia.item.RRottenFoodItem
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.state.RFoodProfile
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem
 
 /**
  * Duck interface for mixin interactions

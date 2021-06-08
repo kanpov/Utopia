@@ -1,8 +1,8 @@
-package com.redgrapefruit.utopia.util
+package com.redgrapefruit.utopia.common.util
 
-import com.redgrapefruit.utopia.core.data.RFoodConfig
-import com.redgrapefruit.utopia.core.state.RFoodProfile
-import com.redgrapefruit.utopia.core.state.RFridgeState
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.state.RFoodProfile
+import com.redgrapefruit.utopia.common.core.state.RFridgeState
 import net.minecraft.item.FoodComponent
 
 /**

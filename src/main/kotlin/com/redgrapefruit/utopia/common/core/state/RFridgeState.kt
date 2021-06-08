@@ -1,6 +1,6 @@
-package com.redgrapefruit.utopia.core.state
+package com.redgrapefruit.utopia.common.core.state
 
-import com.redgrapefruit.utopia.LOG
+import com.redgrapefruit.utopia.common.LOG
 import net.minecraft.nbt.CompoundTag
 
 /**

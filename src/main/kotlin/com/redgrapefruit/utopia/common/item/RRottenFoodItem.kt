@@ -1,10 +1,10 @@
-package com.redgrapefruit.utopia.item
+package com.redgrapefruit.utopia.common.item
 
-import com.redgrapefruit.utopia.GROUP
-import com.redgrapefruit.utopia.core.data.RFoodCategory
-import com.redgrapefruit.utopia.core.data.RFoodConfig
-import com.redgrapefruit.utopia.core.state.RFoodState
-import com.redgrapefruit.utopia.util.overrideComponentValues
+import com.redgrapefruit.utopia.common.GROUP
+import com.redgrapefruit.utopia.common.core.data.RFoodCategory
+import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.state.RFoodState
+import com.redgrapefruit.utopia.common.util.overrideComponentValues
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.FoodComponent

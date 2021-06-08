@@ -1,6 +1,6 @@
-package com.redgrapefruit.utopia.util
+package com.redgrapefruit.utopia.common.util
 
-import com.redgrapefruit.utopia.RANDOM
+import com.redgrapefruit.utopia.common.RANDOM
 
 /**
  * A range of integers to randomly pick from

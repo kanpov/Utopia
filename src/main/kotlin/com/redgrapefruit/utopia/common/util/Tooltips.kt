@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.util
+package com.redgrapefruit.utopia.common.util
 
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text

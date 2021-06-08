@@ -1,8 +1,8 @@
-package com.redgrapefruit.utopia.module
+package com.redgrapefruit.utopia.common.module
 
 import com.google.gson.JsonObject
-import com.redgrapefruit.utopia.GSON
-import com.redgrapefruit.utopia.LOG
+import com.redgrapefruit.utopia.common.GSON
+import com.redgrapefruit.utopia.common.LOG
 import net.fabricmc.loader.FabricLoader
 import java.io.*
 
