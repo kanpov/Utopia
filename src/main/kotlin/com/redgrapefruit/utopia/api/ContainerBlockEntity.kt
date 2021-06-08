@@ -24,9 +24,9 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
     // region Properties & Overrides
 
     // Embedded inventory represented through a DefaultedList
-    protected val inventory: DefaultedList<ItemStack> = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
+    protected val inventory: DefaultedList<ItemStack> = DefaultedList.ofSize(containerSize(), ItemStack.EMPTY)
 
-    protected abstract val containerSize: Int
+    protected abstract fun containerSize(): Int
 
     override fun getDisplayName(): Text = TranslatableText(cachedState.block.translationKey)
 

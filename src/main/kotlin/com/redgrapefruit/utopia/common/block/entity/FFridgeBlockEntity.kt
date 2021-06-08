@@ -14,7 +14,8 @@ import net.minecraft.util.collection.DefaultedList
  * A fridge [BlockEntity] implementing the Container API
  */
 class FFridgeBlockEntity : ContainerBlockEntity(FBlockRegistry.FRIDGE_BLOCK_ENTITY) {
-    override val containerSize: Int = 9
+    override fun containerSize(): Int = 9
+
     override val items: DefaultedList<ItemStack> = inventory
 
     override fun createMenu(syncId: Int, playerInventory: PlayerInventory, player: PlayerEntity): ScreenHandler {
