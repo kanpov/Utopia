@@ -23,9 +23,11 @@ val LOG: Logger = LogManager.getLogger()
 val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
 val RANDOM: Random = SecureRandom()
 val GROUP: ItemGroup = FabricItemGroupBuilder.create(Identifier(MOD_ID, "utopia")).icon { ItemStack(Items.ACACIA_BOAT) }.build()
+lateinit var CONFIG: ModuleConfig
 
 class Utopia : ModInitializer {
     override fun onInitialize() {
-        ModuleFeature.executeCommon(ModuleConfig.init())
+        CONFIG = ModuleConfig.init()
+        ModuleFeature.executeCommon(CONFIG)
     }
 }

@@ -1,5 +1,6 @@
 package com.redgrapefruit.utopia.common.module
 
+import com.redgrapefruit.utopia.client.registry.FScreenRegistry
 import com.redgrapefruit.utopia.common.registry.FBlockRegistry
 import com.redgrapefruit.utopia.common.registry.FScreenHandlerRegistry
 import com.redgrapefruit.utopia.common.registry.RItemRegistry
@@ -30,7 +31,8 @@ interface ModuleFeature {
             RItemRegistry,
             RPatchRegistry,
             FBlockRegistry,
-            FScreenHandlerRegistry
+            FScreenHandlerRegistry,
+            FScreenRegistry
         )
 
         /**
@@ -48,6 +50,9 @@ interface ModuleFeature {
             }
         }
 
+        /**
+         * Executes all client-side [ModuleFeature]s from given [ModuleConfig].
+         */
         fun executeClient(config: ModuleConfig) {
             config.enabledModules.forEach { module ->
                 registeredFeatures.forEach { feature ->
