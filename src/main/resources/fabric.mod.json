@@ -23,7 +23,7 @@
         "main": [
             {
                 "adapter": "kotlin",
-                "value": "com.redgrapefruit.utopia.Utopia"
+                "value": "com.redgrapefruit.utopia.common.Utopia"
             }
         ]
     },
