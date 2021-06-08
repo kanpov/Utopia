@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "utopia:block/fridge"
+        },
+        "facing=east": {
+            "model": "utopia:block/fridge",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "utopia:block/fridge",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "utopia:block/fridge",
+            "y": 270
+        }
+    }
+}

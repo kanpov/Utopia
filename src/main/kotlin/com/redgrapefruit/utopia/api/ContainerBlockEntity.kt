@@ -24,7 +24,7 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
     // region Properties & Overrides
 
     // Embedded inventory represented through a DefaultedList
-    private val inventory = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
+    protected val inventory: DefaultedList<ItemStack> = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
 
     protected abstract val containerSize: Int
 

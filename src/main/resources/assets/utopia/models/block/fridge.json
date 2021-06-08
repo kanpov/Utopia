@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "north": "utopia:block/fridge_front",
+        "south": "utopia:block/fridge_side",
+        "east": "utopia:block/fridge_side",
+        "west": "utopia:block/fridge_side",
+        "up": "utopia:block/fridge_top",
+        "down": "utopia:block/fridge_bottom"
+    }
+}

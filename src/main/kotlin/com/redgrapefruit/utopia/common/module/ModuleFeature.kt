@@ -1,5 +1,7 @@
 package com.redgrapefruit.utopia.common.module
 
+import com.redgrapefruit.utopia.common.registry.FBlockRegistry
+import com.redgrapefruit.utopia.common.registry.FScreenHandlerRegistry
 import com.redgrapefruit.utopia.common.registry.RItemRegistry
 import com.redgrapefruit.utopia.common.registry.RPatchRegistry
 
@@ -20,7 +22,9 @@ abstract class ModuleFeature {
          */
         private val registeredFeatures: List<ModuleFeature> = listOf(
             RItemRegistry,
-            RPatchRegistry
+            RPatchRegistry,
+            FBlockRegistry,
+            FScreenHandlerRegistry
         )
 
         /**

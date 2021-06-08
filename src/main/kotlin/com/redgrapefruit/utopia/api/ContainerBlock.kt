@@ -50,7 +50,7 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
      * @param blockEntity Given [BlockEntity]
      * @return Yes/No
      */
-    protected abstract fun checkBlockEntity(blockEntity: BlockEntity?): Boolean
+    protected abstract fun checkBlockEntity(blockEntity: BlockEntity): Boolean
 
     /**
      * Casts current [BlockEntity] to an inventory
@@ -58,7 +58,7 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
      * @param blockEntity Current block entity
      * @return Casted to inventory
      */
-    protected abstract fun castToInventory(blockEntity: BlockEntity?): Inventory
+    protected abstract fun castToInventory(blockEntity: BlockEntity): Inventory
 
     // endregion
 
@@ -104,7 +104,7 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
     override fun onStateReplaced(state: BlockState, world: World, pos: BlockPos, newState: BlockState, moved: Boolean) {
         // Proceed if the block has changed
         if (state.block !== newState.block) {
-            val blockEntity = world.getBlockEntity(pos)
+            val blockEntity = world.getBlockEntity(pos)!!
 
             // If the block entity is current block entity, drop everything and update comparators
             if (checkBlockEntity(blockEntity)) {

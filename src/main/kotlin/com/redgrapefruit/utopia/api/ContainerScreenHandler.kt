@@ -52,7 +52,7 @@ abstract class ContainerScreenHandler protected constructor(
      * @param inventory       Embedded inventory
      * @param playerInventory Player inventory
      */
-    protected abstract fun onSlotInit(inventory: Inventory?, playerInventory: PlayerInventory?)
+    protected abstract fun onSlotInit(inventory: Inventory, playerInventory: PlayerInventory)
 
     /**
      * An event reserved for adding screen handler listeners onto the screen handler

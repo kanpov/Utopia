@@ -1,5 +1,6 @@
 {
     "item.utopia.overdue_almond": "Overdue Almond",
     "item.utopia.salted_almond": "Salted Almond",
-    "itemGroup.utopia.utopia": "Utopia"
+    "itemGroup.utopia.utopia": "Utopia",
+    "block.utopia.fridge": "Fridge"
 }
