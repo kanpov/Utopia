@@ -1,8 +1,6 @@
 package com.redgrapefruit.utopia.registry
 
 import com.redgrapefruit.utopia.MOD_ID
-import com.redgrapefruit.utopia.core.data.RFoodCategory
-import com.redgrapefruit.utopia.core.data.RFoodConfig
 import com.redgrapefruit.utopia.item.ROverdueFoodItem
 import com.redgrapefruit.utopia.item.RSaltedFoodItem
 import com.redgrapefruit.utopia.module.Module
@@ -18,22 +16,13 @@ object RItemRegistry : ModuleFeature() {
     override val module: Module
         get() = Module.REALISM
 
-    internal val TEMP_ALMOND_CONFIG = RFoodConfig(
-        hunger = 3,
-        saturationModifier = 1.4f,
-        overdueSpeed = 800,
-        overdueState = 100000,
-        category = RFoodCategory.NUT,
-        effects = emptySet()
-    )
-
     // Overdue food
-    val OVERDUE_ALMOND = ROverdueFoodItem(TEMP_ALMOND_CONFIG)
+    val OVERDUE_ALMOND = ROverdueFoodItem(RConfigRegistry.ALMOND)
 
     // Rotten food
 
     // Salted food
-    val SALTED_ALMOND = RSaltedFoodItem(TEMP_ALMOND_CONFIG)
+    val SALTED_ALMOND = RSaltedFoodItem(RConfigRegistry.ALMOND)
 
     // Fresh food
 

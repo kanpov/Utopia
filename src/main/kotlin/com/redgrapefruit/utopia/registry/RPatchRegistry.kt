@@ -16,7 +16,7 @@ object RPatchRegistry : ModuleFeature() {
         get() = Module.REALISM
 
     override fun run() {
-        patch("almond", RItemRegistry.TEMP_ALMOND_CONFIG, RItemRegistry.OVERDUE_ALMOND)
+        patch("almond", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)
     }
 
     /**
