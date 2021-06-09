@@ -8,8 +8,6 @@ import java.io.*
 
 /**
  * A (de)serialized configuration file with all enabled [Module]s.
- *
- * You shouldn't edit the file directly, but use commands (TBD).
  */
 object ModuleConfig {
     /**
