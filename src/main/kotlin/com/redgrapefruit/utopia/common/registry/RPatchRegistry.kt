@@ -19,6 +19,7 @@ object RPatchRegistry : ModuleFeature {
         patch("almond", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)
         patch("almond_brittle", RConfigRegistry.ALMOND_BRITTLE, RItemRegistry.OVERDUE_ALMOND_BRITTLE)
         patch("apple_juice", RConfigRegistry.APPLE_JUICE, RItemRegistry.OVERDUE_APPLE_JUICE)
+        patch("apple_pie", RConfigRegistry.APPLE_PIE, RItemRegistry.OVERDUE_APPLE_PIE)
     }
 
     /**

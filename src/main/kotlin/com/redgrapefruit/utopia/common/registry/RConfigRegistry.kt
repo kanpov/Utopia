@@ -48,4 +48,17 @@ object RConfigRegistry {
             chance = 0.5f
         )
     )
+
+    val APPLE_PIE = RFoodConfig(
+        overdueSpeed = 5,
+        overdueState = 70000,
+        fridgeEfficiency = 2,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.REGENERATION,
+            durationRange = RIntRange(250, 400),
+            amplifierRange = RIntRange(1, 2),
+            isAlwaysApplied = true
+        )
+    )
 }

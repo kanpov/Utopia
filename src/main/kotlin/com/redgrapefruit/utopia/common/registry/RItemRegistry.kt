@@ -20,6 +20,7 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_ALMOND = ROverdueFoodItem(RConfigRegistry.ALMOND)
     val OVERDUE_ALMOND_BRITTLE = ROverdueFoodItem(RConfigRegistry.ALMOND_BRITTLE)
     val OVERDUE_APPLE_JUICE = ROverdueFoodItem(RConfigRegistry.APPLE_JUICE)
+    val OVERDUE_APPLE_PIE = ROverdueFoodItem(RConfigRegistry.APPLE_PIE)
 
     // Rotten food
 
@@ -33,6 +34,7 @@ object RItemRegistry : ModuleFeature {
         register("overdue_almond", OVERDUE_ALMOND)
         register("overdue_almond_brittle", OVERDUE_ALMOND_BRITTLE)
         register("overdue_apple_juice", OVERDUE_APPLE_JUICE)
+        register("overdue_apple_pie", OVERDUE_APPLE_PIE)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
     }
