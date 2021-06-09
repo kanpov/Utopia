@@ -24,6 +24,7 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_APRICOT = ROverdueFoodItem(RConfigRegistry.APRICOT)
     val OVERDUE_APRICOT_JAM = ROverdueFoodItem(RConfigRegistry.APRICOT_JAM)
     val OVERDUE_ARTICHOKE = ROverdueFoodItem(RConfigRegistry.ARTICHOKE)
+    val OVERDUE_ARTICHOKE_DIP = ROverdueFoodItem(RConfigRegistry.ARTICHOKE_DIP)
 
     // Rotten food
 
@@ -32,6 +33,7 @@ object RItemRegistry : ModuleFeature {
     val SALTED_ALMOND_BRITTLE = RSaltedFoodItem(RConfigRegistry.ALMOND_BRITTLE)
     val SALTED_APRICOT = RSaltedFoodItem(RConfigRegistry.APRICOT)
     val SALTED_ARTICHOKE = RSaltedFoodItem(RConfigRegistry.ARTICHOKE)
+    val SALTED_ARTICHOKE_DIP = RSaltedFoodItem(RConfigRegistry.ARTICHOKE_DIP)
 
     // Fresh food
 
@@ -43,10 +45,12 @@ object RItemRegistry : ModuleFeature {
         register("overdue_apricot", OVERDUE_APRICOT)
         register("overdue_apricot_jam", OVERDUE_APRICOT_JAM)
         register("overdue_artichoke", OVERDUE_ARTICHOKE)
+        register("overdue_artichoke_dip", OVERDUE_ARTICHOKE_DIP)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
         register("salted_artichoke", SALTED_ARTICHOKE)
+        register("salted_artichoke_dip", SALTED_ARTICHOKE_DIP)
     }
 
     /**
