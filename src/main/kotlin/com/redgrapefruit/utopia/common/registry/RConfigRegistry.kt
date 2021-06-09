@@ -76,4 +76,17 @@ object RConfigRegistry {
             chance = 0.65f
         )
     )
+
+    val APRICOT_JAM = RFoodConfig(
+        overdueSpeed = 6,
+        overdueState = 85000,
+        fridgeEfficiency = 2,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.ABSORPTION,
+            durationRange = RIntRange(350, 500),
+            amplifierRange = RIntRange(1, 3),
+            chance = 0.9f
+        )
+    )
 }
