@@ -61,4 +61,18 @@ object RConfigRegistry {
             isAlwaysApplied = true
         )
     )
+
+    val APRICOT = RFoodConfig(
+        overdueSpeed = 9,
+        overdueState = 135000,
+        fridgeEfficiency = 5,
+        saltEfficiency = 4,
+        category = RFoodCategory.FRUIT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.ABSORPTION,
+            durationRange = RIntRange(200, 300),
+            amplifierRange = RIntRange(0, 1),
+            chance = 0.65f
+        )
+    )
 }
