@@ -16,22 +16,23 @@ object RPatchRegistry : ModuleFeature {
     override val isClientSide: Boolean = false
 
     override fun run() {
-        patch("almond", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)
-        patch("almond_brittle", RConfigRegistry.ALMOND_BRITTLE, RItemRegistry.OVERDUE_ALMOND_BRITTLE)
-        patch("apple_juice", RConfigRegistry.APPLE_JUICE, RItemRegistry.OVERDUE_APPLE_JUICE)
-        patch("apple_pie", RConfigRegistry.APPLE_PIE, RItemRegistry.OVERDUE_APPLE_PIE)
-        patch("apricot", RConfigRegistry.APRICOT, RItemRegistry.OVERDUE_APRICOT)
+        patch("almond", "croptopia", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)
+        patch("almond_brittle", "croptopia", RConfigRegistry.ALMOND_BRITTLE, RItemRegistry.OVERDUE_ALMOND_BRITTLE)
+        patch("apple_juice", "croptopia", RConfigRegistry.APPLE_JUICE, RItemRegistry.OVERDUE_APPLE_JUICE)
+        patch("apple_pie", "croptopia", RConfigRegistry.APPLE_PIE, RItemRegistry.OVERDUE_APPLE_PIE)
+        patch("apricot", "croptopia", RConfigRegistry.APRICOT, RItemRegistry.OVERDUE_APRICOT)
     }
 
     /**
      * Patches a Croptopia item with rotten variant
      * @param name Unique name of the patched item
+     * @param namespace Namespace of the target mod. Usually 'croptopia' (patching the foundation mod) or 'minecraft' (patching vanilla)
      * @param config Linked [RFoodConfig]
      * @param rottenVariant Linked [RRottenFoodItem]
      */
-    private fun patch(name: String, config: RFoodConfig, rottenVariant: RRottenFoodItem) {
+    private fun patch(name: String, namespace: String, config: RFoodConfig, rottenVariant: RRottenFoodItem) {
         // Try to discover item and cast it
-        val access = discover(name, "croptopia") as ItemMixinAccess
+        val access = discover(name, namespace) as ItemMixinAccess
         // Add all needed properties
         access.activate()
         access.setConfig(config)
@@ -45,9 +46,9 @@ object RPatchRegistry : ModuleFeature {
      * @param config Linked [RFoodConfig]
      * @param overdueVariant Linked [ROverdueFoodItem]
      */
-    private fun patch(name: String, config: RFoodConfig, overdueVariant: ROverdueFoodItem) {
+    private fun patch(name: String, namespace: String, config: RFoodConfig, overdueVariant: ROverdueFoodItem) {
         // Try to discover item and cast it
-        val access = discover(name, "croptopia") as ItemMixinAccess
+        val access = discover(name, namespace) as ItemMixinAccess
         // Add all needed properties
         access.activate()
         access.setConfig(config)
