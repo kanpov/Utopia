@@ -13,6 +13,7 @@ object RConfigRegistry {
     val ALMOND = RFoodConfig(
         overdueSpeed = 7,
         overdueState = 100000,
+        saltEfficiency = 4,
         category = RFoodCategory.NUT,
         effect = RFoodEffectConfig(
             statusEffect = StatusEffects.SPEED,
