@@ -5,9 +5,11 @@
     "item.utopia.overdue_apple_pie": "Overdue Apple Pie",
     "item.utopia.overdue_apricot": "Overdue Apricot",
     "item.utopia.overdue_apricot_jam": "Overdue Apricot Jam",
+    "item.utopia.overdue_artichoke": "Overdue Artichoke",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
+    "item.utopia.salted_artichoke": "Salted Artichoke",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }

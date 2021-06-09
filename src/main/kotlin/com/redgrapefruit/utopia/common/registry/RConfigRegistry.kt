@@ -89,4 +89,18 @@ object RConfigRegistry {
             chance = 0.9f
         )
     )
+
+    val ARTICHOKE = RFoodConfig(
+        overdueSpeed = 4,
+        overdueState = 60000,
+        fridgeEfficiency = 1,
+        saltEfficiency = 2,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.RESISTANCE,
+            durationRange = RIntRange(150, 200),
+            amplifier = 0,
+            isAlwaysApplied = true
+        )
+    )
 }
