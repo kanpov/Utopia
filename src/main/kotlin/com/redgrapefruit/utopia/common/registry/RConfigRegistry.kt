@@ -35,4 +35,17 @@ object RConfigRegistry {
             chance = 0.8f
         )
     )
+
+    val APPLE_JUICE = RFoodConfig(
+        overdueSpeed = 11,
+        overdueState = 100000,
+        fridgeEfficiency = 6,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.REGENERATION,
+            durationRange = RIntRange(150, 300),
+            amplifierRange = RIntRange(0, 1),
+            chance = 0.5f
+        )
+    )
 }
