@@ -98,7 +98,7 @@ object ModuleConfig {
         )
         jsonObject.addProperty(
             "_guide_4",
-            "If you enable/disable a module with worldgen changes, your old world won't be compatible"
+            "If you enable/disable a module with worldgen changes, your old world will not be compatible"
         )
 
         // Initialize each module with true
