@@ -97,7 +97,7 @@ object ModuleConfig {
             "If you disable a module, your items from that module will be lost"
         )
         jsonObject.addProperty(
-            "_guide_3",
+            "_guide_4",
             "If you enable/disable a module with worldgen changes, your old world won't be compatible"
         )
 
