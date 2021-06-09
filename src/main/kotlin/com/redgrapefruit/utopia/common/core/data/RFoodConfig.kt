@@ -44,7 +44,7 @@ data class RFoodConfig(
      */
     val category: RFoodCategory,
     /**
-     * The [Set] of [RFoodEffectConfig]s that this food type has. Has to be immutable
+     * The effect that is applied when the food is eaten
      */
-    val effects: Set<RFoodEffectConfig>
+    val effect: RFoodEffectConfig
 )

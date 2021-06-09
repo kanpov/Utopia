@@ -14,13 +14,11 @@ object RConfigRegistry {
         overdueSpeed = 7,
         overdueState = 100000,
         category = RFoodCategory.NUT,
-        effects = mutableSetOf(
-            RFoodEffectConfig(
-                statusEffect = StatusEffects.SPEED,
-                durationRange = RIntRange(100, 200),
-                amplifier = 0,
-                chance = 0.6f
-            )
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.SPEED,
+            durationRange = RIntRange(100, 200),
+            amplifier = 0,
+            chance = 0.6f
         )
     )
 }

@@ -63,28 +63,26 @@ open class RFoodItem : Item {
         if (config.category.baseHunger + config.hunger < 2) builder.snack()
         // Saturation modifier
         builder.saturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
-        // Effects
-        config.effects.forEach { effectConfig ->
-            // If durationRange isn't defined (null), then check if the effect is permanent, if yes, the duration is 999999, else it's effectConfig.duration
-            // Else pick a random duration out of the durationRange using IntRange.pick
-            val duration = if (effectConfig.durationRange == null)
-                (if (effectConfig.isPermanent) 999999 else effectConfig.duration)
-            else effectConfig.durationRange.pick()
+        // Effect
+        // If durationRange isn't defined (null), then check if the effect is permanent, if yes, the duration is 999999, else it's effectConfig.duration
+        // Else pick a random duration out of the durationRange using IntRange.pick
+        val duration = if (config.effect.durationRange == null)
+            (if (config.effect.isPermanent) 999999 else config.effect.duration)
+        else config.effect.durationRange.pick()
 
-            // If amplifierRange isn't defined (null), then use effectConfig.amplifier
-            // Else pick a random amplifier out of the amplifierRange using IntRange.pick
-            val amplifier = if (effectConfig.amplifierRange == null)
-                effectConfig.amplifier
-            else effectConfig.amplifierRange.pick()
+        // If amplifierRange isn't defined (null), then use effectConfig.amplifier
+        // Else pick a random amplifier out of the amplifierRange using IntRange.pick
+        val amplifier = if (config.effect.amplifierRange == null)
+            config.effect.amplifier
+        else config.effect.amplifierRange.pick()
 
-            builder.statusEffect(
-                StatusEffectInstance(
-                    effectConfig.statusEffect,
-                    duration,
-                    amplifier
-                ), if (effectConfig.isAlwaysApplied) 1f else effectConfig.chance
-            )
-        }
+        builder.statusEffect(
+            StatusEffectInstance(
+                config.effect.statusEffect,
+                duration,
+                amplifier
+            ), if (config.effect.isAlwaysApplied) 1f else config.effect.chance
+        )
 
         builder.build()
     })
