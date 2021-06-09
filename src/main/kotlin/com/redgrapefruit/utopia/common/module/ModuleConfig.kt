@@ -92,6 +92,14 @@ object ModuleConfig {
             "_guide_2",
             "After setting a new value, make sure to restart Minecraft to apply the changes since the config reloads every launch of the game"
         )
+        jsonObject.addProperty(
+            "_guide_3",
+            "If you disable a module, your items from that module will be lost"
+        )
+        jsonObject.addProperty(
+            "_guide_3",
+            "If you enable/disable a module with worldgen changes, your old world won't be compatible"
+        )
 
         // Initialize each module with true
         enable(Module.REALISM, jsonObject)
