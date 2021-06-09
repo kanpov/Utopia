@@ -21,4 +21,18 @@ object RConfigRegistry {
             chance = 0.6f
         )
     )
+
+    val ALMOND_BRITTLE = RFoodConfig(
+        overdueSpeed = 8,
+        overdueState = 120000,
+        fridgeEfficiency = 5,
+        saltEfficiency = 2,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.SPEED,
+            durationRange = RIntRange(200, 350),
+            amplifierRange = RIntRange(0, 2),
+            chance = 0.8f
+        )
+    )
 }
