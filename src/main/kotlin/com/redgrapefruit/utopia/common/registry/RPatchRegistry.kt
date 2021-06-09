@@ -17,6 +17,7 @@ object RPatchRegistry : ModuleFeature {
 
     override fun run() {
         patch("almond", RConfigRegistry.ALMOND, RItemRegistry.OVERDUE_ALMOND)
+        patch("almond_brittle", RConfigRegistry.ALMOND_BRITTLE, RItemRegistry.OVERDUE_ALMOND_BRITTLE)
     }
 
     /**
