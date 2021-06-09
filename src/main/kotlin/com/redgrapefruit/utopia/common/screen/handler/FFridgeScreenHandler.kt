@@ -2,11 +2,18 @@ package com.redgrapefruit.utopia.common.screen.handler
 
 import com.redgrapefruit.utopia.api.ContainerScreenHandler
 import com.redgrapefruit.utopia.common.block.entity.FFridgeBlockEntity
+import com.redgrapefruit.utopia.common.core.state.RFridgeState
+import com.redgrapefruit.utopia.common.item.RFoodItem
 import com.redgrapefruit.utopia.common.registry.FScreenHandlerRegistry
+import com.redgrapefruit.utopia.common.util.ItemMixinAccess
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.Inventory
 import net.minecraft.inventory.SimpleInventory
+import net.minecraft.item.ItemStack
 import net.minecraft.screen.ScreenHandler
+import net.minecraft.screen.ScreenHandlerListener
+import net.minecraft.screen.slot.Slot
+import net.minecraft.util.collection.DefaultedList
 
 /**
  * A fridge [ScreenHandler] implementing the Container API.
@@ -36,5 +43,49 @@ class FFridgeScreenHandler
     }
 
     override fun onListenerInit() {
+        addListener(FFridgeScreenHandlerListener())
     }
+}
+
+/**
+ * A [ScreenHandlerListener] linked to the [FFridgeScreenHandler] processing the slots
+ */
+class FFridgeScreenHandlerListener : ScreenHandlerListener {
+    private lateinit var stacks: DefaultedList<ItemStack>
+
+    override fun onHandlerRegistered(handler: ScreenHandler, stacks: DefaultedList<ItemStack>) {
+        this.stacks = stacks
+    }
+
+    override fun onSlotUpdate(handler: ScreenHandler, slotId: Int, stack: ItemStack) {
+        // The listener doesn't track the player's slots
+        if (slotId > 9) return
+
+        // Retrieve current and previous item at this slot and proceed if they are different
+        val currentItem = stack.item
+        val previousItem = stacks[slotId].item
+        if (currentItem == previousItem) return
+
+        // If the previous item is a food item, set its fridge state to not compensated (inventoryTick call hasn't occurred yet)
+        // If the current item is a food item, set its fridge state to inside the fridge
+        // Repeat for both food implementations (RFoodItem and ItemMixin)
+        // For the mixin implementation, make sure that the item is activated
+        if (currentItem is RFoodItem) {
+            currentItem.profile.fridgeState = RFridgeState.IN_FRIDGE
+        }
+        if (previousItem is RFoodItem) {
+            previousItem.profile.fridgeState = RFridgeState.NOT_COMPENSATED
+        }
+        if (currentItem is ItemMixinAccess && currentItem.isActivated()) {
+            currentItem.getProfile()!!.fridgeState = RFridgeState.IN_FRIDGE
+        }
+        if (previousItem is ItemMixinAccess && previousItem.isActivated()) {
+            previousItem.getProfile()!!.fridgeState = RFridgeState.NOT_COMPENSATED
+        }
+
+        // Update the stack in the tracked inventory for further usage
+        stacks[slotId] = stack
+    }
+
+    override fun onPropertyUpdate(handler: ScreenHandler, property: Int, value: Int) = Unit
 }

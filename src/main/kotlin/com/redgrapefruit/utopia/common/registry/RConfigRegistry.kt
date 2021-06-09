@@ -8,7 +8,7 @@ import com.redgrapefruit.utopia.common.core.data.RFoodConfig
  */
 object RConfigRegistry {
     val ALMOND = RFoodConfig(
-        overdueSpeed = 800,
+        overdueSpeed = 7,
         overdueState = 100000,
         category = RFoodCategory.NUT,
         effects = emptySet()
