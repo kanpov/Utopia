@@ -27,6 +27,7 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_ARTICHOKE_DIP = ROverdueFoodItem(RConfigRegistry.ARTICHOKE_DIP)
     val OVERDUE_ASPARAGUS = ROverdueFoodItem(RConfigRegistry.ASPARAGUS)
     val OVERDUE_AVOCADO = ROverdueFoodItem(RConfigRegistry.AVOCADO)
+    val OVERDUE_BAKED_BEANS = ROverdueFoodItem(RConfigRegistry.BAKED_BEANS)
 
     // Rotten food
 
@@ -38,6 +39,7 @@ object RItemRegistry : ModuleFeature {
     val SALTED_ARTICHOKE_DIP = RSaltedFoodItem(RConfigRegistry.ARTICHOKE_DIP)
     val SALTED_ASPARAGUS = RSaltedFoodItem(RConfigRegistry.ASPARAGUS)
     val SALTED_AVOCADO = RSaltedFoodItem(RConfigRegistry.AVOCADO)
+    val SALTED_BAKED_BEANS = RSaltedFoodItem(RConfigRegistry.BAKED_BEANS)
 
     // Fresh food
 
@@ -52,6 +54,7 @@ object RItemRegistry : ModuleFeature {
         register("overdue_artichoke_dip", OVERDUE_ARTICHOKE_DIP)
         register("overdue_asparagus", OVERDUE_ASPARAGUS)
         register("overdue_avocado", OVERDUE_AVOCADO)
+        register("overdue_baked_beans", OVERDUE_BAKED_BEANS)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
@@ -59,6 +62,7 @@ object RItemRegistry : ModuleFeature {
         register("salted_artichoke_dip", SALTED_ARTICHOKE_DIP)
         register("salted_asparagus", SALTED_ASPARAGUS)
         register("salted_avocado", SALTED_AVOCADO)
+        register("salted_baked_beans", SALTED_BAKED_BEANS)
     }
 
     /**

@@ -145,4 +145,18 @@ object RConfigRegistry {
             chance = 0.45f
         )
     )
+
+    val BAKED_BEANS = RFoodConfig(
+        overdueSpeed = 5,
+        overdueState = 150000,
+        fridgeEfficiency = 2,
+        saltEfficiency = 1,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.HERO_OF_THE_VILLAGE,
+            durationRange = RIntRange(400, 750),
+            amplifierRange = RIntRange(0, 2),
+            chance = 0.9f
+        )
+    )
 }
