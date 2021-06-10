@@ -95,29 +95,23 @@ object RFoodEngine {
         // State
         breakLine(tooltip)
         tooltip += LiteralText(AQUA + "State: " + state.displayName)
-        // Hunger
-        breakLine(tooltip)
-        tooltip += LiteralText(GREEN + "Hunger: " + (config.category.baseHunger + config.hunger))
-        // Saturation modifier
-        breakLine(tooltip)
-        tooltip += LiteralText(GOLD + "Saturation modifier: " + (config.category.baseSaturationModifier + config.saturationModifier))
         // Category and its description
         breakLine(tooltip)
         tooltip += LiteralText(DARK_RED + "Category: ")
         tooltip += LiteralText(RED + config.category.displayName)
         tooltip += LiteralText(YELLOW + config.category.details)
         // Rot
-        if (config.category.canRot) {
+        if (config.category.canRot && state.displayRot) {
             breakLine(tooltip)
             tooltip += LiteralText(DARK_GREEN + "Rot: " + profile.rotProgress + "/" + config.rotState)
         }
         // Overdue
-        if (config.category.canOverdue) {
+        if (config.category.canOverdue && state.displayOverdue) {
             breakLine(tooltip)
             tooltip += LiteralText(DARK_PURPLE + "Overdue: " + profile.overdueProgress + "/" + config.overdueState)
         }
         // Fridge
-        if (config.category.canBePutInFridge) {
+        if (config.category.canBePutInFridge && state.displayFridgeProperties) {
             breakLine(tooltip)
             tooltip += LiteralText(BLUE + "Is in fridge: " + profile.fridgeState.boolValue)
             tooltip += LiteralText(DARK_BLUE + "Fridge efficiency: " + config.fridgeEfficiency)
