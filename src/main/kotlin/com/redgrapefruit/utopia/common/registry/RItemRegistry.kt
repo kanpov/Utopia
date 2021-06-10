@@ -28,6 +28,7 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_ASPARAGUS = ROverdueFoodItem(RConfigRegistry.ASPARAGUS)
     val OVERDUE_AVOCADO = ROverdueFoodItem(RConfigRegistry.AVOCADO)
     val OVERDUE_BAKED_BEANS = ROverdueFoodItem(RConfigRegistry.BAKED_BEANS)
+    val OVERDUE_BANANA = ROverdueFoodItem(RConfigRegistry.BANANA)
 
     // Rotten food
 
@@ -40,6 +41,7 @@ object RItemRegistry : ModuleFeature {
     val SALTED_ASPARAGUS = RSaltedFoodItem(RConfigRegistry.ASPARAGUS)
     val SALTED_AVOCADO = RSaltedFoodItem(RConfigRegistry.AVOCADO)
     val SALTED_BAKED_BEANS = RSaltedFoodItem(RConfigRegistry.BAKED_BEANS)
+    val SALTED_BANANA = RSaltedFoodItem(RConfigRegistry.BANANA)
 
     // Fresh food
 

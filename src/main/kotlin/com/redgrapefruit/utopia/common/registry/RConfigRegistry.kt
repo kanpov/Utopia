@@ -159,4 +159,17 @@ object RConfigRegistry {
             chance = 0.9f
         )
     )
+
+    val BANANA = RFoodConfig(
+        overdueSpeed = 7,
+        overdueState = 120000,
+        fridgeEfficiency = 4,
+        category = RFoodCategory.FRUIT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.FIRE_RESISTANCE,
+            durationRange = RIntRange(300, 600),
+            amplifier = 0,
+            chance = 0.65f
+        )
+    )
 }
