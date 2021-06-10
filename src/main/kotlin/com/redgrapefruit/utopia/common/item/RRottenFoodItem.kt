@@ -1,6 +1,7 @@
 package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
+import com.redgrapefruit.utopia.common.RANDOM
 import com.redgrapefruit.utopia.common.core.data.RFoodCategory
 import com.redgrapefruit.utopia.common.core.data.RFoodConfig
 import com.redgrapefruit.utopia.common.core.state.RFoodState

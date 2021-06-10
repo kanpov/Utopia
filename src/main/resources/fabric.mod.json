@@ -33,9 +33,10 @@
     "depends": {
         "fabricloader": ">=0.11.3",
         "fabric": "*",
-        "minecraft": "1.16.5",
-        "croptopia": ">=1.4.0",
-        "patchouli": ">=1.16.4-51-FABRIC",
-        "dehydration": ">=1.1.4"
+        "minecraft": "1.17",
+        "croptopia": "*"
+    },
+    "suggests": {
+        "patchouli": "*"
     }
 }

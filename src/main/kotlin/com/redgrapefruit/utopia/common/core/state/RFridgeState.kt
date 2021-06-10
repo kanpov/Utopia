@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.common.core.state
 
 import com.redgrapefruit.utopia.common.LOG
-import net.minecraft.nbt.CompoundTag
+import net.minecraft.nbt.NbtCompound
 
 /**
  * Current fridge state.
@@ -24,14 +24,14 @@ enum class RFridgeState(val boolValue: Boolean) {
 
     companion object Serialization {
         /**
-         * Deserializes a [RFridgeState] from a [CompoundTag]
+         * Deserializes a [RFridgeState] from an [NbtCompound]
          * @param prefix The prefix of the [RFridgeState] to avoid conflicts
-         * @param tag The input [CompoundTag]
+         * @param nbt The input [NbtCompound]
          * @return Deserialized value
          */
-        fun fromTag(prefix: String, tag: CompoundTag): RFridgeState {
+        fun fromTag(prefix: String, nbt: NbtCompound): RFridgeState {
             // Check for invalid values
-            val value = tag.getInt("$prefix : Value")
+            val value = nbt.getInt("$prefix : Value")
             if (value > 2 || value < 0) LOG.error("Couldn't serialize FridgeState. Value is invalid")
 
             return when (value) {
@@ -42,19 +42,19 @@ enum class RFridgeState(val boolValue: Boolean) {
         }
 
         /**
-         * Serializes a [RFridgeState] into a [CompoundTag]
+         * Serializes a [RFridgeState] into an [NbtCompound]
          * @param prefix The prefix of the [RFridgeState] to avoid conflicts
          * @param state The serialized [RFridgeState]
-         * @param tag The output [CompoundTag]
+         * @param nbt The output [NbtCompound]
          */
-        fun toTag(prefix: String, state: RFridgeState, tag: CompoundTag) {
+        fun toTag(prefix: String, state: RFridgeState, nbt: NbtCompound) {
             val value: Int = when (state) {
                 IN_FRIDGE -> 0
                 NOT_COMPENSATED -> 1
                 else -> 2
             }
 
-            tag.putInt("$prefix : Value", value)
+            nbt.putInt("$prefix : Value", value)
         }
     }
 }

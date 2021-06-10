@@ -5,7 +5,7 @@ import com.redgrapefruit.utopia.common.core.state.RFridgeState;
 import com.redgrapefruit.utopia.common.item.RFoodItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,29 +24,29 @@ public class ItemStackMixin {
     @Final
     private Item item;
 
-    @Inject(method = "<init>(Lnet/minecraft/nbt/CompoundTag;)V", at = @At("TAIL"))
-    private void constructor(CompoundTag tag, CallbackInfo info) {
+    @Inject(method = "<init>(Lnet/minecraft/nbt/NbtCompound;)V", at = @At("TAIL"))
+    private void constructor(NbtCompound nbt, CallbackInfo ci) {
         if (!(item instanceof RFoodItem)) return;
 
         RFoodProfile profile = ((RFoodItem) item).getProfile();
 
-        profile.setRotProgress(tag.getInt("Rot Progress"));
+        profile.setRotProgress(nbt.getInt("Rot Progress"));
         //profile.setOverdueProgress(tag.getInt("Overdue Progress"));
-        profile.setPreviousTick(tag.getLong("Previous World Tick"));
-        profile.setInitialized(tag.getBoolean("Is Initialized"));
-        profile.setFridgeState(RFridgeState.Serialization.fromTag("Fridge State", tag));
+        profile.setPreviousTick(nbt.getLong("Previous World Tick"));
+        profile.setInitialized(nbt.getBoolean("Is Initialized"));
+        profile.setFridgeState(RFridgeState.Serialization.fromTag("Fridge State", nbt));
     }
 
-    @Inject(method = "toTag", at = @At("TAIL"))
-    private void toTag(CompoundTag tag, CallbackInfoReturnable<CompoundTag> cir) {
+    @Inject(method = "writeNbt", at = @At("TAIL"))
+    private void writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
         if (!(item instanceof RFoodItem)) return;
 
         RFoodProfile profile = ((RFoodItem) item).getProfile();
 
-        tag.putInt("Rot Progress", profile.getRotProgress());
-        //tag.putInt("Overdue Progress", profile.getOverdueProgress());
-        tag.putLong("Previous World Tick", profile.getPreviousTick());
-        tag.putBoolean("Is Initialized", profile.isInitialized());
-        RFridgeState.Serialization.toTag("Fridge State", profile.getFridgeState(), tag);
+        nbt.putInt("Rot Progress", profile.getRotProgress());
+        nbt.putInt("Overdue Progress", profile.getOverdueProgress());
+        nbt.putLong("Previous World Tick", profile.getPreviousTick());
+        nbt.putBoolean("Is Initialized", profile.isInitialized());
+        RFridgeState.Serialization.toTag("Fridge State", profile.getFridgeState(), nbt);
     }
 }
