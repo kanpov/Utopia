@@ -30,6 +30,7 @@ object RPatchRegistry : ModuleFeature {
         patch("banana", "croptopia", RConfigRegistry.BANANA, RItemRegistry.OVERDUE_BANANA)
         patch("banana_cream_pie", "croptopia", RConfigRegistry.BANANA_CREAM_PIE, RItemRegistry.OVERDUE_BANANA_CREAM_PIE)
         patch("banana_nut_bread", "croptopia", RConfigRegistry.BANANA_NUT_BREAD, RItemRegistry.OVERDUE_BANANA_NUT_BREAD)
+        patch("barley", "croptopia", RConfigRegistry.BARLEY, RItemRegistry.OVERDUE_BARLEY)
     }
 
     /**

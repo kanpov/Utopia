@@ -199,4 +199,17 @@ object RConfigRegistry {
             chance = 0.8f
         )
     )
+
+    val BARLEY = RFoodConfig(
+        overdueSpeed = 8,
+        overdueState = 130000,
+        fridgeEfficiency = 4,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.WATER_BREATHING,
+            durationRange = RIntRange(500, 800),
+            amplifier = 0,
+            isAlwaysApplied = true
+        )
+    )
 }
