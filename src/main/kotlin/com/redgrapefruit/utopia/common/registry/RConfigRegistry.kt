@@ -131,4 +131,18 @@ object RConfigRegistry {
             isAlwaysApplied = true
         )
     )
+
+    val AVOCADO = RFoodConfig(
+        overdueSpeed = 8,
+        overdueState = 115000,
+        fridgeEfficiency = 6,
+        saltEfficiency = 4,
+        category = RFoodCategory.FRUIT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.SLOW_FALLING,
+            durationRange = RIntRange(250, 500),
+            amplifierRange = RIntRange(0, 1),
+            chance = 0.45f
+        )
+    )
 }

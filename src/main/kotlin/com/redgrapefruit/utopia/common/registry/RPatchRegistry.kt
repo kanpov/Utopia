@@ -25,6 +25,7 @@ object RPatchRegistry : ModuleFeature {
         patch("artichoke", "croptopia", RConfigRegistry.ARTICHOKE, RItemRegistry.OVERDUE_ARTICHOKE)
         patch("artichoke_dip", "croptopia", RConfigRegistry.ARTICHOKE_DIP, RItemRegistry.OVERDUE_ARTICHOKE_DIP)
         patch("asparagus", "croptopia", RConfigRegistry.ASPARAGUS, RItemRegistry.OVERDUE_ASPARAGUS)
+        patch("avocado", "croptopia", RConfigRegistry.AVOCADO, RItemRegistry.OVERDUE_AVOCADO)
     }
 
     /**
