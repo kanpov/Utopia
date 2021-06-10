@@ -117,4 +117,18 @@ object RConfigRegistry {
             chance = 0.85f
         )
     )
+
+    val ARTICHOKE_DIP_CHIPS = RFoodConfig(
+        overdueSpeed = 7,
+        overdueState = 110000,
+        fridgeEfficiency = 3,
+        saltEfficiency = 2,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.RESISTANCE,
+            durationRange = RIntRange(350, 550),
+            amplifierRange = RIntRange(1, 3),
+            chance = 0.7f
+        )
+    )
 }
