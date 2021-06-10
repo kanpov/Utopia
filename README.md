@@ -1,3 +1,20 @@
+# Support for 1.17
+
+This branch is being updated to support 1.17, and it is currently in **beta**.  
+Here's the list of things to do for full support:
+
+- [x] Update to 1.17 Fabric and Minecraft version
+- [x] Resolve the compile errors
+- [x] Resolve the runtime errors
+- [x] Use Croptopia 1.17-rc2
+- [x] Use Patchouli snapshot release for 1.17
+- [ ] Wait for Croptopia to fully update
+- [ ] Wait for Patchouli to fully update
+
+Most things are finished, but not all the dependencies have updated to 1.17  
+(for Croptopia, we use the 1.17-rc2 version, for Patchouli, we use the snapshot version).  
+Even though **the mod is working**, the support cannot be considered stable until the dependencies update.
+
 # About
 This is plugin for [Croptopia](https://github.com/ExcessiveAmountsOfZombies/Croptopia).  
 The plugin is in early stages of development and definitely not ready yet.  
