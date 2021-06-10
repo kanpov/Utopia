@@ -4,6 +4,8 @@ import com.redgrapefruit.utopia.api.ContainerScreenHandler
 import com.redgrapefruit.utopia.common.block.entity.FFridgeBlockEntity
 import com.redgrapefruit.utopia.common.core.state.RFridgeState
 import com.redgrapefruit.utopia.common.item.RFoodItem
+import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem
 import com.redgrapefruit.utopia.common.registry.FScreenHandlerRegistry
 import com.redgrapefruit.utopia.common.util.ItemMixinAccess
 import net.minecraft.entity.player.PlayerInventory
