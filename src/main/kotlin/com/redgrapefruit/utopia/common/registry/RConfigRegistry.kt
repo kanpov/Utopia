@@ -179,10 +179,24 @@ object RConfigRegistry {
         fridgeEfficiency = 5,
         category = RFoodCategory.PRODUCT,
         effect = RFoodEffectConfig(
-            statusEffect = StatusEffects.WATER_BREATHING,
-            durationRange = RIntRange(250, 500),
+            statusEffect = StatusEffects.FIRE_RESISTANCE,
+            durationRange = RIntRange(400, 750),
             amplifier = 0,
             isAlwaysApplied = true
+        )
+    )
+
+    val BANANA_NUT_BREAD = RFoodConfig(
+        overdueSpeed = 10,
+        overdueState = 165000,
+        fridgeEfficiency = 5,
+        saltEfficiency = 7,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.FIRE_RESISTANCE,
+            durationRange = RIntRange(600, 900),
+            amplifier = 0,
+            chance = 0.8f
         )
     )
 }
