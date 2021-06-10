@@ -1,6 +1,6 @@
 # Support for 1.17
 
-This branch is being updated to support 1.17, and it is currently in **beta**.  
+This mod(plugin) is being updated to support 1.17, and it is currently in **beta**.  
 Here's the list of things to do for full support:
 
 - [x] Update to 1.17 Fabric and Minecraft version
