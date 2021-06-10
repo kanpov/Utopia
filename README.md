@@ -64,12 +64,6 @@ You can truly open a restaurant now.
 
 # Install
 
-Full releases aren't ready yet, but previews are available right [here](https://github.com/RedGrapefruit09/Utopia/releases), on this repository.
-You must have:
-
-1. All the mandatory dependencies (see the release descriptions)
-2. The mod itself
-3. Fabric API
-4. A working Fabric Minecraft instance  
-
-To run this mod properly.  
+Full releases are not ready yet, but you can try out previews.  
+Go to the [GitHub releases page](https://github.com/RedGrapefruit09/Utopia/releases) and pick the latest release.  
+Now just follow the How to Use instructions, and you should be fine.
