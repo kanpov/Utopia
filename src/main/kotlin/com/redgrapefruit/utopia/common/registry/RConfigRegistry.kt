@@ -172,4 +172,17 @@ object RConfigRegistry {
             chance = 0.65f
         )
     )
+
+    val BANANA_CREAM_PIE = RFoodConfig(
+        overdueSpeed = 9,
+        overdueState = 140000,
+        fridgeEfficiency = 5,
+        category = RFoodCategory.PRODUCT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.WATER_BREATHING,
+            durationRange = RIntRange(250, 500),
+            amplifier = 0,
+            isAlwaysApplied = true
+        )
+    )
 }
