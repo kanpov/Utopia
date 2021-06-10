@@ -36,6 +36,6 @@
         "minecraft": "1.16.5",
         "croptopia": ">=1.4.0",
         "patchouli": ">=1.16.4-51-FABRIC",
-        "dehydration": ">=1.4.1"
+        "dehydration": ">=1.1.4"
     }
 }
