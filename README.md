@@ -41,7 +41,7 @@ Some blocks have custom functionality aside from storage, like the fridge.
 ### Cooking
 
 **About**: Custom burgers, sandwiches, hot dogs, even more recipes!  
-You can truly open a restaurant now.
+You can truly open a restaurant now.  
 **Release date**: Unknown.  
 **Current state**: Planned.
 
