@@ -57,6 +57,7 @@ object RItemRegistry : ModuleFeature {
         register("overdue_asparagus", OVERDUE_ASPARAGUS)
         register("overdue_avocado", OVERDUE_AVOCADO)
         register("overdue_baked_beans", OVERDUE_BAKED_BEANS)
+        register("overdue_banana", OVERDUE_BANANA)
         register("overdue_banana_cream_pie", OVERDUE_BANANA_CREAM_PIE)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
