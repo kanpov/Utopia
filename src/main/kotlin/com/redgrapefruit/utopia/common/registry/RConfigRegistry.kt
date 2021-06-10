@@ -131,4 +131,18 @@ object RConfigRegistry {
             chance = 0.7f
         )
     )
+
+    val ASPARAGUS = RFoodConfig(
+        overdueSpeed = 9,
+        overdueState = 135000,
+        fridgeEfficiency = 5,
+        saltEfficiency = 4,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.SATURATION,
+            durationRange = RIntRange(200, 400),
+            amplifierRange = RIntRange(0, 2),
+            isAlwaysApplied = true
+        )
+    )
 }
