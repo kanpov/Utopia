@@ -42,7 +42,6 @@ object RItemRegistry : ModuleFeature {
     val SALTED_ASPARAGUS = RSaltedFoodItem(RConfigRegistry.ASPARAGUS)
     val SALTED_AVOCADO = RSaltedFoodItem(RConfigRegistry.AVOCADO)
     val SALTED_BAKED_BEANS = RSaltedFoodItem(RConfigRegistry.BAKED_BEANS)
-    val SALTED_BANANA = RSaltedFoodItem(RConfigRegistry.BANANA)
 
     // Fresh food
 
