@@ -240,4 +240,18 @@ object RConfigRegistry {
             chance = 0.4f
         )
     )
+
+    val BEEF_WELLINGTON = RFoodConfig(
+        rotSpeed = 7,
+        rotState = 150000,
+        fridgeEfficiency = 4,
+        saltEfficiency = 3,
+        category = RFoodCategory.MEAT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.JUMP_BOOST,
+            durationRange = RIntRange(200, 400),
+            amplifierRange = RIntRange(1, 2),
+            chance = 0.65f
+        )
+    )
 }

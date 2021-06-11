@@ -19,6 +19,7 @@ object RItemRegistry : ModuleFeature {
 
     // Rotten food
     val ROTTEN_BEEF_JERKY = RRottenFoodItem(RConfigRegistry.BEEF_JERKY)
+    val ROTTEN_BEEF_WELLINGTON = RRottenFoodItem(RConfigRegistry.BEEF_WELLINGTON)
 
     // Overdue food
     val OVERDUE_ALMOND = ROverdueFoodItem(RConfigRegistry.ALMOND)
@@ -50,11 +51,13 @@ object RItemRegistry : ModuleFeature {
     val SALTED_BANANA_NUT_BREAD = RSaltedFoodItem(RConfigRegistry.BANANA_NUT_BREAD)
     val SALTED_BASIL = RSaltedFoodItem(RConfigRegistry.BASIL)
     val SALTED_BEEF_JERKY = RSaltedFoodItem(RConfigRegistry.BEEF_JERKY)
+    val SALTED_BEEF_WELLINGTON = RSaltedFoodItem(RConfigRegistry.BEEF_WELLINGTON)
 
     // Fresh food
 
     override fun run() {
         register("rotten_beef_jerky", ROTTEN_BEEF_JERKY)
+        register("rotten_beef_wellington", ROTTEN_BEEF_WELLINGTON)
         register("overdue_almond", OVERDUE_ALMOND)
         register("overdue_almond_brittle", OVERDUE_ALMOND_BRITTLE)
         register("overdue_apple_juice", OVERDUE_APPLE_JUICE)
@@ -82,6 +85,7 @@ object RItemRegistry : ModuleFeature {
         register("salted_banana_nut_bread", SALTED_BANANA_NUT_BREAD)
         register("salted_basil", SALTED_BASIL)
         register("salted_beef_jerky", SALTED_BEEF_JERKY)
+        register("salted_beef_wellington", SALTED_BEEF_WELLINGTON)
     }
 
     /**

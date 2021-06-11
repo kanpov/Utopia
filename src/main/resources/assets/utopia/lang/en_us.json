@@ -1,5 +1,6 @@
 {
     "item.utopia.rotten_beef_jerky": "Rotten Beef Jerky",
+    "item.utopia.rotten_beef_wellington": "Rotten Beef Wellington",
     "item.utopia.overdue_almond": "Overdue Almond",
     "item.utopia.overdue_almond_brittle": "Overdue Almond Brittle",
     "item.utopia.overdue_apple_juice": "Overdue Apple Juice",
@@ -27,6 +28,7 @@
     "item.utopia.salted_banana_nut_bread": "Salted Banana Nut Bread",
     "item.utopia.salted_basil": "Salted Basil",
     "item.utopia.salted_beef_jerky": "Salted Beef Jerky",
+    "item.utopia.salted_beef_wellington": "Salted Beef Wellington",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
