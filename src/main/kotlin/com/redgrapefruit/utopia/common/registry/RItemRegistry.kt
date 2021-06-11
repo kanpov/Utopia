@@ -38,6 +38,7 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_BANANA_NUT_BREAD = ROverdueFoodItem(RConfigRegistry.BANANA_NUT_BREAD)
     val OVERDUE_BARLEY = ROverdueFoodItem(RConfigRegistry.BARLEY)
     val OVERDUE_BASIL = ROverdueFoodItem(RConfigRegistry.BASIL)
+    val OVERDUE_BELLPEPPER = ROverdueFoodItem(RConfigRegistry.BELLPEPPER)
 
     // Salted food
     val SALTED_ALMOND = RSaltedFoodItem(RConfigRegistry.ALMOND)
@@ -74,6 +75,7 @@ object RItemRegistry : ModuleFeature {
         register("overdue_banana_nut_bread", OVERDUE_BANANA_NUT_BREAD)
         register("overdue_barley", OVERDUE_BARLEY)
         register("overdue_basil", OVERDUE_BASIL)
+        register("overdue_bellpepper", OVERDUE_BELLPEPPER)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)

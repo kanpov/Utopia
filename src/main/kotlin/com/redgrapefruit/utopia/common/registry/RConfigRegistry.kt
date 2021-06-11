@@ -254,4 +254,17 @@ object RConfigRegistry {
             chance = 0.65f
         )
     )
+
+    val BELLPEPPER = RFoodConfig(
+        overdueState = 9,
+        rotState = 115000,
+        fridgeEfficiency = 4,
+        category = RFoodCategory.VEGETABLE,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.INVISIBILITY,
+            durationRange = RIntRange(250, 550),
+            amplifier = 0,
+            isAlwaysApplied = true
+        )
+    )
 }
