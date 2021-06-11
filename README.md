@@ -1,5 +1,3 @@
-### [Modrinth](https://modrinth.com/mod/utopia)
-
 # About
 
 This mod builds upon Croptopia to improve the food experience for Minecraft players.  
