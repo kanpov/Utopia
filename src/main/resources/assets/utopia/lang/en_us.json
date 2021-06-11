@@ -18,6 +18,7 @@
     "item.utopia.overdue_barley": "Overdue Barley",
     "item.utopia.overdue_basil": "Overdue Basil",
     "item.utopia.overdue_bellpepper": "Overdue Bellpepper",
+    "item.utopia.overdue_blackbean": "Overdue Blackbean",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -30,6 +31,7 @@
     "item.utopia.salted_basil": "Salted Basil",
     "item.utopia.salted_beef_jerky": "Salted Beef Jerky",
     "item.utopia.salted_beef_wellington": "Salted Beef Wellington",
+    "item.utopia.salted_blackbean": "Salted Blackbean",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }

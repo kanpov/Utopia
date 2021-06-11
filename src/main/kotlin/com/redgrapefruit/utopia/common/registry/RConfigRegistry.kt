@@ -256,8 +256,8 @@ object RConfigRegistry {
     )
 
     val BELLPEPPER = RFoodConfig(
-        overdueState = 9,
-        rotState = 115000,
+        overdueSpeed = 9,
+        overdueState = 115000,
         fridgeEfficiency = 4,
         category = RFoodCategory.VEGETABLE,
         effect = RFoodEffectConfig(
@@ -265,6 +265,20 @@ object RConfigRegistry {
             durationRange = RIntRange(250, 550),
             amplifier = 0,
             isAlwaysApplied = true
+        )
+    )
+
+    val BLACKBEAN = RFoodConfig(
+        overdueSpeed = 6,
+        overdueState = 70000,
+        fridgeEfficiency = 2,
+        saltEfficiency = 3,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.DOLPHINS_GRACE,
+            durationRange = RIntRange(300, 400),
+            amplifierRange = RIntRange(0, 1),
+            chance = 0.25f
         )
     )
 }

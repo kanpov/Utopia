@@ -35,6 +35,7 @@ object RPatchRegistry : ModuleFeature {
         patch("beef_jerky", "croptopia", RConfigRegistry.BEEF_JERKY, RItemRegistry.ROTTEN_BEEF_JERKY)
         patch("beef_wellington", "croptopia", RConfigRegistry.BEEF_WELLINGTON, RItemRegistry.ROTTEN_BEEF_WELLINGTON)
         patch("bellpepper", "croptopia", RConfigRegistry.BELLPEPPER, RItemRegistry.OVERDUE_BELLPEPPER)
+        patch("blackbean", "croptopia", RConfigRegistry.BLACKBEAN, RItemRegistry.OVERDUE_BLACKBEAN)
     }
 
     /**
