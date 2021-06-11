@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S ",
+        "SFS",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "item": "croptopia:salt"
+        },
+        "F": {
+            "item": "croptopia:basil"
+        }
+    },
+    "result": {
+        "item": "utopia:salted_basil",
+        "count": 1
+    }
+}

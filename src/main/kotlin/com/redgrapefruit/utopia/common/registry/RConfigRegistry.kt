@@ -212,4 +212,18 @@ object RConfigRegistry {
             isAlwaysApplied = true
         )
     )
+
+    val BASIL = RFoodConfig(
+        overdueSpeed = 7,
+        overdueState = 90000,
+        fridgeEfficiency = 3,
+        saltEfficiency = 4,
+        category = RFoodCategory.PLANT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.INSTANT_HEALTH,
+            durationRange = RIntRange(25, 50),
+            amplifier = 0,
+            chance = 0.7f
+        )
+    )
 }
