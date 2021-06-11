@@ -226,4 +226,18 @@ object RConfigRegistry {
             chance = 0.7f
         )
     )
+
+    val BEEF_JERKY = RFoodConfig(
+        rotSpeed = 8,
+        rotState = 140000,
+        fridgeEfficiency = 5,
+        saltEfficiency = 3,
+        category = RFoodCategory.MEAT,
+        effect = RFoodEffectConfig(
+            statusEffect = StatusEffects.LUCK,
+            durationRange = RIntRange(1500, 2000),
+            amplifierRange = RIntRange(0, 3),
+            chance = 0.4f
+        )
+    )
 }

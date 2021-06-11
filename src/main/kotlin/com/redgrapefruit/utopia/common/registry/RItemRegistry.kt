@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.MOD_ID
 import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RRottenFoodItem
 import com.redgrapefruit.utopia.common.item.RSaltedFoodItem
 import com.redgrapefruit.utopia.common.module.Module
 import com.redgrapefruit.utopia.common.module.ModuleFeature
@@ -15,6 +16,9 @@ import net.minecraft.util.registry.Registry
 object RItemRegistry : ModuleFeature {
     override val module: Module = Module.REALISM
     override val isClientSide: Boolean = false
+
+    // Rotten food
+    val ROTTEN_BEEF_JERKY = RRottenFoodItem(RConfigRegistry.BEEF_JERKY)
 
     // Overdue food
     val OVERDUE_ALMOND = ROverdueFoodItem(RConfigRegistry.ALMOND)
@@ -34,8 +38,6 @@ object RItemRegistry : ModuleFeature {
     val OVERDUE_BARLEY = ROverdueFoodItem(RConfigRegistry.BARLEY)
     val OVERDUE_BASIL = ROverdueFoodItem(RConfigRegistry.BASIL)
 
-    // Rotten food
-
     // Salted food
     val SALTED_ALMOND = RSaltedFoodItem(RConfigRegistry.ALMOND)
     val SALTED_ALMOND_BRITTLE = RSaltedFoodItem(RConfigRegistry.ALMOND_BRITTLE)
@@ -47,10 +49,12 @@ object RItemRegistry : ModuleFeature {
     val SALTED_BAKED_BEANS = RSaltedFoodItem(RConfigRegistry.BAKED_BEANS)
     val SALTED_BANANA_NUT_BREAD = RSaltedFoodItem(RConfigRegistry.BANANA_NUT_BREAD)
     val SALTED_BASIL = RSaltedFoodItem(RConfigRegistry.BASIL)
+    val SALTED_BEEF_JERKY = RSaltedFoodItem(RConfigRegistry.BEEF_JERKY)
 
     // Fresh food
 
     override fun run() {
+        register("rotten_beef_jerky", ROTTEN_BEEF_JERKY)
         register("overdue_almond", OVERDUE_ALMOND)
         register("overdue_almond_brittle", OVERDUE_ALMOND_BRITTLE)
         register("overdue_apple_juice", OVERDUE_APPLE_JUICE)
@@ -77,6 +81,7 @@ object RItemRegistry : ModuleFeature {
         register("salted_baked_beans", SALTED_BAKED_BEANS)
         register("salted_banana_nut_bread", SALTED_BANANA_NUT_BREAD)
         register("salted_basil", SALTED_BASIL)
+        register("salted_beef_jerky", SALTED_BEEF_JERKY)
     }
 
     /**
