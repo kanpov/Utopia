@@ -1,8 +1,8 @@
 package com.redgrapefruit.utopia.common.block.entity
 
 import com.redgrapefruit.utopia.api.ContainerBlockEntity
-import com.redgrapefruit.utopia.common.registry.FBlockRegistry
-import com.redgrapefruit.utopia.common.screen.handler.FFridgeScreenHandler
+import com.redgrapefruit.utopia.common.registry.BlockRegistry
+import com.redgrapefruit.utopia.common.screen.handler.FridgeScreenHandler
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.entity.player.PlayerEntity
@@ -15,12 +15,12 @@ import net.minecraft.util.math.BlockPos
 /**
  * A fridge [BlockEntity] implementing the Container API
  */
-class FFridgeBlockEntity(pos: BlockPos, state: BlockState) : ContainerBlockEntity(FBlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state) {
+class FridgeBlockEntity(pos: BlockPos, state: BlockState) : ContainerBlockEntity(BlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state) {
     override fun containerSize(): Int = 9
 
     override val items: DefaultedList<ItemStack> = inventory
 
     override fun createMenu(syncId: Int, playerInventory: PlayerInventory, player: PlayerEntity): ScreenHandler {
-        return FFridgeScreenHandler(syncId, playerInventory, this)
+        return FridgeScreenHandler(syncId, playerInventory, this)
     }
 }

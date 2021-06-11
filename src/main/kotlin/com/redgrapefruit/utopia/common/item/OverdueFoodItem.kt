@@ -2,25 +2,25 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.RANDOM
-import com.redgrapefruit.utopia.common.core.data.RFoodCategory
-import com.redgrapefruit.utopia.common.core.data.RFoodConfig
-import com.redgrapefruit.utopia.common.core.state.RFoodState
+import com.redgrapefruit.utopia.common.core.data.FoodCategory
+import com.redgrapefruit.utopia.common.core.data.FoodConfig
+import com.redgrapefruit.utopia.common.core.state.FoodState
 import com.redgrapefruit.utopia.common.util.overrideComponentValues
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.FoodComponent
 
 /**
- * An overdue variant of a [RFoodItem]
+ * An overdue variant of a [FoodItem]
  */
-class ROverdueFoodItem : RFoodItem {
-    constructor(config: RFoodConfig) : super(config, GROUP, {
+class OverdueFoodItem : FoodItem {
+    constructor(config: FoodConfig) : super(config, GROUP, {
         val builder = FoodComponent.Builder()
 
         // Hunger (decreased)
         builder.hunger(config.category.baseHunger + config.hunger - 2)
         // Meat
-        if (config.category == RFoodCategory.MEAT) builder.meat()
+        if (config.category == FoodCategory.MEAT) builder.meat()
         // Snack
         if (config.category.baseHunger + config.hunger - 2 < 2) builder.snack()
         // Saturation modifier (decreased)
@@ -44,11 +44,11 @@ class ROverdueFoodItem : RFoodItem {
 
         builder.build()
     }) {
-        state = RFoodState.OVERDUE
+        state = FoodState.OVERDUE
         overrideEffects = true
     }
 
-    constructor(config: RFoodConfig, component: FoodComponent) : super(config, GROUP, {
+    constructor(config: FoodConfig, component: FoodComponent) : super(config, GROUP, {
         val builder = FoodComponent.Builder()
 
         // Overrides
@@ -72,7 +72,7 @@ class ROverdueFoodItem : RFoodItem {
 
         builder.build()
     }) {
-        state = RFoodState.OVERDUE
+        state = FoodState.OVERDUE
         overrideEffects = true
     }
 }

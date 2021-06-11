@@ -6,7 +6,7 @@ import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
 /**
  * A food config contains all unique information about a type of food
  */
-data class RFoodConfig(
+data class FoodConfig(
     /**
      * The hunger of this food type. Only used in new food
      */
@@ -40,11 +40,11 @@ data class RFoodConfig(
      */
     val fridgeEfficiency: Int = UNUSED_PROPERTY,
     /**
-     * The [RFoodCategory] that this food type belongs to
+     * The [FoodCategory] that this food type belongs to
      */
-    val category: RFoodCategory,
+    val category: FoodCategory,
     /**
      * The effect that is applied when the food is eaten
      */
-    val effect: RFoodEffectConfig
+    val effect: FoodEffectConfig
 )

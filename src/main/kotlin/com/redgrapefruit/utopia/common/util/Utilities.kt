@@ -1,9 +1,43 @@
 package com.redgrapefruit.utopia.common.util
 
-import com.redgrapefruit.utopia.common.core.data.RFoodConfig
-import com.redgrapefruit.utopia.common.core.state.RFoodProfile
-import com.redgrapefruit.utopia.common.core.state.RFridgeState
+import com.redgrapefruit.utopia.common.core.data.FoodConfig
+import com.redgrapefruit.utopia.common.core.state.FoodProfile
+import com.redgrapefruit.utopia.common.core.state.FridgeState
 import net.minecraft.item.FoodComponent
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
+
+// Color codes
+const val BLACK = "§0"
+const val DARK_BLUE = "§1"
+const val DARK_GREEN = "§2"
+const val DARK_AQUA = "§3"
+const val DARK_RED = "§4"
+const val DARK_PURPLE = "§5"
+const val GOLD = "§6"
+const val GRAY = "§7"
+const val DARK_GRAY = "§8"
+const val BLUE = "§9"
+const val GREEN = "§a"
+const val AQUA = "§b"
+const val RED = "§c"
+const val LIGHT_PURPLE = "§d"
+const val YELLOW = "§e"
+const val WHITE = "§f"
+
+// Formatting codes
+const val OBFUSCATED = "§k"
+const val BOLD = "§l"
+const val STRIKE_THROUGH = "§m"
+const val UNDERLINE = "§n"
+const val ITALIC = "§o"
+const val RESET = "§r"
+const val NEW_LINE = "\n"
+
+fun breakLine(tooltip: MutableList<Text>) {
+    tooltip += LiteralText("")
+}
+
 
 /**
  * Copies all the values from the given [FoodComponent] to given [FoodComponent.Builder] with decreases in values
@@ -32,11 +66,11 @@ fun overrideComponentValues(component: FoodComponent, builder: FoodComponent.Bui
  * @param config  Food config
  * @return Rot value
  */
-fun calculateRot(profile: RFoodProfile, config: RFoodConfig): Int {
+fun calculateRot(profile: FoodProfile, config: FoodConfig): Int {
     var out: Int = config.rotSpeed
-    if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
+    if (config.category.canBePutInFridge && profile.fridgeState == FridgeState.NOT_COMPENSATED) {
         out -= config.fridgeEfficiency
-        profile.fridgeState = RFridgeState.NOT_IN_FRIDGE
+        profile.fridgeState = FridgeState.NOT_IN_FRIDGE
     }
     return out
 }
@@ -48,11 +82,11 @@ fun calculateRot(profile: RFoodProfile, config: RFoodConfig): Int {
  * @param config  Food config
  * @return Overdue value
  */
-fun calculateOverdue(profile: RFoodProfile, config: RFoodConfig): Int {
+fun calculateOverdue(profile: FoodProfile, config: FoodConfig): Int {
     var out: Int = config.overdueSpeed
-    if (config.category.canBePutInFridge && profile.fridgeState == RFridgeState.NOT_COMPENSATED) {
+    if (config.category.canBePutInFridge && profile.fridgeState == FridgeState.NOT_COMPENSATED) {
         out -= config.fridgeEfficiency
-        profile.fridgeState = RFridgeState.NOT_IN_FRIDGE
+        profile.fridgeState = FridgeState.NOT_IN_FRIDGE
     }
     return out
 }

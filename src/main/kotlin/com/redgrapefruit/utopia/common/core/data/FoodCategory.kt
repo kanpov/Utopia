@@ -3,7 +3,7 @@ package com.redgrapefruit.utopia.common.core.data
 /**
  * A food category classifies an entire group of food
  */
-enum class RFoodCategory(
+enum class FoodCategory(
     /**
      * The base hunger value of this category. Only used in new food
      */

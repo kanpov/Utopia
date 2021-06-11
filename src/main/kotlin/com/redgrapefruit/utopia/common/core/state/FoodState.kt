@@ -3,7 +3,7 @@ package com.redgrapefruit.utopia.common.core.state
 /**
  * A food state defines the tooltip rendering properties of a certain state
  */
-enum class RFoodState(
+enum class FoodState(
     /**
      * Does this state display rot
      */

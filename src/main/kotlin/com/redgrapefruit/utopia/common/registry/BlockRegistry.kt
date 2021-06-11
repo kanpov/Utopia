@@ -2,10 +2,8 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.MOD_ID
-import com.redgrapefruit.utopia.common.block.FFridgeBlock
-import com.redgrapefruit.utopia.common.block.entity.FFridgeBlockEntity
-import com.redgrapefruit.utopia.common.module.Module
-import com.redgrapefruit.utopia.common.module.ModuleFeature
+import com.redgrapefruit.utopia.common.block.FridgeBlock
+import com.redgrapefruit.utopia.common.block.entity.FridgeBlockEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
@@ -20,17 +18,14 @@ import net.minecraft.util.registry.Registry
 /**
  * Furniture's block registry
  */
-object FBlockRegistry : ModuleFeature {
-    override val module: Module = Module.FURNITURE
-    override val isClientSide: Boolean = false
-
+object BlockRegistry {
     // Blocks
-    val FRIDGE_BLOCK = FFridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))
+    val FRIDGE_BLOCK = FridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))
 
     // Block entities
-    val FRIDGE_BLOCK_ENTITY: BlockEntityType<FFridgeBlockEntity> = BlockEntityType.Builder.create(::FFridgeBlockEntity, FRIDGE_BLOCK).build(null)
+    val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> = BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
-    override fun run() {
+    fun run() {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
     }
 

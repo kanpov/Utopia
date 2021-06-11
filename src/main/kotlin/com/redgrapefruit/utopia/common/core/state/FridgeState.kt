@@ -6,7 +6,7 @@ import net.minecraft.nbt.NbtCompound
 /**
  * Current fridge state.
  */
-enum class RFridgeState(val boolValue: Boolean) {
+enum class FridgeState(val boolValue: Boolean) {
     /**
      * Represents a state when the food is put inside of a fridge
      */
@@ -24,12 +24,12 @@ enum class RFridgeState(val boolValue: Boolean) {
 
     companion object Serialization {
         /**
-         * Deserializes a [RFridgeState] from an [NbtCompound]
-         * @param prefix The prefix of the [RFridgeState] to avoid conflicts
+         * Deserializes a [FridgeState] from an [NbtCompound]
+         * @param prefix The prefix of the [FridgeState] to avoid conflicts
          * @param nbt The input [NbtCompound]
          * @return Deserialized value
          */
-        fun fromTag(prefix: String, nbt: NbtCompound): RFridgeState {
+        fun fromTag(prefix: String, nbt: NbtCompound): FridgeState {
             // Check for invalid values
             val value = nbt.getInt("$prefix : Value")
             if (value > 2 || value < 0) LOG.error("Couldn't serialize FridgeState. Value is invalid")
@@ -42,12 +42,12 @@ enum class RFridgeState(val boolValue: Boolean) {
         }
 
         /**
-         * Serializes a [RFridgeState] into an [NbtCompound]
-         * @param prefix The prefix of the [RFridgeState] to avoid conflicts
-         * @param state The serialized [RFridgeState]
+         * Serializes a [FridgeState] into an [NbtCompound]
+         * @param prefix The prefix of the [FridgeState] to avoid conflicts
+         * @param state The serialized [FridgeState]
          * @param nbt The output [NbtCompound]
          */
-        fun toTag(prefix: String, state: RFridgeState, nbt: NbtCompound) {
+        fun toTag(prefix: String, state: FridgeState, nbt: NbtCompound) {
             val value: Int = when (state) {
                 IN_FRIDGE -> 0
                 NOT_COMPENSATED -> 1

@@ -2,10 +2,10 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.*
-import com.redgrapefruit.utopia.common.core.data.RFoodCategory
-import com.redgrapefruit.utopia.common.core.data.RFoodConfig
-import com.redgrapefruit.utopia.common.core.state.RFoodProfile
-import com.redgrapefruit.utopia.common.core.state.RFoodState
+import com.redgrapefruit.utopia.common.core.data.FoodCategory
+import com.redgrapefruit.utopia.common.core.data.FoodConfig
+import com.redgrapefruit.utopia.common.core.state.FoodProfile
+import com.redgrapefruit.utopia.common.core.state.FoodState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.effect.StatusEffectInstance
@@ -21,44 +21,44 @@ import net.minecraft.world.World
  * Represents a fresh food item as well as a base for other variants
  */
 @Suppress("JoinDeclarationAndAssignment")
-open class RFoodItem : Item {
+open class FoodItem : Item {
     // Linked data structures
-    private val config: RFoodConfig
-    val profile: RFoodProfile
+    private val config: FoodConfig
+    val profile: FoodProfile
     // Variant settings
-    protected var state: RFoodState = RFoodState.FRESH
+    protected var state: FoodState = FoodState.FRESH
     protected var overrideEffects: Boolean = false
     protected var isSalt: Boolean = false
     // Linked variants
-    var rottenVariant: RRottenFoodItem? = null
-    var overdueVariant: ROverdueFoodItem? = null
+    var rottenVariant: RottenFoodItem? = null
+    var overdueVariant: OverdueFoodItem? = null
 
     /**
      * Protected constructor for creating customized [FoodComponent] instances
-     * @param config [RFoodConfig] of this food item
+     * @param config [FoodConfig] of this food item
      * @param group The [ItemGroup] that the item belongs to
      * @param componentAction A lambda that returns the generated [FoodComponent]
      */
     protected constructor(
-        config: RFoodConfig,
+        config: FoodConfig,
         group: ItemGroup,
         componentAction: () -> FoodComponent
     ) : super(Settings().group(group).food(componentAction.invoke())) {
         this.config = config
-        this.profile = RFoodProfile()
+        this.profile = FoodProfile()
     }
 
     /**
      * Public constructor for creating standard instances of food items (fresh)
-     * @param config [RFoodConfig] of this food item
+     * @param config [FoodConfig] of this food item
      */
-    constructor(config: RFoodConfig) : this(config, GROUP, {
+    constructor(config: FoodConfig) : this(config, GROUP, {
         val builder = FoodComponent.Builder()
 
         // Hunger
         builder.hunger(config.category.baseHunger + config.hunger)
         // Meat
-        if (config.category == RFoodCategory.MEAT) builder.meat()
+        if (config.category == FoodCategory.MEAT) builder.meat()
         // Snack
         if (config.category.baseHunger + config.hunger < 2) builder.snack()
         // Saturation modifier
@@ -89,12 +89,12 @@ open class RFoodItem : Item {
 
     // Builders
 
-    fun rottenVariant(rottenVariant: RRottenFoodItem) : RFoodItem {
+    fun rottenVariant(rottenVariant: RottenFoodItem) : FoodItem {
         this.rottenVariant = rottenVariant
         return this
     }
 
-    fun overdueVariant(overdueVariant: ROverdueFoodItem) : RFoodItem {
+    fun overdueVariant(overdueVariant: OverdueFoodItem) : FoodItem {
         this.overdueVariant = overdueVariant
         return this
     }
@@ -103,7 +103,7 @@ open class RFoodItem : Item {
         super.inventoryTick(stack, world, entity, slot, selected)
 
         if (entity is PlayerEntity && !overrideEffects) {
-            RFoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
+            FoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
 
@@ -115,6 +115,6 @@ open class RFoodItem : Item {
     ) {
         super.appendTooltip(stack, world, tooltip, context)
 
-        RFoodEngine.appendTooltip(tooltip, config, profile, state)
+        FoodEngine.appendTooltip(tooltip, config, profile, state)
     }
 }

@@ -5,7 +5,7 @@ import com.redgrapefruit.utopia.common.RANDOM
 /**
  * A range of integers to randomly pick from
  */
-class RIntRange(
+class IntRange(
     /**
      * Minimum value of the resulting int
      */

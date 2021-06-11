@@ -2,8 +2,10 @@ package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.redgrapefruit.utopia.common.module.ModuleConfig
-import com.redgrapefruit.utopia.common.module.ModuleFeature
+import com.redgrapefruit.utopia.common.registry.BlockRegistry
+import com.redgrapefruit.utopia.common.registry.ItemRegistry
+import com.redgrapefruit.utopia.common.registry.PatchRegistry
+import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.item.ItemGroup
@@ -23,11 +25,12 @@ val LOG: Logger = LogManager.getLogger()
 val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
 val RANDOM: Random = SecureRandom()
 val GROUP: ItemGroup = FabricItemGroupBuilder.create(Identifier(MOD_ID, "utopia")).icon { ItemStack(Items.ACACIA_BOAT) }.build()
-lateinit var CONFIG: ModuleConfig
 
 class Utopia : ModInitializer {
     override fun onInitialize() {
-        CONFIG = ModuleConfig.init()
-        ModuleFeature.executeCommon(CONFIG)
+        ItemRegistry.run()
+        PatchRegistry.run()
+        BlockRegistry.run()
+        ScreenHandlerRegistry.run()
     }
 }

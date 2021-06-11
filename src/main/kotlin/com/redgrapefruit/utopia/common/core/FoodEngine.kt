@@ -1,11 +1,11 @@
 package com.redgrapefruit.utopia.common.core
 
-import com.redgrapefruit.utopia.common.core.data.RFoodConfig
+import com.redgrapefruit.utopia.common.core.data.FoodConfig
 import com.redgrapefruit.utopia.common.core.state.MIN_TICK_LOSS
-import com.redgrapefruit.utopia.common.core.state.RFoodProfile
-import com.redgrapefruit.utopia.common.core.state.RFoodState
-import com.redgrapefruit.utopia.common.item.ROverdueFoodItem
-import com.redgrapefruit.utopia.common.item.RRottenFoodItem
+import com.redgrapefruit.utopia.common.core.state.FoodProfile
+import com.redgrapefruit.utopia.common.core.state.FoodState
+import com.redgrapefruit.utopia.common.item.OverdueFoodItem
+import com.redgrapefruit.utopia.common.item.RottenFoodItem
 import com.redgrapefruit.utopia.common.util.*
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
@@ -13,12 +13,12 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.world.World
 
-object RFoodEngine {
+object FoodEngine {
     /**
      * Main block of logic that executes every tick the item is inside of a player's inventory
      *
-     * @param config Linked [RFoodConfig]
-     * @param profile Linked [RFoodProfile]
+     * @param config Linked [FoodConfig]
+     * @param profile Linked [FoodProfile]
      * @param player Owner [PlayerEntity]
      * @param slot Inventory slot
      * @param world Current [World] instance
@@ -26,13 +26,13 @@ object RFoodEngine {
      * @param overdueVariant Overdue variant of the given item
      */
     fun inventoryTick(
-        config: RFoodConfig,
-        profile: RFoodProfile,
+        config: FoodConfig,
+        profile: FoodProfile,
         player: PlayerEntity,
         slot: Int,
         world: World,
-        rottenVariant: RRottenFoodItem?,
-        overdueVariant: ROverdueFoodItem?,
+        rottenVariant: RottenFoodItem?,
+        overdueVariant: OverdueFoodItem?,
         isSalt: Boolean) {
 
         // 1. Initialization of world time
@@ -87,11 +87,11 @@ object RFoodEngine {
      * Tooltip rendering logic which is called every tick to display the detailed stats to the player
      *
      * @param tooltip Tooltip list
-     * @param config Linked [RFoodConfig]
-     * @param profile Linked [RFoodProfile]
-     * @param state Rendering [RFoodState]
+     * @param config Linked [FoodConfig]
+     * @param profile Linked [FoodProfile]
+     * @param state Rendering [FoodState]
      */
-    fun appendTooltip(tooltip: MutableList<Text>, config: RFoodConfig, profile: RFoodProfile, state: RFoodState) {
+    fun appendTooltip(tooltip: MutableList<Text>, config: FoodConfig, profile: FoodProfile, state: FoodState) {
         // State
         breakLine(tooltip)
         tooltip += LiteralText(AQUA + "State: " + state.displayName)
