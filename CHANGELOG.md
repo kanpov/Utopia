@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **[CORE]** Beta 1.17 support!
+- **[CORE]** 1.17 support!
 - **[CORE]** Fabric API as a bundled dependency - you don't have to install it anymore
 
 ### Changed
