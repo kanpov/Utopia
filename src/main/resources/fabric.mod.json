@@ -35,8 +35,7 @@
         "fabric": "*",
         "minecraft": "1.17",
         "croptopia": ">=1.5.0",
-        "patchouli": "*",
-        "dehydration": ">=1.1.5"
+        "patchouli": "*"
     },
     "suggests": {
         "sodium": "*",
