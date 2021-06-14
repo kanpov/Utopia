@@ -360,4 +360,17 @@ object ConfigRegistry {
             chance = 0.8f
         )
     )
+
+    val BROWNIES = FoodConfig(
+        overdueSpeed = 12,
+        overdueState = 130000,
+        fridgeEfficiency = 5,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.RESISTANCE,
+            durationRange = IntRange(300, 750),
+            amplifierRange = IntRange(0, 2),
+            chance = 0.75f
+        )
+    )
 }
