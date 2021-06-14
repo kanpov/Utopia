@@ -38,7 +38,8 @@ The project's Knowledge Base isn't available yet because it's still work-in-prog
 
 ### Access limitations
 
-My YouTrack plan is limited to 10 users, so sometimes the YouTrack page is overloaded.
+My YouTrack plan is limited to 10 users, so sometimes the YouTrack page is overloaded.  
+Please be patient!
 
 # Code
 
