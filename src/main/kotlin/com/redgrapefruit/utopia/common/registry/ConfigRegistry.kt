@@ -386,4 +386,17 @@ object ConfigRegistry {
             isAlwaysApplied = true
         )
     )
+
+    val BUTTER = FoodConfig(
+        overdueSpeed = 9,
+        overdueState = 80000,
+        fridgeEfficiency = 6,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.INVISIBILITY,
+            durationRange = IntRange(500, 700),
+            amplifier = 0,
+            chance = 0.3f
+        )
+    )
 }
