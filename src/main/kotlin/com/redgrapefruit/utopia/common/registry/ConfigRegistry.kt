@@ -399,4 +399,17 @@ object ConfigRegistry {
             chance = 0.3f
         )
     )
+
+    val BUTTERED_TOAST = FoodConfig(
+        overdueState = 13,
+        overdueSpeed = 150000,
+        fridgeEfficiency = 7,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.INVISIBILITY,
+            durationRange = IntRange(600, 850),
+            amplifier = 0,
+            chance = 0.6f
+        )
+    )
 }
