@@ -307,4 +307,17 @@ object ConfigRegistry {
             isAlwaysApplied = true
         )
     )
+
+    val BLT = FoodConfig(
+        overdueSpeed = 14,
+        overdueState = 105000,
+        fridgeEfficiency = 5,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.SLOWNESS,
+            durationRange = IntRange(100, 250),
+            amplifier = 1,
+            chance = 0.15f
+        )
+    )
 }
