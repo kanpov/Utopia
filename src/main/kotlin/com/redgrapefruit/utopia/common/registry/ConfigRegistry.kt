@@ -373,4 +373,17 @@ object ConfigRegistry {
             chance = 0.75f
         )
     )
+
+    val BURRITO = FoodConfig(
+        overdueSpeed = 8,
+        overdueState = 110000,
+        fridgeEfficiency = 4,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.STRENGTH,
+            durationRange = IntRange(450, 800),
+            amplifierRange = IntRange(1, 3),
+            isAlwaysApplied = true
+        )
+    )
 }
