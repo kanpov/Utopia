@@ -36,6 +36,10 @@ After going to the link, you will see the Issues page. Now you can view issues a
 To access the Agile Board (roadmap), you will need to log in your YouTrack account.  
 The project's Knowledge Base isn't available yet because it's still work-in-progress.
 
+### Access limitations
+
+My YouTrack plan is limited to 10 users, so sometimes the YouTrack page is overloaded.
+
 # Code
 
 The code is written in Java 16 (AdoptOpenJDK 16).  
