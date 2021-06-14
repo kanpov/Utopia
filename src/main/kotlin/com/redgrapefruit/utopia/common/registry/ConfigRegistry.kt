@@ -281,4 +281,17 @@ object ConfigRegistry {
             chance = 0.25f
         )
     )
+
+    val BLACKBERRY = FoodConfig(
+        overdueState = 8,
+        overdueSpeed = 120000,
+        fridgeEfficiency = 6,
+        category = FoodCategory.BERRIES,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.CONDUIT_POWER,
+            durationRange = IntRange(400, 800),
+            amplifierRange = IntRange(0, 3),
+            chance = 0.65f
+        )
+    )
 }
