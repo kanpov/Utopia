@@ -32,6 +32,7 @@ object PatchRegistry {
         patch("bellpepper", "croptopia", ConfigRegistry.BELLPEPPER, ItemRegistry.OVERDUE_BELLPEPPER)
         patch("blackbean", "croptopia", ConfigRegistry.BLACKBEAN, ItemRegistry.OVERDUE_BLACKBEAN)
         patch("blackberry", "croptopia", ConfigRegistry.BLACKBERRY, ItemRegistry.OVERDUE_BLACKBERRY)
+        patch("blackberry_jam", "croptopia", ConfigRegistry.BLACKBERRY_JAM, ItemRegistry.OVERDUE_BLACKBERRY_JAM)
     }
 
     /**

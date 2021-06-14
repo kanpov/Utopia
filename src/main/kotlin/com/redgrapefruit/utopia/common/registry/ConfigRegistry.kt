@@ -283,8 +283,8 @@ object ConfigRegistry {
     )
 
     val BLACKBERRY = FoodConfig(
-        overdueState = 8,
-        overdueSpeed = 120000,
+        overdueSpeed = 8,
+        overdueState = 120000,
         fridgeEfficiency = 6,
         category = FoodCategory.BERRIES,
         effect = FoodEffectConfig(
@@ -292,6 +292,19 @@ object ConfigRegistry {
             durationRange = IntRange(400, 800),
             amplifierRange = IntRange(0, 3),
             chance = 0.65f
+        )
+    )
+
+    val BLACKBERRY_JAM = FoodConfig(
+        overdueSpeed = 9,
+        overdueState = 160000,
+        fridgeEfficiency = 5,
+        category = FoodCategory.PRODUCT,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.BAD_OMEN,
+            durationRange = IntRange(1000, 2000),
+            amplifierRange = IntRange(0, 2),
+            isAlwaysApplied = true
         )
     )
 }

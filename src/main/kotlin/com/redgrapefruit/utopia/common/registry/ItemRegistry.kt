@@ -36,6 +36,7 @@ object ItemRegistry {
     val OVERDUE_BELLPEPPER = OverdueFoodItem(ConfigRegistry.BELLPEPPER)
     val OVERDUE_BLACKBEAN = OverdueFoodItem(ConfigRegistry.BLACKBEAN)
     val OVERDUE_BLACKBERRY = OverdueFoodItem(ConfigRegistry.BLACKBERRY)
+    val OVERDUE_BLACKBERRY_JAM = OverdueFoodItem(ConfigRegistry.BLACKBERRY_JAM)
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem(ConfigRegistry.ALMOND)
@@ -76,6 +77,7 @@ object ItemRegistry {
         register("overdue_bellpepper", OVERDUE_BELLPEPPER)
         register("overdue_blackbean", OVERDUE_BLACKBEAN)
         register("overdue_blackberry", OVERDUE_BLACKBERRY)
+        register("overdue_blackberry_jam", OVERDUE_BLACKBERRY_JAM)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
