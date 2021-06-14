@@ -24,6 +24,7 @@
     "item.utopia.overdue_blt": "Overdue Bacon Lettuce Tomato Sandwich",
     "item.utopia.overdue_blueberry": "Overdue Blueberry",
     "item.utopia.overdue_blueberry_jam": "Overdue Blueberry Jam",
+    "item.utopia.overdue_broccoli": "Overdue Broccoli",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -37,6 +38,7 @@
     "item.utopia.salted_beef_jerky": "Salted Beef Jerky",
     "item.utopia.salted_beef_wellington": "Salted Beef Wellington",
     "item.utopia.salted_blackbean": "Salted Blackbean",
+    "item.utopia.salted_broccoli": "Salted Broccoli",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
