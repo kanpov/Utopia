@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.3] (2021-06-14)
+
+### Added
+
+- **[CORE]** YouTrack (InCloud) page [here](https://redgrapefruit.myjetbrains.com/youtrack/issues)
+- **[REALISM]** Patch coverage for:
+    - Basil
+    - Beef Jerky
+    - Beef Wellington
+    - Bellpepper
+    - Blackbean
+    - Blackberry
+    - Blackberry Jam
+    - BLT
+    - Blueberry
+    - Blueberry Jam
+    - Broccoli
+    - Brownies
+    - Burrito
+    - Butter
+    - Buttered Toast
+
+### Changed
+
+- **[CORE]** Update Fabric API from ```0.34.9+1.17``` to ```0.35.1+1.17```
+- **[CORE]** Update Yarn mappings from ```1.17+build.6``` to ```1.17+build.11```
+
+### Removed
+
+- **[CORE]** The module system and ```utopia.modules.json``` config
+
 ## [v0.1-preview.2] (2021-06-10)
 
 ### Added
