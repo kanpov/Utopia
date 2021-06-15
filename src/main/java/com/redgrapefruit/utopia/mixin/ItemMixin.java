@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.common.core.data.FoodConfig;
 import com.redgrapefruit.utopia.common.core.FoodEngine;
+import com.redgrapefruit.utopia.common.core.data.FoodConfig;
 import com.redgrapefruit.utopia.common.core.state.FoodProfile;
 import com.redgrapefruit.utopia.common.core.state.FoodState;
 import com.redgrapefruit.utopia.common.item.FoodItem;
@@ -27,18 +27,27 @@ import java.util.List;
 
 /**
  * Provides the mixin (patch) implementation of {@link FoodItem}
- *
+ * <p>
  * Also writing Java code is terrible after Kotlin
  */
 @Mixin(Item.class)
 public class ItemMixin implements ItemMixinAccess {
     // Data structures & patching data
-    @Unique @Nullable private FoodConfig config = null;
-    @Unique @Nullable private FoodProfile profile = null;
-    @Unique private boolean isActivated = false;
+    @Unique
+    @Nullable
+    private FoodConfig config = null;
+    @Unique
+    @Nullable
+    private FoodProfile profile = null;
+    @Unique
+    private boolean isActivated = false;
     // Variants
-    @Unique @Nullable private OverdueFoodItem overdueVariant = null;
-    @Unique @Nullable private RottenFoodItem rottenVariant = null;
+    @Unique
+    @Nullable
+    private OverdueFoodItem overdueVariant = null;
+    @Unique
+    @Nullable
+    private RottenFoodItem rottenVariant = null;
 
     // Injects
     @Inject(method = "inventoryTick", at = @At("TAIL"))
@@ -62,11 +71,6 @@ public class ItemMixin implements ItemMixinAccess {
     }
 
     @Override
-    public void setProfile(@NotNull FoodProfile profile) {
-        this.profile = profile;
-    }
-
-    @Override
     public void setConfig(@NotNull FoodConfig config) {
         this.config = config;
     }
@@ -81,9 +85,15 @@ public class ItemMixin implements ItemMixinAccess {
         this.rottenVariant = rottenVariant;
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public FoodProfile getProfile() {
         return profile;
+    }
+
+    @Override
+    public void setProfile(@NotNull FoodProfile profile) {
+        this.profile = profile;
     }
 
     @Override

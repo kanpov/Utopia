@@ -21,8 +21,8 @@ import net.minecraft.screen.ScreenHandlerListener
  * The secondary constructor is the client constructor which creates a 9-slot [SimpleInventory] and passes it onto the server constructor
  */
 class FridgeScreenHandler
-    (syncId: Int, playerInventory: PlayerInventory, inventory: Inventory)
-    : ContainerScreenHandler(syncId, playerInventory, inventory, 9, ScreenHandlerRegistry.FRIDGE_SCREEN_HANDLER) {
+    (syncId: Int, playerInventory: PlayerInventory, inventory: Inventory) :
+    ContainerScreenHandler(syncId, playerInventory, inventory, 9, ScreenHandlerRegistry.FRIDGE_SCREEN_HANDLER) {
 
     constructor(syncId: Int, playerInventory: PlayerInventory) : this(syncId, playerInventory, SimpleInventory(9))
 

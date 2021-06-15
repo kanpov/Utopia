@@ -26,11 +26,13 @@ class RottenFoodItem : FoodItem {
         // Saturation modifier (decreased)
         builder.saturationModifier((config.category.baseSaturationModifier + config.saturationModifier) / 1.5f)
         // Poison effect
-        builder.statusEffect(StatusEffectInstance(
-            StatusEffects.POISON,
-            RANDOM.nextInt(250) + 50,
-            RANDOM.nextInt(3) + 1
-        ), 0.85f)
+        builder.statusEffect(
+            StatusEffectInstance(
+                StatusEffects.POISON,
+                RANDOM.nextInt(250) + 50,
+                RANDOM.nextInt(3) + 1
+            ), 0.85f
+        )
 
         builder.build()
     }) {
@@ -44,11 +46,13 @@ class RottenFoodItem : FoodItem {
         // Overrides
         overrideComponentValues(component, builder, 2, 0.75f)
         // Poison effect
-        builder.statusEffect(StatusEffectInstance(
-            StatusEffects.POISON,
-            RANDOM.nextInt(250) + 50,
-            RANDOM.nextInt(3) + 1
-        ), 0.85f)
+        builder.statusEffect(
+            StatusEffectInstance(
+                StatusEffects.POISON,
+                RANDOM.nextInt(250) + 50,
+                RANDOM.nextInt(3) + 1
+            ), 0.85f
+        )
 
         builder.build()
     }) {

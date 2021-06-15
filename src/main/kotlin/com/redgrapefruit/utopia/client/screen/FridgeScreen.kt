@@ -11,7 +11,8 @@ import net.minecraft.util.Identifier
 /**
  * A fridge rendering screen implementing the Container API
  */
-class FridgeScreen(handler: ScreenHandler, inventory: PlayerInventory, title: Text) : ContainerScreen(handler, inventory, title) {
+class FridgeScreen(handler: ScreenHandler, inventory: PlayerInventory, title: Text) :
+    ContainerScreen(handler, inventory, title) {
     override fun getTexture(): Identifier {
         return Identifier(MOD_ID, "textures/gui/fridge.png")
     }

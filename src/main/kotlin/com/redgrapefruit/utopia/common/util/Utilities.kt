@@ -47,7 +47,12 @@ fun breakLine(tooltip: MutableList<Text>) {
  * @param hungerDecrease Decrease of hunger value
  * @param saturationModifierDecrease Decrease of saturation value
  */
-fun overrideComponentValues(component: FoodComponent, builder: FoodComponent.Builder, hungerDecrease: Int, saturationModifierDecrease: Float) {
+fun overrideComponentValues(
+    component: FoodComponent,
+    builder: FoodComponent.Builder,
+    hungerDecrease: Int,
+    saturationModifierDecrease: Float
+) {
     // Standard values
     builder.hunger(component.hunger - hungerDecrease)
     builder.saturationModifier(component.saturationModifier - saturationModifierDecrease)

@@ -34,7 +34,7 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
     init {
         // Defaults facing property
         defaultState =
-            getStateManager().defaultState.with(
+            stateManager.defaultState.with(
                 facing,
                 Direction.NORTH
             )

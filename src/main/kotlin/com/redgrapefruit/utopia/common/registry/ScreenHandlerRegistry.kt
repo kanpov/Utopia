@@ -12,7 +12,8 @@ import net.minecraft.util.Identifier
 object ScreenHandlerRegistry {
     lateinit var FRIDGE_SCREEN_HANDLER: ScreenHandlerType<FridgeScreenHandler>
 
-    fun run()  {
-        FRIDGE_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(Identifier(MOD_ID, "fridge"), ::FridgeScreenHandler)
+    fun run() {
+        FRIDGE_SCREEN_HANDLER =
+            ScreenHandlerRegistry.registerSimple(Identifier(MOD_ID, "fridge"), ::FridgeScreenHandler)
     }
 }

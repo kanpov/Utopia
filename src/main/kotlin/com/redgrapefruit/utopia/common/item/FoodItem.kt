@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
-import com.redgrapefruit.utopia.common.core.*
+import com.redgrapefruit.utopia.common.core.FoodEngine
 import com.redgrapefruit.utopia.common.core.data.FoodCategory
 import com.redgrapefruit.utopia.common.core.data.FoodConfig
 import com.redgrapefruit.utopia.common.core.state.FoodProfile
@@ -25,10 +25,12 @@ open class FoodItem : Item {
     // Linked data structures
     private val config: FoodConfig
     val profile: FoodProfile
+
     // Variant settings
     protected var state: FoodState = FoodState.FRESH
     protected var overrideEffects: Boolean = false
     protected var isSalt: Boolean = false
+
     // Linked variants
     var rottenVariant: RottenFoodItem? = null
     var overdueVariant: OverdueFoodItem? = null
@@ -89,12 +91,12 @@ open class FoodItem : Item {
 
     // Builders
 
-    fun rottenVariant(rottenVariant: RottenFoodItem) : FoodItem {
+    fun rottenVariant(rottenVariant: RottenFoodItem): FoodItem {
         this.rottenVariant = rottenVariant
         return this
     }
 
-    fun overdueVariant(overdueVariant: OverdueFoodItem) : FoodItem {
+    fun overdueVariant(overdueVariant: OverdueFoodItem): FoodItem {
         this.overdueVariant = overdueVariant
         return this
     }

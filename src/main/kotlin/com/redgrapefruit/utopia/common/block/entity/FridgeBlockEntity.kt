@@ -15,7 +15,8 @@ import net.minecraft.util.math.BlockPos
 /**
  * A fridge [BlockEntity] implementing the Container API
  */
-class FridgeBlockEntity(pos: BlockPos, state: BlockState) : ContainerBlockEntity(BlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state) {
+class FridgeBlockEntity(pos: BlockPos, state: BlockState) :
+    ContainerBlockEntity(BlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state) {
     override fun containerSize(): Int = 9
 
     override val items: DefaultedList<ItemStack> = inventory

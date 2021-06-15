@@ -20,10 +20,12 @@ import net.minecraft.util.registry.Registry
  */
 object BlockRegistry {
     // Blocks
-    val FRIDGE_BLOCK = FridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))
+    val FRIDGE_BLOCK =
+        FridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))
 
     // Block entities
-    val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> = BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
+    val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> =
+        BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
     fun run() {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
@@ -36,7 +38,11 @@ object BlockRegistry {
      * @param type The [BlockEntityType] which is a registry wrapper for the [BlockEntity]
      * @param TBlockEntity The generic for the registered [BlockEntity] to pass to [type]
      */
-    private fun <TBlockEntity> register(name: String, block: Block, type: BlockEntityType<TBlockEntity>) where TBlockEntity : BlockEntity {
+    private fun <TBlockEntity> register(
+        name: String,
+        block: Block,
+        type: BlockEntityType<TBlockEntity>
+    ) where TBlockEntity : BlockEntity {
         val id = Identifier(MOD_ID, name)
 
         Registry.register(Registry.BLOCK, id, block)
