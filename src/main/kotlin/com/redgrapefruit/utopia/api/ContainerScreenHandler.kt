@@ -102,7 +102,7 @@ abstract class ContainerScreenHandler protected constructor(
      * @param x         Grid X
      * @param y         Grid Y
      */
-    protected fun addGridSlot(inventory: Inventory?, index: Int, x: Int, y: Int) {
+    protected fun addGridSlot(inventory: Inventory, index: Int, x: Int, y: Int) {
         addSlot(Slot(inventory, index, 62 + x * 18, 17 + y * 18))
     }
 
@@ -111,7 +111,7 @@ abstract class ContainerScreenHandler protected constructor(
      *
      * @param playerInventory Player's inventory
      */
-    protected fun addPlayerInventorySlots(playerInventory: PlayerInventory?) {
+    protected fun addPlayerInventorySlots(playerInventory: PlayerInventory) {
         for (m in 0..2) {
             for (l in 0..8) {
                 addSlot(Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18))
@@ -124,7 +124,7 @@ abstract class ContainerScreenHandler protected constructor(
      *
      * @param playerInventory Player's inventory
      */
-    protected fun addPlayerHotbarSlots(playerInventory: PlayerInventory?) {
+    protected fun addPlayerHotbarSlots(playerInventory: PlayerInventory) {
         for (m in 0..8) {
             addSlot(Slot(playerInventory, m, 8 + m * 18, 142))
         }
