@@ -401,8 +401,8 @@ object ConfigRegistry {
     )
 
     val BUTTERED_TOAST = FoodConfig(
-        overdueState = 13,
-        overdueSpeed = 150000,
+        overdueSpeed = 13,
+        overdueState = 150000,
         fridgeEfficiency = 7,
         category = FoodCategory.PRODUCT,
         effect = FoodEffectConfig(
@@ -410,6 +410,20 @@ object ConfigRegistry {
             durationRange = IntRange(600, 850),
             amplifier = 0,
             chance = 0.6f
+        )
+    )
+
+    val CABBAGE = FoodConfig(
+        overdueSpeed = 8,
+        overdueState = 95000,
+        fridgeEfficiency = 2,
+        saltEfficiency = 5,
+        category = FoodCategory.VEGETABLE,
+        effect = FoodEffectConfig(
+            statusEffect = StatusEffects.INSTANT_HEALTH,
+            durationRange = IntRange(100, 150),
+            amplifier = 1,
+            chance = 0.3f
         )
     )
 }
