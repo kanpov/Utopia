@@ -2,9 +2,6 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.core.data.FoodCategory
 import com.redgrapefruit.utopia.common.core.data.FoodConfig
-import com.redgrapefruit.utopia.common.core.data.FoodEffectConfig
-import com.redgrapefruit.utopia.common.util.IntRange
-import net.minecraft.entity.effect.StatusEffects
 
 /**
  * Contains all the food configs
@@ -14,13 +11,7 @@ object ConfigRegistry {
         overdueSpeed = 7,
         overdueState = 100000,
         saltEfficiency = 4,
-        category = FoodCategory.NUT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.SPEED,
-            durationRange = IntRange(100, 200),
-            amplifier = 0,
-            chance = 0.6f
-        )
+        category = FoodCategory.NUT
     )
 
     val ALMOND_BRITTLE = FoodConfig(
@@ -28,39 +19,21 @@ object ConfigRegistry {
         overdueState = 120000,
         fridgeEfficiency = 5,
         saltEfficiency = 2,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.SPEED,
-            durationRange = IntRange(200, 350),
-            amplifierRange = IntRange(0, 2),
-            chance = 0.8f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val APPLE_JUICE = FoodConfig(
         overdueSpeed = 11,
         overdueState = 100000,
         fridgeEfficiency = 6,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.REGENERATION,
-            durationRange = IntRange(150, 300),
-            amplifierRange = IntRange(0, 1),
-            chance = 0.5f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val APPLE_PIE = FoodConfig(
         overdueSpeed = 5,
         overdueState = 70000,
         fridgeEfficiency = 2,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.REGENERATION,
-            durationRange = IntRange(250, 400),
-            amplifierRange = IntRange(1, 2),
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val APRICOT = FoodConfig(
@@ -68,26 +41,14 @@ object ConfigRegistry {
         overdueState = 135000,
         fridgeEfficiency = 5,
         saltEfficiency = 4,
-        category = FoodCategory.FRUIT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.ABSORPTION,
-            durationRange = IntRange(200, 300),
-            amplifierRange = IntRange(0, 1),
-            chance = 0.65f
-        )
+        category = FoodCategory.FRUIT
     )
 
     val APRICOT_JAM = FoodConfig(
         overdueSpeed = 6,
         overdueState = 85000,
         fridgeEfficiency = 2,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.ABSORPTION,
-            durationRange = IntRange(350, 500),
-            amplifierRange = IntRange(1, 3),
-            chance = 0.9f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val ARTICHOKE = FoodConfig(
@@ -95,13 +56,7 @@ object ConfigRegistry {
         overdueState = 60000,
         fridgeEfficiency = 1,
         saltEfficiency = 2,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.RESISTANCE,
-            durationRange = IntRange(150, 200),
-            amplifier = 0,
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PLANT
     )
 
     val ARTICHOKE_DIP = FoodConfig(
@@ -109,13 +64,7 @@ object ConfigRegistry {
         overdueState = 80000,
         fridgeEfficiency = 2,
         saltEfficiency = 3,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.RESISTANCE,
-            durationRange = IntRange(250, 400),
-            amplifierRange = IntRange(0, 1),
-            chance = 0.85f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val ASPARAGUS = FoodConfig(
@@ -123,13 +72,7 @@ object ConfigRegistry {
         overdueState = 135000,
         fridgeEfficiency = 5,
         saltEfficiency = 4,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.SATURATION,
-            durationRange = IntRange(200, 400),
-            amplifierRange = IntRange(0, 2),
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PLANT
     )
 
     val AVOCADO = FoodConfig(
@@ -137,13 +80,7 @@ object ConfigRegistry {
         overdueState = 115000,
         fridgeEfficiency = 6,
         saltEfficiency = 4,
-        category = FoodCategory.FRUIT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.SLOW_FALLING,
-            durationRange = IntRange(250, 500),
-            amplifierRange = IntRange(0, 1),
-            chance = 0.45f
-        )
+        category = FoodCategory.FRUIT
     )
 
     val BAKED_BEANS = FoodConfig(
@@ -151,39 +88,21 @@ object ConfigRegistry {
         overdueState = 150000,
         fridgeEfficiency = 2,
         saltEfficiency = 1,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.HERO_OF_THE_VILLAGE,
-            durationRange = IntRange(400, 750),
-            amplifierRange = IntRange(0, 2),
-            chance = 0.9f
-        )
+        category = FoodCategory.PLANT
     )
 
     val BANANA = FoodConfig(
         overdueSpeed = 7,
         overdueState = 120000,
         fridgeEfficiency = 4,
-        category = FoodCategory.FRUIT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.FIRE_RESISTANCE,
-            durationRange = IntRange(300, 600),
-            amplifier = 0,
-            chance = 0.65f
-        )
+        category = FoodCategory.FRUIT
     )
 
     val BANANA_CREAM_PIE = FoodConfig(
         overdueSpeed = 9,
         overdueState = 140000,
         fridgeEfficiency = 5,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.FIRE_RESISTANCE,
-            durationRange = IntRange(400, 750),
-            amplifier = 0,
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BANANA_NUT_BREAD = FoodConfig(
@@ -191,26 +110,14 @@ object ConfigRegistry {
         overdueState = 165000,
         fridgeEfficiency = 5,
         saltEfficiency = 7,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.FIRE_RESISTANCE,
-            durationRange = IntRange(600, 900),
-            amplifier = 0,
-            chance = 0.8f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BARLEY = FoodConfig(
         overdueSpeed = 8,
         overdueState = 130000,
         fridgeEfficiency = 4,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.WATER_BREATHING,
-            durationRange = IntRange(500, 800),
-            amplifier = 0,
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PLANT
     )
 
     val BASIL = FoodConfig(
@@ -218,13 +125,7 @@ object ConfigRegistry {
         overdueState = 90000,
         fridgeEfficiency = 3,
         saltEfficiency = 4,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.INSTANT_HEALTH,
-            durationRange = IntRange(25, 50),
-            amplifier = 0,
-            chance = 0.7f
-        )
+        category = FoodCategory.PLANT
     )
 
     val BEEF_JERKY = FoodConfig(
@@ -232,13 +133,7 @@ object ConfigRegistry {
         rotState = 140000,
         fridgeEfficiency = 5,
         saltEfficiency = 3,
-        category = FoodCategory.MEAT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.LUCK,
-            durationRange = IntRange(1500, 2000),
-            amplifierRange = IntRange(0, 3),
-            chance = 0.4f
-        )
+        category = FoodCategory.MEAT
     )
 
     val BEEF_WELLINGTON = FoodConfig(
@@ -246,26 +141,14 @@ object ConfigRegistry {
         rotState = 150000,
         fridgeEfficiency = 4,
         saltEfficiency = 3,
-        category = FoodCategory.MEAT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.JUMP_BOOST,
-            durationRange = IntRange(200, 400),
-            amplifierRange = IntRange(1, 2),
-            chance = 0.65f
-        )
+        category = FoodCategory.MEAT
     )
 
     val BELLPEPPER = FoodConfig(
         overdueSpeed = 9,
         overdueState = 115000,
         fridgeEfficiency = 4,
-        category = FoodCategory.VEGETABLE,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.INVISIBILITY,
-            durationRange = IntRange(250, 550),
-            amplifier = 0,
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.VEGETABLE
     )
 
     val BLACKBEAN = FoodConfig(
@@ -273,78 +156,42 @@ object ConfigRegistry {
         overdueState = 70000,
         fridgeEfficiency = 2,
         saltEfficiency = 3,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.DOLPHINS_GRACE,
-            durationRange = IntRange(300, 400),
-            amplifierRange = IntRange(0, 1),
-            chance = 0.25f
-        )
+        category = FoodCategory.PLANT
     )
 
     val BLACKBERRY = FoodConfig(
         overdueSpeed = 8,
         overdueState = 120000,
         fridgeEfficiency = 6,
-        category = FoodCategory.BERRIES,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.CONDUIT_POWER,
-            durationRange = IntRange(400, 800),
-            amplifierRange = IntRange(0, 3),
-            chance = 0.65f
-        )
+        category = FoodCategory.BERRIES
     )
 
     val BLACKBERRY_JAM = FoodConfig(
         overdueSpeed = 9,
         overdueState = 160000,
         fridgeEfficiency = 5,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.BAD_OMEN,
-            durationRange = IntRange(1000, 2000),
-            amplifierRange = IntRange(0, 2),
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BLT = FoodConfig(
         overdueSpeed = 14,
         overdueState = 105000,
         fridgeEfficiency = 5,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.SLOWNESS,
-            durationRange = IntRange(100, 250),
-            amplifier = 1,
-            chance = 0.15f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BLUEBERRY = FoodConfig(
         overdueSpeed = 7,
         overdueState = 125000,
         fridgeEfficiency = 3,
-        category = FoodCategory.BERRIES,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.REGENERATION,
-            durationRange = IntRange(250, 400),
-            amplifierRange = IntRange(0, 2),
-            chance = 0.4f
-        )
+        category = FoodCategory.BERRIES
     )
 
     val BLUEBERRY_JAM = FoodConfig(
         overdueSpeed = 9,
         overdueState = 145000,
         fridgeEfficiency = 5,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.REGENERATION,
-            durationRange = IntRange(350, 650),
-            amplifierRange = IntRange(0, 1),
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BROCCOLI = FoodConfig(
@@ -352,65 +199,35 @@ object ConfigRegistry {
         overdueState = 75000,
         fridgeEfficiency = 2,
         saltEfficiency = 3,
-        category = FoodCategory.PLANT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.ABSORPTION,
-            durationRange = IntRange(400, 600),
-            amplifier = 1,
-            chance = 0.8f
-        )
+        category = FoodCategory.PLANT
     )
 
     val BROWNIES = FoodConfig(
         overdueSpeed = 12,
         overdueState = 130000,
         fridgeEfficiency = 5,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.RESISTANCE,
-            durationRange = IntRange(300, 750),
-            amplifierRange = IntRange(0, 2),
-            chance = 0.75f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BURRITO = FoodConfig(
         overdueSpeed = 8,
         overdueState = 110000,
         fridgeEfficiency = 4,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.STRENGTH,
-            durationRange = IntRange(450, 800),
-            amplifierRange = IntRange(1, 3),
-            isAlwaysApplied = true
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BUTTER = FoodConfig(
         overdueSpeed = 9,
         overdueState = 80000,
         fridgeEfficiency = 6,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.INVISIBILITY,
-            durationRange = IntRange(500, 700),
-            amplifier = 0,
-            chance = 0.3f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val BUTTERED_TOAST = FoodConfig(
         overdueSpeed = 13,
         overdueState = 150000,
         fridgeEfficiency = 7,
-        category = FoodCategory.PRODUCT,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.INVISIBILITY,
-            durationRange = IntRange(600, 850),
-            amplifier = 0,
-            chance = 0.6f
-        )
+        category = FoodCategory.PRODUCT
     )
 
     val CABBAGE = FoodConfig(
@@ -418,12 +235,6 @@ object ConfigRegistry {
         overdueState = 95000,
         fridgeEfficiency = 2,
         saltEfficiency = 5,
-        category = FoodCategory.VEGETABLE,
-        effect = FoodEffectConfig(
-            statusEffect = StatusEffects.INSTANT_HEALTH,
-            durationRange = IntRange(100, 150),
-            amplifier = 1,
-            chance = 0.3f
-        )
+        category = FoodCategory.VEGETABLE
     )
 }

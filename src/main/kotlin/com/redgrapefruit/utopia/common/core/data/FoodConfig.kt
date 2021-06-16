@@ -42,9 +42,5 @@ data class FoodConfig(
     /**
      * The [FoodCategory] that this food type belongs to
      */
-    val category: FoodCategory,
-    /**
-     * The effect that is applied when the food is eaten
-     */
-    val effect: FoodEffectConfig
+    val category: FoodCategory
 )
