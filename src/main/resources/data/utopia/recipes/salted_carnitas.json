@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S ",
+        "SFS",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "item": "croptopia:salt"
+        },
+        "F": {
+            "item": "croptopia:carnitas"
+        }
+    },
+    "result": {
+        "item": "utopia:salted_carnitas",
+        "count": 1
+    }
+}
