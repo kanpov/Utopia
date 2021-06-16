@@ -2,7 +2,9 @@ package com.redgrapefruit.utopia.api
 
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.screen.ingame.CraftingScreen
 import net.minecraft.client.gui.screen.ingame.HandledScreen
+import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.screen.ScreenHandler
@@ -41,10 +43,10 @@ abstract class ContainerScreen protected constructor(
     // region Implementation
 
     override fun drawBackground(matrices: MatrixStack, delta: Float, mouseX: Int, mouseY: Int) {
-        // Reset color
-        RenderSystem.clearColor(1.0f, 1.0f, 1.0f, 1.0f)
-        // Bind texture
-        client!!.textureManager.bindTexture(texture)
+        // This is the replacement of RenderSystem#color4f and binding textures in 1.17
+        RenderSystem.setShader(GameRenderer::getPositionTexShader)
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F)
+        RenderSystem.setShaderTexture(0, getTexture())
         // Calculate center position
         val x = (width - backgroundWidth) / 2
         val y = (height - backgroundHeight) / 2
