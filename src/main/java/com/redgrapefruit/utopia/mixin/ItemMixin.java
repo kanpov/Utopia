@@ -1,9 +1,9 @@
 package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.common.core.FoodEngine;
-import com.redgrapefruit.utopia.common.core.data.FoodConfig;
-import com.redgrapefruit.utopia.common.core.state.FoodProfile;
-import com.redgrapefruit.utopia.common.core.state.FoodState;
+import com.redgrapefruit.utopia.common.core.FoodConfig;
+import com.redgrapefruit.utopia.common.core.FoodProfile;
+import com.redgrapefruit.utopia.common.core.FoodState;
 import com.redgrapefruit.utopia.common.item.FoodItem;
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem;
 import com.redgrapefruit.utopia.common.item.RottenFoodItem;

@@ -2,9 +2,9 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.RANDOM
-import com.redgrapefruit.utopia.common.core.data.FoodCategory
-import com.redgrapefruit.utopia.common.core.data.FoodConfig
-import com.redgrapefruit.utopia.common.core.state.FoodState
+import com.redgrapefruit.utopia.common.core.FoodCategory
+import com.redgrapefruit.utopia.common.core.FoodConfig
+import com.redgrapefruit.utopia.common.core.FoodState
 import com.redgrapefruit.utopia.common.util.overrideComponentValues
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects

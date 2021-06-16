@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.common.registry
 
-import com.redgrapefruit.utopia.common.core.data.FoodCategory
-import com.redgrapefruit.utopia.common.core.data.FoodConfig
+import com.redgrapefruit.utopia.common.core.FoodCategory
+import com.redgrapefruit.utopia.common.core.FoodConfig
 
 /**
  * Contains all the food configs

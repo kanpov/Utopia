@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.common.core.data
+package com.redgrapefruit.utopia.common.core
 
 /**
  * A food category classifies an entire group of food

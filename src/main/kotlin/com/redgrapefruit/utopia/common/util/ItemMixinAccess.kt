@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.common.util
 
-import com.redgrapefruit.utopia.common.core.data.FoodConfig
-import com.redgrapefruit.utopia.common.core.state.FoodProfile
+import com.redgrapefruit.utopia.common.core.FoodConfig
+import com.redgrapefruit.utopia.common.core.FoodProfile
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
 

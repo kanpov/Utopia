@@ -2,7 +2,7 @@ package com.redgrapefruit.utopia.common.screen.handler
 
 import com.redgrapefruit.utopia.api.ContainerScreenHandler
 import com.redgrapefruit.utopia.common.block.entity.FridgeBlockEntity
-import com.redgrapefruit.utopia.common.core.state.FridgeState
+import com.redgrapefruit.utopia.common.core.FridgeState
 import com.redgrapefruit.utopia.common.item.FoodItem
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
 import com.redgrapefruit.utopia.common.util.ItemMixinAccess

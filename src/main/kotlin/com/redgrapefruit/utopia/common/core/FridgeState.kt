@@ -1,4 +1,4 @@
-package com.redgrapefruit.utopia.common.core.state
+package com.redgrapefruit.utopia.common.core
 
 import com.redgrapefruit.utopia.common.LOG
 import net.minecraft.nbt.NbtCompound

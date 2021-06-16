@@ -2,13 +2,12 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.FoodEngine
-import com.redgrapefruit.utopia.common.core.data.FoodCategory
-import com.redgrapefruit.utopia.common.core.data.FoodConfig
-import com.redgrapefruit.utopia.common.core.state.FoodProfile
-import com.redgrapefruit.utopia.common.core.state.FoodState
+import com.redgrapefruit.utopia.common.core.FoodCategory
+import com.redgrapefruit.utopia.common.core.FoodConfig
+import com.redgrapefruit.utopia.common.core.FoodProfile
+import com.redgrapefruit.utopia.common.core.FoodState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
-import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
