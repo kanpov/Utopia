@@ -4,7 +4,9 @@ import com.redgrapefruit.utopia.common.UNUSED_PROPERTY
 import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
 
 /**
- * A food config contains all unique information about a type of food
+ * A food config contains all unique information about a type of food.
+ *
+ * When creating a [FoodConfig], **use the DSL** ([config])
  */
 data class FoodConfig(
     /**
