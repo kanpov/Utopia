@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S ",
+        "SFS",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "item": "croptopia:salt"
+        },
+        "F": {
+            "item": "croptopia:cashew_chicken"
+        }
+    },
+    "result": {
+        "item": "utopia:salted_cashew_chicken",
+        "count": 1
+    }
+}
