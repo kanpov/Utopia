@@ -1,11 +1,7 @@
 package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
-import com.redgrapefruit.utopia.common.core.FoodEngine
-import com.redgrapefruit.utopia.common.core.FoodCategory
-import com.redgrapefruit.utopia.common.core.FoodConfig
-import com.redgrapefruit.utopia.common.core.FoodProfile
-import com.redgrapefruit.utopia.common.core.FoodState
+import com.redgrapefruit.utopia.common.core.*
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity

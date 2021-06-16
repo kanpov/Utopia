@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.common.core.FoodEngine;
 import com.redgrapefruit.utopia.common.core.FoodConfig;
+import com.redgrapefruit.utopia.common.core.FoodEngine;
 import com.redgrapefruit.utopia.common.core.FoodProfile;
 import com.redgrapefruit.utopia.common.core.FoodState;
 import com.redgrapefruit.utopia.common.item.FoodItem;
