@@ -36,6 +36,7 @@
     "item.utopia.overdue_caramel": "Overdue Caramel",
     "item.utopia.overdue_cantaloupe": "Overdue Cantaloupe",
     "item.utopia.overdue_carnitas": "Overdue Carnitas",
+    "item.utopia.overdue_cashew": "Overdue Cashew",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -53,6 +54,7 @@
     "item.utopia.salted_cabbage": "Salted Cabbage",
     "item.utopia.salted_caesar_salad": "Salted Caesar Salad",
     "item.utopia.salted_carnitas": "Salted Carnitas",
+    "item.utopia.salted_cashew": "Salted Cashew",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }

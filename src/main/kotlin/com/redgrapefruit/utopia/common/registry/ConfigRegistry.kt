@@ -282,4 +282,12 @@ object ConfigRegistry {
         saltEfficiency = 5
         category = FoodCategory.PRODUCT
     }
+
+    val CASHEW = config {
+        overdueSpeed = 4
+        overdueState = 210000
+        fridgeEfficiency = 1
+        saltEfficiency = 2
+        category = FoodCategory.NUT
+    }
 }
