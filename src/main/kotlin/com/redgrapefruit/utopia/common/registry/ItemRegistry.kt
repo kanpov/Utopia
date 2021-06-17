@@ -55,6 +55,7 @@ object ItemRegistry {
     val OVERDUE_CASHEW = OverdueFoodItem(ConfigRegistry.CASHEW)
     val OVERDUE_CASHEW_CHICKEN = OverdueFoodItem(ConfigRegistry.CASHEW_CHICKEN)
     val OVERDUE_CAULIFLOWER = OverdueFoodItem(ConfigRegistry.CAULIFLOWER)
+    val OVERDUE_CELERY = OverdueFoodItem(ConfigRegistry.CELERY)
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem(ConfigRegistry.ALMOND)
@@ -78,6 +79,7 @@ object ItemRegistry {
     val SALTED_CASHEW = SaltedFoodItem(ConfigRegistry.CASHEW)
     val SALTED_CASHEW_CHICKEN = SaltedFoodItem(ConfigRegistry.CASHEW_CHICKEN)
     val SALTED_CAULIFLOWER = SaltedFoodItem(ConfigRegistry.CAULIFLOWER)
+    val SALTED_CELERY = SaltedFoodItem(ConfigRegistry.CELERY)
 
     // Fresh food
 
@@ -122,6 +124,7 @@ object ItemRegistry {
         register("overdue_cashew", OVERDUE_CASHEW)
         register("overdue_cashew_chicken", OVERDUE_CASHEW_CHICKEN)
         register("overdue_cauliflower", OVERDUE_CAULIFLOWER)
+        register("overdue_celery", OVERDUE_CELERY)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
@@ -143,6 +146,7 @@ object ItemRegistry {
         register("salted_cashew", SALTED_CASHEW)
         register("salted_cashew_chicken", SALTED_CASHEW_CHICKEN)
         register("salted_cauliflower", SALTED_CAULIFLOWER)
+        register("salted_celery", SALTED_CELERY)
     }
 
     /**
