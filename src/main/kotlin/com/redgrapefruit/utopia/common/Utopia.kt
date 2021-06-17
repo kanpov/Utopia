@@ -2,7 +2,6 @@ package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.redgrapefruit.utopia.common.registry.BlockRegistry
 import com.redgrapefruit.utopia.common.registry.ItemRegistry
 import com.redgrapefruit.utopia.common.registry.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
@@ -31,7 +30,6 @@ class Utopia : ModInitializer {
     override fun onInitialize() {
         ItemRegistry.run()
         PatchRegistry.run()
-        BlockRegistry.run()
         ScreenHandlerRegistry.run()
     }
 }
