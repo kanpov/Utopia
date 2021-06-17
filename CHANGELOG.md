@@ -4,6 +4,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.4] (2021-06-17)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Cabbage
+    - Caesar Salad
+    - Candied Nuts
+    - Candy Corn
+    - Caramel
+    - Cantaloupe
+    - Carnitas
+    - Cashew
+    - Cashew Chicken
+    - Cauliflower
+    - Celery
+    - Cheese
+    - Cheese Cake
+    - Cheese Pizza
+    - Cheeseburger
+
+### Changed
+
+- **[CORE]** Update Fabric Loader from ```0.11.3``` to ```0.11.6```
+- **[CORE]** Update Fabric API from ```0.35.1+1.17``` to ```0.35.2+1.17```
+- **[CORE]** Update Yarn mappings from ```1.17+build.11``` to ```1.17+build.12```
+- **[CORE]** Minor cleanup and refactoring
+
+### Removed
+
+- **[CORE]** The YouTrack page in favor of Trello
+
 ## [v0.1-preview.3] (2021-06-14)
 
 ### Added
