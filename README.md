@@ -7,7 +7,7 @@ Utopia has many unique features:
 1. Realism (in development):
     - Rot and overdue
     - Food tooltips
-    - Patches to cover food from Minecraft, Croptopia and (TBD) Sandwichable
+    - Patches to cover food from Minecraft, Croptopia and (optional) Sandwichable
     - Salt and fridges to reduce rot and overdue speeds
     - Custom effects when the food is eaten 
     - Permanent food effects
