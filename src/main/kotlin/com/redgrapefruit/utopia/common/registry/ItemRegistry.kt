@@ -11,6 +11,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Realism's item registry
  */
+@Suppress("MemberVisibilityCanBePrivate")
 object ItemRegistry {
     // Rotten food
     val ROTTEN_BEEF_JERKY = RottenFoodItem(ConfigRegistry.BEEF_JERKY)
@@ -60,6 +61,7 @@ object ItemRegistry {
     val OVERDUE_CHEESE_CAKE = OverdueFoodItem(ConfigRegistry.CHEESE_CAKE)
     val OVERDUE_CHEESE_PIZZA = OverdueFoodItem(ConfigRegistry.CHEESE_PIZZA)
     val OVERDUE_CHEESEBURGER = OverdueFoodItem(ConfigRegistry.CHEESEBURGER)
+    val OVERDUE_CHERRY = OverdueFoodItem(ConfigRegistry.CHERRY)
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem(ConfigRegistry.ALMOND)
@@ -133,6 +135,7 @@ object ItemRegistry {
         register("overdue_cheese_cake", OVERDUE_CHEESE_CAKE)
         register("overdue_cheese_pizza", OVERDUE_CHEESE_PIZZA)
         register("overdue_cheeseburger", OVERDUE_CHEESEBURGER)
+        register("overdue_cherry", OVERDUE_CHERRY)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
