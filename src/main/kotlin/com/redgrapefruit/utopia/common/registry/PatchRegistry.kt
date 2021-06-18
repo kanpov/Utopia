@@ -65,6 +65,7 @@ object PatchRegistry {
         patch("chile_pepper", "croptopia", ConfigRegistry.CHILE_PEPPER, ItemRegistry.OVERDUE_CHILE_PEPPER)
         patch("chili_relleno", "croptopia", ConfigRegistry.CHILI_RELLENO, ItemRegistry.OVERDUE_CHILI_RELLENO)
         patch("chimichanga", "croptopia", ConfigRegistry.CHIMICHANGA, ItemRegistry.OVERDUE_CHIMICHANGA)
+        patch("chives", "croptopia", ConfigRegistry.CHIVES, ItemRegistry.OVERDUE_CHIVES)
     }
 
     /**
