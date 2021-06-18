@@ -60,6 +60,7 @@ object PatchRegistry {
         patch("cherry_jam", "croptopia", ConfigRegistry.CHERRY_JAM, ItemRegistry.OVERDUE_CHERRY_JAM)
         patch("cherry_pie", "croptopia", ConfigRegistry.CHERRY_PIE, ItemRegistry.OVERDUE_CHERRY_PIE)
         patch("chicken_and_dumplings", "croptopia", ConfigRegistry.CHICKEN_AND_DUMPLINGS, ItemRegistry.OVERDUE_CHICKEN_AND_DUMPLINGS)
+        patch("chicken_and_noodles", "croptopia", ConfigRegistry.CHICKEN_AND_NOODLES, ItemRegistry.OVERDUE_CHICKEN_AND_NOODLES)
     }
 
     /**
