@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.5] (2021-06-18)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Cherry
+    - Cherry Jam
+    - Cherry Pie
+    - Chicken and Dumplings
+    - Chicken and Noodles
+    - Chicken and Rice
+    - Chile Pepper
+    - Chili Relleno
+    - Chimichanga
+    - Chives
+    - Chocolate
+    - Chocolate Milkshake
+    - Cinnamon
+    - Coconut
+    - Coffee
+
+### Changed
+
+- **[CORE]** Updated Yarn from ```1.17+build.12``` to ```1.17+build.13```
+
 ## [v0.1-preview.4] (2021-06-17)
 
 ### Added

@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.redgrapefruit.utopia.common.registry.BlockRegistry
 import com.redgrapefruit.utopia.common.registry.ItemRegistry
 import com.redgrapefruit.utopia.common.registry.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
@@ -29,6 +30,7 @@ val GROUP: ItemGroup =
 class Utopia : ModInitializer {
     override fun onInitialize() {
         ItemRegistry.run()
+        BlockRegistry.run()
         PatchRegistry.run()
         ScreenHandlerRegistry.run()
     }
