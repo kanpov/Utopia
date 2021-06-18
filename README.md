@@ -27,7 +27,7 @@ Download all the pinned JAR files and put them into your ```mods``` folder.
 
 # Code
 
-The code is written in Java 16 (AdoptOpenJDK 16).  
+The code is mainly written in Kotlin 1.5.10, except for mixins, which are written in Java 16.
 I try to comment and document the code as much as I can to ensure readability.  
 Any refactoring and cleanup suggestions are welcome!
 
