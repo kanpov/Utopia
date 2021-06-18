@@ -46,6 +46,7 @@
     "item.utopia.overdue_cherry": "Overdue Cherry",
     "item.utopia.overdue_cherry_jam": "Overdue Cherry Jam",
     "item.utopia.overdue_cherry_pie": "Overdue Cherry Pie",
+    "item.utopia.overdue_chicken_and_dumplings": "Overdue Chicken and Dumplings",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -67,6 +68,7 @@
     "item.utopia.salted_cashew_chicken": "Salted Cashew Chicken",
     "item.utopia.salted_cauliflower": "Salted Cauliflower",
     "item.utopia.salted_celery": "Salted Celery",
+    "item.utopia.salted_chicken_and_dumplings": "Salted Chicken and Dumplings",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
