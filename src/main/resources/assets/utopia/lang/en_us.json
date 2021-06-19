@@ -63,6 +63,7 @@
     "item.utopia.overdue_cornish_pasty": "Overdue Cornish Pasty",
     "item.utopia.overdue_cranberry": "Overdue Cranberry",
     "item.utopia.overdue_cranberry_juice": "Overdue Cranberry Juice",
+    "item.utopia.overdue_crema": "Overdue Crema",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -89,6 +90,7 @@
     "item.utopia.salted_chicken_and_rice": "Salted Chicken and Rice",
     "item.utopia.salted_chimichanga": "Salted Chimichanga",
     "item.utopia.salted_corn": "Salted Corn",
+    "item.utopia.salted_crema": "Salted Crema",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
