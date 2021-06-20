@@ -518,4 +518,11 @@ object ConfigRegistry {
         fridgeEfficiency = 8
         category = FoodCategory.FRUIT
     }
+
+    val DONUT = config {
+        overdueSpeed = 9
+        overdueState = 120000
+        fridgeEfficiency = 5
+        category = FoodCategory.PRODUCT
+    }
 }
