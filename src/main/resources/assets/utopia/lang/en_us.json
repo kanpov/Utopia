@@ -71,6 +71,7 @@
     "item.utopia.overdue_donut": "Overdue Donut",
     "item.utopia.overdue_doughnut": "Overdue Doughnut",
     "item.utopia.overdue_dragonfruit": "Overdue Dragonfruit",
+    "item.utopia.overdue_egg_roll": "Overdue Egg Roll",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -100,6 +101,7 @@
     "item.utopia.salted_crema": "Salted Crema",
     "item.utopia.salted_cucumber": "Salted Cucumber",
     "item.utopia.salted_cucumber_salad": "Salted Cucumber Salad",
+    "item.utopia.salted_egg_roll": "Salted Egg Roll",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
