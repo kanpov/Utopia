@@ -34,7 +34,7 @@ public class ItemStackMixin {
         //profile.setOverdueProgress(tag.getInt("Overdue Progress"));
         profile.setPreviousTick(nbt.getLong("Previous World Tick"));
         profile.setInitialized(nbt.getBoolean("Is Initialized"));
-        profile.setFridgeState(FridgeState.Serialization.fromTag("Fridge State", nbt));
+        profile.setFridgeState(FridgeState.Serialization.readNbt("Fridge State", nbt));
     }
 
     @Inject(method = "writeNbt", at = @At("TAIL"))
@@ -47,6 +47,6 @@ public class ItemStackMixin {
         nbt.putInt("Overdue Progress", profile.getOverdueProgress());
         nbt.putLong("Previous World Tick", profile.getPreviousTick());
         nbt.putBoolean("Is Initialized", profile.isInitialized());
-        FridgeState.Serialization.toTag("Fridge State", profile.getFridgeState(), nbt);
+        FridgeState.Serialization.writeNbt("Fridge State", profile.getFridgeState(), nbt);
     }
 }
