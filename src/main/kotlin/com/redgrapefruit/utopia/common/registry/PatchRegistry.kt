@@ -135,7 +135,7 @@ object PatchRegistry {
     private fun discover(name: String, namespace: String): Item {
         val id = Identifier(namespace, name)
 
-        if (Registry.ITEM.containsId(Identifier(namespace, name))) {
+        if (Registry.ITEM.containsId(id)) {
             return Registry.ITEM.get(id)
         } else {
             throw KotlinNullPointerException("Couldn't find registered item: $id")
