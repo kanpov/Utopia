@@ -83,6 +83,7 @@ object PatchRegistry {
         patch("date", "croptopia", ConfigRegistry.DATE, ItemRegistry.OVERDUE_DATE)
         patch("donut", "croptopia", ConfigRegistry.DONUT, ItemRegistry.OVERDUE_DONUT)
         patch("dough", "croptopia", ConfigRegistry.DOUGH, ItemRegistry.OVERDUE_DOUGH)
+        patch("doughnut", "croptopia", ConfigRegistry.DOUGHNUT, ItemRegistry.OVERDUE_DOUGHNUT)
     }
 
     /**
