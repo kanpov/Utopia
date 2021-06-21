@@ -583,4 +583,11 @@ object ConfigRegistry {
         fridgeEfficiency = 7
         category = FoodCategory.PRODUCT
     }
+
+    val ETON_MESS = config {
+        overdueSpeed = 9
+        overdueState = 150000
+        fridgeEfficiency = 3
+        category = FoodCategory.PRODUCT
+    }
 }
