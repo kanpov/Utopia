@@ -551,6 +551,7 @@ object ConfigRegistry {
         overdueSpeed = 9
         overdueState = 75000
         fridgeEfficiency = 5
+        saltEfficiency = 3
         category = FoodCategory.PRODUCT
     }
 }
