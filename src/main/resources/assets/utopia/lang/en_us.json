@@ -86,6 +86,7 @@
     "item.utopia.overdue_french_fries": "Overdue French Fries",
     "item.utopia.overdue_fruit_salad": "Overdue Fruit Salad",
     "item.utopia.overdue_fruit_smoothie": "Overdue Fruit Smoothie",
+    "item.utopia.overdue_garlic": "Overdue Garlic",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -121,6 +122,7 @@
     "item.utopia.salted_fish_and_chips": "Salted Fish and Chips",
     "item.utopia.salted_french_fries": "Salted French Fries",
     "item.utopia.salted_fried_chicken": "Salted Fried Chicken",
+    "item.utopia.salted_garlic": "Salted Garlic",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }

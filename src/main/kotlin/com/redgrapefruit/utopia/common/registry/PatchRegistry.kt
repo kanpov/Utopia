@@ -100,6 +100,7 @@ object PatchRegistry {
         patch("fried_chicken", "croptopia", ConfigRegistry.FRIED_CHICKEN, ItemRegistry.ROTTEN_FRIED_CHICKEN)
         patch("fruit_salad", "croptopia", ConfigRegistry.FRUIT_SALAD, ItemRegistry.OVERDUE_FRUIT_SALAD)
         patch("fruit_smoothie", "croptopia", ConfigRegistry.FRUIT_SMOOTHIE, ItemRegistry.OVERDUE_FRUIT_SMOOTHIE)
+        patch("garlic", "croptopia", ConfigRegistry.GARLIC, ItemRegistry.OVERDUE_GARLIC)
     }
 
     /**
