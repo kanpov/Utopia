@@ -91,6 +91,7 @@ object PatchRegistry {
         patch("elderberry_jam", "croptopia", ConfigRegistry.ELDERBERRY_JAM, ItemRegistry.OVERDUE_ELDERBERRY_JAM)
         patch("enchilada", "croptopia", ConfigRegistry.ENCHILADA, ItemRegistry.OVERDUE_ENCHILADA)
         patch("eton_mess", "croptopia", ConfigRegistry.ETON_MESS, ItemRegistry.OVERDUE_ETON_MESS)
+        patch("fajitas", "croptopia", ConfigRegistry.FAJITAS, ItemRegistry.OVERDUE_FAJITAS)
     }
 
     /**
