@@ -602,6 +602,7 @@ object ConfigRegistry {
         overdueSpeed = 8
         overdueState = 90000
         fridgeEfficiency = 4
+        saltEfficiency = 2
         category = FoodCategory.FRUIT
     }
 
@@ -616,6 +617,7 @@ object ConfigRegistry {
         overdueSpeed = 8
         overdueState = 95000
         fridgeEfficiency = 3
+        saltEfficiency = 5
         category = FoodCategory.PRODUCT
     }
 
@@ -630,6 +632,7 @@ object ConfigRegistry {
         overdueSpeed = 13
         overdueState = 80000
         fridgeEfficiency = 6
+        saltEfficiency = 3
         category = FoodCategory.PRODUCT
     }
 
@@ -637,6 +640,7 @@ object ConfigRegistry {
         rotSpeed = 5
         rotState = 180000
         fridgeEfficiency = 2
+        saltEfficiency = 1
         category = FoodCategory.MEAT
     }
 
@@ -658,6 +662,7 @@ object ConfigRegistry {
         overdueSpeed = 9
         overdueSpeed = 115000
         fridgeEfficiency = 5
+        saltEfficiency = 3
         category = FoodCategory.PLANT
     }
 }
