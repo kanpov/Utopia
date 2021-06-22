@@ -80,6 +80,7 @@
     "item.utopia.overdue_fajitas": "Overdue Fajitas",
     "item.utopia.overdue_fig": "Overdue Fig",
     "item.utopia.overdue_figgy_pudding": "Overdue Figgy Pudding",
+    "item.utopia.overdue_fish_and_chips": "Overdue Fish and Chips",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -112,6 +113,7 @@
     "item.utopia.salted_egg_roll": "Salted Egg Roll",
     "item.utopia.salted_eggplant": "Salted Eggplant",
     "item.utopia.salted_fig": "Salted Fig",
+    "item.utopia.salted_fish_and_chips": "Salted Fish and Chips",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
