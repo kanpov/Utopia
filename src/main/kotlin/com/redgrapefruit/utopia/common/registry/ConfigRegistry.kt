@@ -632,4 +632,11 @@ object ConfigRegistry {
         fridgeEfficiency = 6
         category = FoodCategory.PRODUCT
     }
+
+    val FRIED_CHICKEN = config {
+        rotSpeed = 5
+        rotState = 180000
+        fridgeEfficiency = 2
+        category = FoodCategory.MEAT
+    }
 }

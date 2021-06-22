@@ -16,6 +16,7 @@ object ItemRegistry {
     // Rotten food
     val ROTTEN_BEEF_JERKY = RottenFoodItem(ConfigRegistry.BEEF_JERKY)
     val ROTTEN_BEEF_WELLINGTON = RottenFoodItem(ConfigRegistry.BEEF_WELLINGTON)
+    val ROTTEN_FRIED_CHICKEN = RottenFoodItem(ConfigRegistry.FRIED_CHICKEN)
 
     // Overdue food
     val OVERDUE_ALMOND = OverdueFoodItem(ConfigRegistry.ALMOND)
@@ -139,12 +140,14 @@ object ItemRegistry {
     val SALTED_FIG = SaltedFoodItem(ConfigRegistry.FIG)
     val SALTED_FISH_AND_CHIPS = SaltedFoodItem(ConfigRegistry.FISH_AND_CHIPS)
     val SALTED_FRENCH_FRIES = SaltedFoodItem(ConfigRegistry.FRENCH_FRIES)
+    val SALTED_FRIED_CHICKEN = SaltedFoodItem(ConfigRegistry.FRIED_CHICKEN)
 
     // Fresh food
 
     fun run() {
         register("rotten_beef_jerky", ROTTEN_BEEF_JERKY)
         register("rotten_beef_wellington", ROTTEN_BEEF_WELLINGTON)
+        register("rotten_fried_chicken", ROTTEN_FRIED_CHICKEN)
         register("overdue_almond", OVERDUE_ALMOND)
         register("overdue_almond_brittle", OVERDUE_ALMOND_BRITTLE)
         register("overdue_apple_juice", OVERDUE_APPLE_JUICE)
@@ -264,6 +267,7 @@ object ItemRegistry {
         register("salted_fig", SALTED_FIG)
         register("salted_fish_and_chips", SALTED_FISH_AND_CHIPS)
         register("salted_french_fries", SALTED_FRENCH_FRIES)
+        register("salted_fried_chicken", SALTED_FRIED_CHICKEN)
     }
 
     /**

@@ -1,6 +1,7 @@
 {
     "item.utopia.rotten_beef_jerky": "Rotten Beef Jerky",
     "item.utopia.rotten_beef_wellington": "Rotten Beef Wellington",
+    "item.utopia.rotten_fried_chicken": "Rotten Fried Chicken",
     "item.utopia.overdue_almond": "Overdue Almond",
     "item.utopia.overdue_almond_brittle": "Overdue Almond Brittle",
     "item.utopia.overdue_apple_juice": "Overdue Apple Juice",
@@ -117,6 +118,7 @@
     "item.utopia.salted_fig": "Salted Fig",
     "item.utopia.salted_fish_and_chips": "Salted Fish and Chips",
     "item.utopia.salted_french_fries": "Salted French Fries",
+    "item.utopia.salted_fried_chicken": "Salted Fried Chicken",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
