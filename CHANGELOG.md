@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.7] (2021-06-22)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Eggplant
+    - Elderberry
+    - Elderberry Jam
+    - Enchilada
+    - Eton Mess
+    - Fajitas
+    - Fig
+    - Figgy Pudding
+    - Fish and Chips
+    - Flour
+    - French Fries
+    - Fried Chicken
+    - Fruit Salad
+    - Fruit Smoothie
+    - Garlic
+- **[FORK]** Chives to the curated fork of Croptopia
+- **[REALISM]** Missing `saltEfficiency` parameter
+
+### Changed
+
+- **[REALISM]** Improve `FridgeState` serialization
+- **[REALISM]** Improve patch target discovery
+- **[CORE]** Exclude Croptopia reference textures from the output JAR to reduce size
+
+### Removed
+
+- **[REALISM]** Donut in favor of doughnut
+
 ## [v0.1-preview.6] (2021-06-21)
 
 ### Added
