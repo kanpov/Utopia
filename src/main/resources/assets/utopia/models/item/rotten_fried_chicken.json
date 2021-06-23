@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "utopia:item/overdue_fried_chicken"
+        "layer0": "utopia:item/rotten_fried_chicken"
     }
 }
