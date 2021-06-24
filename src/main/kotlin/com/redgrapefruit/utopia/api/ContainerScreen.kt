@@ -24,8 +24,6 @@ abstract class ContainerScreen protected constructor(
 
     // region Abstract properties & events
 
-    private val texture = getTexture()
-
     /**
      * Returns the [Screen] GUI texture
      *
