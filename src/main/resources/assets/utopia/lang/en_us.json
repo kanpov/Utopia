@@ -99,6 +99,7 @@
     "item.utopia.overdue_hamburger": "Overdue Hamburger",
     "item.utopia.overdue_hops": "Overdue Hops",
     "item.utopia.overdue_horchata": "Overdue Horchata",
+    "item.utopia.overdue_kale_chips": "Overdue Kale Chips",
     "item.utopia.overdue_kale": "Overdue Kale",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
@@ -138,6 +139,7 @@
     "item.utopia.salted_garlic": "Salted Garlic",
     "item.utopia.salted_greenbean": "Salted Greenbean",
     "item.utopia.salted_kale": "Salted Kale",
+    "item.utopia.salted_kale_chips": "Salted Kale Chips",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
