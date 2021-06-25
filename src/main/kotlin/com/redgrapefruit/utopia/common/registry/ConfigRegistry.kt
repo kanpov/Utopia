@@ -764,4 +764,11 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.VEGETABLE
     }
+
+    val KUMQUAT = config {
+        overdueSpeed = 6
+        overdueState = 100000
+        fridgeEfficiency = 2
+        category = FoodCategory.FRUIT
+    }
 }
