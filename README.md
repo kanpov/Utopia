@@ -13,7 +13,8 @@ Utopia has many unique features:
 3. Building (Planned)
 4. Cooking (Planned)
 5. Exploration (Planned)
-6. Campaign (Future steps for Utopia 2.0)
+6. Campaign (Future steps for post-1.0 releases)
+7. Metal Reinforcements (Future steps post-1.0 releases)
 
 # Install
 
