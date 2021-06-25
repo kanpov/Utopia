@@ -103,6 +103,8 @@
     "item.utopia.overdue_kale_chips": "Overdue Kale Chips",
     "item.utopia.overdue_kale_smoothie": "Overdue Kale Smoothie",
     "item.utopia.overdue_kiwi": "Overdue Kiwi",
+    "item.utopia.overdue_kumquat": "Overdue Kumquat",
+    "item.utopia.overdue_leafy_salad": "Overdue Leafy Salad",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -142,6 +144,8 @@
     "item.utopia.salted_greenbean": "Salted Greenbean",
     "item.utopia.salted_kale": "Salted Kale",
     "item.utopia.salted_kale_chips": "Salted Kale Chips",
+    "item.utopia.salted_kumquat": "Salted Kumquat",
+    "item.utopia.salted_leafy_salad": "Salted Leafy Salad",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
