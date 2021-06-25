@@ -18,8 +18,8 @@ data class Either<TFirst, TSecond>(
      var second: TSecond? = null) {
 
     // Checks
-    fun isFirstPresent(): Boolean = first == null
-    fun isSecondPresent(): Boolean = second == null
+    fun isFirstPresent(): Boolean = first != null
+    fun isSecondPresent(): Boolean = second != null
     fun areNeitherPresent(): Boolean = first == null && second == null
 
     // Apply
