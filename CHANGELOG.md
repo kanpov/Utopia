@@ -4,6 +4,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.8] (2021-06-25)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Ginger
+    - Grape
+    - Grape Jam
+    - Grapefruit
+    - Greenbean
+    - Greenonion
+    - Grilled Cheese
+    - Ham Sandwich
+    - Hamburger
+    - Honeydew
+    - Hops
+    - Horchata
+    - Kale
+    - Kale Chips
+    - Kale Smoothie
+    - Kiwi
+
+### Changed
+
+- **[REALISM]** Reworked the patch system to work like a managed query:
+    - `Patch` - a `data class` containing info about a patch
+    - `PatchSystem` - an `object` containing a managed query appended using `patch(...)` and executed using `apply()`
+    - `PatchRegistry` - an `object` containing all patches
+    - `Either` - a utility `data class` containing either `TFirst` or `TSecond`
+- **[REALISM]** Renamed category `PRODUCT` to `HUMAN_MADE`
+- **[CORE]** Increase Gradle memory
+- **[CORE]** Update Gradle from `7.0.2` to `7.1`
+
+### Fixed
+
+- **[REALISM]** Incorrect recipes
+- **[REALISM]** Incorrect models
+
 ## [v0.1-preview.7] (2021-06-22)
 
 ### Added
