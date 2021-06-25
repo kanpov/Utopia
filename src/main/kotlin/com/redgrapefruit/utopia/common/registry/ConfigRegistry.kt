@@ -729,4 +729,11 @@ object ConfigRegistry {
         fridgeEfficiency = 1
         category = FoodCategory.MISCELLANEOUS
     }
+
+    val HORCHATA = config {
+        overdueSpeed = 9
+        overdueState = 140000
+        fridgeEfficiency = 4
+        category = FoodCategory.HUMAN_MADE
+    }
 }
