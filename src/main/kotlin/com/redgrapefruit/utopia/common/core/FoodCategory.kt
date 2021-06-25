@@ -40,7 +40,7 @@ enum class FoodCategory(
     FISH(3, 1.25f, "Fish", false, true, true, "Nice and yummy fish."),
     NUT(2, 1.1f, "Nut", false, true, false, "Crunchy nuts."),
     PLANT(1, 0.8f, "Plant", false, true, false, "An edible plant."),
-    PRODUCT(3, 1f, "Product", false, true, true, "Cooked product - bakery, soup, stew etc."),
+    HUMAN_MADE(3, 1f, "Human Made", false, true, true, "Cooked product - bakery, soup, stew etc."),
     DAIRY(2, 1.2f, "Dairy", false, true, true, "Dairy products."),
     MISCELLANEOUS(2, 0.75f, "Miscellaneous", false, true, false, "Food that doesn't fit in regular categories")
 }
