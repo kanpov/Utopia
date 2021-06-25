@@ -40,7 +40,7 @@ object PatchSystem {
             targetItem.setProfile(FoodProfile())
 
             // Patch the variants if they're present. Else throw an error
-            if (!patch.variantEither.isFirstPresent() && !patch.variantEither.isSecondPresent()) {
+            if (patch.variantEither.areNeitherPresent()) {
                 LOG.error("Couldn't apply patch to $id - neither food variants are present in the patch")
                 return
             }
