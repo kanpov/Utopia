@@ -757,4 +757,11 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.HUMAN_MADE
     }
+
+    val KIWI = config {
+        overdueSpeed = 7
+        overdueState = 135000
+        fridgeEfficiency = 4
+        category = FoodCategory.VEGETABLE
+    }
 }
