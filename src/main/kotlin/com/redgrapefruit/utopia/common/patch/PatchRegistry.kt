@@ -1,14 +1,13 @@
-package com.redgrapefruit.utopia.common.registry
+package com.redgrapefruit.utopia.common.patch
 
-import com.redgrapefruit.utopia.common.core.FoodConfig
-import com.redgrapefruit.utopia.common.core.FoodProfile
-import com.redgrapefruit.utopia.common.item.OverdueFoodItem
-import com.redgrapefruit.utopia.common.item.RottenFoodItem
-import com.redgrapefruit.utopia.common.util.ItemMixinAccess
-import net.minecraft.item.Item
-import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
+import com.redgrapefruit.utopia.common.patch.PatchSystem.apply
+import com.redgrapefruit.utopia.common.patch.PatchSystem.patch
+import com.redgrapefruit.utopia.common.registry.ConfigRegistry
+import com.redgrapefruit.utopia.common.registry.ItemRegistry
 
+/**
+ * A registry containing all of the mod's patches
+ */
 object PatchRegistry {
     fun run() {
         patch("almond", "croptopia", ConfigRegistry.ALMOND, ItemRegistry.OVERDUE_ALMOND)
@@ -105,54 +104,7 @@ object PatchRegistry {
         patch("grape_jam", "croptopia", ConfigRegistry.GRAPE_JAM, ItemRegistry.OVERDUE_GRAPE_JAM)
         patch("grapefruit", "croptopia", ConfigRegistry.GRAPEFRUIT, ItemRegistry.OVERDUE_GRAPEFRUIT)
         patch("greenbean", "croptopia", ConfigRegistry.GREENBEAN, ItemRegistry.OVERDUE_GREENBEAN)
-    }
 
-    /**
-     * Patches a Croptopia item with rotten variant
-     * @param name Unique name of the patched item
-     * @param namespace Namespace of the target mod. Usually 'croptopia' (patching the foundation mod) or 'minecraft' (patching vanilla)
-     * @param config Linked [FoodConfig]
-     * @param rottenVariant Linked [RottenFoodItem]
-     */
-    private fun patch(name: String, namespace: String, config: FoodConfig, rottenVariant: RottenFoodItem) {
-        // Try to discover item and cast it
-        val access = discover(name, namespace) as ItemMixinAccess
-        // Add all needed properties
-        access.activate()
-        access.setConfig(config)
-        access.setProfile(FoodProfile())
-        access.setRottenVariant(rottenVariant)
-    }
-
-    /**
-     * Patches a Croptopia item with overdue variant
-     * @param name Unique name of the patched item
-     * @param config Linked [FoodConfig]
-     * @param overdueVariant Linked [OverdueFoodItem]
-     */
-    private fun patch(name: String, namespace: String, config: FoodConfig, overdueVariant: OverdueFoodItem) {
-        // Try to discover item and cast it
-        val access = discover(name, namespace) as ItemMixinAccess
-        // Add all needed properties
-        access.activate()
-        access.setConfig(config)
-        access.setProfile(FoodProfile())
-        access.setOverdueVariant(overdueVariant)
-    }
-
-    /**
-     * Tries to discover the item at given ID
-     * @param name Unique name
-     * @param namespace Base namespace
-     * @return Discovered item or my middle finger with [KotlinNullPointerException]
-     */
-    private fun discover(name: String, namespace: String): Item {
-        val id = Identifier(namespace, name)
-
-        if (Registry.ITEM.containsId(id)) {
-            return Registry.ITEM.get(id)
-        } else {
-            throw KotlinNullPointerException("Couldn't find registered item: $id")
-        }
+        apply()
     }
 }

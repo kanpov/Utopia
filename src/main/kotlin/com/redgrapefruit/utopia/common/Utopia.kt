@@ -2,16 +2,18 @@ package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.redgrapefruit.utopia.common.patch.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.BlockRegistry
 import com.redgrapefruit.utopia.common.registry.ItemRegistry
-import com.redgrapefruit.utopia.common.registry.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
+import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import java.security.SecureRandom
