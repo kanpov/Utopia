@@ -110,6 +110,7 @@
     "item.utopia.overdue_leek_soup": "Overdue Leek Soup",
     "item.utopia.overdue_lemon": "Overdue Lemon",
     "item.utopia.overdue_lemonade": "Overdue Lemonade",
+    "item.utopia.overdue_lettuce": "Overdue Lettuce",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -154,6 +155,7 @@
     "item.utopia.salted_leafy_salad": "Salted Leafy Salad",
     "item.utopia.salted_leek": "Salted Leek",
     "item.utopia.salted_leek_soup": "Salted Leek Soup",
+    "item.utopia.salted_lettuce": "Salted Lettuce",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
