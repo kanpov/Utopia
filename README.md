@@ -9,9 +9,6 @@ Utopia has many unique features:
     - Food tooltips
     - Patches to cover food from Minecraft, Croptopia and (optional) Sandwichable
     - Salt and fridges to reduce rot and overdue speeds
-    - Custom effects when the food is eaten 
-    - Permanent food effects
-    - Randomly applied / always applied food effects
 2. Furniture (Planned)
 3. Building (Planned)
 4. Cooking (Planned)
