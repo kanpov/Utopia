@@ -827,4 +827,11 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.FRUIT
     }
+
+    val LIMEADE = config {
+        overdueSpeed = 6
+        overdueState = 95000
+        fridgeEfficiency = 1
+        category = FoodCategory.HUMAN_MADE
+    }
 }
