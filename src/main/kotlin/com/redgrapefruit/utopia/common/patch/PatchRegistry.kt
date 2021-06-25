@@ -112,6 +112,7 @@ object PatchRegistry {
         patch("horchata", "croptopia", ConfigRegistry.HORCHATA, ItemRegistry.OVERDUE_HORCHATA)
         patch("kale", "croptopia", ConfigRegistry.KALE, ItemRegistry.OVERDUE_KALE)
         patch("kale_chips", "croptopia", ConfigRegistry.KALE_CHIPS, ItemRegistry.OVERDUE_KALE_CHIPS)
+        patch("kale_smoothie", "croptopia", ConfigRegistry.KALE_SMOOTHIE, ItemRegistry.OVERDUE_KALE_SMOOTHIE)
 
         apply()
     }
