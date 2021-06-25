@@ -123,6 +123,7 @@ object ItemRegistry {
     val OVERDUE_KUMQUAT = OverdueFoodItem(ConfigRegistry.KUMQUAT)
     val OVERDUE_LEAFY_SALAD = OverdueFoodItem(ConfigRegistry.LEAFY_SALAD)
     val OVERDUE_LEEK = OverdueFoodItem(ConfigRegistry.LEEK)
+    val OVERDUE_LEEK_SOUP = OverdueFoodItem(ConfigRegistry.LEEK_SOUP)
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem(ConfigRegistry.ALMOND)
@@ -168,6 +169,7 @@ object ItemRegistry {
     val SALTED_KUMQUAT = SaltedFoodItem(ConfigRegistry.KUMQUAT)
     val SALTED_LEAFY_SALAD = SaltedFoodItem(ConfigRegistry.LEAFY_SALAD)
     val SALTED_LEEK = SaltedFoodItem(ConfigRegistry.LEEK)
+    val SALTED_LEEK_SOUP = SaltedFoodItem(ConfigRegistry.LEEK_SOUP)
 
     // Fresh food
 
@@ -279,6 +281,7 @@ object ItemRegistry {
         register("overdue_kumquat", OVERDUE_KUMQUAT)
         register("overdue_leafy_salad", OVERDUE_LEAFY_SALAD)
         register("overdue_leek", OVERDUE_LEEK)
+        register("overdue_leek_soup", OVERDUE_LEEK_SOUP)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
@@ -322,6 +325,7 @@ object ItemRegistry {
         register("salted_kumquat", SALTED_KUMQUAT)
         register("salted_leafy_salad", SALTED_LEAFY_SALAD)
         register("salted_leek", SALTED_LEEK)
+        register("salted_leek_soup", SALTED_LEEK_SOUP)
     }
 
     /**
