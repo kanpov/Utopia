@@ -1,0 +1,7 @@
+
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "utopia:item/overdue_mango_ice_cream"
+    }
+}
