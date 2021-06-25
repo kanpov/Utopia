@@ -40,14 +40,14 @@ object PatchSystem {
             targetItem.setProfile(FoodProfile())
 
             // Patch the variants if they're present. Else throw an error
-            if (!patch.variantEither.hasFirst() && !patch.variantEither.hasSecond()) {
+            if (!patch.variantEither.isFirstPresent() && !patch.variantEither.isSecondPresent()) {
                 LOG.error("Couldn't apply patch to $id - neither food variants are present in the patch")
                 return
             }
-            if (patch.variantEither.hasFirst()) {
+            if (patch.variantEither.isFirstPresent()) {
                 targetItem.setOverdueVariant(patch.variantEither.first!!)
             }
-            if (patch.variantEither.hasSecond()) {
+            if (patch.variantEither.isSecondPresent()) {
                 targetItem.setRottenVariant(patch.variantEither.second!!)
             }
         }

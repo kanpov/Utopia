@@ -5,7 +5,7 @@ package com.redgrapefruit.utopia.common.util
  *
  * The main advantage: no errors have to be thrown in order to operate on these optional values
  *
- * The main disadvantage: even after calling [hasFirst] or [hasSecond], you have to put `!!` after referencing the object
+ * The main disadvantage: even after calling [isFirstPresent] or [isSecondPresent], you have to put `!!` after referencing the object
  */
 data class Either<TFirst, TSecond>(
     /**
@@ -17,9 +17,9 @@ data class Either<TFirst, TSecond>(
       */
      var second: TSecond? = null) {
 
-    // Null checks
-    fun hasFirst(): Boolean = first == null
-    fun hasSecond(): Boolean = second == null
+    // Checks
+    fun isFirstPresent(): Boolean = first == null
+    fun isSecondPresent(): Boolean = second == null
 
     // Apply
     inline fun first(action: () -> TFirst): Either<TFirst, TSecond> {
