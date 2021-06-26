@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.9] (2021-06-26)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Kumquat
+    - Leafy Salad
+    - Leek
+    - Leek Soup
+    - Lemon
+    - Lemon Chicken
+    - Lemonade
+    - Lettuce
+    - Lime
+    - Limeade
+    - Mango
+    - Mango Ice Cream
+    - Mead
+    - Melon Juice
+    - Milk Bottle
+
+### Changed
+
+- **[CORE]** Update Kotlin from `1.5.10` to `1.5.20`
+- **[CORE]** Update FLK from `1.6.1+kotlin.1.5.10`
+
+### Fixed
+
+- **[REALISM]** Missing lang entries
+
 ## [v0.1-preview.8] (2021-06-25)
 
 ### Added
