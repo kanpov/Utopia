@@ -13,10 +13,10 @@ import net.minecraft.util.registry.Registry
 /**
  * A patch system controlling the patching process
  */
-object PatchSystem {
+internal object PatchSystem {
     private val patchQuery: MutableSet<Patch> = mutableSetOf()
 
-    internal fun apply() {
+    fun apply() {
         patchQuery.forEach { patch ->
             val id = Identifier(patch.namespace, patch.name)
 
@@ -60,7 +60,7 @@ object PatchSystem {
      * @param config Linked [FoodConfig]
      * @param rottenVariant Linked [RottenFoodItem]
      */
-    internal fun patch(name: String, namespace: String, config: FoodConfig, rottenVariant: RottenFoodItem) {
+    fun patch(name: String, namespace: String, config: FoodConfig, rottenVariant: RottenFoodItem) {
         patchQuery += Patch(name, namespace, config, Either<OverdueFoodItem, RottenFoodItem>().second { rottenVariant })
     }
 
@@ -70,7 +70,7 @@ object PatchSystem {
      * @param config Linked [FoodConfig]
      * @param overdueVariant Linked [OverdueFoodItem]
      */
-    internal fun patch(name: String, namespace: String, config: FoodConfig, overdueVariant: OverdueFoodItem) {
+    fun patch(name: String, namespace: String, config: FoodConfig, overdueVariant: OverdueFoodItem) {
         patchQuery += Patch(name, namespace, config, Either<OverdueFoodItem, RottenFoodItem>().first { overdueVariant })
     }
 }
