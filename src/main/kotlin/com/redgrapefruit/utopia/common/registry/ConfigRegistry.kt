@@ -432,7 +432,7 @@ object ConfigRegistry {
         overdueState = 115000
         fridgeEfficiency = 1
         saltEfficiency = 1
-        category = FoodCategory.MISCELLANEOUS
+        category = FoodCategory.SPICE
     }
 
     val COCONUT = config {
@@ -663,7 +663,7 @@ object ConfigRegistry {
         overdueSpeed = 8
         overdueState = 185000
         fridgeEfficiency = 1
-        category = FoodCategory.MISCELLANEOUS
+        category = FoodCategory.SPICE
     }
 
     val GRAPE = config {
@@ -875,5 +875,12 @@ object ConfigRegistry {
         overdueState = 190000
         fridgeEfficiency = 2
         category = FoodCategory.MISCELLANEOUS
+    }
+
+    val MUSTARD = config {
+        overdueSpeed = 8
+        overdueState = 225000
+        fridgeEfficiency = 4
+        category = FoodCategory.SPICE
     }
 }
