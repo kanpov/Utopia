@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "utopia",
-    "version": "v0.1-preview.3",
+    "version": "v0.1-preview.9",
     "name": "Utopia",
     "description": "A global Croptopia plugin that adds food realism, furniture, storage, worldgen and cooking in separate modules",
     "authors": [
