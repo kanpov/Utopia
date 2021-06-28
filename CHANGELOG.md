@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1-preview.10] (2021-06-28)
+
+### Added
+
+- **[REALISM]** Patch coverage for:
+    - Molasses
+    - Mustard
+    - Nectarine
+    - Noodle
+    - Nougat
+    - Nutmeg
+    - Nutty Cookie
+    - Oat
+    - Oatmeal
+    - Olive
+    - Olive Oil
+    - Onion
+    - Onion Rings
+    - Orange
+    - Orange Juice
+
+### Changed
+
+- Internal fixes and optimizations
+- Use the newest Patchouli snapshot
+- Use the canonical Croptopia instead of CroptopiaRed
+
+### Removed
+
+- Chives support in favor of using canon Croptopia
+
 ## [v0.1-preview.9] (2021-06-26)
 
 ### Added
