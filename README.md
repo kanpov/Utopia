@@ -18,10 +18,12 @@ Utopia has many unique features:
 
 # Install
 
-The mod hasn't released yet, but the previews/alphas/betas are publicly available on this repo.  
-Go to [releases](https://github.com/RedGrapefruit09/Utopia/releases) and click on the top release.  
-Download all the pinned JAR files and put them into your ```mods``` folder.  
-[Fabric Language Kotlin](https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) are bundled inside the main JAR, so you don't have to install them.
+The mod can be installed via the [Grape Installer](https://github.com/RedGrapefruit09/GrapeInstaller/releases).  
+Click on the latest release and download the JAR file or the OS binary file.  
+Open the JAR / extract and open the binary.  
+Enter your `mods` folder into the top field.  
+Click on `Install` in the `Utopia` section.  
+After some time, the mod should have downloaded and you can launch the game!
 
 # Code
 
