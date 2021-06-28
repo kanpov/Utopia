@@ -909,6 +909,7 @@ object ConfigRegistry {
         overdueSpeed = 8
         overdueState = 150000
         fridgeEfficiency = 3
+        saltEfficiency = 4
         category = FoodCategory.NUT
     }
 
@@ -923,6 +924,7 @@ object ConfigRegistry {
         overdueSpeed = 11
         overdueState = 175000
         fridgeEfficiency = 6
+        saltEfficiency = 4
         category = FoodCategory.HUMAN_MADE
     }
 
@@ -937,6 +939,7 @@ object ConfigRegistry {
         overdueSpeed = 5
         overdueState = 190000
         fridgeEfficiency = 3
+        saltEfficiency = 2
         category = FoodCategory.VEGETABLE
     }
 
@@ -958,6 +961,14 @@ object ConfigRegistry {
         overdueSpeed = 16
         overdueState = 100000
         fridgeEfficiency = 11
+        saltEfficiency = 6
         category = FoodCategory.HUMAN_MADE
+    }
+
+    val ORANGE = config {
+        overdueSpeed = 7
+        overdueState = 125000
+        fridgeEfficiency = 4
+        category = FoodCategory.VEGETABLE
     }
 }
