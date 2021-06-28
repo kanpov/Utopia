@@ -911,4 +911,11 @@ object ConfigRegistry {
         fridgeEfficiency = 3
         category = FoodCategory.NUT
     }
+
+    val NUTTY_COOKIE = config {
+        overdueSpeed = 6
+        overdueState = 125000
+        fridgeEfficiency = 4
+        category = FoodCategory.HUMAN_MADE
+    }
 }
