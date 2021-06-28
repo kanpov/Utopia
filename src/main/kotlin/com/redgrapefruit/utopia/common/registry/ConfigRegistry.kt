@@ -904,4 +904,11 @@ object ConfigRegistry {
         fridgeEfficiency = 1
         category = FoodCategory.HUMAN_MADE
     }
+
+    val NUTMEG = config {
+        overdueSpeed = 8
+        overdueState = 150000
+        fridgeEfficiency = 3
+        category = FoodCategory.NUT
+    }
 }

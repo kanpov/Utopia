@@ -134,6 +134,7 @@ object PatchRegistry {
         patch("nectarine", "croptopia", ConfigRegistry.NECTARINE, ItemRegistry.OVERDUE_NECTARINE)
         patch("noodle", "croptopia", ConfigRegistry.NOODLE, ItemRegistry.OVERDUE_NECTARINE)
         patch("nougat", "croptopia", ConfigRegistry.NOUGAT, ItemRegistry.OVERDUE_NOUGAT)
+        patch("nutmeg", "croptopia", ConfigRegistry.NUTMEG, ItemRegistry.OVERDUE_NUTMEG)
 
         apply()
     }
