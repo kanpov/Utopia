@@ -138,6 +138,7 @@ object PatchRegistry {
         patch("nutty_cookie", "croptopia", ConfigRegistry.NUTTY_COOKIE, ItemRegistry.OVERDUE_NUTTY_COOKIE)
         patch("oat", "croptopia", ConfigRegistry.OAT, ItemRegistry.OVERDUE_OAT)
         patch("oatmeal", "croptopia", ConfigRegistry.OATMEAL, ItemRegistry.OVERDUE_OATMEAL)
+        patch("olive", "croptopia", ConfigRegistry.OLIVE, ItemRegistry.OVERDUE_OLIVE)
 
         apply()
     }
