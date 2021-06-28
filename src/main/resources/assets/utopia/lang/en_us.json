@@ -132,6 +132,7 @@
     "item.utopia.overdue_onion_rings": "Overdue Onion Rings",
     "item.utopia.overdue_orange": "Overdue Orange",
     "item.utopia.overdue_orange_juice": "Overdue Orange Juice",
+    "item.utopia.overdue_paprika": "Overdue Paprika",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -181,6 +182,7 @@
     "item.utopia.salted_oat": "Salted Oat",
     "item.utopia.salted_olive": "Salted Olive",
     "item.utopia.salted_onion_rings": "Salted Onion Rings",
+    "item.utopia.salted_paprika": "Salted Paprika",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
