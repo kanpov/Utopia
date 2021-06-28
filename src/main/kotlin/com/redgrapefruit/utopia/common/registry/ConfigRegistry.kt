@@ -937,6 +937,13 @@ object ConfigRegistry {
         overdueSpeed = 5
         overdueState = 190000
         fridgeEfficiency = 3
+        category = FoodCategory.VEGETABLE
+    }
+
+    val OLIVE_OIL = config {
+        overdueSpeed = 7
+        overdueState = 150000
+        fridgeEfficiency = 2
         category = FoodCategory.MISCELLANEOUS
     }
 }
