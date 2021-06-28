@@ -897,4 +897,11 @@ object ConfigRegistry {
         fridgeEfficiency = 3
         category = FoodCategory.HUMAN_MADE
     }
+
+    val NOUGAT = config {
+        overdueSpeed = 7
+        overdueState = 250000
+        fridgeEfficiency = 1
+        category = FoodCategory.HUMAN_MADE
+    }
 }
