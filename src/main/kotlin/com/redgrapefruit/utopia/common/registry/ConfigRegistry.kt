@@ -406,13 +406,6 @@ object ConfigRegistry {
         category = FoodCategory.HUMAN_MADE
     }
 
-    val CHIVES = config {
-        overdueSpeed = 6
-        overdueState = 130000
-        fridgeEfficiency = 4
-        category = FoodCategory.PLANT
-    }
-
     val CHOCOLATE = config {
         overdueSpeed = 5
         overdueState = 210000
