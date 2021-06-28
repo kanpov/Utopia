@@ -946,4 +946,11 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.MISCELLANEOUS
     }
+
+    val ONION = config {
+        overdueSpeed = 10
+        overdueState = 130000
+        fridgeEfficiency = 5
+        category = FoodCategory.VEGETABLE
+    }
 }
