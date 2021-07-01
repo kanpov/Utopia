@@ -18,12 +18,9 @@ Utopia has many unique features:
 
 # Install
 
-The mod can be installed via the [Grape Installer](https://github.com/RedGrapefruit09/GrapeInstaller/releases).  
-Click on the latest release and download the JAR file or the OS binary file.  
-Open the JAR / extract and open the binary.  
-Enter your `mods` folder into the top field.  
-Click on `Install` in the `Utopia` section.  
-After some time, the mod should have downloaded and you can launch the game!
+You will be able to continue using the mod via the `OpenModInstaller`.
+The tool is in development, and for the time being you can use custom compiled releases.
+I hope to finish it and publish publicly in a week.
 
 # Code
 
