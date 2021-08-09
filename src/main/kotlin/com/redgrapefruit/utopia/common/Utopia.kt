@@ -8,12 +8,10 @@ import com.redgrapefruit.utopia.common.registry.ItemRegistry
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import java.security.SecureRandom
@@ -31,6 +29,8 @@ val GROUP: ItemGroup =
 
 class Utopia : ModInitializer {
     override fun onInitialize() {
+        loadConfig()
+
         ItemRegistry.run()
         BlockRegistry.run()
         PatchRegistry.run()
