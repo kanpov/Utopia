@@ -1,9 +1,11 @@
 package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.MOD_ID
+import com.redgrapefruit.utopia.common.Module
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
 import com.redgrapefruit.utopia.common.item.SaltedFoodItem
+import com.redgrapefruit.utopia.common.moduleSpecific
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
@@ -207,7 +209,7 @@ object ItemRegistry {
 
     // Fresh food
 
-    fun run() {
+    fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("rotten_beef_jerky", ROTTEN_BEEF_JERKY)
         register("rotten_beef_wellington", ROTTEN_BEEF_WELLINGTON)
         register("rotten_fried_chicken", ROTTEN_FRIED_CHICKEN)

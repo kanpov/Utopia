@@ -2,8 +2,10 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.MOD_ID
+import com.redgrapefruit.utopia.common.Module
 import com.redgrapefruit.utopia.common.block.FridgeBlock
 import com.redgrapefruit.utopia.common.block.entity.FridgeBlockEntity
+import com.redgrapefruit.utopia.common.moduleSpecific
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
@@ -27,7 +29,7 @@ object BlockRegistry {
     val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> =
         BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
-    fun run() {
+    fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
     }
 

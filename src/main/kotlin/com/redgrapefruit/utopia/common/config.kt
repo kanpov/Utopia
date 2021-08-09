@@ -59,39 +59,6 @@ fun loadConfig() {
 }
 
 /**
- * Allows the user to access [modules] indirectly and set values
- */
-fun setConfigProperty(property: Module, value: Boolean) {
-    modules[property] = value
-    // After setting a property, the config must be rewritten.
-    // A reload is unnecessary since the value is saved into the modules map already
-    saveConfig()
-}
-
-/**
- * Saves the current state of the [modules] variable to the config.
- *
- * **Must not be run before [loadConfig]**
- */
-private fun saveConfig() {
-    // Delete the options file and then recreate it
-    val configDir = File(FabricLoader.getInstance().configDir.toFile(), MOD_ID)
-    val optionsFile = File(configDir, "config.json")
-    optionsFile.delete()
-    optionsFile.createNewFile()
-
-    // Rewrite it
-    val jsonObject = buildJsonObject {
-        modules.forEach { (key, value) ->
-            put(key.jsonEquivalent, JsonPrimitive(value))
-        }
-    }
-    FileOutputStream(optionsFile).use { stream ->
-        stream.write(Json.encodeToString(JsonObject.serializer(), jsonObject).encodeToByteArray())
-    }
-}
-
-/**
  * Executes module-specific code if that [module] is enabled
  */
 inline fun moduleSpecific(module: Module, action: () -> Unit) {

@@ -1,5 +1,7 @@
 package com.redgrapefruit.utopia.common.patch
 
+import com.redgrapefruit.utopia.common.Module
+import com.redgrapefruit.utopia.common.moduleSpecific
 import com.redgrapefruit.utopia.common.patch.PatchSystem.apply
 import com.redgrapefruit.utopia.common.patch.PatchSystem.patch
 import com.redgrapefruit.utopia.common.registry.ConfigRegistry
@@ -9,7 +11,7 @@ import com.redgrapefruit.utopia.common.registry.ItemRegistry
  * A registry containing all of the mod's patches
  */
 object PatchRegistry {
-    fun run() {
+    fun run(): Unit = moduleSpecific(Module.REALISM) {
         patch("almond", "croptopia", ConfigRegistry.ALMOND, ItemRegistry.OVERDUE_ALMOND)
         patch("almond_brittle", "croptopia", ConfigRegistry.ALMOND_BRITTLE, ItemRegistry.OVERDUE_ALMOND_BRITTLE)
         patch("apple_juice", "croptopia", ConfigRegistry.APPLE_JUICE, ItemRegistry.OVERDUE_APPLE_JUICE)
