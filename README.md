@@ -1,7 +1,7 @@
 # About
 
 This mod builds upon Croptopia to improve the food experience for Minecraft players.  
-It is built using Fabric Loader & API and runs on Minecraft 1.17 _only_.
+It is built using Fabric Loader & API and runs on Minecraft 1.17.1 _only_.
 
 Utopia has many unique features:
 1. Realism (in development):
@@ -13,18 +13,15 @@ Utopia has many unique features:
 3. Building (Planned)
 4. Cooking (Planned)
 5. Exploration (Planned)
-6. Campaign (Future steps for post-1.0 releases)
-7. Metal Reinforcements (Future steps post-1.0 releases)
 
 # Install
 
-You will be able to continue using the mod via the `OpenModInstaller`.
-The tool is in development, and for the time being you can use custom compiled releases.
-I hope to finish it and publish publicly in a week.
+No releases are available, although you can build the mod yourself using `gradlew build`.\
+The JAR will be at `$UNZIPPED_DIR$/build/libs/utopia-$VERSION$.jar`.
 
 # Code
 
-The code is mainly written in Kotlin 1.5.10, except for mixins, which are written in Java 16.
+The code is mainly written in Kotlin 1.5.21, except for mixins, which are written in Java 16.
 I try to comment and document the code as much as I can to ensure readability.  
 Any refactoring and cleanup suggestions are welcome!
 
