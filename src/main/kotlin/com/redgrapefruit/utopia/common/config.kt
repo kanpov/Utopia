@@ -19,9 +19,11 @@ enum class Module(internal val jsonEquivalent: String) {
 }
 
 /**
- * The enabled modules
+ * The enabled modules.
+ *
+ * Do **not** access this directly!
  */
-private val modules: MutableMap<Module, Boolean> = mutableMapOf()
+val modules: MutableMap<Module, Boolean> = mutableMapOf()
 
 /**
  * Loads the mod's module configuration
@@ -61,6 +63,9 @@ fun loadConfig() {
  */
 fun setConfigProperty(property: Module, value: Boolean) {
     modules[property] = value
+    // After setting a property, the config must be rewritten.
+    // A reload is unnecessary since the value is saved into the modules map already
+    saveConfig()
 }
 
 /**
@@ -68,7 +73,7 @@ fun setConfigProperty(property: Module, value: Boolean) {
  *
  * **Must not be run before [loadConfig]**
  */
-fun saveConfig() {
+private fun saveConfig() {
     // Delete the options file and then recreate it
     val configDir = File(FabricLoader.getInstance().configDir.toFile(), MOD_ID)
     val optionsFile = File(configDir, "config.json")
@@ -84,4 +89,11 @@ fun saveConfig() {
     FileOutputStream(optionsFile).use { stream ->
         stream.write(Json.encodeToString(JsonObject.serializer(), jsonObject).encodeToByteArray())
     }
+}
+
+/**
+ * Executes module-specific code if that [module] is enabled
+ */
+inline fun moduleSpecific(module: Module, action: () -> Unit) {
+    if (modules[module]!!) action()
 }
