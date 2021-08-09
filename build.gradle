@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.9.11'
+    id 'fabric-loom' version '0.9.45'
     id 'maven-publish'
     id 'org.jetbrains.kotlin.jvm' version '1.5.21'
 }
@@ -10,13 +10,6 @@ targetCompatibility = JavaVersion.VERSION_16
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-
-repositories {
-    maven {
-        name = "Ladysnake Mods"
-        url = 'https://ladysnake.jfrog.io/artifactory/mods'
-    }
-}
 
 dependencies {
     //to change the versions see the gradle.properties file
