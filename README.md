@@ -23,6 +23,14 @@ The files will be in your folder of choice.
 If you want to install the mod manually, you can get it on [GitHub releases](https://github.com/RedGrapefruit09/Utopia/releases) or
 on [the Archive](https://github.com/RedGrapefruit09/Archive).
 
+# Compile
+
+If you want the most recent (and untested) features of the mod at hand, you can compile it.
+
+Download the ZIP file of the repo, extract it somewhere, open CLI in that folder and type this command.\
+For Windows: `gradlew build`.
+For Unix (Linux and Mac OS X): `./gradlew build`
+
 # Roadmap
 
 This project's quite big and will probably not be finished this year.\
