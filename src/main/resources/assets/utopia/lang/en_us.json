@@ -142,6 +142,7 @@
     "item.utopia.overdue_pecan_ice_cream": "Overdue Pecan Ice Cream",
     "item.utopia.overdue_pecan_pie": "Overdue Pecan Pie",
     "item.utopia.overdue_pepper": "Overdue Pepper",
+    "item.utopia.overdue_pepperoni": "Overdue Pepperoni",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -194,6 +195,7 @@
     "item.utopia.salted_paprika": "Salted Paprika",
     "item.utopia.salted_peanut": "Salted Peanut",
     "item.utopia.salted_pecan": "Salted Pecan",
+    "item.utopia.salted_pepperoni": "Salted Pepperoni",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
