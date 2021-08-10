@@ -1030,4 +1030,11 @@ object ConfigRegistry {
         fridgeEfficiency = 7
         category = FoodCategory.HUMAN_MADE
     }
+
+    val PECAN_PIE = config {
+        overdueSpeed = 18
+        overdueState = 210000
+        fridgeEfficiency = 9
+        category = FoodCategory.HUMAN_MADE
+    }
 }
