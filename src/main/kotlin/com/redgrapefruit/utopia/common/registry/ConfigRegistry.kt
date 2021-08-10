@@ -1001,4 +1001,11 @@ object ConfigRegistry {
         saltEfficiency = 3
         category = FoodCategory.NUT
     }
+
+    val PEANUT_BUTTER_AND_JAM = config {
+        overdueSpeed = 7
+        overdueState = 90000
+        fridgeEfficiency = 3
+        category = FoodCategory.HUMAN_MADE
+    }
 }
