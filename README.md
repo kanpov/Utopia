@@ -28,7 +28,7 @@ on [the Archive](https://github.com/RedGrapefruit09/Archive).
 If you want the most recent (and untested) features of the mod at hand, you can compile it.
 
 Download the ZIP file of the repo, extract it somewhere, open CLI in that folder and type this command.\
-For Windows: `gradlew build`.
+For Windows: `gradlew build`.\
 For Unix (Linux and Mac OS X): `./gradlew build`
 
 # Roadmap
