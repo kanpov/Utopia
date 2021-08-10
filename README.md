@@ -16,8 +16,9 @@ Utopia has many unique features:
 
 # Install
 
-No releases are available, although you can build the mod yourself using `gradlew build`.\
-The JAR will be at `$UNZIPPED_DIR$/build/libs/utopia-$VERSION$.jar`.
+The releases (and pre-releases) of this mod are available via the [MiniManager tool](https://github.com/RedGrapefruit09/MiniManager).\
+Download the installer for your OS, run it, then run the app and click on `Download` in the `Utopia` section.\
+The files will be in your folder of choice.
 
 # Code
 
