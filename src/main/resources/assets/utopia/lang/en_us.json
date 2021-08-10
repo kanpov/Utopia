@@ -135,6 +135,9 @@
     "item.utopia.overdue_paprika": "Overdue Paprika",
     "item.utopia.overdue_peach": "Overdue Peach",
     "item.utopia.overdue_peach_jam": "Overdue Peach Jam",
+    "item.utopia.overdue_peanut": "Overdue Peanut",
+    "item.utopia.overdue_peanut_butter_and_jam": "Overdue Peanut Butter and Jam",
+    "item.utopia.overdue_pear": "Overdue Pear",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -185,6 +188,7 @@
     "item.utopia.salted_olive": "Salted Olive",
     "item.utopia.salted_onion_rings": "Salted Onion Rings",
     "item.utopia.salted_paprika": "Salted Paprika",
+    "item.utopia.salted_peanut": "Salted Peanut",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
