@@ -25,7 +25,7 @@ public class ItemStackMixin {
     private Item item;
 
     @Inject(method = "<init>(Lnet/minecraft/nbt/NbtCompound;)V", at = @At("TAIL"))
-    private void constructor(NbtCompound nbt, CallbackInfo ci) {
+    private void utopia$constructor(NbtCompound nbt, CallbackInfo ci) {
         if (!(item instanceof FoodItem)) return;
 
         FoodProfile profile = ((FoodItem) item).getProfile();
@@ -38,7 +38,7 @@ public class ItemStackMixin {
     }
 
     @Inject(method = "writeNbt", at = @At("TAIL"))
-    private void writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
+    private void utopia$writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
         if (!(item instanceof FoodItem)) return;
 
         FoodProfile profile = ((FoodItem) item).getProfile();

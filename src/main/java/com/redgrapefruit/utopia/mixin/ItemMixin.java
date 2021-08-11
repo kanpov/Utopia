@@ -35,69 +35,69 @@ public class ItemMixin implements ItemMixinAccess {
     // Data structures & patching data
     @Unique
     @Nullable
-    private FoodConfig config = null;
+    private FoodConfig utopia$config = null;
     @Unique
     @Nullable
-    private FoodProfile profile = null;
+    private FoodProfile utopia$profile = null;
     @Unique
-    private boolean isActivated = false;
+    private boolean utopia$isActivated = false;
     // Variants
     @Unique
     @Nullable
-    private OverdueFoodItem overdueVariant = null;
+    private OverdueFoodItem utopia$overdueVariant = null;
     @Unique
     @Nullable
-    private RottenFoodItem rottenVariant = null;
+    private RottenFoodItem utopia$rottenVariant = null;
 
     // Injects
     @Inject(method = "inventoryTick", at = @At("TAIL"))
-    private void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-        if (!isActivated || !(entity instanceof PlayerEntity) || config == null || profile == null) return;
+    private void utopia$inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
+        if (!utopia$isActivated || !(entity instanceof PlayerEntity) || utopia$config == null || utopia$profile == null) return;
 
-        FoodEngine.INSTANCE.inventoryTick(config, profile, (PlayerEntity) entity, slot, world, rottenVariant, overdueVariant, false);
+        FoodEngine.INSTANCE.inventoryTick(utopia$config, utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
     }
 
     @Inject(method = "appendTooltip", at = @At("TAIL"))
-    private void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
-        if (!isActivated || config == null || profile == null) return;
+    private void utopia$appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
+        if (!utopia$isActivated || utopia$config == null || utopia$profile == null) return;
 
-        FoodEngine.INSTANCE.appendTooltip(tooltip, config, profile, FoodState.FRESH);
+        FoodEngine.INSTANCE.appendTooltip(tooltip, utopia$config, utopia$profile, FoodState.FRESH);
     }
 
     // Duck interface implementations
     @Override
     public void activate() {
-        isActivated = true;
+        utopia$isActivated = true;
     }
 
     @Override
     public void setConfig(@NotNull FoodConfig config) {
-        this.config = config;
+        this.utopia$config = config;
     }
 
     @Override
     public void setOverdueVariant(@NotNull OverdueFoodItem overdueVariant) {
-        this.overdueVariant = overdueVariant;
+        this.utopia$overdueVariant = overdueVariant;
     }
 
     @Override
     public void setRottenVariant(@NotNull RottenFoodItem rottenVariant) {
-        this.rottenVariant = rottenVariant;
+        this.utopia$rottenVariant = rottenVariant;
     }
 
     @Nullable
     @Override
     public FoodProfile getProfile() {
-        return profile;
+        return utopia$profile;
     }
 
     @Override
     public void setProfile(@NotNull FoodProfile profile) {
-        this.profile = profile;
+        this.utopia$profile = profile;
     }
 
     @Override
     public boolean isActivated() {
-        return isActivated;
+        return utopia$isActivated;
     }
 }
