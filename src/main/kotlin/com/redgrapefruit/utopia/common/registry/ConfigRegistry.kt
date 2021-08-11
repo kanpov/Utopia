@@ -1102,5 +1102,12 @@ object ConfigRegistry {
         fridgeEfficiency = 6
         category = FoodCategory.HUMAN_MADE
     }
+
+    val PLUM = config {
+        overdueSpeed = 8
+        overdueState = 127500
+        fridgeEfficiency = 2
+        category = FoodCategory.FRUIT
+    }
     // endregion
 }
