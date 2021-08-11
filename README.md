@@ -33,12 +33,14 @@ For Unix (Linux and Mac OS X): `./gradlew build`
 
 # Roadmap
 
+The full state of the development is available on [the official Trello board](https://trello.com/b/jwybJXPQ/utopia).
+
 This project's quite big and will probably not be finished this year.\
 The very early (and yet to change) release date is Spring 2022.
 
 Here's a roadmap of the pre-releases:
 
-**0.1 - Realism, Part 1** - 12th August 2021\
+**0.1 - Realism, Part 1** - Available on all 3 platforms\
 **0.2 - Realism, Part 2** - 20th September 2021\
 **0.3 - Furniture & Storage** - 15th October 2021\
 **0.4 - Building** - Unknown\
