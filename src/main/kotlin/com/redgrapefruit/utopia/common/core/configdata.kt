@@ -10,6 +10,8 @@ import net.minecraft.resource.ResourceManager
 import net.minecraft.resource.ResourceType
 import net.minecraft.util.Identifier
 import java.io.InputStream
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
 // <----  Managing data-driven FoodConfigs  ---->
 
@@ -108,6 +110,22 @@ private object FoodConfigStorage {
     }
 
     fun clear(): Unit = values.clear()
+}
+
+/**
+ * A delegate that recalls [supplier] each time used.
+ *
+ * That allows to query the value each time it's needed since the value can update
+ * (like with the cached config system).
+ *
+ * Instantiate via [reloaderDelegate].
+ */
+class ConfigReloaderDelegate(private val supplier: () -> FoodConfig) : ReadOnlyProperty<Any, FoodConfig> {
+    override fun getValue(thisRef: Any, property: KProperty<*>): FoodConfig = supplier()
+}
+
+fun reloaderDelegate(supplier: () -> FoodConfig): ConfigReloaderDelegate {
+    return ConfigReloaderDelegate(supplier)
 }
 
 /**

@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.*
+import com.redgrapefruit.utopia.mixin.FoodComponentAccessor
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
@@ -18,7 +19,9 @@ import net.minecraft.world.World
 @Suppress("JoinDeclarationAndAssignment")
 open class FoodItem : Item {
     // Linked data structures
-    private val config: FoodConfig
+    private var name: String = ""
+    private var isComponentInitialized: Boolean = false
+    protected val config: FoodConfig by reloaderDelegate { storedConfig(name) }
     val profile: FoodProfile
 
     // Variant settings
@@ -30,39 +33,17 @@ open class FoodItem : Item {
     var rottenVariant: RottenFoodItem? = null
     var overdueVariant: OverdueFoodItem? = null
 
-    /**
-     * Protected constructor for creating customized [FoodComponent] instances
-     * @param config [FoodConfig] of this food item
-     * @param group The [ItemGroup] that the item belongs to
-     * @param componentAction A lambda that returns the generated [FoodComponent]
-     */
-    protected constructor(
-        config: FoodConfig,
+    @Suppress("RedundantLambdaOrAnonymousFunction")
+    private constructor(
         group: ItemGroup,
-        componentAction: () -> FoodComponent
-    ) : super(Settings().group(group).food(componentAction.invoke())) {
-        this.config = config
+    ) : super(Settings().group(group).food({
+        val builder = FoodComponent.Builder()
+        builder.build()
+    }())) {
         this.profile = FoodProfile()
     }
 
-    /**
-     * Public constructor for creating standard instances of food items (fresh)
-     * @param config [FoodConfig] of this food item
-     */
-    constructor(config: FoodConfig) : this(config, GROUP, {
-        val builder = FoodComponent.Builder()
-
-        // Hunger
-        builder.hunger(config.category.baseHunger + config.hunger)
-        // Meat
-        if (config.category == FoodCategory.MEAT) builder.meat()
-        // Snack
-        if (config.category.baseHunger + config.hunger < 2) builder.snack()
-        // Saturation modifier
-        builder.saturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
-
-        builder.build()
-    })
+    constructor(name: String) : this(GROUP) { this.name = name }
 
     // Builders
 
@@ -93,5 +74,31 @@ open class FoodItem : Item {
         super.appendTooltip(stack, world, tooltip, context)
 
         FoodEngine.appendTooltip(tooltip, config, profile, state)
+    }
+
+    /**
+     * Hacky solution to late-load [FoodComponent]s
+     */
+    private fun initComponent() {
+        if (isComponentInitialized) return
+
+        val access = foodComponent as? FoodComponentAccessor
+            ?: throw RuntimeException("Mixin critical failure. Cannot cast to FoodComponentAccessor")
+
+        val currentConfig = config
+        if (currentConfig == FoodConfig.DEFAULT)
+            throw RuntimeException("Late-load system failed. Config not loaded at moment of execution")
+
+        onComponentInit(access, foodComponent!!)
+    }
+
+    /**
+     * Inheritable load to implement by subclasses
+     */
+    protected open fun onComponentInit(access: FoodComponentAccessor, component: FoodComponent) {
+        access.setHunger(config.category.baseHunger + config.hunger)
+        if (config.category == FoodCategory.MEAT) access.setMeat(true)
+        if (config.category.baseHunger + config.hunger < 2) access.setSnack(true)
+        access.setSaturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
     }
 }
