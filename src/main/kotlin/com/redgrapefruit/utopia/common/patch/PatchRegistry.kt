@@ -162,6 +162,7 @@ object PatchRegistry {
         patch("pineapple_pepperoni_pizza", "croptopia", ConfigRegistry.PINEAPPLE_PEPPERONI_PIZZA, ItemRegistry.OVERDUE_PINEAPPLE_PEPPERONI_PIZZA)
         patch("pizza", "croptopia", ConfigRegistry.PIZZA, ItemRegistry.OVERDUE_PIZZA)
         patch("plum", "croptopia", ConfigRegistry.PLUM, ItemRegistry.OVERDUE_PLUM)
+        patch("popcorn", "croptopia", ConfigRegistry.POPCORN, ItemRegistry.OVERDUE_POPCORN)
 
         apply()
     }
