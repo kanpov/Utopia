@@ -7,6 +7,7 @@ import com.redgrapefruit.utopia.common.core.config
  * Contains all the food configs
  */
 object ConfigRegistry {
+    // region A
     val ALMOND = config {
         overdueSpeed = 7
         overdueState = 100000
@@ -82,7 +83,8 @@ object ConfigRegistry {
         saltEfficiency = 4
         category = FoodCategory.FRUIT
     }
-
+    // endregion
+    // region B
     val BAKED_BEANS = config {
         overdueSpeed = 5
         overdueState = 150000
@@ -229,7 +231,8 @@ object ConfigRegistry {
         fridgeEfficiency = 7
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region C
     val CABBAGE = config {
         overdueSpeed = 8
         overdueState = 95000
@@ -504,7 +507,8 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.BERRIES
     }
-
+    // endregion
+    // region D
     val DATE = config {
         overdueSpeed = 11
         overdueState = 125500
@@ -532,7 +536,8 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.FRUIT
     }
-
+    // endregion
+    // region E
     val EGG_ROLL = config {
         overdueSpeed = 9
         overdueState = 75000
@@ -576,7 +581,8 @@ object ConfigRegistry {
         fridgeEfficiency = 3
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region F
     val FAJITAS = config {
         overdueSpeed = 7
         overdueState = 145000
@@ -643,7 +649,8 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion F
+    // region G
     val GARLIC = config {
         overdueSpeed = 9
         overdueSpeed = 115000
@@ -701,7 +708,8 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region H
     val HAM_SANDWICH = config {
         overdueSpeed = 9
         overdueState = 70000
@@ -729,7 +737,8 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion H
+    // region K
     val KALE = config {
         overdueSpeed = 6
         overdueState = 115000
@@ -764,7 +773,8 @@ object ConfigRegistry {
         fridgeEfficiency = 2
         category = FoodCategory.FRUIT
     }
-
+    // endregion
+    // region L
     val LEAFY_SALAD = config {
         overdueSpeed = 8
         overdueState = 85000
@@ -827,7 +837,8 @@ object ConfigRegistry {
         fridgeEfficiency = 1
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region M
     val MANGO = config {
         overdueSpeed = 8
         overdueState = 125000
@@ -876,7 +887,8 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.SPICE
     }
-
+    // endregion
+    // region N
     val NECTARINE = config {
         overdueSpeed = 6
         overdueState = 110000
@@ -912,7 +924,8 @@ object ConfigRegistry {
         fridgeEfficiency = 4
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region O
     val OAT = config {
         overdueSpeed = 11
         overdueState = 175000
@@ -971,7 +984,8 @@ object ConfigRegistry {
         fridgeEfficiency = 8
         category = FoodCategory.HUMAN_MADE
     }
-
+    // endregion
+    // region P
     val PAPRIKA = config {
         overdueSpeed = 7
         overdueState = 155000
@@ -1088,4 +1102,5 @@ object ConfigRegistry {
         fridgeEfficiency = 6
         category = FoodCategory.HUMAN_MADE
     }
+    // endregion
 }
