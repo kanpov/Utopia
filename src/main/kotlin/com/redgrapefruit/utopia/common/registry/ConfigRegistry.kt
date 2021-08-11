@@ -8,13 +8,6 @@ import com.redgrapefruit.utopia.common.core.config
  */
 object ConfigRegistry {
     // region A
-    val ALMOND = config {
-        overdueSpeed = 7
-        overdueState = 100000
-        saltEfficiency = 4
-        category = FoodCategory.NUT
-    }
-
     val ALMOND_BRITTLE = config {
         overdueSpeed = 8
         overdueState = 120000

@@ -43,5 +43,19 @@ enum class FoodCategory(
     HUMAN_MADE(3, 1f, "Human Made", false, true, true, "Cooked product - bakery, soup, stew etc."),
     DAIRY(2, 1.2f, "Dairy", false, true, true, "Dairy products."),
     SPICE(1, 0.65f, "Spice", false, true, false, "Upgrade!"),
-    MISCELLANEOUS(2, 0.75f, "Miscellaneous", false, true, false, "Food that doesn't fit in regular categories")
+    MISCELLANEOUS(2, 0.75f, "Miscellaneous", false, true, false, "Food that doesn't fit in regular categories");
+
+    companion object {
+        /**
+         * Reads a [FoodCategory] from a raw [String] declared in a config JSON, else throws a [RuntimeException]
+         */
+        fun fromString(raw: String): FoodCategory {
+            values().forEach { value ->
+                val expected = value.name.lowercase()
+                if (raw == expected) return value
+            }
+
+            throw RuntimeException("Could not parse FoodCategory; a crash may occur")
+        }
+    }
 }

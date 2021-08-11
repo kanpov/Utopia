@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.common
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.redgrapefruit.utopia.common.core.FoodConfigReloader
 import com.redgrapefruit.utopia.common.patch.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.BlockRegistry
 import com.redgrapefruit.utopia.common.registry.ItemRegistry
@@ -30,6 +31,7 @@ val GROUP: ItemGroup =
 class Utopia : ModInitializer {
     override fun onInitialize() {
         loadConfig()
+        FoodConfigReloader.register()
 
         ItemRegistry.run()
         BlockRegistry.run()

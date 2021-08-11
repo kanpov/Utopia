@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.MOD_ID
 import com.redgrapefruit.utopia.common.Module
+import com.redgrapefruit.utopia.common.core.storedConfig
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
 import com.redgrapefruit.utopia.common.item.SaltedFoodItem
@@ -23,7 +24,7 @@ object ItemRegistry {
     val ROTTEN_PORK_JERKY = RottenFoodItem(ConfigRegistry.PORK_JERKY)
 
     // Overdue food
-    val OVERDUE_ALMOND = OverdueFoodItem(ConfigRegistry.ALMOND)
+    val OVERDUE_ALMOND = OverdueFoodItem(storedConfig("almond"))
     val OVERDUE_ALMOND_BRITTLE = OverdueFoodItem(ConfigRegistry.ALMOND_BRITTLE)
     val OVERDUE_APPLE_JUICE = OverdueFoodItem(ConfigRegistry.APPLE_JUICE)
     val OVERDUE_APPLE_PIE = OverdueFoodItem(ConfigRegistry.APPLE_PIE)
@@ -174,7 +175,7 @@ object ItemRegistry {
     val OVERDUE_POTATO_CHIPS = OverdueFoodItem(ConfigRegistry.POTATO_CHIPS)
 
     // Salted food
-    val SALTED_ALMOND = SaltedFoodItem(ConfigRegistry.ALMOND)
+    val SALTED_ALMOND = SaltedFoodItem(storedConfig("almond"))
     val SALTED_ALMOND_BRITTLE = SaltedFoodItem(ConfigRegistry.ALMOND_BRITTLE)
     val SALTED_APRICOT = SaltedFoodItem(ConfigRegistry.APRICOT)
     val SALTED_ARTICHOKE = SaltedFoodItem(ConfigRegistry.ARTICHOKE)
