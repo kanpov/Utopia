@@ -33,6 +33,8 @@ For Unix (Linux and Mac OS X): `./gradlew build`
 
 # Roadmap
 
+The full state of the development is available on [the official Trello board](https://trello.com/b/jwybJXPQ/utopia).
+
 This project's quite big and will probably not be finished this year.\
 The very early (and yet to change) release date is Spring 2022.
 
