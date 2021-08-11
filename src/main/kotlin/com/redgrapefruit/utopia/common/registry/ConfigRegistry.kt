@@ -1124,5 +1124,12 @@ object ConfigRegistry {
         fridgeEfficiency = 6
         category = FoodCategory.HUMAN_MADE
     }
+
+    val PORK_JERKY = config {
+        rotSpeed = 9
+        rotState = 115000
+        fridgeEfficiency = 4
+        category = FoodCategory.MEAT
+    }
     // endregion
 }
