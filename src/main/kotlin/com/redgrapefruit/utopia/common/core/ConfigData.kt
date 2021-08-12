@@ -2,6 +2,7 @@
 
 package com.redgrapefruit.utopia.common.core
 
+import com.redgrapefruit.utopia.common.LOG
 import com.redgrapefruit.utopia.common.MOD_ID
 import com.redgrapefruit.utopia.common.UNUSED_PROPERTY
 import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
@@ -74,8 +75,12 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         val saltEfficiency =
             if (jsonObject.contains("saltEfficiency")) jsonObject["saltEfficiency"]!!.jsonPrimitive.int else UNUSED_PROPERTY
         // Hunger & Saturation
-        val hunger = assertConfigProperty(jsonObject["hunger"], "hunger", name).jsonPrimitive.int
-        val saturationModifier = assertConfigProperty(jsonObject["saturationModifier"], "saturationModifier", name).jsonPrimitive.float
+        val hunger = if (jsonObject.contains("hunger")) jsonObject["hunger"]!!.jsonPrimitive.int.also {
+            LOG.warn("Hunger not found for $name. Issues may occur")
+        } else UNUSED_PROPERTY
+        val saturationModifier = if (jsonObject.contains("saturationModifier")) jsonObject["saturationModifier"]!!.jsonPrimitive.float.also {
+            LOG.warn("Saturation modifier not found for $name. Issues may occur")
+        } else UNUSED_PROPERTY_FLOAT
 
         // Construct config using the DSL
         val config = config {
