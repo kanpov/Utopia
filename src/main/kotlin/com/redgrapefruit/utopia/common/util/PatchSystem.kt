@@ -1,12 +1,10 @@
-package com.redgrapefruit.utopia.common.patch
+package com.redgrapefruit.utopia.common.util
 
 import com.redgrapefruit.utopia.common.LOG
 import com.redgrapefruit.utopia.common.core.FoodConfig
 import com.redgrapefruit.utopia.common.core.FoodProfile
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
-import com.redgrapefruit.utopia.common.util.Either
-import com.redgrapefruit.utopia.common.util.ItemMixinAccess
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 

@@ -3,7 +3,7 @@ package com.redgrapefruit.utopia.common
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.redgrapefruit.utopia.common.core.FoodConfigReloader
-import com.redgrapefruit.utopia.common.patch.PatchRegistry
+import com.redgrapefruit.utopia.common.registry.PatchRegistry
 import com.redgrapefruit.utopia.common.registry.BlockRegistry
 import com.redgrapefruit.utopia.common.registry.ItemRegistry
 import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry

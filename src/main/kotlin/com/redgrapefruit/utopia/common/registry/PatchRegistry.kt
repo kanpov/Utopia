@@ -1,12 +1,9 @@
-package com.redgrapefruit.utopia.common.patch
+package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.Module
-import com.redgrapefruit.utopia.common.core.storedConfig
 import com.redgrapefruit.utopia.common.moduleSpecific
-import com.redgrapefruit.utopia.common.patch.PatchSystem.apply
-import com.redgrapefruit.utopia.common.patch.PatchSystem.patch
-import com.redgrapefruit.utopia.common.registry.ConfigRegistry
-import com.redgrapefruit.utopia.common.registry.ItemRegistry
+import com.redgrapefruit.utopia.common.util.PatchSystem.apply
+import com.redgrapefruit.utopia.common.util.PatchSystem.patch
 
 /**
  * A registry containing all of the mod's patches
