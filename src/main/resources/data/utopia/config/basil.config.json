@@ -1,0 +1,7 @@
+{
+    "overdueSpeed": 7,
+    "overdueState": 90000,
+    "fridgeEfficiency": 3,
+    "saltEfficiency": 4,
+    "category": "plant"
+}

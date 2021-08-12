@@ -1,0 +1,7 @@
+{
+    "overdueSpeed": 6,
+    "overdueState": 50000,
+    "fridgeEfficiency": 1,
+    "saltEfficiency": 2,
+    "category": "nut"
+}

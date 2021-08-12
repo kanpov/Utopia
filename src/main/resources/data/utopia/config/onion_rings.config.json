@@ -1,0 +1,7 @@
+{
+    "overdueSpeed": 16,
+    "overdueState": 100000,
+    "fridgeEfficiency": 11,
+    "saltEfficiency": 6,
+    "category": "human_made"
+}
