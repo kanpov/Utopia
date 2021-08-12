@@ -48,7 +48,7 @@ open class FoodItem : Item {
 
     constructor(_name: String) : this(GROUP) {
         this.name = _name
-        FoodLateInitCallback.Event.register(FoodLateInitCallback.listener { name, _ ->
+        ComponentInitializeCallback.Event.register(ComponentInitializeCallback.listener { name, _ ->
             if (name == this.name) initComponent()
         })
     }

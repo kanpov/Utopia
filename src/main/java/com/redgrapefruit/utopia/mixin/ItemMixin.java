@@ -104,7 +104,7 @@ public class ItemMixin implements ItemMixinAccess {
     public void named(@NotNull String name) {
         utopia$name = name;
 
-        FoodLateInitCallback.Companion.getEvent().register((loadedName, config) -> {
+        ComponentInitializeCallback.Companion.getEvent().register((loadedName, config) -> {
             if (loadedName.equals(utopia$name)) mixinInitComponent();
         });
     }

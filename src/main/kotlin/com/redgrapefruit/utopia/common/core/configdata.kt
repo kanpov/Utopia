@@ -90,7 +90,7 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         FoodConfigStorage.put(name, config)
 
         // Invoke event
-        FoodLateInitCallback.Event.invoker().init(name, config)
+        ComponentInitializeCallback.Event.invoker().init(name, config)
     }
 
     private fun <T> assertConfigProperty(input: T?, name: String): T {
@@ -143,16 +143,15 @@ fun storedConfig(name: String) = FoodConfigStorage.get(name)
  */
 fun String.remove(segment: String): String = replace(segment, "")
 
-
 /**
  * Allows you to prepare a component for food once the config is loaded in
  */
-interface FoodLateInitCallback {
+interface ComponentInitializeCallback {
     fun init(name: String, config: FoodConfig)
 
     companion object {
-        val Event: Event<FoodLateInitCallback> = EventFactory.createArrayBacked(FoodLateInitCallback::class.java)
-        { listeners: Array<FoodLateInitCallback> ->
+        val Event: Event<ComponentInitializeCallback> = EventFactory.createArrayBacked(ComponentInitializeCallback::class.java)
+        { listeners: Array<ComponentInitializeCallback> ->
             Impl { name, config ->
                 listeners.forEach { listener -> listener.init(name, config) }
             }
@@ -167,7 +166,7 @@ interface FoodLateInitCallback {
     /**
      * Wrapper implementation for lambda listeners. Use [listener] to create.
      */
-    class Impl(private val action: (String, FoodConfig) -> Unit) : FoodLateInitCallback {
+    class Impl(private val action: (String, FoodConfig) -> Unit) : ComponentInitializeCallback {
         override fun init(name: String, config: FoodConfig) = action(name, config)
     }
 }
