@@ -2,7 +2,10 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.*
-import com.redgrapefruit.utopia.mixin.FoodComponentAccessor
+import com.redgrapefruit.utopia.common.util.MutableFoodComponent
+import com.redgrapefruit.utopia.common.util.asImmutable
+import com.redgrapefruit.utopia.common.util.asMutable
+import com.redgrapefruit.utopia.mixin.ItemAccessor
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
@@ -43,7 +46,12 @@ open class FoodItem : Item {
         this.profile = FoodProfile()
     }
 
-    constructor(name: String) : this(GROUP) { this.name = name }
+    constructor(_name: String) : this(GROUP) {
+        this.name = _name
+        FoodLateInitCallback.EVENT.register(FoodLateInitCallback.listener { name, _ ->
+            if (name == this.name) initComponent()
+        })
+    }
 
     // Builders
 
@@ -82,23 +90,28 @@ open class FoodItem : Item {
     private fun initComponent() {
         if (isComponentInitialized) return
 
-        val access = foodComponent as? FoodComponentAccessor
-            ?: throw RuntimeException("Mixin critical failure. Cannot cast to FoodComponentAccessor")
+        println("INIT")
 
         val currentConfig = config
         if (currentConfig == FoodConfig.DEFAULT)
             throw RuntimeException("Late-load system failed. Config not loaded at moment of execution")
 
-        onComponentInit(access, foodComponent!!)
+        val mutable = foodComponent!!.asMutable()
+        onComponentInit(mutable, foodComponent!!)
+
+        val access = this as ItemAccessor
+        access.setFoodComponent(mutable.asImmutable())
+
+        isComponentInitialized = true
     }
 
     /**
      * Inheritable load to implement by subclasses
      */
-    protected open fun onComponentInit(access: FoodComponentAccessor, component: FoodComponent) {
-        access.setHunger(config.category.baseHunger + config.hunger)
-        if (config.category == FoodCategory.MEAT) access.setMeat(true)
-        if (config.category.baseHunger + config.hunger < 2) access.setSnack(true)
-        access.setSaturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
+    protected open fun onComponentInit(mutable: MutableFoodComponent, immutable: FoodComponent) {
+        mutable.hunger = config.category.baseHunger + config.hunger
+        if (config.category == FoodCategory.MEAT) mutable.meat = true
+        if (config.category.baseHunger + config.hunger < 2) mutable.snack = true
+        mutable.saturationModifier = config.category.baseSaturationModifier + config.saturationModifier
     }
 }

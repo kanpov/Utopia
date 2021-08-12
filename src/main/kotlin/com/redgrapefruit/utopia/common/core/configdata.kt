@@ -4,6 +4,8 @@ import com.redgrapefruit.utopia.common.MOD_ID
 import com.redgrapefruit.utopia.common.UNUSED_PROPERTY
 import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
 import kotlinx.serialization.json.*
+import net.fabricmc.fabric.api.event.Event
+import net.fabricmc.fabric.api.event.EventFactory
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener
 import net.minecraft.resource.ResourceManager
@@ -86,6 +88,12 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         // Put the config in the storage
         val name = id.toString().remove("$MOD_ID:config/").remove(".config.json")
         FoodConfigStorage.put(name, config)
+
+        println("LOADED: $name")
+
+        // Invoke event
+        println("INVOKED EVENT FOR: $name")
+        FoodLateInitCallback.EVENT.invoker().init(name, config)
     }
 
     private fun <T> assertConfigProperty(input: T?, name: String): T {
@@ -137,3 +145,32 @@ fun storedConfig(name: String) = FoodConfigStorage.get(name)
  * Removes a [segment] from the string
  */
 fun String.remove(segment: String): String = replace(segment, "")
+
+
+/**
+ * Allows you to prepare a component for food once the config is loaded in
+ */
+interface FoodLateInitCallback {
+    fun init(name: String, config: FoodConfig)
+
+    companion object {
+        val EVENT: Event<FoodLateInitCallback> = EventFactory.createArrayBacked(FoodLateInitCallback::class.java)
+        { listeners: Array<FoodLateInitCallback> ->
+            Impl { name, config ->
+                listeners.forEach { listener -> listener.init(name, config) }
+            }
+        }
+
+        /**
+         * Create a lambda listener for the event
+         */
+        fun listener(action: (String, FoodConfig) -> Unit) = Impl(action)
+    }
+
+    /**
+     * Wrapper implementation for lambda listeners. Use [listener] to create.
+     */
+    class Impl(private val action: (String, FoodConfig) -> Unit) : FoodLateInitCallback {
+        override fun init(name: String, config: FoodConfig) = action(name, config)
+    }
+}

@@ -4,7 +4,7 @@
     "package": "com.redgrapefruit.utopia.mixin",
     "compatibilityLevel": "JAVA_16",
     "mixins": [
-        "FoodComponentAccessor",
+        "ItemAccessor",
         "ItemMixin",
         "ItemStackMixin"
     ],

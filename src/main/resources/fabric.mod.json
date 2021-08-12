@@ -13,6 +13,7 @@
     "license": "MIT",
     "icon": "assets/utopia/icon.png",
     "environment": "*",
+    "accessWidener": "utopia.accesswidener",
     "entrypoints": {
         "client": [
             {
