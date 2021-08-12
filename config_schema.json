@@ -1,0 +1,46 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/RedGrapefruit09/Utopia/master/config_schema.json",
+    "title": "Food configuration",
+    "description": "A FoodConfig JSON representation",
+    "type": "object",
+    "properties": {
+        "category": {
+            "description": "The category of the food",
+            "type": "string"
+        },
+        "hunger": {
+            "description": "The amount of hunger bars the food fills",
+            "type": "integer"
+        },
+        "saturationModifier": {
+            "description": "Describes how much one bar of food lasts",
+            "type": "float"
+        },
+        "rotSpeed": {
+            "description": "The amount of FQ that the food rots every Minecraft tick",
+            "type": "integer"
+        },
+        "rotState": {
+            "description": "The amount of FQ required for food to convert to rotten",
+            "type": "integer"
+        },
+        "overdueSpeed": {
+            "description": "The amount of FQ that the food overdue_s every Minecraft tick",
+            "type": "integer"
+        },
+        "overdueState": {
+            "description": "The amount of FQ required for food to convert to overdue",
+            "type": "integer"
+        },
+        "fridgeEfficiency": {
+            "description": "How many FQ of rot/overdue a fridge suppresses every Minecraft tick",
+            "type": "integer"
+        },
+        "saltEfficiency": {
+            "description": "How many FQ of rot/overdue applied salt suppresses every Minecraft tick",
+            "type": "integer"
+        }
+    },
+    "required": [ "category" ]
+}
