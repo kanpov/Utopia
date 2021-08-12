@@ -1,3 +1,5 @@
+@file:JvmName("MiscUtil")
+
 package com.redgrapefruit.utopia.common.util
 
 import com.mojang.datafixers.util.Pair

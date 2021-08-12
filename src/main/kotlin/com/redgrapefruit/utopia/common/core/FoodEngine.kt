@@ -11,7 +11,7 @@ import net.minecraft.world.World
 
 object FoodEngine {
     /**
-     * Main block of logic that executes every tick the item is inside of a player's inventory
+     * Main block of logic that executes every tick the item is inside a player's inventory
      *
      * @param config Linked [FoodConfig]
      * @param profile Linked [FoodProfile]

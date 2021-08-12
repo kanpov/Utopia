@@ -5,8 +5,8 @@ import com.redgrapefruit.utopia.common.item.FoodItem;
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem;
 import com.redgrapefruit.utopia.common.item.RottenFoodItem;
 import com.redgrapefruit.utopia.common.util.ItemMixinAccess;
+import com.redgrapefruit.utopia.common.util.MiscUtil;
 import com.redgrapefruit.utopia.common.util.MutableFoodComponent;
-import com.redgrapefruit.utopia.common.util.MutableFoodComponentKt;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,7 +40,7 @@ public class ItemMixin implements ItemMixinAccess {
     @Unique
     private String utopia$name = "";
     @Unique
-    private final Supplier<FoodConfig> utopia$supplierConfig = () -> ConfigdataKt.storedConfig(utopia$name);
+    private final Supplier<FoodConfig> utopia$supplierConfig = () -> ConfigDataKt.storedConfig(utopia$name);
     @Unique
     private boolean utopia$isComponentInitialized = false;
     @Unique
@@ -80,7 +80,7 @@ public class ItemMixin implements ItemMixinAccess {
             throw new RuntimeException("Late-load system failed. Config not loaded at moment of execution");
 
         Objects.requireNonNull(foodComponent, "Late-load system failed. FoodComponent is null");
-        MutableFoodComponent mutable = MutableFoodComponentKt.asMutable(foodComponent);
+        MutableFoodComponent mutable = MiscUtil.asMutable(foodComponent);
         FoodConfig config = utopia$supplierConfig.get();
 
         mutable.setHunger(config.getCategory().getBaseHunger() + config.getHunger());
@@ -89,7 +89,7 @@ public class ItemMixin implements ItemMixinAccess {
         mutable.setSaturationModifier(config.getCategory().getBaseSaturationModifier() + config.getSaturationModifier());
 
         ItemAccessor access = (ItemAccessor) ((Item) (Object) this);
-        access.setFoodComponent(MutableFoodComponentKt.asImmutable(mutable));
+        access.setFoodComponent(MiscUtil.asImmutable(mutable));
 
         utopia$isComponentInitialized = true;
     }

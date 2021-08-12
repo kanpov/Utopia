@@ -1,3 +1,5 @@
+@file:JvmName("ConfigDataKt")
+
 package com.redgrapefruit.utopia.common.core
 
 import com.redgrapefruit.utopia.common.MOD_ID
