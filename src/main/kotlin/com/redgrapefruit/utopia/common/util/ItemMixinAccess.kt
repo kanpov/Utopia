@@ -12,7 +12,6 @@ interface ItemMixinAccess {
     fun activate()
     fun named(name: String)
     fun setProfile(profile: FoodProfile)
-    fun setConfig(config: FoodConfig)
     fun setOverdueVariant(overdueVariant: OverdueFoodItem)
     fun setRottenVariant(rottenVariant: RottenFoodItem)
     fun getProfile(): FoodProfile?

@@ -1,6 +1,5 @@
 package com.redgrapefruit.utopia.common.patch
 
-import com.redgrapefruit.utopia.common.core.FoodConfig
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
 import com.redgrapefruit.utopia.common.util.Either
@@ -17,10 +16,6 @@ internal data class Patch(
      * The namespace of the target item (target mod essentially), like `minecraft` and `croptopia`
      */
     val namespace: String,
-    /**
-     * The linked [FoodConfig]
-     */
-    val config: FoodConfig,
     /**
      * The linked variant [OverdueFoodItem] or [RottenFoodItem]
      */

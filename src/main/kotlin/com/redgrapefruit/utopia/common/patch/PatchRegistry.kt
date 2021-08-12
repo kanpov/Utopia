@@ -13,7 +13,7 @@ import com.redgrapefruit.utopia.common.registry.ItemRegistry
  */
 object PatchRegistry {
     fun run(): Unit = moduleSpecific(Module.REALISM) {
-        patch("almond", "croptopia", storedConfig("almond"), ItemRegistry.OVERDUE_ALMOND)
+        patch("almond", "croptopia", ItemRegistry.OVERDUE_ALMOND)
 //        patch("almond_brittle", "croptopia", ConfigRegistry.ALMOND_BRITTLE, ItemRegistry.OVERDUE_ALMOND_BRITTLE)
 //        patch("apple_juice", "croptopia", ConfigRegistry.APPLE_JUICE, ItemRegistry.OVERDUE_APPLE_JUICE)
 //        patch("apple_pie", "croptopia", ConfigRegistry.APPLE_PIE, ItemRegistry.OVERDUE_APPLE_PIE)

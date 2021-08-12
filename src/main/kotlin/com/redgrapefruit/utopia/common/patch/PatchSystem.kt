@@ -37,7 +37,6 @@ internal object PatchSystem {
             // Patch the main properties
             targetItem.activate()
             targetItem.named(patch.name)
-            targetItem.setConfig(patch.config)
             targetItem.setProfile(FoodProfile())
 
             // Patch the variants if they're present. Else throw an error
@@ -61,8 +60,8 @@ internal object PatchSystem {
      * @param config Linked [FoodConfig]
      * @param rottenVariant Linked [RottenFoodItem]
      */
-    fun patch(name: String, namespace: String, config: FoodConfig, rottenVariant: RottenFoodItem) {
-        patchQuery += Patch(name, namespace, config, Either<OverdueFoodItem, RottenFoodItem>().second { rottenVariant })
+    fun patch(name: String, namespace: String, rottenVariant: RottenFoodItem) {
+        patchQuery += Patch(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().second { rottenVariant })
     }
 
     /**
@@ -71,7 +70,7 @@ internal object PatchSystem {
      * @param config Linked [FoodConfig]
      * @param overdueVariant Linked [OverdueFoodItem]
      */
-    fun patch(name: String, namespace: String, config: FoodConfig, overdueVariant: OverdueFoodItem) {
-        patchQuery += Patch(name, namespace, config, Either<OverdueFoodItem, RottenFoodItem>().first { overdueVariant })
+    fun patch(name: String, namespace: String, overdueVariant: OverdueFoodItem) {
+        patchQuery += Patch(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().first { overdueVariant })
     }
 }

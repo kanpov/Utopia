@@ -110,11 +110,6 @@ public class ItemMixin implements ItemMixinAccess {
     }
 
     @Override
-    public void setConfig(@NotNull FoodConfig config) {
-        // TODO: Remove later
-    }
-
-    @Override
     public void setOverdueVariant(@NotNull OverdueFoodItem overdueVariant) {
         this.utopia$overdueVariant = overdueVariant;
     }
