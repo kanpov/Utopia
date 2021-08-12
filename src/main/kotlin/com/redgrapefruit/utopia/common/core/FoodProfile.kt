@@ -8,7 +8,7 @@ package com.redgrapefruit.utopia.common.core
 const val MIN_TICK_LOSS: Long = 20L
 
 /**
- * Contains changed-at-runtime values of a food type and serializes them (CCA).
+ * Contains changed-at-runtime values of a food type and serializes them.
  */
 data class FoodProfile(
     var rotProgress: Int = 0,

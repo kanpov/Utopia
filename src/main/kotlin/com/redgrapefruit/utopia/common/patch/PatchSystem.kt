@@ -36,6 +36,7 @@ internal object PatchSystem {
 
             // Patch the main properties
             targetItem.activate()
+            targetItem.named(patch.name)
             targetItem.setConfig(patch.config)
             targetItem.setProfile(FoodProfile())
 

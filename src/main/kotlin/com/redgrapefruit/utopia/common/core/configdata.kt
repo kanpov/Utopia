@@ -89,11 +89,8 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         val name = id.toString().remove("$MOD_ID:config/").remove(".config.json")
         FoodConfigStorage.put(name, config)
 
-        println("LOADED: $name")
-
         // Invoke event
-        println("INVOKED EVENT FOR: $name")
-        FoodLateInitCallback.EVENT.invoker().init(name, config)
+        FoodLateInitCallback.Event.invoker().init(name, config)
     }
 
     private fun <T> assertConfigProperty(input: T?, name: String): T {
@@ -110,7 +107,7 @@ private object FoodConfigStorage {
     private val values: MutableMap<String, FoodConfig> = mutableMapOf()
 
     fun get(name: String): FoodConfig {
-        return values.getOrDefault(name, FoodConfig.DEFAULT)
+        return values.getOrDefault(name, FoodConfig.Default)
     }
 
     fun put(name: String, config: FoodConfig) {
@@ -154,7 +151,7 @@ interface FoodLateInitCallback {
     fun init(name: String, config: FoodConfig)
 
     companion object {
-        val EVENT: Event<FoodLateInitCallback> = EventFactory.createArrayBacked(FoodLateInitCallback::class.java)
+        val Event: Event<FoodLateInitCallback> = EventFactory.createArrayBacked(FoodLateInitCallback::class.java)
         { listeners: Array<FoodLateInitCallback> ->
             Impl { name, config ->
                 listeners.forEach { listener -> listener.init(name, config) }

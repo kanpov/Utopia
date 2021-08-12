@@ -48,7 +48,7 @@ open class FoodItem : Item {
 
     constructor(_name: String) : this(GROUP) {
         this.name = _name
-        FoodLateInitCallback.EVENT.register(FoodLateInitCallback.listener { name, _ ->
+        FoodLateInitCallback.Event.register(FoodLateInitCallback.listener { name, _ ->
             if (name == this.name) initComponent()
         })
     }
@@ -90,10 +90,8 @@ open class FoodItem : Item {
     private fun initComponent() {
         if (isComponentInitialized) return
 
-        println("INIT")
-
         val currentConfig = config
-        if (currentConfig == FoodConfig.DEFAULT)
+        if (currentConfig == FoodConfig.Default)
             throw RuntimeException("Late-load system failed. Config not loaded at moment of execution")
 
         val mutable = foodComponent!!.asMutable()

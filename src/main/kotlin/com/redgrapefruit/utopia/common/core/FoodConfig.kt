@@ -47,7 +47,7 @@ data class FoodConfig(
     var category: FoodCategory = FoodCategory.MISCELLANEOUS
 ) {
     companion object {
-        val DEFAULT = FoodConfig()
+        val Default = FoodConfig()
     }
 }
 
