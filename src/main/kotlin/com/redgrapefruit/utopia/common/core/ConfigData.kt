@@ -37,6 +37,9 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
     }
 
     private fun process(input: InputStream, id: Identifier) {
+        // Obtain the name of the food (utopia:config/almond.config.json => almond)
+        val name = id.toString().remove("$MOD_ID:config/").remove(".config.json")
+
         // Read JsonObject
         val jsonObject: JsonObject
         input.use { stream ->
@@ -47,32 +50,32 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
 
         // FoodCategory. This also determines which properties are required afterwards
         val category = FoodCategory.fromString(
-            assertConfigProperty(jsonObject["category"], "category").jsonPrimitive.content)
+            assertConfigProperty(jsonObject["category"], "category", name).jsonPrimitive.content)
         // Rot values
         var rotSpeed = UNUSED_PROPERTY
         var rotState = UNUSED_PROPERTY
         if (category.canRot) {
-            rotSpeed = assertConfigProperty(jsonObject["rotSpeed"], "rotSpeed").jsonPrimitive.int
-            rotState = assertConfigProperty(jsonObject["rotState"], "rotState").jsonPrimitive.int
+            rotSpeed = assertConfigProperty(jsonObject["rotSpeed"], "rotSpeed", name).jsonPrimitive.int
+            rotState = assertConfigProperty(jsonObject["rotState"], "rotState", name).jsonPrimitive.int
         }
         // Overdue values
         var overdueSpeed = UNUSED_PROPERTY
         var overdueState = UNUSED_PROPERTY
         if (category.canOverdue) {
-            overdueSpeed = assertConfigProperty(jsonObject["overdueSpeed"], "overdueSpeed").jsonPrimitive.int
-            overdueState = assertConfigProperty(jsonObject["overdueState"], "overdueState").jsonPrimitive.int
+            overdueSpeed = assertConfigProperty(jsonObject["overdueSpeed"], "overdueSpeed", name).jsonPrimitive.int
+            overdueState = assertConfigProperty(jsonObject["overdueState"], "overdueState", name).jsonPrimitive.int
         }
         // Fridge
         var fridgeEfficiency = UNUSED_PROPERTY
         if (category.canBePutInFridge) {
-            fridgeEfficiency = assertConfigProperty(jsonObject["fridgeEfficiency"], "fridgeEfficiency").jsonPrimitive.int
+            fridgeEfficiency = assertConfigProperty(jsonObject["fridgeEfficiency"], "fridgeEfficiency", name).jsonPrimitive.int
         }
         // Salt
         val saltEfficiency =
             if (jsonObject.contains("saltEfficiency")) jsonObject["saltEfficiency"]!!.jsonPrimitive.int else UNUSED_PROPERTY
         // Hunger & Saturation
-        val hunger = assertConfigProperty(jsonObject["hunger"], "hunger").jsonPrimitive.int
-        val saturationModifier = assertConfigProperty(jsonObject["saturationModifier"], "saturationModifier").jsonPrimitive.float
+        val hunger = assertConfigProperty(jsonObject["hunger"], "hunger", name).jsonPrimitive.int
+        val saturationModifier = assertConfigProperty(jsonObject["saturationModifier"], "saturationModifier", name).jsonPrimitive.float
 
         // Construct config using the DSL
         val config = config {
@@ -88,15 +91,13 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         }
 
         // Put the config in the storage
-        val name = id.toString().remove("$MOD_ID:config/").remove(".config.json")
         FoodConfigStorage.put(name, config)
-
         // Invoke event
         ComponentInitializeCallback.Event.invoker().init(name, config)
     }
 
-    private fun <T> assertConfigProperty(input: T?, name: String): T {
-        return input ?: throw RuntimeException("Missing $name in config; a crash may occur")
+    private fun <T> assertConfigProperty(input: T?, name: String, foodName: String): T {
+        return input ?: throw RuntimeException("Missing $name in config for ${foodName.replace("_", " ")}; a crash may occur")
     }
 
     override fun getFabricId(): Identifier = Identifier(MOD_ID, "listener")
