@@ -79,12 +79,7 @@ public class ItemMixin implements ItemMixinAccess {
         if (utopia$supplierConfig.get() == FoodConfig.Companion.getDefault())
             throw new RuntimeException("Late-load system failed. Config not loaded at moment of execution");
 
-        try {
-            Objects.requireNonNull(foodComponent, "Late-load system failed. FoodComponent is null");
-        } catch (Exception ex) {
-            System.out.println("Error when loading " + utopia$name);
-            return;
-        }
+        Objects.requireNonNull(foodComponent, "Late-load system failed. No FoodComponent assigned in " + utopia$name);
         MutableFoodComponent mutable = MiscUtil.asMutable(foodComponent);
         FoodConfig config = utopia$supplierConfig.get();
 
