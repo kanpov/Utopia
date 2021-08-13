@@ -1,11 +1,11 @@
 package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.MOD_ID
-import com.redgrapefruit.utopia.common.Module
+import com.redgrapefruit.utopia.common.io.Module
+import com.redgrapefruit.utopia.common.io.moduleSpecific
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem
 import com.redgrapefruit.utopia.common.item.RottenFoodItem
 import com.redgrapefruit.utopia.common.item.SaltedFoodItem
-import com.redgrapefruit.utopia.common.moduleSpecific
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry

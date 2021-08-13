@@ -2,10 +2,10 @@ package com.redgrapefruit.utopia.common.registry
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.MOD_ID
-import com.redgrapefruit.utopia.common.Module
 import com.redgrapefruit.utopia.common.block.FridgeBlock
 import com.redgrapefruit.utopia.common.block.entity.FridgeBlockEntity
-import com.redgrapefruit.utopia.common.moduleSpecific
+import com.redgrapefruit.utopia.common.io.Module
+import com.redgrapefruit.utopia.common.io.moduleSpecific
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block

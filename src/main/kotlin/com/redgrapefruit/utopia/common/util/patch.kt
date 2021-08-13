@@ -69,7 +69,7 @@ private fun activateInternal(name: String, namespace: String, variantEither: Eit
 }
 
 private fun validate(name: String, namespace: String, message: String): Boolean {
-    val id = Identifier(name, namespace)
+    val id = Identifier(namespace, name)
 
     // Check if the target item exists in the global registry
     if (!Registry.ITEM.containsId(id)) {

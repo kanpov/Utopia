@@ -1,6 +1,8 @@
 package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.common.core.*;
+import com.redgrapefruit.utopia.common.io.ComponentInitializeCallback;
+import com.redgrapefruit.utopia.common.io.ConfigDataKt;
 import com.redgrapefruit.utopia.common.item.FoodItem;
 import com.redgrapefruit.utopia.common.item.OverdueFoodItem;
 import com.redgrapefruit.utopia.common.item.RottenFoodItem;

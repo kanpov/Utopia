@@ -2,6 +2,9 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.*
+import com.redgrapefruit.utopia.common.io.ComponentInitializeCallback
+import com.redgrapefruit.utopia.common.io.reloaderDelegate
+import com.redgrapefruit.utopia.common.io.storedConfig
 import com.redgrapefruit.utopia.common.util.MutableFoodComponent
 import com.redgrapefruit.utopia.common.util.asImmutable
 import com.redgrapefruit.utopia.common.util.asMutable
