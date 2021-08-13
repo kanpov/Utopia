@@ -1,8 +1,10 @@
 package com.redgrapefruit.utopia.common.registry
 
+import com.redgrapefruit.utopia.common.*
 import com.redgrapefruit.utopia.common.io.Module
 import com.redgrapefruit.utopia.common.io.moduleSpecific
 import com.redgrapefruit.utopia.common.util.activate
+import com.redgrapefruit.utopia.common.util.addComponent
 
 /**
  * A registry containing all of the mod's patches
@@ -10,6 +12,21 @@ import com.redgrapefruit.utopia.common.util.activate
 object PatchRegistry {
     fun run() {
         // Common FoodComponent patches
+        addComponent("hops", "croptopia", EDIBLE_1)
+        addComponent("mustard", "croptopia", YUCK)
+        addComponent("vanilla", "croptopia", YUCK)
+        addComponent("paprika", "croptopia", EDIBLE_1)
+        addComponent("chile_pepper", "croptopia", EDIBLE_1)
+        addComponent("turmeric", "croptopia", EDIBLE_1)
+        addComponent("ginger", "croptopia", EDIBLE_1)
+        addComponent("olive_oil", "croptopia", YUCK)
+        addComponent("flour", "croptopia", YUCK)
+        addComponent("noodle", "croptopia", EDIBLE_1)
+        addComponent("molasses", "croptopia", YUCK)
+        addComponent("caramel", "croptopia", EDIBLE_1)
+        addComponent("soy_sauce", "croptopia", YUCK)
+        addComponent("dough", "croptopia", YUCK)
+        addComponent("ravioli", "croptopia", EDIBLE_1)
 
         // Realism patches
         moduleSpecific(Module.REALISM) {
