@@ -86,8 +86,6 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         val saturationModifier =
             if (jsonObject.contains("saturationModifier")) jsonObject["saturationModifier"]!!.jsonPrimitive.float else ZERO_FLOAT
 
-        if (parentKey == NO_PARENT) println("No parent for $name")
-
         // Construct config using the DSL
         val config = config {
             this.category = category
