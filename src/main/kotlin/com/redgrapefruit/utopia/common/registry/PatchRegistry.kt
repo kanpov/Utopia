@@ -187,6 +187,7 @@ object PatchRegistry {
             activate("pork_and_beans", "croptopia", ItemRegistry.OVERDUE_PORK_AND_BEANS)
             activate("pork_jerky", "croptopia", ItemRegistry.ROTTEN_PORK_JERKY)
             activate("potato_chips", "croptopia", ItemRegistry.OVERDUE_POTATO_CHIPS)
+            activate("protein_bar", "croptopia", ItemRegistry.OVERDUE_PROTEIN_BAR)
         }
     }
 }
