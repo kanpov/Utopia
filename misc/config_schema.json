@@ -5,6 +5,10 @@
     "description": "A FoodConfig JSON representation",
     "type": "object",
     "properties": {
+        "parent": {
+            "description": "The parent FoodComponent template that lets you import hunger and saturation values",
+            "type": "string"
+        },
         "category": {
             "description": "The category of the food",
             "type": "string"

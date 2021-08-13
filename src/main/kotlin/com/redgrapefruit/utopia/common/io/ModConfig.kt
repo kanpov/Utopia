@@ -1,5 +1,6 @@
-package com.redgrapefruit.utopia.common
+package com.redgrapefruit.utopia.common.io
 
+import com.redgrapefruit.utopia.common.MOD_ID
 import kotlinx.serialization.json.*
 import net.fabricmc.loader.api.FabricLoader
 import java.io.File
@@ -61,6 +62,6 @@ fun loadConfig() {
 /**
  * Executes module-specific code if that [module] is enabled
  */
-inline fun moduleSpecific(module: Module, action: () -> Unit) {
+fun moduleSpecific(module: Module, action: () -> Unit) {
     if (modules[module]!!) action()
 }

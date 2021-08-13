@@ -1,11 +1,11 @@
 @file:JvmName("ConfigDataKt")
 
-package com.redgrapefruit.utopia.common.core
+package com.redgrapefruit.utopia.common.io
 
-import com.redgrapefruit.utopia.common.LOG
-import com.redgrapefruit.utopia.common.MOD_ID
-import com.redgrapefruit.utopia.common.UNUSED_PROPERTY
-import com.redgrapefruit.utopia.common.UNUSED_PROPERTY_FLOAT
+import com.redgrapefruit.utopia.common.*
+import com.redgrapefruit.utopia.common.core.FoodCategory
+import com.redgrapefruit.utopia.common.core.FoodConfig
+import com.redgrapefruit.utopia.common.core.config
 import kotlinx.serialization.json.*
 import net.fabricmc.fabric.api.event.Event
 import net.fabricmc.fabric.api.event.EventFactory
@@ -19,6 +19,8 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 // <----  Managing data-driven FoodConfigs  ---->
+
+private const val NO_PARENT = "no_parent"
 
 /**
  * (Re)loads [FoodConfig]s
@@ -49,6 +51,10 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
 
         // Parse everything
 
+        // Inheritance
+        val parentKey = if (jsonObject.contains("parent")) jsonObject["parent"]!!.jsonPrimitive.content else NO_PARENT
+        val parent = BASE_COMPONENT_MAP[parentKey]
+
         // FoodCategory. This also determines which properties are required afterwards
         val category = FoodCategory.fromString(
             assertConfigProperty(jsonObject["category"], "category", name).jsonPrimitive.content)
@@ -75,12 +81,10 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
         val saltEfficiency =
             if (jsonObject.contains("saltEfficiency")) jsonObject["saltEfficiency"]!!.jsonPrimitive.int else UNUSED_PROPERTY
         // Hunger & Saturation
-        val hunger = if (jsonObject.contains("hunger")) jsonObject["hunger"]!!.jsonPrimitive.int.also {
-            LOG.warn("Hunger not found for $name. Issues may occur")
-        } else UNUSED_PROPERTY
-        val saturationModifier = if (jsonObject.contains("saturationModifier")) jsonObject["saturationModifier"]!!.jsonPrimitive.float.also {
-            LOG.warn("Saturation modifier not found for $name. Issues may occur")
-        } else UNUSED_PROPERTY_FLOAT
+        val hunger =
+            if (jsonObject.contains("hunger")) jsonObject["hunger"]!!.jsonPrimitive.int else ZERO_INT
+        val saturationModifier =
+            if (jsonObject.contains("saturationModifier")) jsonObject["saturationModifier"]!!.jsonPrimitive.float else ZERO_FLOAT
 
         // Construct config using the DSL
         val config = config {
@@ -91,8 +95,16 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
             if (overdueState != UNUSED_PROPERTY) this.overdueState = overdueState
             if (fridgeEfficiency != UNUSED_PROPERTY) this.fridgeEfficiency = fridgeEfficiency
             if (saltEfficiency != UNUSED_PROPERTY) this.saltEfficiency = saltEfficiency
-            if (hunger != UNUSED_PROPERTY) this.hunger = hunger
-            if (saturationModifier != UNUSED_PROPERTY_FLOAT) this.saturationModifier = saturationModifier
+            if (hunger != UNUSED_PROPERTY) {
+                var parentValue = ZERO_INT
+                if (parentKey != NO_PARENT) parentValue = parent!!.hunger
+                this.hunger = parentValue + hunger
+            }
+            if (saturationModifier != UNUSED_PROPERTY_FLOAT) {
+                var parentValue = ZERO_FLOAT
+                if (parentKey != NO_PARENT) parentValue = parent!!.saturationModifier
+                this.saturationModifier = parentValue + saturationModifier
+            }
         }
 
         // Put the config in the storage
