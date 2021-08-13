@@ -1,0 +1,8 @@
+{
+    "parent": "edible_1",
+    "overdueSpeed": 4,
+    "overdueState": 60000,
+    "fridgeEfficiency": 1,
+    "saltEfficiency": 2,
+    "category": "plant"
+}

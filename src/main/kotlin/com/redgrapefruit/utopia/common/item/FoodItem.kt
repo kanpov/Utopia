@@ -2,6 +2,13 @@ package com.redgrapefruit.utopia.common.item
 
 import com.redgrapefruit.utopia.common.GROUP
 import com.redgrapefruit.utopia.common.core.*
+import com.redgrapefruit.utopia.common.io.ComponentInitializeCallback
+import com.redgrapefruit.utopia.common.io.reloaderDelegate
+import com.redgrapefruit.utopia.common.io.storedConfig
+import com.redgrapefruit.utopia.common.util.MutableFoodComponent
+import com.redgrapefruit.utopia.common.util.asImmutable
+import com.redgrapefruit.utopia.common.util.asMutable
+import com.redgrapefruit.utopia.mixin.ItemAccessor
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
@@ -18,7 +25,9 @@ import net.minecraft.world.World
 @Suppress("JoinDeclarationAndAssignment")
 open class FoodItem : Item {
     // Linked data structures
-    private val config: FoodConfig
+    private var name: String = ""
+    private var isComponentInitialized: Boolean = false
+    protected val config: FoodConfig by reloaderDelegate { storedConfig(name) }
     val profile: FoodProfile
 
     // Variant settings
@@ -30,39 +39,22 @@ open class FoodItem : Item {
     var rottenVariant: RottenFoodItem? = null
     var overdueVariant: OverdueFoodItem? = null
 
-    /**
-     * Protected constructor for creating customized [FoodComponent] instances
-     * @param config [FoodConfig] of this food item
-     * @param group The [ItemGroup] that the item belongs to
-     * @param componentAction A lambda that returns the generated [FoodComponent]
-     */
-    protected constructor(
-        config: FoodConfig,
+    @Suppress("RedundantLambdaOrAnonymousFunction")
+    private constructor(
         group: ItemGroup,
-        componentAction: () -> FoodComponent
-    ) : super(Settings().group(group).food(componentAction.invoke())) {
-        this.config = config
+    ) : super(Settings().group(group).food({
+        val builder = FoodComponent.Builder()
+        builder.build()
+    }())) {
         this.profile = FoodProfile()
     }
 
-    /**
-     * Public constructor for creating standard instances of food items (fresh)
-     * @param config [FoodConfig] of this food item
-     */
-    constructor(config: FoodConfig) : this(config, GROUP, {
-        val builder = FoodComponent.Builder()
-
-        // Hunger
-        builder.hunger(config.category.baseHunger + config.hunger)
-        // Meat
-        if (config.category == FoodCategory.MEAT) builder.meat()
-        // Snack
-        if (config.category.baseHunger + config.hunger < 2) builder.snack()
-        // Saturation modifier
-        builder.saturationModifier(config.category.baseSaturationModifier + config.saturationModifier)
-
-        builder.build()
-    })
+    constructor(_name: String) : this(GROUP) {
+        this.name = _name
+        ComponentInitializeCallback.Event.register(ComponentInitializeCallback.listener { name, _ ->
+            if (name == this.name) initComponent()
+        })
+    }
 
     // Builders
 
@@ -93,5 +85,34 @@ open class FoodItem : Item {
         super.appendTooltip(stack, world, tooltip, context)
 
         FoodEngine.appendTooltip(tooltip, config, profile, state)
+    }
+
+    /**
+     * Hacky solution to late-load [FoodComponent]s
+     */
+    private fun initComponent() {
+        if (isComponentInitialized) return
+
+        val currentConfig = config
+        if (currentConfig == FoodConfig.Default)
+            throw RuntimeException("Late-load system failed. Config not loaded at moment of execution")
+
+        val mutable = foodComponent!!.asMutable()
+        onComponentInit(mutable, foodComponent!!)
+
+        val access = this as ItemAccessor
+        access.setFoodComponent(mutable.asImmutable())
+
+        isComponentInitialized = true
+    }
+
+    /**
+     * Inheritable load to implement by subclasses
+     */
+    protected open fun onComponentInit(mutable: MutableFoodComponent, immutable: FoodComponent) {
+        mutable.hunger = config.category.baseHunger + config.hunger
+        if (config.category == FoodCategory.MEAT) mutable.meat = true
+        if (config.category.baseHunger + config.hunger < 2) mutable.snack = true
+        mutable.saturationModifier = config.category.baseSaturationModifier + config.saturationModifier
     }
 }

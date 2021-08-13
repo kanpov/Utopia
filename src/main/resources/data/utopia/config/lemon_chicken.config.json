@@ -1,0 +1,7 @@
+{
+    "parent": "edible_10",
+    "rotSpeed": 6,
+    "rotState": 160000,
+    "fridgeEfficiency": 2,
+    "category": "meat"
+}

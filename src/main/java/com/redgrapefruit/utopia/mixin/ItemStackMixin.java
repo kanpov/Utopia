@@ -31,7 +31,7 @@ public class ItemStackMixin {
         FoodProfile profile = ((FoodItem) item).getProfile();
 
         profile.setRotProgress(nbt.getInt("Rot Progress"));
-        //profile.setOverdueProgress(tag.getInt("Overdue Progress"));
+        profile.setOverdueProgress(nbt.getInt("Overdue Progress"));
         profile.setPreviousTick(nbt.getLong("Previous World Tick"));
         profile.setInitialized(nbt.getBoolean("Is Initialized"));
         profile.setFridgeState(FridgeState.Serialization.readNbt("Fridge State", nbt));

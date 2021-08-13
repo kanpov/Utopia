@@ -1,0 +1,9 @@
+{
+    "parent": "edible_3",
+    "category": "nut",
+    "overdueSpeed": 7,
+    "overdueState": 100000,
+    "saltEfficiency": 4,
+    "hunger": 1,
+    "saturationModifier": 0.4
+}

@@ -45,7 +45,11 @@ data class FoodConfig(
      * The [FoodCategory] that this food type belongs to
      */
     var category: FoodCategory = FoodCategory.MISCELLANEOUS
-)
+) {
+    companion object {
+        val Default = FoodConfig()
+    }
+}
 
 // DSL
 
