@@ -1,4 +1,5 @@
 {
+    "parent": "yuck",
     "overdueSpeed": 7,
     "overdueState": 150000,
     "fridgeEfficiency": 2,
