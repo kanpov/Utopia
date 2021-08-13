@@ -80,4 +80,4 @@ private fun validate(name: String, namespace: String, message: String): Boolean 
     return true
 }
 
-private fun getFromRegistry(name: String, namespace: String): Item = Registry.ITEM.get(Identifier(name, namespace))
+private fun getFromRegistry(name: String, namespace: String): Item = Registry.ITEM.get(Identifier(namespace, name))

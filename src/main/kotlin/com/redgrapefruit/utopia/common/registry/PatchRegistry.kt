@@ -16,9 +16,9 @@ object PatchRegistry {
         addComponent("mustard", "croptopia", YUCK)
         addComponent("vanilla", "croptopia", YUCK)
         addComponent("paprika", "croptopia", EDIBLE_1)
-        addComponent("chile_pepper", "croptopia", EDIBLE_1)
+        addComponent("chile_pepper", "croptopia", EDIBLE_3)
         addComponent("turmeric", "croptopia", EDIBLE_1)
-        addComponent("ginger", "croptopia", EDIBLE_1)
+        addComponent("ginger", "croptopia", EDIBLE_3)
         addComponent("olive_oil", "croptopia", YUCK)
         addComponent("flour", "croptopia", YUCK)
         addComponent("noodle", "croptopia", EDIBLE_1)
@@ -27,6 +27,9 @@ object PatchRegistry {
         addComponent("soy_sauce", "croptopia", YUCK)
         addComponent("dough", "croptopia", YUCK)
         addComponent("ravioli", "croptopia", EDIBLE_1)
+        addComponent("cinnamon", "croptopia", EDIBLE_1)
+        addComponent("pepper", "croptopia", EDIBLE_3)
+        addComponent("milk_bottle", "croptopia", EDIBLE_1)
 
         // Realism patches
         moduleSpecific(Module.REALISM) {
