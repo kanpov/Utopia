@@ -1,4 +1,5 @@
 {
+    "parent": "edible_18",
     "rotSpeed": 7,
     "rotState": 150000,
     "fridgeEfficiency": 4,

@@ -1,4 +1,5 @@
 {
+    "parent": "edible_3",
     "overdueSpeed": 5,
     "overdueState": 215000,
     "fridgeEfficiency": 3,
