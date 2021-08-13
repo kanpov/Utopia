@@ -31,9 +31,8 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
     }
 
     override fun reload(manager: ResourceManager) {
-        // Clear FoodConfigStorage to reload everything
-        FoodConfigStorage.clear()
-
+        // Clear all caches to reload them
+        cache.clear()
         manager.findResources("config") { path -> path.endsWith(".config.json") }.forEach { id ->
             process(manager.getResource(id).inputStream, id)
         }
@@ -107,9 +106,8 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
             }
         }
 
-        // Put the config in the storage
-        FoodConfigStorage.put(name, config)
-        // Invoke event
+        // Cache the config and invoke event for the corresponding item to prepare its FoodComponent
+        cache[name] = config
         ComponentInitializeCallback.Event.invoker().init(name, config)
     }
 
@@ -121,21 +119,14 @@ object FoodConfigReloader : SimpleSynchronousResourceReloadListener {
 }
 
 /**
- * The caching storage for data-driven FoodConfigs
+ * Caches containing loaded configs. Cleared on every reload
  */
-private object FoodConfigStorage {
-    private val values: MutableMap<String, FoodConfig> = mutableMapOf()
+private val cache = mutableMapOf<String, FoodConfig>()
 
-    fun get(name: String): FoodConfig {
-        return values.getOrDefault(name, FoodConfig.Default)
-    }
-
-    fun put(name: String, config: FoodConfig) {
-        values[name] = config
-    }
-
-    fun clear(): Unit = values.clear()
-}
+/**
+ * Gets a config from cache
+ */
+fun storedConfig(name: String) = cache.getOrDefault(name, FoodConfig.Default)
 
 /**
  * A delegate that recalls [supplier] each time used.
@@ -152,11 +143,6 @@ class ConfigReloaderDelegate(private val supplier: () -> FoodConfig) : ReadOnlyP
 fun reloaderDelegate(supplier: () -> FoodConfig): ConfigReloaderDelegate {
     return ConfigReloaderDelegate(supplier)
 }
-
-/**
- * Gets a config from cache
- */
-fun storedConfig(name: String) = FoodConfigStorage.get(name)
 
 /**
  * Removes a [segment] from the string
