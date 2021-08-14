@@ -70,7 +70,7 @@ open class AdvancedFoodItem : Item {
         super.inventoryTick(stack, world, entity, slot, selected)
 
         if (entity is PlayerEntity && !overrideEffects) {
-            FoodEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
+            RealismEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
 
@@ -82,7 +82,7 @@ open class AdvancedFoodItem : Item {
     ) {
         super.appendTooltip(stack, world, tooltip, context)
 
-        FoodEngine.appendTooltip(tooltip, config, profile, state)
+        RealismEngine.appendTooltip(tooltip, config, profile, state)
     }
 
     // <---- COMPONENTS ---->

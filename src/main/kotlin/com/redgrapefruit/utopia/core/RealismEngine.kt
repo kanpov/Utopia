@@ -9,7 +9,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.world.World
 
-object FoodEngine {
+object RealismEngine {
     /**
      * Main block of logic that executes every tick the item is inside a player's inventory
      *

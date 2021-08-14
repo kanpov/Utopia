@@ -58,14 +58,14 @@ public class ItemMixin implements ItemMixinAccess {
     private void utopia$inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
         if (!utopia$isActivated || !(entity instanceof PlayerEntity) || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault() || utopia$profile == null) return;
 
-        FoodEngine.INSTANCE.inventoryTick(utopia$supplierConfig.get(), utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
+        RealismEngine.INSTANCE.inventoryTick(utopia$supplierConfig.get(), utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
     }
 
     @Inject(method = "appendTooltip", at = @At("TAIL"))
     private void utopia$appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         if (!utopia$isActivated || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault() || utopia$profile == null) return;
 
-        FoodEngine.INSTANCE.appendTooltip(tooltip, utopia$supplierConfig.get(), utopia$profile, FoodState.FRESH);
+        RealismEngine.INSTANCE.appendTooltip(tooltip, utopia$supplierConfig.get(), utopia$profile, FoodState.FRESH);
     }
 
     /**
