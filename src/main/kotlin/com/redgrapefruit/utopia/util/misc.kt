@@ -143,7 +143,7 @@ fun FoodComponent.asMutable(): MutableFoodComponent = MutableFoodComponent(
 // <---- A simple ItemStack NBT system ---->
 
 object ItemNBTManager {
-    internal val registry = mutableMapOf<Predicate<Item>, ItemNBT>()
+    private val registry = mutableMapOf<Predicate<Item>, ItemNBT>()
 
     fun registerEntry(item: Predicate<Item>, itemNBT: ItemNBT) {
         registry[item] = itemNBT

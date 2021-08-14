@@ -117,7 +117,6 @@ open class AdvancedFoodItem : Item {
 
     companion object {
         init {
-            // Register
             ItemNBTManager.registerEntry({ it is AdvancedFoodItem }, ItemNBT(::serializer, ::deserializer))
         }
 
