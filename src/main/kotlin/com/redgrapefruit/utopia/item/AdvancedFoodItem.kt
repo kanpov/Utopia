@@ -126,6 +126,7 @@ open class AdvancedFoodItem : Item {
                 profile.overdueProgress = nbt.getInt("Overdue Progress")
                 profile.previousTick = nbt.getLong("Previous World Tick")
                 profile.fridgeState = readNbt("Fridge State", nbt)
+                profile.isInitialized = nbt.getBoolean("Is Initialized")
             }
         }
 
@@ -135,6 +136,7 @@ open class AdvancedFoodItem : Item {
                 nbt.putInt("Overdue Progress", profile.overdueProgress)
                 nbt.putLong("Previous World Tick", profile.previousTick)
                 writeNbt("Fridge State", profile.fridgeState, nbt)
+                nbt.putBoolean("Is Initialized", profile.isInitialized)
             }
         }
     }

@@ -1,6 +1,8 @@
 package com.redgrapefruit.utopia.core
 
+import com.redgrapefruit.utopia.item.AdvancedDrinkItem
 import com.redgrapefruit.utopia.item.OverdueFoodItem
+import com.redgrapefruit.utopia.item.RancidDrinkItem
 import com.redgrapefruit.utopia.item.RottenFoodItem
 import com.redgrapefruit.utopia.util.*
 import net.minecraft.entity.player.PlayerEntity
@@ -12,14 +14,6 @@ import net.minecraft.world.World
 object RealismEngine {
     /**
      * Updates food parameters
-     *
-     * @param config Linked [FoodConfig]
-     * @param profile Linked [FoodProfile]
-     * @param player Owner [PlayerEntity]
-     * @param slot Inventory slot
-     * @param world Current [World] instance
-     * @param rottenVariant Rotten variant of the given item
-     * @param overdueVariant Overdue variant of the given item
      */
     fun updateFood(
         config: FoodConfig,
@@ -81,12 +75,38 @@ object RealismEngine {
     }
 
     /**
+     * Updates drink parameters
+     */
+    fun updateDrink(
+        drink: AdvancedDrinkItem,
+        slot: Int,
+        world: World,
+        player: PlayerEntity,
+        rancidVariant: RancidDrinkItem
+    ) {
+        if (!drink.isInitialized) {
+            drink.previousTick = world.time
+            drink.isInitialized = true
+        }
+
+        val currentTick = world.time
+        val difference = currentTick - drink.previousTick
+        if (difference > MIN_TICK_LOSS) {
+            drink.rancidProgress += (difference * drink.rancidSpeed).toInt()
+        }
+        drink.previousTick = currentTick
+
+        drink.rancidProgress += drink.rancidSpeed
+
+        if (drink.rancidProgress >= drink.rancidState) {
+            player.inventory.getStack(slot).decrement(1)
+            player.inventory.offerOrDrop(ItemStack(rancidVariant))
+            drink.rancidProgress = 0
+        }
+    }
+
+    /**
      * Renders a tooltip for food
-     *
-     * @param tooltip Tooltip list
-     * @param config Linked [FoodConfig]
-     * @param profile Linked [FoodProfile]
-     * @param state Rendering [FoodState]
      */
     fun renderFoodTooltip(tooltip: MutableList<Text>, config: FoodConfig, profile: FoodProfile, state: FoodState) {
         // State
@@ -113,5 +133,14 @@ object RealismEngine {
             tooltip += LiteralText(BLUE + "Is in fridge: " + profile.fridgeState.boolValue)
             tooltip += LiteralText(DARK_BLUE + "Fridge efficiency: " + config.fridgeEfficiency)
         }
+    }
+
+    fun renderDrinkTooltip(tooltip: MutableList<Text>, drink: AdvancedDrinkItem) {
+        // State
+        breakLine(tooltip)
+        tooltip += LiteralText(AQUA + "State: ${if (drink is RancidDrinkItem) "Rancid" else "Fresh"}")
+        // Rancid
+        breakLine(tooltip)
+        tooltip += LiteralText(GREEN + "Rancid: ${drink.rancidProgress}/${drink.rancidState}")
     }
 }
