@@ -1,14 +1,10 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.utopia.common.core.*;
-import com.redgrapefruit.utopia.common.io.ComponentInitializeCallback;
-import com.redgrapefruit.utopia.common.io.ConfigDataKt;
-import com.redgrapefruit.utopia.common.item.FoodItem;
-import com.redgrapefruit.utopia.common.item.OverdueFoodItem;
-import com.redgrapefruit.utopia.common.item.RottenFoodItem;
-import com.redgrapefruit.utopia.common.util.ItemMixinAccess;
-import com.redgrapefruit.utopia.common.util.MiscUtil;
-import com.redgrapefruit.utopia.common.util.MutableFoodComponent;
+import com.redgrapefruit.utopia.core.*;
+import com.redgrapefruit.utopia.util.*;
+import com.redgrapefruit.utopia.item.FoodItem;
+import com.redgrapefruit.utopia.item.OverdueFoodItem;
+import com.redgrapefruit.utopia.item.RottenFoodItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
