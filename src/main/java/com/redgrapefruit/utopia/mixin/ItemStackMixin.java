@@ -1,8 +1,9 @@
 package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.core.FoodProfile;
-import com.redgrapefruit.utopia.core.FridgeState;
-import com.redgrapefruit.utopia.item.AdvancedFoodItem;
+import com.redgrapefruit.utopia.util.ItemNBT;
+import com.redgrapefruit.utopia.util.ItemNBTManager;
+import com.redgrapefruit.utopia.util.NBTSearchResult;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -13,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Provides serialization of {@link FoodProfile}s.<br>
@@ -26,27 +30,22 @@ public class ItemStackMixin {
 
     @Inject(method = "<init>(Lnet/minecraft/nbt/NbtCompound;)V", at = @At("TAIL"))
     private void utopia$constructor(NbtCompound nbt, CallbackInfo ci) {
-        if (!(item instanceof AdvancedFoodItem)) return;
-
-        FoodProfile profile = ((AdvancedFoodItem) item).getProfile();
-
-        profile.setRotProgress(nbt.getInt("Rot Progress"));
-        profile.setOverdueProgress(nbt.getInt("Overdue Progress"));
-        profile.setPreviousTick(nbt.getLong("Previous World Tick"));
-        profile.setInitialized(nbt.getBoolean("Is Initialized"));
-        profile.setFridgeState(FridgeState.Serialization.readNbt("Fridge State", nbt));
+        ifEntryRegistered((itemNBT -> itemNBT.getDeserializer().invoke(item, nbt)));
     }
 
     @Inject(method = "writeNbt", at = @At("TAIL"))
     private void utopia$writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
-        if (!(item instanceof AdvancedFoodItem)) return;
+        ifEntryRegistered((itemNBT -> itemNBT.getSerializer().invoke(item, nbt)));
+    }
 
-        FoodProfile profile = ((AdvancedFoodItem) item).getProfile();
+    private void ifEntryRegistered(Consumer<ItemNBT> consumer) {
+        NBTSearchResult result = ItemNBTManager.INSTANCE.searchEntry(item);
 
-        nbt.putInt("Rot Progress", profile.getRotProgress());
-        nbt.putInt("Overdue Progress", profile.getOverdueProgress());
-        nbt.putLong("Previous World Tick", profile.getPreviousTick());
-        nbt.putBoolean("Is Initialized", profile.isInitialized());
-        FridgeState.Serialization.writeNbt("Fridge State", profile.getFridgeState(), nbt);
+        if (result.getSuccess()) {
+            ItemNBT itemNBT = result.getFound();
+            Objects.requireNonNull(itemNBT, "Found ItemNBT is null with successful NBTSearchResult");
+
+            consumer.accept(itemNBT);
+        }
     }
 }

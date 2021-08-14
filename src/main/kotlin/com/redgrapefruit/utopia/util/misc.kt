@@ -8,8 +8,11 @@ import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.core.FridgeState
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
+import net.minecraft.item.Item
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import java.util.function.Predicate
 
 // Color codes
 const val BLACK = "§0"
@@ -136,3 +139,26 @@ fun MutableFoodComponent.asImmutable(): FoodComponent {
 fun FoodComponent.asMutable(): MutableFoodComponent = MutableFoodComponent(
     hunger, saturationModifier, isMeat, isAlwaysEdible, isSnack, statusEffects
 )
+
+// <---- A simple ItemStack NBT system ---->
+
+object ItemNBTManager {
+    internal val registry = mutableMapOf<Predicate<Item>, ItemNBT>()
+
+    fun registerEntry(item: Predicate<Item>, itemNBT: ItemNBT) {
+        registry[item] = itemNBT
+    }
+
+    fun searchEntry(item: Item): NBTSearchResult {
+        registry.forEach { (key, value) ->
+            if (key.test(item)) return NBTSearchResult(true, value)
+        }
+        return NBTSearchResult(false, null)
+    }
+}
+
+data class ItemNBT(
+    val serializer: (self: Item, nbt: NbtCompound) -> Unit,
+    val deserializer: (self: Item, nbt: NbtCompound) -> Unit)
+
+data class NBTSearchResult(val success: Boolean, val found: ItemNBT?)

@@ -2,13 +2,10 @@ package com.redgrapefruit.utopia.item
 
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.core.*
-import com.redgrapefruit.utopia.util.ComponentInitializeCallback
-import com.redgrapefruit.utopia.util.reloaderDelegate
-import com.redgrapefruit.utopia.util.storedConfig
-import com.redgrapefruit.utopia.util.MutableFoodComponent
-import com.redgrapefruit.utopia.util.asImmutable
-import com.redgrapefruit.utopia.util.asMutable
+import com.redgrapefruit.utopia.core.FridgeState.Serialization.readNbt
+import com.redgrapefruit.utopia.core.FridgeState.Serialization.writeNbt
 import com.redgrapefruit.utopia.mixin.ItemAccessor
+import com.redgrapefruit.utopia.util.*
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
@@ -16,6 +13,7 @@ import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.Text
 import net.minecraft.world.World
 
@@ -56,7 +54,7 @@ open class AdvancedFoodItem : Item {
         })
     }
 
-    // Builders
+    // <---- EVENTS ---->
 
     fun rottenVariant(rottenVariant: RottenFoodItem): AdvancedFoodItem {
         this.rottenVariant = rottenVariant
@@ -87,9 +85,8 @@ open class AdvancedFoodItem : Item {
         FoodEngine.appendTooltip(tooltip, config, profile, state)
     }
 
-    /**
-     * Hacky solution to late-load [FoodComponent]s
-     */
+    // <---- COMPONENTS ---->
+
     private fun initComponent() {
         if (isComponentInitialized) return
 
@@ -114,5 +111,34 @@ open class AdvancedFoodItem : Item {
         if (config.category == FoodCategory.MEAT) mutable.meat = true
         if (config.category.baseHunger + config.hunger < 2) mutable.snack = true
         mutable.saturationModifier = config.category.baseSaturationModifier + config.saturationModifier
+    }
+
+    // <---- SERIALIZATION ---->
+
+    companion object {
+        init {
+            // Register
+            ItemNBTManager.registerEntry({ it is AdvancedFoodItem }, ItemNBT(::serializer, ::deserializer))
+        }
+
+        private fun deserializer(self: Item, nbt: NbtCompound) {
+            (self as AdvancedFoodItem).apply {
+                profile.rotProgress = nbt.getInt("Rot Progress")
+                profile.overdueProgress = nbt.getInt("Overdue Progress")
+                profile.previousTick = nbt.getLong("Previous World Tick")
+                profile.isInitialized = nbt.getBoolean("Is Initialized")
+                profile.fridgeState = readNbt("Fridge State", nbt)
+            }
+        }
+
+        private fun serializer(self: Item, nbt: NbtCompound) {
+            (self as AdvancedFoodItem).apply {
+                nbt.putInt("Rot Progress", profile.rotProgress)
+                nbt.putInt("Overdue Progress", profile.overdueProgress)
+                nbt.putLong("Previous World Tick", profile.previousTick)
+                nbt.putBoolean("Is Initialized", profile.isInitialized)
+                writeNbt("Fridge State", profile.fridgeState, nbt)
+            }
+        }
     }
 }
