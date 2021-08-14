@@ -10,9 +10,9 @@ import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.FoodComponent
 
 /**
- * A rotten variant of a [FoodItem]
+ * A rotten variant of a [AdvancedFoodItem]
  */
-class RottenFoodItem(name: String) : FoodItem(name) {
+class RottenFoodItem(name: String) : AdvancedFoodItem(name) {
     init {
         state = FoodState.ROTTEN
         overrideEffects = true

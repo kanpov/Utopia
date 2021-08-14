@@ -23,7 +23,7 @@ import net.minecraft.world.World
  * Represents a fresh food item as well as a base for other variants
  */
 @Suppress("JoinDeclarationAndAssignment")
-open class FoodItem : Item {
+open class AdvancedFoodItem : Item {
     // Linked data structures
     private var name: String = ""
     private var isComponentInitialized: Boolean = false
@@ -58,12 +58,12 @@ open class FoodItem : Item {
 
     // Builders
 
-    fun rottenVariant(rottenVariant: RottenFoodItem): FoodItem {
+    fun rottenVariant(rottenVariant: RottenFoodItem): AdvancedFoodItem {
         this.rottenVariant = rottenVariant
         return this
     }
 
-    fun overdueVariant(overdueVariant: OverdueFoodItem): FoodItem {
+    fun overdueVariant(overdueVariant: OverdueFoodItem): AdvancedFoodItem {
         this.overdueVariant = overdueVariant
         return this
     }

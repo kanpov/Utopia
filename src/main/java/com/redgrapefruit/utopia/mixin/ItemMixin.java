@@ -2,7 +2,7 @@ package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.core.*;
 import com.redgrapefruit.utopia.util.*;
-import com.redgrapefruit.utopia.item.FoodItem;
+import com.redgrapefruit.utopia.item.AdvancedFoodItem;
 import com.redgrapefruit.utopia.item.OverdueFoodItem;
 import com.redgrapefruit.utopia.item.RottenFoodItem;
 import net.minecraft.client.item.TooltipContext;
@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * Provides the mixin (patch) implementation of {@link FoodItem}
+ * Provides the mixin (patch) implementation of {@link AdvancedFoodItem}
  * <p>
  * Also writing Java code is terrible after Kotlin
  */

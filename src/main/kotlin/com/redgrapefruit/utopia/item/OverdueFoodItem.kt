@@ -10,9 +10,9 @@ import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.FoodComponent
 
 /**
- * An overdue variant of a [FoodItem]
+ * An overdue variant of a [AdvancedFoodItem]
  */
-class OverdueFoodItem(name: String) : FoodItem(name) {
+class OverdueFoodItem(name: String) : AdvancedFoodItem(name) {
     init {
         state = FoodState.OVERDUE
         overrideEffects = true

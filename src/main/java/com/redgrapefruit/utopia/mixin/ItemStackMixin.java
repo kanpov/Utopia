@@ -2,7 +2,7 @@ package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.core.FoodProfile;
 import com.redgrapefruit.utopia.core.FridgeState;
-import com.redgrapefruit.utopia.item.FoodItem;
+import com.redgrapefruit.utopia.item.AdvancedFoodItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -26,9 +26,9 @@ public class ItemStackMixin {
 
     @Inject(method = "<init>(Lnet/minecraft/nbt/NbtCompound;)V", at = @At("TAIL"))
     private void utopia$constructor(NbtCompound nbt, CallbackInfo ci) {
-        if (!(item instanceof FoodItem)) return;
+        if (!(item instanceof AdvancedFoodItem)) return;
 
-        FoodProfile profile = ((FoodItem) item).getProfile();
+        FoodProfile profile = ((AdvancedFoodItem) item).getProfile();
 
         profile.setRotProgress(nbt.getInt("Rot Progress"));
         profile.setOverdueProgress(nbt.getInt("Overdue Progress"));
@@ -39,9 +39,9 @@ public class ItemStackMixin {
 
     @Inject(method = "writeNbt", at = @At("TAIL"))
     private void utopia$writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
-        if (!(item instanceof FoodItem)) return;
+        if (!(item instanceof AdvancedFoodItem)) return;
 
-        FoodProfile profile = ((FoodItem) item).getProfile();
+        FoodProfile profile = ((AdvancedFoodItem) item).getProfile();
 
         nbt.putInt("Rot Progress", profile.getRotProgress());
         nbt.putInt("Overdue Progress", profile.getOverdueProgress());
