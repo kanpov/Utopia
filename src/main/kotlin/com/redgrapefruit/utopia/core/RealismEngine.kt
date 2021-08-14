@@ -11,7 +11,7 @@ import net.minecraft.world.World
 
 object RealismEngine {
     /**
-     * Main block of logic that executes every tick the item is inside a player's inventory
+     * Updates food parameters
      *
      * @param config Linked [FoodConfig]
      * @param profile Linked [FoodProfile]
@@ -21,7 +21,7 @@ object RealismEngine {
      * @param rottenVariant Rotten variant of the given item
      * @param overdueVariant Overdue variant of the given item
      */
-    fun inventoryTick(
+    fun updateFood(
         config: FoodConfig,
         profile: FoodProfile,
         player: PlayerEntity,
@@ -81,14 +81,14 @@ object RealismEngine {
     }
 
     /**
-     * Tooltip rendering logic which is called every tick to display the detailed stats to the player
+     * Renders a tooltip for food
      *
      * @param tooltip Tooltip list
      * @param config Linked [FoodConfig]
      * @param profile Linked [FoodProfile]
      * @param state Rendering [FoodState]
      */
-    fun appendTooltip(tooltip: MutableList<Text>, config: FoodConfig, profile: FoodProfile, state: FoodState) {
+    fun renderFoodTooltip(tooltip: MutableList<Text>, config: FoodConfig, profile: FoodProfile, state: FoodState) {
         // State
         breakLine(tooltip)
         tooltip += LiteralText(AQUA + "State: " + state.displayName)

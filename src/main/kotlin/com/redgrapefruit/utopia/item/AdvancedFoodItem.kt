@@ -70,7 +70,7 @@ open class AdvancedFoodItem : Item {
         super.inventoryTick(stack, world, entity, slot, selected)
 
         if (entity is PlayerEntity && !overrideEffects) {
-            RealismEngine.inventoryTick(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
+            RealismEngine.updateFood(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
 
@@ -82,7 +82,7 @@ open class AdvancedFoodItem : Item {
     ) {
         super.appendTooltip(stack, world, tooltip, context)
 
-        RealismEngine.appendTooltip(tooltip, config, profile, state)
+        RealismEngine.renderFoodTooltip(tooltip, config, profile, state)
     }
 
     // <---- COMPONENTS ---->
@@ -126,7 +126,6 @@ open class AdvancedFoodItem : Item {
                 profile.rotProgress = nbt.getInt("Rot Progress")
                 profile.overdueProgress = nbt.getInt("Overdue Progress")
                 profile.previousTick = nbt.getLong("Previous World Tick")
-                profile.isInitialized = nbt.getBoolean("Is Initialized")
                 profile.fridgeState = readNbt("Fridge State", nbt)
             }
         }
@@ -136,7 +135,6 @@ open class AdvancedFoodItem : Item {
                 nbt.putInt("Rot Progress", profile.rotProgress)
                 nbt.putInt("Overdue Progress", profile.overdueProgress)
                 nbt.putLong("Previous World Tick", profile.previousTick)
-                nbt.putBoolean("Is Initialized", profile.isInitialized)
                 writeNbt("Fridge State", profile.fridgeState, nbt)
             }
         }
