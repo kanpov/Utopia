@@ -11,10 +11,10 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
 /**
- * Realism's item registry
+ * A registry for foods
  */
 @Suppress("MemberVisibilityCanBePrivate")
-object ItemRegistry {
+object FoodRegistry {
     // Rotten food
     val ROTTEN_BEEF_JERKY = RottenFoodItem("beef_jerky")
     val ROTTEN_BEEF_WELLINGTON = RottenFoodItem("beef_wellington")
