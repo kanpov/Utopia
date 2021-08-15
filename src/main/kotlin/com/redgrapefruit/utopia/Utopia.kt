@@ -1,10 +1,7 @@
 package com.redgrapefruit.utopia
 
+import com.redgrapefruit.utopia.registry.*
 import com.redgrapefruit.utopia.util.FoodConfigReloader
-import com.redgrapefruit.utopia.registry.PatchRegistry
-import com.redgrapefruit.utopia.registry.BlockRegistry
-import com.redgrapefruit.utopia.registry.FoodRegistry
-import com.redgrapefruit.utopia.registry.ScreenHandlerRegistry
 import com.redgrapefruit.utopia.util.loadConfig
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
@@ -18,6 +15,7 @@ class Utopia : ModInitializer {
         loadConfig()
 
         FoodRegistry.run()
+        DrinkRegistry.run()
         BlockRegistry.run()
         PatchRegistry.run()
         ScreenHandlerRegistry.run()

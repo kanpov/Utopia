@@ -26,8 +26,8 @@ fun configureFood(name: String, namespace: String, variant: RottenFoodItem) {
     configureFoodInternal(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().second { variant })
 }
 
-fun configureDrink(name: String, namespace: String, variant: RancidDrinkItem, component: FoodComponent) {
-    configureDrinkInternal(name, namespace, variant, component)
+fun configureDrink(name: String, namespace: String, variant: RancidDrinkItem) {
+    configureDrinkInternal(name, namespace, variant)
 }
 
 // <--- Internal --->
@@ -71,7 +71,7 @@ private fun configureFoodInternal(name: String, namespace: String, variantEither
     }
 }
 
-private fun configureDrinkInternal(name: String, namespace: String, variant: RancidDrinkItem, component: FoodComponent) {
+private fun configureDrinkInternal(name: String, namespace: String, variant: RancidDrinkItem) {
     // Validate & get
     if (!validate(name, namespace, "apply drink patch")) return
     val target = fetchItemFromRegistry(name, namespace)
@@ -83,7 +83,7 @@ private fun configureDrinkInternal(name: String, namespace: String, variant: Ran
 
     // Assign properties
     target.activate()
-    target.setComponent(component)
+    target.setComponent(variant.component)
     target.setRancidVariant(variant)
     target.setRancidSpeed(variant.rancidSpeed)
     target.setRancidState(variant.rancidState)

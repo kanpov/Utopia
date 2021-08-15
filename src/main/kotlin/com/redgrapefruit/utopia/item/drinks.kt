@@ -71,7 +71,7 @@ open class AdvancedDrinkItem(
     }
 }
 
-class RancidDrinkItem(component: FoodComponent, rancidSpeed: Int, rancidState: Int) :
+class RancidDrinkItem(internal val component: FoodComponent, rancidSpeed: Int, rancidState: Int) :
     AdvancedDrinkItem(component, rancidSpeed, rancidState) {
 
     @BlockingOverride

@@ -41,7 +41,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     @Unique
     private int utopia$rancidState = Constants.UNUSED_PROPERTY;
     @Unique
-    private final DrinkProfile utopia$profile = new DrinkProfile();
+    private final DrinkProfile utopia$profile1 = new DrinkProfile();
 
     // <---- IMPL ---->
 
@@ -50,7 +50,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
         if (utopia$invalid()) return;
 
         if (entity instanceof PlayerEntity) {
-            RealismEngine.INSTANCE.updateDrink(utopia$profile, utopia$rancidSpeed, utopia$rancidState, slot, world, (PlayerEntity) entity, utopia$rancidVariant);
+            RealismEngine.INSTANCE.updateDrink(utopia$profile1, utopia$rancidSpeed, utopia$rancidState, slot, world, (PlayerEntity) entity, utopia$rancidVariant);
         }
     }
 
@@ -58,7 +58,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     private void utopia$appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         if (utopia$invalid()) return;
 
-        RealismEngine.INSTANCE.renderDrinkTooltip(tooltip, utopia$profile, utopia$rancidState, false);
+        RealismEngine.INSTANCE.renderDrinkTooltip(tooltip, utopia$profile1, utopia$rancidState, false);
     }
 
     private boolean utopia$invalid() {
@@ -101,7 +101,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
 
     @Override
     public @NotNull DrinkProfile getProfile() {
-        return utopia$profile;
+        return utopia$profile1;
     }
 
     // <---- SERIALIZATION ---->

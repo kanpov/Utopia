@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "utopia:item/overdue_apple_juice"
+        "layer0": "utopia:item/rancid_apple_juice"
     }
 }

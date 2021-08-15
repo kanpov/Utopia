@@ -32,9 +32,9 @@ object PatchRegistry : IRegistry {
 
         // Realism patches
         moduleSpecific(Module.REALISM) {
+            // Food
             configureFood("almond", "croptopia", FoodRegistry.OVERDUE_ALMOND)
             configureFood("almond_brittle", "croptopia", FoodRegistry.OVERDUE_ALMOND_BRITTLE)
-            configureFood("apple_juice", "croptopia", FoodRegistry.OVERDUE_APPLE_JUICE)
             configureFood("apple_pie", "croptopia", FoodRegistry.OVERDUE_APPLE_PIE)
             configureFood("apricot", "croptopia", FoodRegistry.OVERDUE_APRICOT)
             configureFood("apricot_jam", "croptopia", FoodRegistry.OVERDUE_APRICOT_JAM)
@@ -187,6 +187,9 @@ object PatchRegistry : IRegistry {
             configureFood("pork_jerky", "croptopia", FoodRegistry.ROTTEN_PORK_JERKY)
             configureFood("potato_chips", "croptopia", FoodRegistry.OVERDUE_POTATO_CHIPS)
             configureFood("protein_bar", "croptopia", FoodRegistry.OVERDUE_PROTEIN_BAR)
+
+            // Drinks
+            configureDrink("apple_juice", "croptopia", DrinkRegistry.RANCID_APPLE_JUICE)
         }
     }
 }
