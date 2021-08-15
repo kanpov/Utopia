@@ -172,3 +172,11 @@ data class NBTSearchResult(val success: Boolean, val found: ItemNBT?)
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FUNCTION)
 annotation class BlockingOverride
+
+/**
+ * An [IRegistry] represents a Kotlin `object` storing **X** amount of **Y** items
+ * and registers all stored **Y** items in the [run] function
+ */
+interface IRegistry {
+    fun run()
+}

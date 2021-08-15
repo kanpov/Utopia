@@ -3,16 +3,13 @@ package com.redgrapefruit.utopia.registry
 import com.redgrapefruit.utopia.EDIBLE_1
 import com.redgrapefruit.utopia.EDIBLE_3
 import com.redgrapefruit.utopia.YUCK
-import com.redgrapefruit.utopia.util.Module
-import com.redgrapefruit.utopia.util.configureFood
-import com.redgrapefruit.utopia.util.addComponent
-import com.redgrapefruit.utopia.util.moduleSpecific
+import com.redgrapefruit.utopia.util.*
 
 /**
  * A registry containing all of the mod's patches
  */
-object PatchRegistry {
-    fun run() {
+object PatchRegistry : IRegistry {
+    override fun run() {
         // Common FoodComponent patches
         addComponent("hops", "croptopia", EDIBLE_1)
         addComponent("mustard", "croptopia", YUCK)

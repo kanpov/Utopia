@@ -1,6 +1,8 @@
 package com.redgrapefruit.utopia.item
 
+import com.mojang.datafixers.util.Pair
 import com.redgrapefruit.utopia.GROUP
+import com.redgrapefruit.utopia.RANDOM
 import com.redgrapefruit.utopia.core.*
 import com.redgrapefruit.utopia.core.FridgeState.Serialization.readNbt
 import com.redgrapefruit.utopia.core.FridgeState.Serialization.writeNbt
@@ -8,6 +10,8 @@ import com.redgrapefruit.utopia.mixin.ItemAccessor
 import com.redgrapefruit.utopia.util.*
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
+import net.minecraft.entity.effect.StatusEffectInstance
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
@@ -139,5 +143,89 @@ open class AdvancedFoodItem : Item {
                 nbt.putBoolean("Is Initialized", profile.isInitialized)
             }
         }
+    }
+}
+
+/**
+ * An overdue variant of a [AdvancedFoodItem]
+ */
+class OverdueFoodItem(name: String) : AdvancedFoodItem(name) {
+    init {
+        state = FoodState.OVERDUE
+        overrideEffects = true
+    }
+
+    override fun onComponentInit(mutable: MutableFoodComponent, immutable: FoodComponent) {
+        // Hunger (decreased)
+        mutable.hunger = config.category.baseHunger + config.hunger - 2
+        // Meat
+        if (config.category == FoodCategory.MEAT) mutable.meat = true
+        // Snack
+        if (config.category.baseHunger + config.hunger - 2 < 2) mutable.snack = true
+        // Saturation modifier (decreased)
+        mutable.saturationModifier = (config.category.baseSaturationModifier + config.saturationModifier) / 1.5f
+        // Effects
+        mutable.statusEffects = immutable.statusEffects.apply {
+            add(
+                Pair.of(
+                    StatusEffectInstance(
+                StatusEffects.NAUSEA,
+                RANDOM.nextInt(250) + 50,
+                RANDOM.nextInt(3) + 1
+            ), 0.9f))
+            add(
+                Pair.of(
+                    StatusEffectInstance(
+                StatusEffects.BLINDNESS,
+                RANDOM.nextInt(150) + 50,
+                RANDOM.nextInt(2) + 1
+            ), 0.7f))
+            add(
+                Pair.of(
+                    StatusEffectInstance(
+                StatusEffects.SLOWNESS,
+                RANDOM.nextInt(100) + 50,
+                RANDOM.nextInt(2) + 1
+            ), 0.45f))
+        }
+    }
+}
+
+/**
+ * A rotten variant of a [AdvancedFoodItem]
+ */
+class RottenFoodItem(name: String) : AdvancedFoodItem(name) {
+    init {
+        state = FoodState.ROTTEN
+        overrideEffects = true
+    }
+
+    override fun onComponentInit(mutable: MutableFoodComponent, immutable: FoodComponent) {
+        // Hunger (decreased)
+        mutable.hunger = config.category.baseHunger + config.hunger - 2
+        // Meat
+        if (config.category == FoodCategory.MEAT) mutable.meat = true
+        // Snack
+        if (config.category.baseHunger + config.hunger - 2 < 2) mutable.snack = true
+        // Saturation modifier (decreased)
+        mutable.saturationModifier = (config.category.baseSaturationModifier + config.saturationModifier) / 1.5f
+        // Effects
+        mutable.statusEffects = immutable.statusEffects.apply {
+            add(Pair.of(StatusEffectInstance(
+                StatusEffects.POISON,
+                RANDOM.nextInt(250) + 50,
+                RANDOM.nextInt(3) + 1
+            ), 0.85f))
+        }
+    }
+}
+
+/**
+ * A salted variant of a [AdvancedFoodItem]
+ */
+class SaltedFoodItem(name: String) : AdvancedFoodItem(name) {
+    init {
+        state = FoodState.SALTED
+        isSalt = true
     }
 }

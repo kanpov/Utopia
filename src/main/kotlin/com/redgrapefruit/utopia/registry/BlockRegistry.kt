@@ -4,6 +4,7 @@ import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.MOD_ID
 import com.redgrapefruit.utopia.block.FridgeBlock
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
+import com.redgrapefruit.utopia.util.IRegistry
 import com.redgrapefruit.utopia.util.Module
 import com.redgrapefruit.utopia.util.moduleSpecific
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
@@ -20,7 +21,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Furniture's block registry
  */
-object BlockRegistry {
+object BlockRegistry : IRegistry {
     // Blocks
     val FRIDGE_BLOCK =
         FridgeBlock(FabricBlockSettings.of(Material.METAL).hardness(3.5f).breakByTool(FabricToolTags.PICKAXES, 2))
@@ -29,7 +30,7 @@ object BlockRegistry {
     val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> =
         BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
-    fun run(): Unit = moduleSpecific(Module.REALISM) {
+    override fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
     }
 

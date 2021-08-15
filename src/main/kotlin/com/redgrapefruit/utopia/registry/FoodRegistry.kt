@@ -4,6 +4,7 @@ import com.redgrapefruit.utopia.MOD_ID
 import com.redgrapefruit.utopia.item.OverdueFoodItem
 import com.redgrapefruit.utopia.item.RottenFoodItem
 import com.redgrapefruit.utopia.item.SaltedFoodItem
+import com.redgrapefruit.utopia.util.IRegistry
 import com.redgrapefruit.utopia.util.Module
 import com.redgrapefruit.utopia.util.moduleSpecific
 import net.minecraft.item.Item
@@ -14,7 +15,7 @@ import net.minecraft.util.registry.Registry
  * A registry for foods
  */
 @Suppress("MemberVisibilityCanBePrivate")
-object FoodRegistry {
+object FoodRegistry : IRegistry {
     // Rotten food
     val ROTTEN_BEEF_JERKY = RottenFoodItem("beef_jerky")
     val ROTTEN_BEEF_WELLINGTON = RottenFoodItem("beef_wellington")
@@ -234,7 +235,7 @@ object FoodRegistry {
 
     // Fresh food
 
-    fun run(): Unit = moduleSpecific(Module.REALISM) {
+    override fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("rotten_beef_jerky", ROTTEN_BEEF_JERKY)
         register("rotten_beef_wellington", ROTTEN_BEEF_WELLINGTON)
         register("rotten_fried_chicken", ROTTEN_FRIED_CHICKEN)
