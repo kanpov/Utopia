@@ -1,8 +1,8 @@
 package com.redgrapefruit.utopia.util
 
 import com.redgrapefruit.utopia.LOG
-import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.item.OverdueFoodItem
+import com.redgrapefruit.utopia.item.RancidDrinkItem
 import com.redgrapefruit.utopia.item.RottenFoodItem
 import com.redgrapefruit.utopia.mixin.ItemAccessor
 import net.minecraft.item.FoodComponent
@@ -18,12 +18,16 @@ fun addComponent(name: String, namespace: String, component: FoodComponent) {
     addComponentInternal(name, namespace, component)
 }
 
-fun activate(name: String, namespace: String, variant: OverdueFoodItem) {
-    activateInternal(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().first { variant })
+fun configureFood(name: String, namespace: String, variant: OverdueFoodItem) {
+    configureFoodInternal(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().first { variant })
 }
 
-fun activate(name: String, namespace: String, variant: RottenFoodItem) {
-    activateInternal(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().second { variant })
+fun configureFood(name: String, namespace: String, variant: RottenFoodItem) {
+    configureFoodInternal(name, namespace, Either<OverdueFoodItem, RottenFoodItem>().second { variant })
+}
+
+fun configureDrink(name: String, namespace: String, variant: RancidDrinkItem, component: FoodComponent) {
+    configureDrinkInternal(name, namespace, variant, component)
 }
 
 // <--- Internal --->
@@ -31,7 +35,7 @@ fun activate(name: String, namespace: String, variant: RottenFoodItem) {
 private fun addComponentInternal(name: String, namespace: String, component: FoodComponent) {
     // Validate & get
     if (!validate(name, namespace, "add FoodComponent")) return
-    val target = getFromRegistry(name, namespace)
+    val target = fetchItemFromRegistry(name, namespace)
     // Safe-cast to accessor
     if (target !is ItemAccessor) {
         LOG.error("Could not add FoodComponent to $namespace:$name: critical mixin failure")
@@ -41,10 +45,10 @@ private fun addComponentInternal(name: String, namespace: String, component: Foo
     target.setFoodComponent(component)
 }
 
-private fun activateInternal(name: String, namespace: String, variantEither: Either<OverdueFoodItem, RottenFoodItem>) {
+private fun configureFoodInternal(name: String, namespace: String, variantEither: Either<OverdueFoodItem, RottenFoodItem>) {
     // Validate & get
-    if (!validate(name, namespace, "apply patch")) return
-    val target = getFromRegistry(name, namespace)
+    if (!validate(name, namespace, "apply food patch")) return
+    val target = fetchItemFromRegistry(name, namespace)
     // Safe-cast to MDI
     if (target !is ItemFoodMixinAccess) {
         LOG.error("Could not apply patch to $namespace:$name: critical mixin failure")
@@ -67,6 +71,24 @@ private fun activateInternal(name: String, namespace: String, variantEither: Eit
     }
 }
 
+private fun configureDrinkInternal(name: String, namespace: String, variant: RancidDrinkItem, component: FoodComponent) {
+    // Validate & get
+    if (!validate(name, namespace, "apply drink patch")) return
+    val target = fetchItemFromRegistry(name, namespace)
+    // Safe-cast to MDI
+    if (target !is ItemDrinkMixinAccess) {
+        LOG.error("Could not apply patch to $namespace:$name: critical mixin failure")
+        return
+    }
+
+    // Assign properties
+    target.activate()
+    target.setComponent(component)
+    target.setRancidVariant(variant)
+    target.setRancidSpeed(variant.rancidSpeed)
+    target.setRancidState(variant.rancidState)
+}
+
 private fun validate(name: String, namespace: String, message: String): Boolean {
     val id = Identifier(namespace, name)
 
@@ -79,4 +101,4 @@ private fun validate(name: String, namespace: String, message: String): Boolean 
     return true
 }
 
-private fun getFromRegistry(name: String, namespace: String): Item = Registry.ITEM.get(Identifier(namespace, name))
+private fun fetchItemFromRegistry(name: String, namespace: String): Item = Registry.ITEM.get(Identifier(namespace, name))

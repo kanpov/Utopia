@@ -19,7 +19,7 @@ import net.minecraft.text.Text
 import net.minecraft.world.World
 
 open class AdvancedDrinkItem(
-    component: FoodComponent, internal val rancidSpeed: Int, internal val rancidState: Int)
+    component: FoodComponent, var rancidSpeed: Int, var rancidState: Int)
     : DrinkItem(Settings().group(GROUP).maxCount(1).food(component)) {
 
     protected val profile: DrinkProfile = DrinkProfile()
@@ -71,9 +71,9 @@ open class AdvancedDrinkItem(
     }
 }
 
+class RancidDrinkItem(component: FoodComponent, rancidSpeed: Int, rancidState: Int) :
+    AdvancedDrinkItem(component, rancidSpeed, rancidState) {
 
-
-class RancidDrinkItem(component: FoodComponent) : AdvancedDrinkItem(component, ZERO_INT, ZERO_INT) {
     @BlockingOverride
     override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) = Unit
 
