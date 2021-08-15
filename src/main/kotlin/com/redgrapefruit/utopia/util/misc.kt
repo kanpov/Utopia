@@ -162,3 +162,10 @@ data class ItemNBT(
     val deserializer: (self: Item, nbt: NbtCompound) -> Unit)
 
 data class NBTSearchResult(val success: Boolean, val found: ItemNBT?)
+
+/**
+ * Marks an override intended to block the super class's logic
+ */
+@Retention(AnnotationRetention.RUNTIME)
+@Target(AnnotationTarget.FUNCTION)
+annotation class BlockingOverride

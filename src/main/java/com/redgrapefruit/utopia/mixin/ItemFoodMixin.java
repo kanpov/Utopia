@@ -27,13 +27,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-/**
- * Provides the mixin (patch) implementation of {@link AdvancedFoodItem}
- * <p>
- * Also writing Java code is terrible after Kotlin
- */
 @Mixin(Item.class)
-public class ItemMixin implements ItemMixinAccess {
+public class ItemFoodMixin implements ItemFoodMixinAccess {
     @Shadow @Final @Nullable private FoodComponent foodComponent;
     @Unique
     private String utopia$name = "";
@@ -42,8 +37,7 @@ public class ItemMixin implements ItemMixinAccess {
     @Unique
     private boolean utopia$isComponentInitialized = false;
     @Unique
-    @Nullable
-    private FoodProfile utopia$profile = null;
+    private final FoodProfile utopia$profile = new FoodProfile();
     @Unique
     private boolean utopia$isActivated = false;
     @Unique
@@ -53,12 +47,16 @@ public class ItemMixin implements ItemMixinAccess {
     @Nullable
     private RottenFoodItem utopia$rottenVariant = null;
 
-    // Injects
+    // <---- IMPL ---->
+
     @Inject(method = "inventoryTick", at = @At("TAIL"))
     private void utopia$inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
         if (!utopia$isActivated || !(entity instanceof PlayerEntity) || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault() || utopia$profile == null) return;
 
-        RealismEngine.INSTANCE.updateFood(utopia$supplierConfig.get(), utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
+        //noinspection ConstantConditions
+        if (entity instanceof PlayerEntity) {
+            RealismEngine.INSTANCE.updateFood(utopia$supplierConfig.get(), utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
+        }
     }
 
     @Inject(method = "appendTooltip", at = @At("TAIL"))
@@ -92,7 +90,8 @@ public class ItemMixin implements ItemMixinAccess {
         utopia$isComponentInitialized = true;
     }
 
-    // Duck interface implementations
+    // <---- API ---->
+
     @Override
     public void activate() {
         utopia$isActivated = true;
@@ -117,19 +116,47 @@ public class ItemMixin implements ItemMixinAccess {
         this.utopia$rottenVariant = rottenVariant;
     }
 
-    @Nullable
     @Override
-    public FoodProfile getProfile() {
+    public @NotNull FoodProfile getProfile() {
         return utopia$profile;
-    }
-
-    @Override
-    public void setProfile(@NotNull FoodProfile profile) {
-        this.utopia$profile = profile;
     }
 
     @Override
     public boolean isActivated() {
         return utopia$isActivated;
+    }
+
+    // <---- SERIALIZATION ---->
+
+    static {
+        ItemNBTManager.INSTANCE.registerEntry(item -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) item;
+            return access.isActivated();
+        }, new ItemNBT(
+        (self, nbt) -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) self;
+            FoodProfile profile = access.getProfile();
+
+            nbt.putInt("Rot Progress", profile.getRotProgress());
+            nbt.putInt("Overdue Progress", profile.getOverdueProgress());
+            nbt.putLong("Previous Tick", profile.getPreviousTick());
+            FridgeState.Serialization.writeNbt("Fridge State", profile.getFridgeState(), nbt);
+            nbt.putBoolean("Is Initialized", profile.isInitialized());
+
+            return null;
+        },
+        (self, nbt) -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) self;
+            FoodProfile profile = access.getProfile();
+
+            profile.setRotProgress(nbt.getInt("Rot Progress"));
+            profile.setOverdueProgress(nbt.getInt("Overdue Progress"));
+            profile.setPreviousTick(nbt.getLong("Previous Tick"));
+            profile.setFridgeState(FridgeState.Serialization.readNbt("Fridge State", nbt));
+            profile.setInitialized(nbt.getBoolean("Is Initialized"));
+
+            return null;
+        }
+        ));
     }
 }

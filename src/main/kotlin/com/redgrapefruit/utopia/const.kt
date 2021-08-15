@@ -1,3 +1,5 @@
+@file:JvmName("Constants")
+
 package com.redgrapefruit.utopia
 
 import com.google.gson.Gson
@@ -10,8 +12,6 @@ import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.util.Identifier
-import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
 import java.security.SecureRandom
 import java.util.*
 
@@ -25,7 +25,6 @@ const val MOD_ID: String = "utopia"
 
 // Instances
 
-val LOG: Logger = LogManager.getLogger()
 val GSON: Gson = GsonBuilder().setPrettyPrinting().create()
 val RANDOM: Random = SecureRandom()
 val GROUP: ItemGroup =

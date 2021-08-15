@@ -1,6 +1,5 @@
 package com.redgrapefruit.utopia.core
 
-import com.redgrapefruit.utopia.item.AdvancedDrinkItem
 import com.redgrapefruit.utopia.item.OverdueFoodItem
 import com.redgrapefruit.utopia.item.RancidDrinkItem
 import com.redgrapefruit.utopia.item.RottenFoodItem
@@ -78,30 +77,32 @@ object RealismEngine {
      * Updates drink parameters
      */
     fun updateDrink(
-        drink: AdvancedDrinkItem,
+        profile: DrinkProfile,
+        rancidSpeed: Int,
+        rancidState: Int,
         slot: Int,
         world: World,
         player: PlayerEntity,
         rancidVariant: RancidDrinkItem
     ) {
-        if (!drink.isInitialized) {
-            drink.previousTick = world.time
-            drink.isInitialized = true
+        if (!profile.isInitialized) {
+            profile.previousTick = world.time
+            profile.isInitialized = true
         }
 
         val currentTick = world.time
-        val difference = currentTick - drink.previousTick
+        val difference = currentTick - profile.previousTick
         if (difference > MIN_TICK_LOSS) {
-            drink.rancidProgress += (difference * drink.rancidSpeed).toInt()
+            profile.rancidProgress += (difference * rancidSpeed).toInt()
         }
-        drink.previousTick = currentTick
+        profile.previousTick = currentTick
 
-        drink.rancidProgress += drink.rancidSpeed
+        profile.rancidProgress += rancidSpeed
 
-        if (drink.rancidProgress >= drink.rancidState) {
+        if (profile.rancidProgress >= rancidState) {
             player.inventory.getStack(slot).decrement(1)
             player.inventory.offerOrDrop(ItemStack(rancidVariant))
-            drink.rancidProgress = 0
+            profile.rancidProgress = 0
         }
     }
 
@@ -135,12 +136,12 @@ object RealismEngine {
         }
     }
 
-    fun renderDrinkTooltip(tooltip: MutableList<Text>, drink: AdvancedDrinkItem) {
+    fun renderDrinkTooltip(tooltip: MutableList<Text>, profile: DrinkProfile, rancidState: Int, isRancid: Boolean = false) {
         // State
         breakLine(tooltip)
-        tooltip += LiteralText(AQUA + "State: ${if (drink is RancidDrinkItem) "Rancid" else "Fresh"}")
+        tooltip += LiteralText(AQUA + "State: ${if (isRancid) "Rancid" else "Fresh"}")
         // Rancid
         breakLine(tooltip)
-        tooltip += LiteralText(GREEN + "Rancid: ${drink.rancidProgress}/${drink.rancidState}")
+        tooltip += LiteralText(GREEN + "Rancid: ${profile.rancidProgress}/$rancidState")
     }
 }

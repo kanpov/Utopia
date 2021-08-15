@@ -5,7 +5,7 @@ import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
 import com.redgrapefruit.utopia.core.FridgeState
 import com.redgrapefruit.utopia.item.AdvancedFoodItem
 import com.redgrapefruit.utopia.registry.ScreenHandlerRegistry
-import com.redgrapefruit.utopia.util.ItemMixinAccess
+import com.redgrapefruit.utopia.util.ItemFoodMixinAccess
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.Inventory
 import net.minecraft.inventory.SimpleInventory
@@ -68,11 +68,11 @@ class FridgeScreenHandlerListener : ScreenHandlerListener {
         if (previousItem is AdvancedFoodItem) {
             previousItem.profile.fridgeState = FridgeState.NOT_COMPENSATED
         }
-        if (currentItem is ItemMixinAccess && currentItem.isActivated()) {
-            currentItem.getProfile()!!.fridgeState = FridgeState.IN_FRIDGE
+        if (currentItem is ItemFoodMixinAccess && currentItem.isActivated()) {
+            currentItem.getProfile().fridgeState = FridgeState.IN_FRIDGE
         }
-        if (previousItem is ItemMixinAccess && previousItem.isActivated()) {
-            previousItem.getProfile()!!.fridgeState = FridgeState.NOT_COMPENSATED
+        if (previousItem is ItemFoodMixinAccess && previousItem.isActivated()) {
+            previousItem.getProfile().fridgeState = FridgeState.NOT_COMPENSATED
         }
     }
 

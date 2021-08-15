@@ -2,7 +2,9 @@ package com.redgrapefruit.utopia.item
 
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.ZERO_INT
+import com.redgrapefruit.utopia.core.DrinkProfile
 import com.redgrapefruit.utopia.core.RealismEngine
+import com.redgrapefruit.utopia.util.BlockingOverride
 import com.redgrapefruit.utopia.util.ItemNBT
 import com.redgrapefruit.utopia.util.ItemNBTManager
 import net.dehydration.api.DrinkItem
@@ -20,9 +22,7 @@ open class AdvancedDrinkItem(
     component: FoodComponent, internal val rancidSpeed: Int, internal val rancidState: Int)
     : DrinkItem(Settings().group(GROUP).maxCount(1).food(component)) {
 
-    internal var rancidProgress: Int = 0
-    internal var previousTick: Long = 0L
-    internal var isInitialized: Boolean = false
+    protected val profile: DrinkProfile = DrinkProfile()
     private lateinit var rancidVariant: RancidDrinkItem
 
     fun rancidVariant(variant: RancidDrinkItem): AdvancedDrinkItem {
@@ -33,7 +33,8 @@ open class AdvancedDrinkItem(
     override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) {
         super.inventoryTick(stack, world, entity, slot, selected)
 
-        if (entity is PlayerEntity) RealismEngine.updateDrink(this, slot, world, entity, rancidVariant)
+        if (entity is PlayerEntity)
+            RealismEngine.updateDrink(profile, rancidSpeed, rancidState, slot, world, entity, rancidVariant)
     }
 
     override fun appendTooltip(
@@ -44,7 +45,7 @@ open class AdvancedDrinkItem(
     ) {
         super.appendTooltip(stack, world, tooltip, context)
 
-        RealismEngine.renderDrinkTooltip(tooltip, this)
+        RealismEngine.renderDrinkTooltip(tooltip, profile, rancidState)
     }
 
     companion object {
@@ -54,22 +55,29 @@ open class AdvancedDrinkItem(
 
         private fun deserializer(self: Item, nbt: NbtCompound) {
             (self as AdvancedDrinkItem).apply {
-                rancidProgress = nbt.getInt("Rancid Progress")
-                previousTick = nbt.getLong("Previous Tick")
-                isInitialized = nbt.getBoolean("Is Initialized")
+                profile.rancidProgress = nbt.getInt("Rancid Progress")
+                profile.previousTick = nbt.getLong("Previous Tick")
+                profile.isInitialized = nbt.getBoolean("Is Initialized")
             }
         }
 
         private fun serializer(self: Item, nbt: NbtCompound) {
             (self as AdvancedDrinkItem).apply {
-                nbt.putInt("Rancid Progress", rancidProgress)
-                nbt.putLong("Previous Tick", previousTick)
-                nbt.putBoolean("Is Initialized", isInitialized)
+                nbt.putInt("Rancid Progress", profile.rancidProgress)
+                nbt.putLong("Previous Tick", profile.previousTick)
+                nbt.putBoolean("Is Initialized", profile.isInitialized)
             }
         }
     }
 }
 
-class RancidDrinkItem(component: FoodComponent) : AdvancedDrinkItem(component, ZERO_INT, ZERO_INT) {
 
+
+class RancidDrinkItem(component: FoodComponent) : AdvancedDrinkItem(component, ZERO_INT, ZERO_INT) {
+    @BlockingOverride
+    override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) = Unit
+
+    override fun appendTooltip(stack: ItemStack, world: World?, tooltip: MutableList<Text>, context: TooltipContext) {
+        RealismEngine.renderDrinkTooltip(tooltip, profile, rancidState, true)
+    }
 }

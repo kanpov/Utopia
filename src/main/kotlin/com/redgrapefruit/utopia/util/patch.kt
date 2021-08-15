@@ -46,14 +46,13 @@ private fun activateInternal(name: String, namespace: String, variantEither: Eit
     if (!validate(name, namespace, "apply patch")) return
     val target = getFromRegistry(name, namespace)
     // Safe-cast to MDI
-    if (target !is ItemMixinAccess) {
+    if (target !is ItemFoodMixinAccess) {
         LOG.error("Could not apply patch to $namespace:$name: critical mixin failure")
         return
     }
 
     // Assign main properties
     target.activate()
-    target.setProfile(FoodProfile())
     target.named(name) // this also registers to the init callback with the given name for later
     // Assign variants
     if (variantEither.areNeitherPresent()) {

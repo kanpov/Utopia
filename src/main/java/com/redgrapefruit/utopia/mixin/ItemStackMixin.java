@@ -30,12 +30,12 @@ public class ItemStackMixin {
 
     @Inject(method = "<init>(Lnet/minecraft/nbt/NbtCompound;)V", at = @At("TAIL"))
     private void utopia$constructor(NbtCompound nbt, CallbackInfo ci) {
-        ifEntryRegistered((itemNBT -> itemNBT.getDeserializer().invoke(item, nbt)));
+        ifEntryRegistered(itemNBT -> itemNBT.getDeserializer().invoke(item, nbt));
     }
 
     @Inject(method = "writeNbt", at = @At("TAIL"))
     private void utopia$writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
-        ifEntryRegistered((itemNBT -> itemNBT.getSerializer().invoke(item, nbt)));
+        ifEntryRegistered(itemNBT -> itemNBT.getSerializer().invoke(item, nbt));
     }
 
     private void ifEntryRegistered(Consumer<ItemNBT> consumer) {
