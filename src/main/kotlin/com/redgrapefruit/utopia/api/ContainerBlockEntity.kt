@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.api
 
-import com.redgrapefruit.utopia.common.util.ImplementedInventory
+import com.redgrapefruit.utopia.util.ImplementedInventory
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType

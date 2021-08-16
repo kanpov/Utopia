@@ -23,7 +23,13 @@
         "main": [
             {
                 "adapter": "kotlin",
-                "value": "com.redgrapefruit.utopia.common.Utopia"
+                "value": "com.redgrapefruit.utopia.Utopia"
+            }
+        ],
+        "dehydration": [
+            {
+                "adapter": "kotlin",
+                "value": "com.redgrapefruit.utopia.compatibility.DehydrationCompatibility"
             }
         ]
     },
@@ -35,7 +41,8 @@
         "fabric": "*",
         "minecraft": "1.17.1",
         "croptopia": "1.6.1",
-        "patchouli": "*"
+        "patchouli": "*",
+        "dehydration": "1.1.7"
     },
     "suggests": {
         "sodium": "*",

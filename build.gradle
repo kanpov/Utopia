@@ -11,6 +11,18 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    maven {
+        url = "https://maven.shedaniel.me"
+    }
+    maven {
+        url = "https://raw.githubusercontent.com/RedGrapefruit09/Maven/master"
+        content {
+            includeGroup "net.dehydration"
+        }
+    }
+}
+
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -22,7 +34,12 @@ dependencies {
 
     // Fabric Language Kotlin. Provides Kotlin support
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
-    include "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
+
+    // Cloth Config required by Dehydration
+    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+
+    // Dehydration
+    modImplementation "net.dehydration:dehydration:${project.dehydration_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.

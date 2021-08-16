@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.client.screen
 
 import com.redgrapefruit.utopia.api.ContainerScreen
-import com.redgrapefruit.utopia.common.MOD_ID
+import com.redgrapefruit.utopia.MOD_ID
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.screen.ScreenHandler

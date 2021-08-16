@@ -1,7 +1,7 @@
 package com.redgrapefruit.utopia.client.registry
 
 import com.redgrapefruit.utopia.client.screen.FridgeScreen
-import com.redgrapefruit.utopia.common.registry.ScreenHandlerRegistry
+import com.redgrapefruit.utopia.registry.ScreenHandlerRegistry
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry
 
 /**
