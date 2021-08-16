@@ -141,7 +141,9 @@ object RealismEngine {
         breakLine(tooltip)
         tooltip += LiteralText(AQUA + "State: ${if (isRancid) "Rancid" else "Fresh"}")
         // Rancid
-        breakLine(tooltip)
-        tooltip += LiteralText(GREEN + "Rancid: ${profile.rancidProgress}/$rancidState")
+        if (!isRancid) {
+            breakLine(tooltip)
+            tooltip += LiteralText(GREEN + "Rancid: ${profile.rancidProgress}/$rancidState")
+        }
     }
 }
