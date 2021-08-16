@@ -70,7 +70,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     // <---- API ---->
 
     @Override
-    public void activate() {
+    public void activateDrink() {
         utopia$isActivated = true;
     }
 
@@ -95,7 +95,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     }
 
     @Override
-    public boolean isActivated() {
+    public boolean isDrinkActivated() {
         return utopia$isActivated;
     }
 
@@ -109,7 +109,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     static {
         ItemNBTManager.INSTANCE.registerEntry(item -> {
             ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) item;
-            return access.isActivated();
+            return access.isDrinkActivated();
         }, new ItemNBT(
         (self, nbt) -> {
             ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) self;

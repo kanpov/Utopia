@@ -8,20 +8,20 @@ import com.redgrapefruit.utopia.item.RottenFoodItem
 import net.minecraft.item.FoodComponent
 
 interface ItemFoodMixinAccess {
-    fun activate()
+    fun activateFood()
     fun named(name: String)
     fun setOverdueVariant(overdueVariant: OverdueFoodItem)
     fun setRottenVariant(rottenVariant: RottenFoodItem)
     fun getProfile(): FoodProfile
-    fun isActivated(): Boolean
+    fun isFoodActivated(): Boolean
 }
 
 interface ItemDrinkMixinAccess {
-    fun activate()
+    fun activateDrink()
     fun setComponent(component: FoodComponent)
     fun setRancidSpeed(rancidSpeed: Int)
     fun setRancidState(rancidState: Int)
     fun setRancidVariant(rancidVariant: RancidDrinkItem)
-    fun isActivated(): Boolean
+    fun isDrinkActivated(): Boolean
     fun getProfile(): DrinkProfile
 }

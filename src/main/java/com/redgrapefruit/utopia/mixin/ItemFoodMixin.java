@@ -2,7 +2,6 @@ package com.redgrapefruit.utopia.mixin;
 
 import com.redgrapefruit.utopia.core.*;
 import com.redgrapefruit.utopia.util.*;
-import com.redgrapefruit.utopia.item.AdvancedFoodItem;
 import com.redgrapefruit.utopia.item.OverdueFoodItem;
 import com.redgrapefruit.utopia.item.RottenFoodItem;
 import net.minecraft.client.item.TooltipContext;
@@ -93,7 +92,7 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     // <---- API ---->
 
     @Override
-    public void activate() {
+    public void activateFood() {
         utopia$isActivated = true;
     }
 
@@ -122,7 +121,7 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     }
 
     @Override
-    public boolean isActivated() {
+    public boolean isFoodActivated() {
         return utopia$isActivated;
     }
 
@@ -131,7 +130,7 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     static {
         ItemNBTManager.INSTANCE.registerEntry(item -> {
             ItemFoodMixinAccess access = (ItemFoodMixinAccess) item;
-            return access.isActivated();
+            return access.isFoodActivated();
         }, new ItemNBT(
         (self, nbt) -> {
             ItemFoodMixinAccess access = (ItemFoodMixinAccess) self;

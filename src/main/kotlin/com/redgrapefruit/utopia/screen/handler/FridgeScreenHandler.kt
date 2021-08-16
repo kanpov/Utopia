@@ -68,10 +68,10 @@ class FridgeScreenHandlerListener : ScreenHandlerListener {
         if (previousItem is AdvancedFoodItem) {
             previousItem.profile.fridgeState = FridgeState.NOT_COMPENSATED
         }
-        if (currentItem is ItemFoodMixinAccess && currentItem.isActivated()) {
+        if (currentItem is ItemFoodMixinAccess && currentItem.isFoodActivated()) {
             currentItem.getProfile().fridgeState = FridgeState.IN_FRIDGE
         }
-        if (previousItem is ItemFoodMixinAccess && previousItem.isActivated()) {
+        if (previousItem is ItemFoodMixinAccess && previousItem.isFoodActivated()) {
             previousItem.getProfile().fridgeState = FridgeState.NOT_COMPENSATED
         }
     }

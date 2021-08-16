@@ -56,7 +56,7 @@ private fun configureFoodInternal(name: String, namespace: String, variantEither
     }
 
     // Assign main properties
-    target.activate()
+    target.activateFood()
     target.named(name) // this also registers to the init callback with the given name for later
     // Assign variants
     if (variantEither.areNeitherPresent()) {
@@ -82,7 +82,7 @@ private fun configureDrinkInternal(name: String, namespace: String, variant: Ran
     }
 
     // Assign properties
-    target.activate()
+    target.activateDrink()
     target.setComponent(variant.component)
     target.setRancidVariant(variant)
     target.setRancidSpeed(variant.rancidSpeed)
