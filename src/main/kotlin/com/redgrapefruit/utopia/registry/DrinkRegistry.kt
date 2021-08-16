@@ -34,14 +34,6 @@ object DrinkRegistry : IRegistry {
     val RANCID_PEACH_JAM = RancidDrinkItem(EDIBLE_3, 8, 90000)
     val RANCID_PINEAPPLE_JUICE = RancidDrinkItem(EDIBLE_3, 7, 120000)
 
-    /**
-     * Item => Thirst value map
-     */
-    private val THIRST_MAP: Map<Item, Int> = mapOf(
-        RANCID_APPLE_JUICE to 1)
-
-    fun getThirstFor(item: Item): Int = THIRST_MAP[item] ?: throw RuntimeException("Thirst not registered for ${item.translationKey}")
-
     override fun run() {
         register("rancid_apple_juice", RANCID_APPLE_JUICE)
         register("rancid_apricot_jam", RANCID_APRICOT_JAM)

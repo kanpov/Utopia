@@ -26,6 +26,6 @@ object DehydrationCompatibility : DehydrationAPI {
     }
 
     override fun calculateDrinkThirst(stack: ItemStack, playerEntity: PlayerEntity): Int {
-        return DrinkRegistry.getThirstFor(stack.item)
+        return if (stack.item is RancidDrinkItem) 1 else 0
     }
 }
