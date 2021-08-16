@@ -36,10 +36,12 @@ dependencies {
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
 
     // Cloth Config required by Dehydration
-    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     // Dehydration
-    modImplementation "net.dehydration:dehydration:${project.dehydration_version}"
+    modCompileOnly "net.dehydration:dehydration:${project.dehydration_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
