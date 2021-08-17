@@ -173,6 +173,7 @@
     "item.utopia.overdue_saguaro": "Overdue Saguaro",
     "item.utopia.overdue_salsa": "Overdue Salsa",
     "item.utopia.overdue_salsa_chips": "Overdue Salsa Chips",
+    "item.utopia.overdue_saucy_chips": "Overdue Saucy Chips",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -233,6 +234,7 @@
     "item.utopia.salted_refried_beans": "Salted Refried Beans",
     "item.utopia.salted_rice": "Salted Rice",
     "item.utopia.salted_salsa_chips": "Salted Salsa Chips",
+    "item.utopia.salted_saucy_chips": "Salted Saucy Chips",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
