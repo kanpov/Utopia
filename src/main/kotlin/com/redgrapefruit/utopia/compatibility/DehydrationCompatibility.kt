@@ -1,7 +1,6 @@
 package com.redgrapefruit.utopia.compatibility
 
 import com.redgrapefruit.utopia.item.RancidDrinkItem
-import com.redgrapefruit.utopia.registry.DrinkRegistry
 import net.dehydration.api.DehydrationAPI
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
