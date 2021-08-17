@@ -158,6 +158,7 @@
     "item.utopia.overdue_quesadilla": "Overdue Quesadilla",
     "item.utopia.overdue_radish": "Overdue Radish",
     "item.utopia.overdue_raisin_oatmeal_cookie": "Overdue Raisin Oatmeal Cookie",
+    "item.utopia.overdue_raisins": "Overdue Raisins",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -214,6 +215,7 @@
     "item.utopia.salted_pineapple": "Salted Pineapple",
     "item.utopia.salted_popcorn": "Salted Popcorn",
     "item.utopia.salted_potato_chips": "Salted Potato Chips",
+    "item.utopia.salted_raisins": "Salted Raisins",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
