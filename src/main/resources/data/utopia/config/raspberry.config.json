@@ -1,0 +1,6 @@
+{
+    "parent": "edible_3",
+    "category": "berries",
+    "overdueSpeed": 6,
+    "overdueState": 95000
+}
