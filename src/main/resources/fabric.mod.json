@@ -42,7 +42,7 @@
         "minecraft": "1.17.1",
         "croptopia": "1.6.1",
         "patchouli": "*",
-        "dehydration": "1.1.7"
+        "dehydration": ">=1.2.0"
     },
     "suggests": {
         "sodium": "*",
