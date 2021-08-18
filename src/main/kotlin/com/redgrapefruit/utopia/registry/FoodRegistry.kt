@@ -172,6 +172,7 @@ object FoodRegistry : IRegistry {
     val OVERDUE_SCRAMBLED_EGGS = OverdueFoodItem("scrambled_eggs")
     val OVERDUE_SHEPHERDS_PIE = OverdueFoodItem("shepherds_pie")
     val OVERDUE_SNICKER_DOODLE = OverdueFoodItem("snicker_doodle")
+    val OVERDUE_SOYBEAN = OverdueFoodItem("soybean")
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem("almond")
@@ -393,6 +394,7 @@ object FoodRegistry : IRegistry {
         register("overdue_scrambled_eggs", OVERDUE_SCRAMBLED_EGGS)
         register("overdue_shepherds_pie", OVERDUE_SHEPHERDS_PIE)
         register("overdue_snicker_doodle", OVERDUE_SNICKER_DOODLE)
+        register("overdue_soybean", OVERDUE_SOYBEAN)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
