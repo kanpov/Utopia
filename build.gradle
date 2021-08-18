@@ -19,6 +19,7 @@ repositories {
         url = "https://raw.githubusercontent.com/RedGrapefruit09/Maven/master"
         content {
             includeGroup "net.dehydration"
+            includeGroup "com.redgrapefruit.itemnbt"
         }
     }
 }
@@ -42,6 +43,10 @@ dependencies {
 
     // Dehydration
     modCompileOnly "net.dehydration:dehydration:${project.dehydration_version}"
+
+    // ItemNBT
+    modImplementation "com.redgrapefruit.itemnbt:itemnbt:${project.itemnbt_version}"
+    include "com.redgrapefruit.itemnbt:itemnbt:${project.itemnbt_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
