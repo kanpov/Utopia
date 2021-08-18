@@ -140,32 +140,6 @@ fun FoodComponent.asMutable(): MutableFoodComponent = MutableFoodComponent(
     hunger, saturationModifier, isMeat, isAlwaysEdible, isSnack, statusEffects
 )
 
-// <---- A simple ItemStack NBT system ---->
-
-object ItemNBTManager {
-    private val registry = mutableMapOf<Predicate<Item>, ItemNBT>()
-
-    fun registerEntry(item: Predicate<Item>, itemNBT: ItemNBT) {
-        registry[item] = itemNBT
-    }
-
-    fun searchEntry(item: Item): NBTSearchResult {
-        registry.forEach { (key, value) ->
-            if (key.test(item)) return NBTSearchResult(true, value)
-        }
-        return NBTSearchResult(false, null)
-    }
-}
-
-data class ItemNBT(
-    val serializer: (self: Item, nbt: NbtCompound) -> Unit,
-    val deserializer: (self: Item, nbt: NbtCompound) -> Unit)
-
-data class NBTSearchResult(val success: Boolean, val found: ItemNBT?)
-
-
-
-
 /**
  * Marks an override intended to block the super class's logic
  */

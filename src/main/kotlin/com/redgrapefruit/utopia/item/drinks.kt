@@ -1,12 +1,11 @@
 package com.redgrapefruit.utopia.item
 
+import com.redgrapefruit.itemnbt.ItemNBT
+import com.redgrapefruit.itemnbt.ItemType
 import com.redgrapefruit.utopia.GROUP
-import com.redgrapefruit.utopia.ZERO_INT
 import com.redgrapefruit.utopia.core.DrinkProfile
 import com.redgrapefruit.utopia.core.RealismEngine
 import com.redgrapefruit.utopia.util.BlockingOverride
-import com.redgrapefruit.utopia.util.ItemNBT
-import com.redgrapefruit.utopia.util.ItemNBTManager
 import net.dehydration.api.DrinkItem
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.Entity
@@ -50,7 +49,7 @@ open class AdvancedDrinkItem(
 
     companion object {
         init {
-            ItemNBTManager.registerEntry({it is AdvancedDrinkItem}, ItemNBT(::serializer, ::deserializer))
+            ItemNBT.register(ItemType.instance(AdvancedDrinkItem::class.java), ::serializer, ::deserializer)
         }
 
         private fun deserializer(self: Item, nbt: NbtCompound) {

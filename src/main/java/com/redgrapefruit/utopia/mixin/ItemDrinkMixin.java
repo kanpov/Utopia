@@ -1,12 +1,11 @@
 package com.redgrapefruit.utopia.mixin;
 
+import com.redgrapefruit.itemnbt.ItemNBT;
 import com.redgrapefruit.utopia.Constants;
 import com.redgrapefruit.utopia.core.DrinkProfile;
 import com.redgrapefruit.utopia.core.RealismEngine;
 import com.redgrapefruit.utopia.item.RancidDrinkItem;
 import com.redgrapefruit.utopia.util.ItemDrinkMixinAccess;
-import com.redgrapefruit.utopia.util.ItemNBT;
-import com.redgrapefruit.utopia.util.ItemNBTManager;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -107,10 +106,10 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     // <---- SERIALIZATION ---->
 
     static {
-        ItemNBTManager.INSTANCE.registerEntry(item -> {
+        ItemNBT.register(item -> {
             ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) item;
             return access.isDrinkActivated();
-        }, new ItemNBT(
+        },
         (self, nbt) -> {
             ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) self;
             DrinkProfile profile = access.getProfile();
@@ -118,8 +117,6 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
             nbt.putInt("Rancid Progress", profile.getRancidProgress());
             nbt.putLong("Previous Tick", profile.getPreviousTick());
             nbt.putBoolean("Is Initialized", profile.isInitialized());
-
-            return null;
         },
         (self, nbt) -> {
             ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) self;
@@ -128,8 +125,6 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
             profile.setRancidProgress(nbt.getInt("Rancid Progress"));
             profile.setPreviousTick(nbt.getLong("Previous Tick"));
             profile.setInitialized(nbt.getBoolean("Is Initialized"));
-
-            return null;
-        }));
+        });
     }
 }

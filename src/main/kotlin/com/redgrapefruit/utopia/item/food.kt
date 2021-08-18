@@ -1,6 +1,8 @@
 package com.redgrapefruit.utopia.item
 
 import com.mojang.datafixers.util.Pair
+import com.redgrapefruit.itemnbt.ItemNBT
+import com.redgrapefruit.itemnbt.ItemType
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.RANDOM
 import com.redgrapefruit.utopia.core.*
@@ -121,7 +123,7 @@ open class AdvancedFoodItem : Item {
 
     companion object {
         init {
-            ItemNBTManager.registerEntry({ it is AdvancedFoodItem }, ItemNBT(::serializer, ::deserializer))
+            ItemNBT.register(ItemType.instance(AdvancedFoodItem::class.java), ::serializer, ::deserializer)
         }
 
         private fun deserializer(self: Item, nbt: NbtCompound) {
