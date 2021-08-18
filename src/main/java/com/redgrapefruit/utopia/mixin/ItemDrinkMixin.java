@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.itemnbt.ItemNBT;
+import com.redgrapefruit.itemnbt.itemnbt.ItemNBT;
 import com.redgrapefruit.utopia.Constants;
 import com.redgrapefruit.utopia.core.DrinkProfile;
 import com.redgrapefruit.utopia.core.RealismEngine;
@@ -106,20 +106,20 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     // <---- SERIALIZATION ---->
 
     static {
-        ItemNBT.register(item -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) item;
+        ItemNBT.register(stack -> {
+            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
             return access.isDrinkActivated();
         },
-        (self, nbt) -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) self;
+        (nbt, stack) -> {
+            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
             DrinkProfile profile = access.getProfile();
 
             nbt.putInt("Rancid Progress", profile.getRancidProgress());
             nbt.putLong("Previous Tick", profile.getPreviousTick());
             nbt.putBoolean("Is Initialized", profile.isInitialized());
         },
-        (self, nbt) -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) self;
+        (nbt, stack) -> {
+            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
             DrinkProfile profile = access.getProfile();
 
             profile.setRancidProgress(nbt.getInt("Rancid Progress"));

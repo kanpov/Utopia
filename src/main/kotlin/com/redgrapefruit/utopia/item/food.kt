@@ -1,8 +1,8 @@
 package com.redgrapefruit.utopia.item
 
 import com.mojang.datafixers.util.Pair
-import com.redgrapefruit.itemnbt.ItemNBT
-import com.redgrapefruit.itemnbt.ItemType
+import com.redgrapefruit.itemnbt.itemnbt.ItemNBT
+import com.redgrapefruit.itemnbt.itemnbt.ItemType
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.RANDOM
 import com.redgrapefruit.utopia.core.*
@@ -126,8 +126,8 @@ open class AdvancedFoodItem : Item {
             ItemNBT.register(ItemType.instance(AdvancedFoodItem::class.java), ::serializer, ::deserializer)
         }
 
-        private fun deserializer(self: Item, nbt: NbtCompound) {
-            (self as AdvancedFoodItem).apply {
+        private fun deserializer(nbt: NbtCompound, stack: ItemStack) {
+            (stack.item as AdvancedFoodItem).apply {
                 profile.rotProgress = nbt.getInt("Rot Progress")
                 profile.overdueProgress = nbt.getInt("Overdue Progress")
                 profile.previousTick = nbt.getLong("Previous World Tick")
@@ -136,8 +136,8 @@ open class AdvancedFoodItem : Item {
             }
         }
 
-        private fun serializer(self: Item, nbt: NbtCompound) {
-            (self as AdvancedFoodItem).apply {
+        private fun serializer(nbt: NbtCompound, stack: ItemStack) {
+            (stack.item as AdvancedFoodItem).apply {
                 nbt.putInt("Rot Progress", profile.rotProgress)
                 nbt.putInt("Overdue Progress", profile.overdueProgress)
                 nbt.putLong("Previous World Tick", profile.previousTick)

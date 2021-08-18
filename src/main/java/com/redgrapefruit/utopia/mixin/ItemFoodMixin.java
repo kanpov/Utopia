@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.itemnbt.ItemNBT;
+import com.redgrapefruit.itemnbt.itemnbt.ItemNBT;
 import com.redgrapefruit.utopia.core.*;
 import com.redgrapefruit.utopia.util.*;
 import com.redgrapefruit.utopia.item.OverdueFoodItem;
@@ -129,12 +129,12 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     // <---- SERIALIZATION ---->
 
     static {
-        ItemNBT.register(item -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) item;
+        ItemNBT.register(stack -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
             return access.isFoodActivated();
         },
-        (self, nbt) -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) self;
+        (nbt, stack) -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
             FoodProfile profile = access.getProfile();
 
             nbt.putInt("Rot Progress", profile.getRotProgress());
@@ -143,8 +143,8 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
             FridgeState.Serialization.writeNbt("Fridge State", profile.getFridgeState(), nbt);
             nbt.putBoolean("Is Initialized", profile.isInitialized());
         },
-        (self, nbt) -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) self;
+        (nbt, stack) -> {
+            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
             FoodProfile profile = access.getProfile();
 
             profile.setRotProgress(nbt.getInt("Rot Progress"));
