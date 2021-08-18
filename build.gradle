@@ -22,6 +22,12 @@ repositories {
             includeGroup "com.redgrapefruit.itemnbt"
         }
     }
+    maven {
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -42,7 +48,7 @@ dependencies {
     }
 
     // Dehydration
-    modCompileOnly "net.dehydration:dehydration:${project.dehydration_version}"
+    modCompileOnly "curse.maven:dehydration-410830:3429561"
 
     // ItemNBT
     modImplementation "com.redgrapefruit.itemnbt:itemnbt:${project.itemnbt_version}"
