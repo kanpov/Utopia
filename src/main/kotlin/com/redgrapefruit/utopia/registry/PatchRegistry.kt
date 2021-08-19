@@ -234,6 +234,7 @@ object PatchRegistry : IRegistry {
             configureDrink("soy_sauce", "croptopia", DrinkRegistry.RANCID_SOY_SAUCE)
             configureDrink("strawberry_jam", "croptopia", DrinkRegistry.RANCID_STRAWBERRY_JAM)
             configureDrink("strawberry_smoothie", "croptopia", DrinkRegistry.RANCID_STRAWBERRY_SMOOTHIE)
+            configureDrink("tea", "croptopia", DrinkRegistry.RANCID_TEA)
         }
     }
 }
