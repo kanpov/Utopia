@@ -1,0 +1,7 @@
+{
+    "parent": "edible_7",
+    "category": "fruit",
+    "overdueSpeed": 3,
+    "overdueState": 178500,
+    "fridgeEfficiency": 1
+}
