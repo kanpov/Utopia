@@ -18,7 +18,6 @@ repositories {
     maven {
         url = "https://raw.githubusercontent.com/RedGrapefruit09/Maven/master"
         content {
-            includeGroup "net.dehydration"
             includeGroup "com.redgrapefruit.itemnbt"
         }
     }
