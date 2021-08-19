@@ -187,6 +187,7 @@ object FoodRegistry : IRegistry {
     val OVERDUE_SWEET_POTATO_FRIES = OverdueFoodItem("sweet_potato_fries")
     val OVERDUE_SWEETPOTATO = OverdueFoodItem("sweetpotato")
     val OVERDUE_TACO = OverdueFoodItem("taco")
+    val OVERDUE_TOBLANOS = OverdueFoodItem("toblanos")
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem("almond")
@@ -254,6 +255,7 @@ object FoodRegistry : IRegistry {
     val SALTED_STUFFED_POBLANOS = SaltedFoodItem("stuffed_poblanos")
     val SALTED_SUSHI = SaltedFoodItem("sushi")
     val SALTED_TACO = SaltedFoodItem("taco")
+    val SALTED_TOBLANOS = SaltedFoodItem("toblanos")
 
     // Fresh food
 
@@ -426,6 +428,7 @@ object FoodRegistry : IRegistry {
         register("overdue_sweet_potato_fries", OVERDUE_SWEET_POTATO_FRIES)
         register("overdue_sweetpotato", OVERDUE_SWEETPOTATO)
         register("overdue_taco", OVERDUE_TACO)
+        register("overdue_toblanos", OVERDUE_TOBLANOS)
         register("salted_almond", SALTED_ALMOND)
         register("salted_almond_brittle", SALTED_ALMOND_BRITTLE)
         register("salted_apricot", SALTED_APRICOT)
@@ -491,6 +494,7 @@ object FoodRegistry : IRegistry {
         register("salted_stuffed_poblanos", SALTED_STUFFED_POBLANOS)
         register("salted_sushi", SALTED_SUSHI)
         register("salted_taco", SALTED_TACO)
+        register("salted_toblanos", SALTED_TOBLANOS)
     }
 
     /**
