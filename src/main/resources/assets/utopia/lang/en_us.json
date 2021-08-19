@@ -193,6 +193,7 @@
     "item.utopia.overdue_strawberry_ice_cream": "Overdue Strawberry Ice Cream",
     "item.utopia.overdue_stuffed_poblanos": "Overdue Stuffed Poblanos",
     "item.utopia.overdue_supreme_pizza": "Overdue Supreme Pizza",
+    "item.utopia.overdue_sushi": "Overdue Sushi",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -256,6 +257,7 @@
     "item.utopia.salted_saucy_chips": "Salted Saucy Chips",
     "item.utopia.salted_scones": "Salted Scones",
     "item.utopia.salted_stuffed_poblanos": "Salted Stuffed Poblanos",
+    "item.utopia.salted_sushi": "Salted Sushi",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
