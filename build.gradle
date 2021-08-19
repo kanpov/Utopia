@@ -38,12 +38,17 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    include "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Fabric Language Kotlin. Provides Kotlin support
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
+    include "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
 
     // Cloth Config required by Dehydration
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
