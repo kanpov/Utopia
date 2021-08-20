@@ -1,0 +1,7 @@
+{
+    "parent": "edible_5",
+    "category": "human_made",
+    "overdueSpeed": 27,
+    "overdueState": 143500,
+    "fridgeEfficiency": 19
+}
