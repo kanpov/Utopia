@@ -43,6 +43,7 @@ object DrinkRegistry : IRegistry {
     val RANCID_STRAWBERRY_SMOOTHIE = RancidDrinkItem(EDIBLE_7, 11, 132500)
     val RANCID_TEA = RancidDrinkItem(EDIBLE_3, 7, 112500)
     val RANCID_TOMATO_JUICE = RancidDrinkItem(EDIBLE_5, 15, 102500)
+    val RANCID_WATER_BOTTLE = RancidDrinkItem(EDIBLE_3, 5, 100000)
 
     override fun run() {
         register("rancid_apple_juice", RANCID_APPLE_JUICE)
@@ -76,6 +77,7 @@ object DrinkRegistry : IRegistry {
         register("rancid_strawberry_smoothie", RANCID_STRAWBERRY_SMOOTHIE)
         register("rancid_tea", RANCID_TEA)
         register("rancid_tomato_juice", RANCID_TOMATO_JUICE)
+        register("rancid_water_bottle", RANCID_WATER_BOTTLE)
     }
 
     private fun register(name: String, item: Item) {
