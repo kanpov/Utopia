@@ -210,6 +210,7 @@ object FoodRegistry : IRegistry {
     val OVERDUE_WHIPPING_CREAM = OverdueFoodItem("whipping_cream")
     val OVERDUE_YAM = OverdueFoodItem("yam")
     val OVERDUE_YOGHURT = OverdueFoodItem("yoghurt")
+    val OVERDUE_ZUCCHINI = OverdueFoodItem("zucchini")
 
     // Salted food
     val SALTED_ALMOND = SaltedFoodItem("almond")
