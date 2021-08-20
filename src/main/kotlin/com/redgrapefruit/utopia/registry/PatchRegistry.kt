@@ -222,6 +222,7 @@ object PatchRegistry : IRegistry {
             configureFood("veggie_salad", "croptopia", FoodRegistry.OVERDUE_VEGGIE_SALAD)
             configureFood("walnut", "croptopia", FoodRegistry.OVERDUE_WALNUT)
             configureFood("whipping_cream", "croptopia", FoodRegistry.OVERDUE_WHIPPING_CREAM)
+            configureFood("yam", "croptopia", FoodRegistry.OVERDUE_YAM)
 
             // Drinks
             configureDrink("apple_juice", "croptopia", DrinkRegistry.RANCID_APPLE_JUICE)
