@@ -29,6 +29,7 @@ object PatchRegistry : IRegistry {
         addComponent("cinnamon", "croptopia", EDIBLE_1)
         addComponent("pepper", "croptopia", EDIBLE_3)
         addComponent("milk_bottle", "croptopia", EDIBLE_1)
+        addComponent("whipping_cream", "croptopia", EDIBLE_3)
 
         // Realism patches
         moduleSpecific(Module.REALISM) {
