@@ -41,7 +41,7 @@
         "fabric": "*",
         "minecraft": "1.17.1",
         "croptopia": "1.6.1",
-        "patchouli": "*",
+        "patchouli": "1.17.1-55-FABRIC-SNAPSHOT",
         "dehydration": ">=1.2.0"
     },
     "suggests": {
