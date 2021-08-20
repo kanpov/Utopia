@@ -34,6 +34,7 @@
     "item.utopia.rotten_beef_wellington": "Rotten Beef Wellington",
     "item.utopia.rotten_fried_chicken": "Rotten Fried Chicken",
     "item.utopia.rotten_lemon_chicken": "Rotten Lemon Chicken",
+    "item.utopia.rotten_pork_jerky": "Rotten Pork Jerky",
     "item.utopia.overdue_almond": "Overdue Almond",
     "item.utopia.overdue_almond_brittle": "Overdue Almond Brittle",
     "item.utopia.overdue_apple_pie": "Overdue Apple Pie",
@@ -198,7 +199,6 @@
     "item.utopia.overdue_sweet_potato_fries": "Overdue Sweet Potato Fries",
     "item.utopia.overdue_sweetpotato": "Overdue Sweetpotato",
     "item.utopia.overdue_taco": "Overdue Taco",
-    "item.utopia.overdue_toblanos": "Overdue Toblanos",
     "item.utopia.overdue_toast": "Overdue Toast",
     "item.utopia.overdue_toast_with_jam": "Overdue Toast with Jam",
     "item.utopia.overdue_tofu": "Overdue Tofu",
@@ -267,7 +267,6 @@
     "item.utopia.salted_stuffed_poblanos": "Salted Stuffed Poblanos",
     "item.utopia.salted_sushi": "Salted Sushi",
     "item.utopia.salted_taco": "Salted Taco",
-    "item.utopia.salted_toblanos": "Salted Toblanos",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
