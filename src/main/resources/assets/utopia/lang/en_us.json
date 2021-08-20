@@ -207,6 +207,7 @@
     "item.utopia.overdue_tofuburger": "Overdue Tofuburger",
     "item.utopia.overdue_tomatillo": "Overdue Tomatillo",
     "item.utopia.overdue_tomato": "Overdue Tomato",
+    "item.utopia.overdue_tortilla": "Overdue Tortilla",
     "item.utopia.salted_almond": "Salted Almond",
     "item.utopia.salted_almond_brittle": "Salted Almond Brittle",
     "item.utopia.salted_apricot": "Salted Apricot",
@@ -272,6 +273,7 @@
     "item.utopia.salted_stuffed_poblanos": "Salted Stuffed Poblanos",
     "item.utopia.salted_sushi": "Salted Sushi",
     "item.utopia.salted_taco": "Salted Taco",
+    "item.utopia.salted_tortilla": "Salted Tortilla",
     "itemGroup.utopia.utopia": "Utopia",
     "block.utopia.fridge": "Fridge"
 }
