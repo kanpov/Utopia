@@ -41,8 +41,8 @@ The very early (and yet to change) release date is Spring 2022.
 Here's a roadmap of the pre-releases:
 
 **0.1 - Realism, Part 1** - Available on all 3 platforms\
-**0.2 - Realism, Part 2** - 20th September 2021\
-**0.3 - Furniture & Storage** - 15th October 2021\
+**0.2 - Realism, Part 2** - Available on all 3 platforms\
+**0.3 - Furniture & Storage** - 20th September 2021\
 **0.4 - Building** - Unknown\
 **0.5 - Cooking, Part 1** - Unknown\
 **0.6 - Cooking, Part 2** - Unknown\
