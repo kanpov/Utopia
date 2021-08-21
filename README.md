@@ -16,12 +16,24 @@ Utopia has many unique features:
 
 # Install
 
-The releases (and pre-releases) of this mod are available via the [MiniManager tool](https://github.com/RedGrapefruit09/MiniManager).\
+### Automatic
+
+The releases (and pre-releases) of this mod are available via the automatic [MiniManager tool](https://github.com/RedGrapefruit09/MiniManager).\
 Download the installer for your OS, run it, then run the app and click on `Download` in the `Utopia` section.\
 The files will be in your folder of choice.
 
-If you want to install the mod manually, you can get it on [GitHub releases](https://github.com/RedGrapefruit09/Utopia/releases) or
-on [the Archive](https://github.com/RedGrapefruit09/Archive).
+### Manual
+
+There are currently two ways to download the mod's JAR manually: [GitHub releases](https://github.com/RedGrapefruit09/Utopia/releases) and [the Archive](https://github.com/RedGrapefruit09/Archive).\
+After release, [CurseForge](https://curseforge.com) and [ModRinth](https://modrinth.com) will be available, too.
+
+Put the JAR in your Minecraft environment's `mods` folder.
+
+**Important**: This mod has 3 mandatory dependencies that you'll need to run it:
+1. [Croptopia](https://github.com/ExcessiveAmountsOfZombies/Croptopia) - the foundation mod
+2. [Dehydration](https://github.com/Globox1997/Dehydration) - the thirst mod acting as a base for mod's fluids
+3. [Patchouli](https://github.com/https://github.com/VazkiiMods/Patchouli) - the questbook mod used to unlock Utopia & Croptopia's questbooks
+All of them have to be manually downloaded and updated whenever it is needed, which is why the automatic installation type is preferred.
 
 # Compile
 
