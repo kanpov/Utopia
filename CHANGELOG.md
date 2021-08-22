@@ -32,5 +32,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Overdue variants
     - Salted variants
     - Custom colorful tooltips
-- Patching system that injects into already-existing items (including from other mods
+- Patching system that injects into already-existing items (including from other mods)
 - 150 covered food items from Croptopia.
