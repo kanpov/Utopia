@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.block.entity
 
-import com.redgrapefruit.utopia.api.ContainerBlockEntity
+import com.redgrapefruit.redmenu.redmenu.MenuBlockEntity
 import com.redgrapefruit.utopia.registry.BlockRegistry
 import com.redgrapefruit.utopia.screen.handler.FridgeScreenHandler
 import net.minecraft.block.BlockState
@@ -16,8 +16,7 @@ import net.minecraft.util.math.BlockPos
  * A fridge [BlockEntity] implementing the Container API
  */
 class FridgeBlockEntity(pos: BlockPos, state: BlockState) :
-    ContainerBlockEntity(BlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state) {
-    override fun containerSize(): Int = 9
+    MenuBlockEntity(BlockRegistry.FRIDGE_BLOCK_ENTITY, pos, state, 9) {
 
     override val items: DefaultedList<ItemStack> = inventory
 

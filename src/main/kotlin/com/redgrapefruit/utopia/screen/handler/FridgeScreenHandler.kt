@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.screen.handler
 
-import com.redgrapefruit.utopia.api.ContainerScreenHandler
+import com.redgrapefruit.redmenu.redmenu.MenuScreenHandler
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
 import com.redgrapefruit.utopia.core.FridgeState
 import com.redgrapefruit.utopia.item.AdvancedFoodItem
@@ -22,7 +22,7 @@ import net.minecraft.screen.ScreenHandlerListener
  */
 class FridgeScreenHandler
     (syncId: Int, playerInventory: PlayerInventory, inventory: Inventory) :
-    ContainerScreenHandler(syncId, playerInventory, inventory, 9, ScreenHandlerRegistry.FRIDGE_SCREEN_HANDLER) {
+    MenuScreenHandler(syncId, playerInventory, inventory, 9, ScreenHandlerRegistry.FRIDGE_SCREEN_HANDLER) {
 
     constructor(syncId: Int, playerInventory: PlayerInventory) : this(syncId, playerInventory, SimpleInventory(9))
 

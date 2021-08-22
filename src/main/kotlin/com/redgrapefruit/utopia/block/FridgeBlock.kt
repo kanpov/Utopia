@@ -1,6 +1,6 @@
 package com.redgrapefruit.utopia.block
 
-import com.redgrapefruit.utopia.api.ContainerBlock
+import com.redgrapefruit.redmenu.redmenu.MenuBlock
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos
 /**
  * A fridge block implementing Container API
  */
-class FridgeBlock(settings: Settings) : ContainerBlock(settings) {
+class FridgeBlock(settings: Settings) : MenuBlock(settings) {
     override fun checkBlockEntity(blockEntity: BlockEntity): Boolean {
         return blockEntity is FridgeBlockEntity
     }
