@@ -71,8 +71,9 @@ processResources {
     inputs.property "version", project.version
 
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
-    // Exclude the Croptopia reference textures from the JARs to reduce file size (it's already over 6 MB large)
+    // Exclusions for reference textures, templates etc.
     exclude("assets/utopia/textures/ct/")
+    exclude("assets/utopia/textures/block/template")
 
     from(sourceSets.main.resources.srcDirs) {
         include "fabric.mod.json"
