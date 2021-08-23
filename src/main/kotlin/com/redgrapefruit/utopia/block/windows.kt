@@ -75,7 +75,8 @@ sealed class WindowBlock(settings: Settings) : Block(settings) {
         hit: BlockHitResult
     ): ActionResult {
         // Open/close the window by inverting the value (opened => closed, closed => opened)
-        world.setBlockState(pos, state.with(openProperty, !state.get(openProperty)))
+        if (world.isClient) {
+            world.setBlockState(pos, state.with(openProperty, !state.get(openProperty)))
 
         return super.onUse(state, world, pos, player, hand, hit)
     }
