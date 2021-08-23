@@ -1,5 +1,5 @@
 {
-    "parent": "mythicaltowers:block/full_window_open",
+    "parent": "utopia:block/full_window_open",
     "textures": {
         "1": "utopia:block/oak_full_window_texture2",
         "2": "utopia:block/oak_full_window_texture3",
