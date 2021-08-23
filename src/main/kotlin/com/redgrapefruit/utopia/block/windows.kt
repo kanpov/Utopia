@@ -1,8 +1,13 @@
 package com.redgrapefruit.utopia.block
 
+import com.redgrapefruit.utopia.block.entity.WindowBlockEntity
 import net.minecraft.block.Block
+import net.minecraft.block.BlockEntityProvider
 import net.minecraft.block.BlockState
 import net.minecraft.block.ShapeContext
+import net.minecraft.block.entity.BlockEntity
+import net.minecraft.block.entity.BlockEntityTicker
+import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemPlacementContext
 import net.minecraft.state.StateManager
@@ -26,7 +31,7 @@ import net.minecraft.world.World
  * A base class for all windows providing opening and closing functionality
  */
 @Suppress("DEPRECATION")
-sealed class WindowBlock(settings: Settings) : Block(settings) {
+sealed class WindowBlock(settings: Settings) : Block(settings), BlockEntityProvider {
     protected lateinit var openProperty: BooleanProperty
     private lateinit var facingProperty : DirectionProperty
 
@@ -74,11 +79,24 @@ sealed class WindowBlock(settings: Settings) : Block(settings) {
         hand: Hand,
         hit: BlockHitResult
     ): ActionResult {
+        val entity = world.getBlockEntity(pos)!! as WindowBlockEntity
         // Open/close the window by inverting the value (opened => closed, closed => opened)
-        if (world.isClient) {
+        if (world.isClient && !entity.isTimedOut()) {
             world.setBlockState(pos, state.with(openProperty, !state.get(openProperty)))
+            entity.startTimeout()
         }
         return super.onUse(state, world, pos, player, hand, hit)
+    }
+
+    override fun <T : BlockEntity?> getTicker(
+        world: World,
+        state: BlockState,
+        type: BlockEntityType<T>
+    ): BlockEntityTicker<T> {
+        return BlockEntityTicker { world1, pos, state1, blockEntity ->
+            val entity = world1.getBlockEntity(pos) as WindowBlockEntity
+            entity.tick(world1, pos, state1, entity)
+        }
     }
 
     override fun isSideInvisible(state: BlockState, stateFrom: BlockState, direction: Direction): Boolean {
@@ -89,6 +107,8 @@ sealed class WindowBlock(settings: Settings) : Block(settings) {
 
         return super.isSideInvisible(state, stateFrom, direction)
     }
+
+    override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity = WindowBlockEntity(pos, state)
 }
 
 /**
