@@ -1,11 +1,11 @@
 {
-    "parent": "mythicaltowers:block/full_window_closed",
+    "parent": "utopia:block/full_window_closed",
     "textures": {
-        "1": "mythicaltowers:block/oak_full_window_texture1c",
-        "2": "mythicaltowers:block/oak_full_window_texture2",
-        "3": "mythicaltowers:block/oak_full_window_texture3",
-        "4": "mythicaltowers:block/oak_full_window_texture4",
-        "5": "mythicaltowers:block/oak_full_window_texture5",
-        "particle": "mythicaltowers:block/oak_full_window_texture5"
+        "1": "utopia:block/oak_full_window_texture1c",
+        "2": "utopia:block/oak_full_window_texture2",
+        "3": "utopia:block/oak_full_window_texture3",
+        "4": "utopia:block/oak_full_window_texture4",
+        "5": "utopia:block/oak_full_window_texture5",
+        "particle": "utopia:block/oak_full_window_texture5"
     }
 }
