@@ -3,7 +3,6 @@ package com.redgrapefruit.utopia.registry
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.MOD_ID
 import com.redgrapefruit.utopia.block.FridgeBlock
-import com.redgrapefruit.utopia.block.FullWindowBlock
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
 import com.redgrapefruit.utopia.util.IRegistry
 import com.redgrapefruit.utopia.util.Module
@@ -11,7 +10,6 @@ import com.redgrapefruit.utopia.util.moduleSpecific
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
 import net.minecraft.block.Material
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
@@ -30,12 +28,8 @@ object BlockRegistry : IRegistry {
     val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> =
         BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
-    // Windows
-    val OAK_FULL_WINDOW = FullWindowBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD))
-
     override fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
-        register("oak_full_window", OAK_FULL_WINDOW)
     }
 
     /**
