@@ -14,7 +14,7 @@ import net.minecraft.util.math.Direction
  * A block that rotates according to the player's rotation when placed
  */
 open class DirectionalBlock(settings: Settings) : Block(settings) {
-    private lateinit var facingProperty: DirectionProperty
+    lateinit var facingProperty: DirectionProperty
 
     init {
         defaultState = stateManager.defaultState.with(facingProperty, Direction.NORTH)

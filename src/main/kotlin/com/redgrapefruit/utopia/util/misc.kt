@@ -11,7 +11,9 @@ import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.function.BooleanBiFunction
 import net.minecraft.util.shape.VoxelShape
+import net.minecraft.util.shape.VoxelShapes
 
 // Color codes
 const val BLACK = "§0"
@@ -154,8 +156,20 @@ interface IRegistry {
     fun run()
 }
 
-// Compat with BlockBench to not have to put .0 after every value to convert to double which is a waste of time
+// A simple DSL for VoxelShapes
 
-fun createCuboidShape(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): VoxelShape {
-    return Block.createCuboidShape(minX.toDouble(), minY.toDouble(), minZ.toDouble(), maxX.toDouble(), maxY.toDouble(), maxZ.toDouble())
+inline fun voxelShape(build: VoxelShapeScope.() -> Unit): VoxelShape {
+    val scope = VoxelShapeScope(mutableSetOf())
+    scope.build()
+    return scope.reduce()
+}
+
+class VoxelShapeScope(private val set: MutableSet<VoxelShape>) {
+    fun shape(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int) {
+        set += Block.createCuboidShape(minX.toDouble(), minY.toDouble(), minZ.toDouble(), maxX.toDouble(), maxY.toDouble(), maxZ.toDouble())
+    }
+
+    fun reduce(): VoxelShape {
+        return set.reduce { v1, v2 -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR) }
+    }
 }
