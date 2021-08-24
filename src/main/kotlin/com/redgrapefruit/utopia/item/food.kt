@@ -1,13 +1,9 @@
 package com.redgrapefruit.utopia.item
 
 import com.mojang.datafixers.util.Pair
-import com.redgrapefruit.itemnbt.itemnbt.ItemNBT
-import com.redgrapefruit.itemnbt.itemnbt.ItemType
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.RANDOM
 import com.redgrapefruit.utopia.core.*
-import com.redgrapefruit.utopia.core.FridgeState.Serialization.readNbt
-import com.redgrapefruit.utopia.core.FridgeState.Serialization.writeNbt
 import com.redgrapefruit.utopia.mixin.ItemAccessor
 import com.redgrapefruit.utopia.util.*
 import net.minecraft.client.item.TooltipContext
@@ -19,7 +15,6 @@ import net.minecraft.item.FoodComponent
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.Text
 import net.minecraft.world.World
 
@@ -32,7 +27,6 @@ open class AdvancedFoodItem : Item {
     private var name: String = ""
     private var isComponentInitialized: Boolean = false
     protected val config: FoodConfig by reloaderDelegate { storedConfig(name) }
-    val profile: FoodProfile
 
     // Variant settings
     protected var state: FoodState = FoodState.FRESH
@@ -49,9 +43,7 @@ open class AdvancedFoodItem : Item {
     ) : super(Settings().group(group).food({
         val builder = FoodComponent.Builder()
         builder.build()
-    }())) {
-        this.profile = FoodProfile()
-    }
+    }()))
 
     constructor(_name: String) : this(GROUP) {
         this.name = _name
@@ -76,7 +68,7 @@ open class AdvancedFoodItem : Item {
         super.inventoryTick(stack, world, entity, slot, selected)
 
         if (entity is PlayerEntity && !overrideEffects) {
-            RealismEngine.updateFood(config, profile, entity, slot, world, rottenVariant, overdueVariant, isSalt)
+            RealismEngine.updateFood(config, FoodProfile[stack], entity, slot, world, rottenVariant, overdueVariant, isSalt)
         }
     }
 
@@ -88,7 +80,7 @@ open class AdvancedFoodItem : Item {
     ) {
         super.appendTooltip(stack, world, tooltip, context)
 
-        RealismEngine.renderFoodTooltip(tooltip, config, profile, state)
+        RealismEngine.renderFoodTooltip(tooltip, config, FoodProfile[stack], state)
     }
 
     // <---- COMPONENTS ---->
@@ -117,34 +109,6 @@ open class AdvancedFoodItem : Item {
         if (config.category == FoodCategory.MEAT) mutable.meat = true
         if (config.category.baseHunger + config.hunger < 2) mutable.snack = true
         mutable.saturationModifier = config.category.baseSaturationModifier + config.saturationModifier
-    }
-
-    // <---- SERIALIZATION ---->
-
-    companion object {
-        init {
-            ItemNBT.register(ItemType.instance(AdvancedFoodItem::class.java), ::serializer, ::deserializer)
-        }
-
-        private fun deserializer(nbt: NbtCompound, stack: ItemStack) {
-            (stack.item as AdvancedFoodItem).apply {
-                profile.rotProgress = nbt.getInt("Rot Progress")
-                profile.overdueProgress = nbt.getInt("Overdue Progress")
-                profile.previousTick = nbt.getLong("Previous World Tick")
-                profile.fridgeState = readNbt("Fridge State", nbt)
-                profile.isInitialized = nbt.getBoolean("Is Initialized")
-            }
-        }
-
-        private fun serializer(nbt: NbtCompound, stack: ItemStack) {
-            (stack.item as AdvancedFoodItem).apply {
-                nbt.putInt("Rot Progress", profile.rotProgress)
-                nbt.putInt("Overdue Progress", profile.overdueProgress)
-                nbt.putLong("Previous World Tick", profile.previousTick)
-                writeNbt("Fridge State", profile.fridgeState, nbt)
-                nbt.putBoolean("Is Initialized", profile.isInitialized)
-            }
-        }
     }
 }
 

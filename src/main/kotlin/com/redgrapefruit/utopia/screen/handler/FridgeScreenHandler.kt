@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.screen.handler
 
 import com.redgrapefruit.redmenu.redmenu.MenuScreenHandler
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
+import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.core.FridgeState
 import com.redgrapefruit.utopia.item.AdvancedFoodItem
 import com.redgrapefruit.utopia.registry.ScreenHandlerRegistry
@@ -62,17 +63,18 @@ class FridgeScreenHandlerListener : ScreenHandlerListener {
         // If the current item is a food item, set its fridge state to inside the fridge
         // Repeat for both food implementations (RFoodItem and ItemMixin)
         // For the mixin implementation, make sure that the item is activated
+        val profile = FoodProfile[stack]
         if (currentItem is AdvancedFoodItem) {
-            currentItem.profile.fridgeState = FridgeState.IN_FRIDGE
+            profile.fridgeState = FridgeState.IN_FRIDGE
         }
         if (previousItem is AdvancedFoodItem) {
-            previousItem.profile.fridgeState = FridgeState.NOT_COMPENSATED
+            profile.fridgeState = FridgeState.NOT_COMPENSATED
         }
         if (currentItem is ItemFoodMixinAccess && currentItem.isFoodActivated()) {
-            currentItem.getProfile().fridgeState = FridgeState.IN_FRIDGE
+            profile.fridgeState = FridgeState.IN_FRIDGE
         }
         if (previousItem is ItemFoodMixinAccess && previousItem.isFoodActivated()) {
-            previousItem.getProfile().fridgeState = FridgeState.NOT_COMPENSATED
+            profile.fridgeState = FridgeState.NOT_COMPENSATED
         }
     }
 

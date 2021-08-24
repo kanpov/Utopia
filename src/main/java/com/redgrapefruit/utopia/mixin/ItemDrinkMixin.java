@@ -1,6 +1,5 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.itemnbt.itemnbt.ItemNBT;
 import com.redgrapefruit.utopia.Constants;
 import com.redgrapefruit.utopia.core.DrinkProfile;
 import com.redgrapefruit.utopia.core.RealismEngine;
@@ -39,8 +38,6 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     private int utopia$rancidSpeed = Constants.UNUSED_PROPERTY;
     @Unique
     private int utopia$rancidState = Constants.UNUSED_PROPERTY;
-    @Unique
-    private final DrinkProfile utopia$profile1 = new DrinkProfile();
 
     // <---- IMPL ---->
 
@@ -49,7 +46,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
         if (utopia$invalid()) return;
 
         if (entity instanceof PlayerEntity) {
-            RealismEngine.INSTANCE.updateDrink(utopia$profile1, utopia$rancidSpeed, utopia$rancidState, slot, world, (PlayerEntity) entity, utopia$rancidVariant);
+            RealismEngine.INSTANCE.updateDrink(DrinkProfile.Companion.get(stack), utopia$rancidSpeed, utopia$rancidState, slot, world, (PlayerEntity) entity, utopia$rancidVariant);
         }
     }
 
@@ -57,7 +54,7 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     private void utopia$appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         if (utopia$invalid()) return;
 
-        RealismEngine.INSTANCE.renderDrinkTooltip(tooltip, utopia$profile1, utopia$rancidState, false);
+        RealismEngine.INSTANCE.renderDrinkTooltip(tooltip, DrinkProfile.Companion.get(stack), utopia$rancidState, false);
     }
 
     private boolean utopia$invalid() {
@@ -96,35 +93,5 @@ public class ItemDrinkMixin implements ItemDrinkMixinAccess {
     @Override
     public boolean isDrinkActivated() {
         return utopia$isActivated;
-    }
-
-    @Override
-    public @NotNull DrinkProfile getProfile() {
-        return utopia$profile1;
-    }
-
-    // <---- SERIALIZATION ---->
-
-    static {
-        ItemNBT.register(stack -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
-            return access.isDrinkActivated();
-        },
-        (nbt, stack) -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
-            DrinkProfile profile = access.getProfile();
-
-            nbt.putInt("Rancid Progress", profile.getRancidProgress());
-            nbt.putLong("Previous Tick", profile.getPreviousTick());
-            nbt.putBoolean("Is Initialized", profile.isInitialized());
-        },
-        (nbt, stack) -> {
-            ItemDrinkMixinAccess access = (ItemDrinkMixinAccess) stack.getItem();
-            DrinkProfile profile = access.getProfile();
-
-            profile.setRancidProgress(nbt.getInt("Rancid Progress"));
-            profile.setPreviousTick(nbt.getLong("Previous Tick"));
-            profile.setInitialized(nbt.getBoolean("Is Initialized"));
-        });
     }
 }

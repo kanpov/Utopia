@@ -1,6 +1,5 @@
 package com.redgrapefruit.utopia.mixin;
 
-import com.redgrapefruit.itemnbt.itemnbt.ItemNBT;
 import com.redgrapefruit.utopia.core.*;
 import com.redgrapefruit.utopia.util.*;
 import com.redgrapefruit.utopia.item.OverdueFoodItem;
@@ -37,8 +36,6 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     @Unique
     private boolean utopia$isComponentInitialized = false;
     @Unique
-    private final FoodProfile utopia$profile = new FoodProfile();
-    @Unique
     private boolean utopia$isActivated = false;
     @Unique
     @Nullable
@@ -51,19 +48,19 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
 
     @Inject(method = "inventoryTick", at = @At("TAIL"))
     private void utopia$inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-        if (!utopia$isActivated || !(entity instanceof PlayerEntity) || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault() || utopia$profile == null) return;
+        if (!utopia$isActivated || !(entity instanceof PlayerEntity) || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault()) return;
 
         //noinspection ConstantConditions
         if (entity instanceof PlayerEntity) {
-            RealismEngine.INSTANCE.updateFood(utopia$supplierConfig.get(), utopia$profile, (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
+            RealismEngine.INSTANCE.updateFood(utopia$supplierConfig.get(), FoodProfile.Companion.get(stack), (PlayerEntity) entity, slot, world, utopia$rottenVariant, utopia$overdueVariant, false);
         }
     }
 
     @Inject(method = "appendTooltip", at = @At("TAIL"))
     private void utopia$appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
-        if (!utopia$isActivated || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault() || utopia$profile == null) return;
+        if (!utopia$isActivated || utopia$supplierConfig.get() == FoodConfig.Companion.getDefault()) return;
 
-        RealismEngine.INSTANCE.renderFoodTooltip(tooltip, utopia$supplierConfig.get(), utopia$profile, FoodState.FRESH);
+        RealismEngine.INSTANCE.renderFoodTooltip(tooltip, utopia$supplierConfig.get(), FoodProfile.Companion.get(stack), FoodState.FRESH);
     }
 
     /**
@@ -117,41 +114,7 @@ public class ItemFoodMixin implements ItemFoodMixinAccess {
     }
 
     @Override
-    public @NotNull FoodProfile getProfile() {
-        return utopia$profile;
-    }
-
-    @Override
     public boolean isFoodActivated() {
         return utopia$isActivated;
-    }
-
-    // <---- SERIALIZATION ---->
-
-    static {
-        ItemNBT.register(stack -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
-            return access.isFoodActivated();
-        },
-        (nbt, stack) -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
-            FoodProfile profile = access.getProfile();
-
-            nbt.putInt("Rot Progress", profile.getRotProgress());
-            nbt.putInt("Overdue Progress", profile.getOverdueProgress());
-            nbt.putLong("Previous Tick", profile.getPreviousTick());
-            FridgeState.Serialization.writeNbt("Fridge State", profile.getFridgeState(), nbt);
-            nbt.putBoolean("Is Initialized", profile.isInitialized());
-        },
-        (nbt, stack) -> {
-            ItemFoodMixinAccess access = (ItemFoodMixinAccess) stack.getItem();
-            FoodProfile profile = access.getProfile();
-
-            profile.setRotProgress(nbt.getInt("Rot Progress"));
-            profile.setOverdueProgress(nbt.getInt("Overdue Progress"));
-            profile.setPreviousTick(nbt.getLong("Previous Tick"));
-            profile.setFridgeState(FridgeState.Serialization.readNbt("Fridge State", nbt));
-            profile.setInitialized(nbt.getBoolean("Is Initialized"));
-        });
     }
 }

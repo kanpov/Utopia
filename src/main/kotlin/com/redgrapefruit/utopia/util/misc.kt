@@ -8,11 +8,8 @@ import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.core.FridgeState
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
-import net.minecraft.item.Item
-import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import java.util.function.Predicate
 
 // Color codes
 const val BLACK = "§0"

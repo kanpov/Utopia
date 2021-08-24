@@ -1,7 +1,5 @@
 package com.redgrapefruit.utopia.util
 
-import com.redgrapefruit.utopia.core.DrinkProfile
-import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.item.OverdueFoodItem
 import com.redgrapefruit.utopia.item.RancidDrinkItem
 import com.redgrapefruit.utopia.item.RottenFoodItem
@@ -12,7 +10,6 @@ interface ItemFoodMixinAccess {
     fun named(name: String)
     fun setOverdueVariant(overdueVariant: OverdueFoodItem)
     fun setRottenVariant(rottenVariant: RottenFoodItem)
-    fun getProfile(): FoodProfile
     fun isFoodActivated(): Boolean
 }
 
@@ -23,5 +20,4 @@ interface ItemDrinkMixinAccess {
     fun setRancidState(rancidState: Int)
     fun setRancidVariant(rancidVariant: RancidDrinkItem)
     fun isDrinkActivated(): Boolean
-    fun getProfile(): DrinkProfile
 }
