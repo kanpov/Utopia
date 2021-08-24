@@ -1,0 +1,10 @@
+{
+    "parent": "utopia:block/chair",
+    "textures": {
+        "t1": "utopia:block/oak_chair_tx1",
+        "t2": "utopia:block/oak_chair_tx2",
+        "t3": "utopia:block/oak_chair_tx3",
+        "t4": "utopia:block/oak_chair_tx4",
+        "particle": "utopia:block/oak_chair_tx1"
+    }
+}
