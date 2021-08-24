@@ -6,10 +6,12 @@ import com.mojang.datafixers.util.Pair
 import com.redgrapefruit.utopia.core.FoodConfig
 import com.redgrapefruit.utopia.core.FoodProfile
 import com.redgrapefruit.utopia.core.FridgeState
+import net.minecraft.block.Block
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.FoodComponent
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.shape.VoxelShape
 
 // Color codes
 const val BLACK = "§0"
@@ -150,4 +152,10 @@ annotation class BlockingOverride
  */
 interface IRegistry {
     fun run()
+}
+
+// Compat with BlockBench to not have to put .0 after every value to convert to double which is a waste of time
+
+fun createCuboidShape(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): VoxelShape {
+    return Block.createCuboidShape(minX.toDouble(), minY.toDouble(), minZ.toDouble(), maxX.toDouble(), maxY.toDouble(), maxZ.toDouble())
 }

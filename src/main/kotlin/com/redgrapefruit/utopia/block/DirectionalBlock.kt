@@ -13,7 +13,7 @@ import net.minecraft.util.math.Direction
 /**
  * A block that rotates according to the player's rotation when placed
  */
-class DirectionalBlock(settings: Settings) : Block(settings) {
+open class DirectionalBlock(settings: Settings) : Block(settings) {
     private lateinit var facingProperty: DirectionProperty
 
     init {

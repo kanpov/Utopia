@@ -2,6 +2,7 @@ package com.redgrapefruit.utopia.registry
 
 import com.redgrapefruit.utopia.GROUP
 import com.redgrapefruit.utopia.MOD_ID
+import com.redgrapefruit.utopia.block.ChairBlock
 import com.redgrapefruit.utopia.block.FridgeBlock
 import com.redgrapefruit.utopia.block.entity.FridgeBlockEntity
 import com.redgrapefruit.utopia.util.IRegistry
@@ -10,6 +11,7 @@ import com.redgrapefruit.utopia.util.moduleSpecific
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
+import net.minecraft.block.Blocks
 import net.minecraft.block.Material
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
@@ -28,8 +30,12 @@ object BlockRegistry : IRegistry {
     val FRIDGE_BLOCK_ENTITY: BlockEntityType<FridgeBlockEntity> =
         BlockEntityType.Builder.create(::FridgeBlockEntity, FRIDGE_BLOCK).build(null)
 
+    // Chairs
+    val OAK_CHAIR = ChairBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD))
+
     override fun run(): Unit = moduleSpecific(Module.REALISM) {
         register("fridge", FRIDGE_BLOCK, FRIDGE_BLOCK_ENTITY)
+        register("oak_chair", OAK_CHAIR)
     }
 
     /**
