@@ -1,7 +1,7 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "com.redgrapefruit.utopia.mixin",
+    "package": "com.redgrapefruit.cryonic.mixin",
     "compatibilityLevel": "JAVA_16",
     "mixins": [
         "ItemAccessor",
